@@ -2,7 +2,7 @@ import Head from 'next/head'
 import {Noto_Sans_JP} from 'next/font/google'
 import styles from '@/styles/index.module.css'
 
-const inter = Noto_Sans_JP({weight: "500", subsets: ['latin']})
+const font = Noto_Sans_JP({weight: "500", subsets: ['latin']})
 
 export default function Home() {
     return (
@@ -12,7 +12,7 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <main className={inter.className}>
+            <main className={font.className}>
                 <p>テスト</p>
             </main>
         </>
