@@ -1,0 +1,27 @@
+.list {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    margin-top: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+}
+
+.button + .button {
+    margin-left: 12px;
+}
+
+.github:hover {
+    color: #000000;
+}
+
+.qiita:hover .qiitaSvg {
+    fill: #55C500;
+}
+
+.speakerDeck:hover {
+    color: #038C7F;
+}
