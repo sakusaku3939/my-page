@@ -18,7 +18,6 @@ export default function Home() {
         <section className={styles.header}>
           <div className={styles.title}>Aokiti</div>
           <SnsList />
-          <div className={styles.shapedividers}></div>
         </section>
         <section className={styles.main}>
           <h1 className={styles.h1}>経歴など</h1>
