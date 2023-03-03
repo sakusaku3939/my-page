@@ -14,6 +14,11 @@
     margin-left: 12px;
 }
 
+.button a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .github {
     color: #000000;
 }
