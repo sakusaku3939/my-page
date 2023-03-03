@@ -13,7 +13,7 @@ const Timeline = () => {
           高1〜高3の間に世界最大級のロボコン FRC（FIRST Robotics
           Competition）に出場するチーム「BWW」に設立メンバーとして活動しました。ソフトウェアや公式Webサイト作成、ブログやTwitter、YouTubeなどでの広報活動を行いました。<br />
         </TimeLineItem>
-        <TimeLineItem date="2021.10" title="アプリ甲子園   第3位・技術賞">
+        <TimeLineItem date="2021.10" title="アプリ甲子園2021   第3位・技術賞">
           アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」を発表しました。第3位と技術賞を頂きました。<br />
           <TimeLineLink
             description="「プレゼンで時間オーバー」解決するアプリを高校生が開発｜ 高校生新聞オンライン"

@@ -15,10 +15,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={font.className}>
-        <div className={styles.title}>Aokiti</div>
-        <SnsList />
-        <h1 className={styles.section}>経歴など</h1>
-        <Timeline />
+        <section className={styles.header}>
+          <div className={styles.title}>Aokiti</div>
+          <SnsList />
+          <div className={styles.shapedividers}></div>
+        </section>
+        <section className={styles.main}>
+          <h1 className={styles.h1}>経歴など</h1>
+          <Timeline />
+          <h1 className={styles.h1}>取得資格</h1>
+        </section>
       </main>
     </>
   );
