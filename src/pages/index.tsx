@@ -3,6 +3,7 @@ import { Noto_Sans_JP } from "next/font/google";
 import styles from "@/styles/index.module.css";
 import SnsList from "@/components/molecule/sns-list";
 import Timeline from "@/components/organism/timeline";
+import Qualification from "@/components/organism/qualification";
 
 const font = Noto_Sans_JP({ weight: ["300", "500", "700"], subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function Home() {
           <h1 className={styles.h1}>経歴など</h1>
           <Timeline />
           <h1 className={styles.h1}>取得資格</h1>
+          <Qualification />
         </section>
       </main>
     </>

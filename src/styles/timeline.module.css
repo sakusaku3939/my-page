@@ -1,3 +1,9 @@
+.list {
+    width: 80vw;
+    max-width: 800px;
+    margin: 48px auto 40px;
+}
+
 .list li {
     position: relative;
     min-height: 80px;

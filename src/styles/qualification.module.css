@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, .125);
+    padding: 32px;
+    margin: 16px;
+    width: 400px;
+}
+
+.title {
+    font-size: 24px;
+    padding-bottom: 4px;
+}
+
+.subtitle {
+    color: #424242;
+    white-space: pre-wrap;
+    font-weight: 300;
+    margin-bottom: 24px;
+}
+
+.description {
+    font-size: 14px;
+    font-weight: 300;
+}
