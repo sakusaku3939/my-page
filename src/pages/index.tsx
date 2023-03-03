@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Noto_Sans_JP } from "next/font/google";
 import styles from "@/styles/index.module.css";
-import SnsList from "@/components/organism/sns-list";
+import SnsList from "@/components/molecule/sns-list";
 import Timeline from "@/components/organism/timeline";
 
 const font = Noto_Sans_JP({ weight: ["300", "500", "700"], subsets: ["latin"] });

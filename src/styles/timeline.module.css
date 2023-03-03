@@ -1,6 +1,6 @@
 .list li {
     position: relative;
-    min-height: 72px;
+    min-height: 80px;
     line-height: 0.8;
 }
 
@@ -28,6 +28,32 @@
     height: 32px;
 }
 
+.accordion summary {
+    display: flex;
+    cursor: pointer;
+}
+
+.accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.accordion .arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-bottom: 3px solid #424242;
+    border-right: 3px solid #424242;
+    transform: translateY(-25%) rotate(45deg);
+    content: '';
+    transition: transform .3s;
+}
+
+.accordion[open] .arrow {
+    transform: rotate(225deg);
+}
+
 .titleWrapper {
     display: flex;
     padding-left: 32px;
@@ -35,6 +61,7 @@
 }
 
 .date {
+    min-width: 80px;
     padding-right: 16px;
 }
 
@@ -47,6 +74,7 @@
     padding-bottom: 56px;
     line-height: normal;
     font-weight: 300;
+    color: #424242;
 }
 
 .link {
@@ -56,5 +84,5 @@
 
 .link span {
     font-size: 12px;
-    color: #424242;
+    color: #616161;
 }
