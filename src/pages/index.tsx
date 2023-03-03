@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Noto_Sans_JP } from "next/font/google";
 import styles from "@/styles/index.module.css";
 import SnsList from "@/components/sns-list";
+import Timeline from "@/components/timeline";
 
 const font = Noto_Sans_JP({ weight: "500", subsets: ["latin"] });
 
@@ -14,8 +15,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={font.className}>
-        <h1 className={styles.title}>Aokiti</h1>
+        <div className={styles.title}>Aokiti</div>
         <SnsList />
+        <h1 className={styles.section}>経歴など</h1>
+        <Timeline />
       </main>
     </>
   );

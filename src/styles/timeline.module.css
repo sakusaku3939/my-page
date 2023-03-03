@@ -1,0 +1,41 @@
+.list {
+}
+
+.list li {
+    position: relative;
+    display: flex;
+    min-height: 64px;
+    line-height: 0.8;
+}
+
+.list li:before {
+    position: absolute;
+    display: block;
+    height: 12px;
+    width: 12px;
+    background-color: #424242;
+    border-radius: 6px;
+    content: "";
+}
+
+.list li:after {
+    position: absolute;
+    top: 12px;
+    left: 6px;
+    bottom: 0;
+    width: 1px;
+    background-color: #424242;
+    content: "";
+}
+
+.date {
+    padding-left: 32px;
+    padding-right: 16px;
+}
+
+.title {
+}
+
+.content {
+
+}
