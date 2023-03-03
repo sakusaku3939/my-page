@@ -1,4 +1,6 @@
 import timeline from "@/styles/timeline.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { ReactNode } from "react";
 import Link from "next/link";
 
@@ -13,7 +15,6 @@ const Timeline = () => {
         </TimeLineItem>
         <TimeLineItem date="2021.10" title="アプリ甲子園   第3位・技術賞">
           アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」を発表しました。第3位と技術賞を頂きました。<br />
-          <br />
           <TimeLineLink
             description="「プレゼンで時間オーバー」解決するアプリを高校生が開発｜ 高校生新聞オンライン"
             href="https://www.koukouseishinbun.jp/articles/-/8347"
@@ -61,10 +62,10 @@ type TimeLineLinkProps = {
 
 const TimeLineLink = ({ description, href }: TimeLineLinkProps) => {
   return <>
-    <div className={timeline.link}>
-      <span>▼</span>{description}<br />
-      <Link href={href}>{href}</Link>
-    </div>
+    <Link className={timeline.link} href={href} target="_blank">
+      <span><FontAwesomeIcon icon={faUpRightFromSquare} /></span>
+      {description}
+    </Link>
   </>;
 };
 

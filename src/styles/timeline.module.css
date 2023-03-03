@@ -71,18 +71,20 @@
 
 .content {
     padding-left: 32px;
-    padding-bottom: 56px;
+    padding-bottom: 64px;
     line-height: normal;
     font-weight: 300;
     color: #424242;
 }
 
 .link {
-    font-weight: 300;
+    display: flex;
     font-size: 14px;
+    margin-top: 20px;
 }
 
 .link span {
-    font-size: 12px;
-    color: #616161;
+    width: 13px;
+    height: 13px;
+    margin-top: 5px;
 }
