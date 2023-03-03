@@ -3,13 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faSpeakerDeck } from "@fortawesome/free-brands-svg-icons";
 import { ReactNode } from "react";
 
-type SnsButtonProps = {
-  title: string
-  style: string
-  href: string
-  children?: ReactNode
-};
-
 const SnsList = () => {
   return (
     <>
@@ -34,6 +27,13 @@ const SnsList = () => {
       </div>
     </>
   );
+};
+
+type SnsButtonProps = {
+  title: string
+  style: string
+  href: string
+  children?: ReactNode
 };
 
 const SnsButton = ({ title, style, href, children }: SnsButtonProps) => {
