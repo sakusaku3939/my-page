@@ -14,14 +14,14 @@
     margin-left: 12px;
 }
 
-.github:hover {
+.github {
     color: #000000;
 }
 
-.qiita:hover .qiitaSvg {
+.qiita .qiitaSvg {
     fill: #55C500;
 }
 
-.speakerDeck:hover {
+.speakerDeck {
     color: #038C7F;
 }
