@@ -12,6 +12,14 @@ const Timeline = () => {
         <TimeLineItem date="2019.8 ~" title="ロボコンチーム   BWW 所属">
           高1〜高3の間に世界最大級のロボコン FRC（FIRST Robotics
           Competition）に出場するチーム「BWW」に設立メンバーとして活動しました。ソフトウェアや公式Webサイト作成、ブログやTwitter、YouTubeなどでの広報活動を行いました。<br />
+          <TimeLineLink
+            description="  公式Webサイト"
+            href="https://bww8231.fuji3.info/"
+          />
+          <TimeLineLink
+            description="  YouTube"
+            href="https://www.youtube.com/@BWW8231/videos"
+          />
         </TimeLineItem>
         <TimeLineItem date="2021.10" title="アプリ甲子園2021   第3位・技術賞">
           アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」を発表しました。第3位と技術賞を頂きました。<br />
