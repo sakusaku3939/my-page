@@ -29,10 +29,10 @@ const Timeline = () => {
           />
         </TimeLineItem>
         <TimeLineItem date="2022.8" title="全国専門学科情報科研究協議会   優秀賞">
-          専門学科「情報科」の設置校が集まって年に1度開催する研究協議会にて、プレゼン原稿表示アプリ「Presc」を発表しました。生徒表彰にて優秀賞を頂きました。<br />
+          専門学科 情報科の設置校が集まって年に1度開催する研究協議会にて、プレゼン原稿表示アプリ「Presc」を発表しました。生徒表彰にて優秀賞を頂きました。<br />
         </TimeLineItem>
         <TimeLineItem date="2023.1 ~" title="株式会社Wandarlust   Locket 開発">
-          位置情報共有アプリ「Locket」のフロントエンド（Flutter）チームに約2ヶ月間所属しました。チャット機能の開発にメインで携わりました。<br />
+          位置情報共有アプリ「Locket」のフロントエンド（Flutter）チームに約2ヶ月間所属しました。主にチャット機能の開発に携わりました。<br />
         </TimeLineItem>
         <TimeLineItem date="2023.4 ~" title="慶應義塾大学   環境情報学部" />
       </ul>
