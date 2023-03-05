@@ -1,0 +1,17 @@
+.tag li {
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px;
+    padding: 2px 10px;
+    border: 1px solid #616161;
+    border-radius: 24px;
+    color: #616161;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.tag li:hover {
+    color: #fff;
+    background-color: #616161;
+}
