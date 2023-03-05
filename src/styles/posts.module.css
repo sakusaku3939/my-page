@@ -1,0 +1,30 @@
+.post {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.post h1 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.post h2 {
+    font-size: 24px;
+    font-weight: 500;
+    padding: 40px 0 4px;
+}
+
+.post p {
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    white-space: pre-wrap;
+}
+
+.post .tag {
+    padding-bottom: 24px;
+}
+
+.post ul {
+
+}

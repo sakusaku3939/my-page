@@ -6,7 +6,7 @@ import Timeline from "@/components/organism/timeline";
 import Qualification from "@/components/organism/qualification";
 import Portfolio from "@/components/organism/portfolio";
 
-const font = Noto_Sans_JP({ weight: ["300", "500", "700"], subsets: ["latin"] });
+const font = Noto_Sans_JP({ weight: ["300", "400", "500", "700"], subsets: ["latin"] });
 
 export default function Home() {
   return (
