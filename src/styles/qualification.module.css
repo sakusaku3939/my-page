@@ -13,19 +13,18 @@
 
 .title {
     font-size: 24px;
+    font-weight: bold;
     padding-bottom: 4px;
 }
 
 .subtitle {
-    color: #424242;
+    color: #616161;
     white-space: pre-wrap;
-    font-weight: 300;
     margin-bottom: 24px;
 }
 
 .description {
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 15px;
 }
 
 @media screen and (max-width: 700px) {

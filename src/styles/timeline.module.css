@@ -69,20 +69,21 @@
 }
 
 .date {
+    font-weight: bold;
     min-width: 80px;
     padding-right: 16px;
 }
 
 .title {
+    font-weight: bold;
     white-space: pre-wrap;
     padding-right: 28px;
 }
 
 .content {
     padding-left: 32px;
-    padding-bottom: 40px;
-    line-height: normal;
-    font-weight: 300;
+    padding-bottom: 32px;
+    line-height: 1.7;
     color: #424242;
 }
 
@@ -90,6 +91,7 @@
     display: flex;
     font-size: 14px;
     margin-top: 16px;
+    line-height: 1.5;
     white-space: pre-wrap;
 }
 

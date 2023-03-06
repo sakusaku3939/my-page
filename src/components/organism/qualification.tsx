@@ -26,7 +26,7 @@ const Card = ({ title, period, institution, children }: CardProps) => {
   return <>
     <div className={qualification.card}>
       <div className={qualification.title}>{title}</div>
-      <div className={qualification.subtitle}>{`${period}    ${institution}`}</div>
+      <div className={qualification.subtitle}>{`${period}  ${institution}`}</div>
       <div className={qualification.description}>{children}</div>
     </div>
   </>;

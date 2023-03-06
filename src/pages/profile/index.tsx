@@ -1,12 +1,9 @@
 import Head from "next/head";
-import { Noto_Sans_JP } from "next/font/google";
 import index from "@/styles/index.module.css";
 import SnsList from "@/components/molecule/sns-list";
 import Timeline from "@/components/organism/timeline";
 import Qualification from "@/components/organism/qualification";
 import Portfolio from "@/components/organism/portfolio";
-
-const font = Noto_Sans_JP({ weight: ["300", "400", "500", "700"], subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -16,7 +13,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={font.className}>
+      <main>
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
           <div className={index.subtitle}>Keio Univ(SFC) B1 / Web, Android</div>

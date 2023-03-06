@@ -1,24 +1,25 @@
 .post {
     max-width: 800px;
     margin: 40px auto;
+    line-height: 1.9;
 }
 
 .post h1 {
     font-size: 40px;
-    font-weight: 700;
+    font-weight: bold;
+    line-height: 1.5;
 }
 
 .post h2 {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: bold;
+    line-height: 1.5;
     padding: 40px 0 4px;
 }
 
 .post p {
-    font-weight: 400;
-    line-height: 1.8;
-    margin-bottom: 16px;
     white-space: pre-wrap;
+    margin-bottom: 16px;
 }
 
 .post .tag {
