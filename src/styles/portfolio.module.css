@@ -1,40 +1,27 @@
 .wrapper {
     max-width: 1400px;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.wrapper:after {
+    content: "";
+    display: block;
+    width: 400px;
+    height: 0;
+    margin: 0 24px;
 }
 
 .card {
     position: relative;
     width: 400px;
-    margin: 32px;
-}
-
-.contents {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 8px;
-    margin-bottom: 24px;
-}
-
-.contents:before {
-    content: "";
-    display: block;
-    width: 400px;
-    height: 0;
-    order: 1;
-}
-
-.contents:after {
-    content: "";
-    display: block;
-    width: 400px;
-    height: 0;
+    margin: 24px;
 }
 
 .skin {
-    box-shadow: rgba(0, 0, 0, 0.16) 0 4px 24px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
-    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 2px 12px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
     overflow: hidden;
 }
 
@@ -55,7 +42,6 @@
     padding: 4px 12px;
     margin: -4px;
     background-color: rgba(0, 0, 0, .3);
-    border-radius: 8px 0 8px 0;
 }
 
 .textBox {
@@ -112,4 +98,31 @@
 
 .button a:hover {
     background-color: rgba(0, 0, 0, .05);
+}
+
+@media screen and (max-width: 950px) {
+    .wrapper:after {
+        width: calc(50% - 32px - 32px);
+        margin: 16px;
+    }
+
+    .card {
+        width: calc(50% - 32px - 32px);
+        margin: 16px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapper:after {
+        display: none;
+    }
+
+    .card {
+        width: 80vw;
+    }
 }

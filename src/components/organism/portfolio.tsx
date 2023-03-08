@@ -1,46 +1,26 @@
 import portfolio from "@/styles/portfolio.module.css";
 import common from "@/styles/common.module.css";
 import "@splidejs/react-splide/css";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Link from "next/link";
 
 const Portfolio = () => {
   return <>
     <div className={portfolio.wrapper}>
-      <Splide options={{
-        type: "loop",
-        focus: "center",
-        autoWidth: true
-      }}>
-        <SplideSlide>
-          <Post date="2021.1.1"
-                imageUrl=""
-                title="test1"
-                tag={["test", "test2"]}
-                overview="aaaaa" />
-        </SplideSlide>
-        <SplideSlide>
-          <Post date="2021.1.1"
-                imageUrl=""
-                title="test2"
-                tag={["test", "test2"]}
-                overview="bbbbb" />
-        </SplideSlide>
-        <SplideSlide>
-          <Post date="2021.1.1"
-                imageUrl=""
-                title="test3"
-                tag={["test", "test2"]}
-                overview="ccccc" />
-        </SplideSlide>
-        <SplideSlide>
-          <Post date="2021.1.1"
-                imageUrl=""
-                title="test4"
-                tag={["test", "test2"]}
-                overview="ddddd" />
-        </SplideSlide>
-      </Splide>
+      <Post date="2021.1.1"
+            imageUrl=""
+            title="test1"
+            tag={["test", "test2"]}
+            overview="aaaaa" />
+      <Post date="2021.1.1"
+            imageUrl=""
+            title="test2"
+            tag={["test", "test2"]}
+            overview="bbbbb" />
+      <Post date="2021.1.1"
+            imageUrl=""
+            title="test3"
+            tag={["test", "test2"]}
+            overview="ccccc" />
     </div>
     <div className={portfolio.button}>
       <Link href="">もっと見る</Link>
