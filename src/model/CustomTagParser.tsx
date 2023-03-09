@@ -4,13 +4,13 @@ import posts from "@/pages/posts/Posts.module.css";
 
 const CustomTagParser = ({ className, children }: HeadingProps) => {
   if (children.toString().charAt(0) === "@") {
-    const params = children.toString().split(":");
+    const params = children.toString().split(",");
     const name = params[0];
     const args = params.filter((_, index: number) => index !== 0);
 
     switch (name) {
       case "@br":
-        return <br />;
+        return <div style={{ height: 12 }}></div>;
       case "@tag":
         return <>
           <ul className={`${common.tag} ${posts.tag}`}>

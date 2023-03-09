@@ -3,7 +3,7 @@ import rehypeRaw from "rehype-raw";
 import posts from "@/pages/posts/Posts.module.css";
 import common from "@/styles/common.module.css";
 import remarkGfm from "remark-gfm";
-import CustomTagParser from "@/components/atom/CustomTagParser/CustomTagParser";
+import CustomTagParser from "@/model/CustomTagParser";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -36,10 +36,10 @@ const Posts = ({ content }: PostData) => {
         <div className={`${posts.card} ${posts.category}`}>
           <h1>すべてのカテゴリー</h1>
           <ul className={common.tag}>
-            <li> Android / iOS</li>
-            <li> Flutter</li>
-            <li> Dart</li>
-            <li> アプリ甲子園</li>
+            <li>Android / iOS (3)</li>
+            <li>Flutter (2)</li>
+            <li>Dart (2)</li>
+            <li>アプリ甲子園 (1)</li>
           </ul>
         </div>
       </aside>
@@ -55,9 +55,8 @@ export async function getStaticProps() {
 }
 
 const fetchPostData = async () => {
-  const res = await fetch("http://localhost:3000/api/post");
+  const res = await fetch("http://localhost:3000/api/post?name=presc");
   const data: PostData = await res.json();
-  // data.content = data.content.replaceAll(/\n/g, "\n\n");
   return data;
 };
 
