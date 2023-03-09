@@ -5,7 +5,7 @@ import Timeline from "@/components/organism/Timeline/Timeline";
 import Qualification from "@/components/organism/Qualification/Qualification";
 import PostsList from "@/components/organism/PostsList/PostsList";
 
-export default function Home() {
+export default function Profile() {
   return (
     <>
       <Head>
@@ -19,7 +19,7 @@ export default function Home() {
           <div className={index.subtitle}>Keio Univ(SFC) B1 / Web, Android</div>
           <SnsList />
         </section>
-        <section className={index.main}>
+        <section className={index.section}>
           <h1 className={index.h1}>制作物</h1>
           <PostsList />
           <h1 className={index.h1}>経歴</h1>

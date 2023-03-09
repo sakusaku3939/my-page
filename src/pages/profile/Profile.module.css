@@ -3,6 +3,10 @@
     padding-bottom: 64px;
 }
 
+.section {
+    padding-bottom: 64px;
+}
+
 .title {
     font-size: 56px;
     font-weight: bold;
@@ -12,9 +16,6 @@
 .subtitle {
     text-align: center;
     margin-bottom: 16px;
-}
-
-.main {
 }
 
 .h1 {
