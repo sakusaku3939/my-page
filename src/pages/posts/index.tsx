@@ -5,6 +5,7 @@ import common from "@/styles/common.module.css";
 import remarkGfm from "remark-gfm";
 import CustomTagParser from "@/components/atom/CustomTagParser/CustomTagParser";
 import Head from "next/head";
+import Link from "next/link";
 
 type PostData = {
   content: string
@@ -19,6 +20,12 @@ const Posts = ({ content }: PostData) => {
     </Head>
     <div className={posts.wrapper}>
       <main>
+        <nav>
+          <ol className={posts.breadcrumb}>
+            <li><Link href="">ホーム</Link></li>
+            <li>Presc</li>
+          </ol>
+        </nav>
         <div className={`${posts.card} ${posts.post}`}>
           <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{ h1: CustomTagParser }}>
             {content}
