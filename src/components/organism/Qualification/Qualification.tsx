@@ -1,4 +1,4 @@
-import qualification from "@/styles/qualification.module.css";
+import qualification from "@/components/organism/Qualification/Qualification.module.css";
 
 const Qualification = () => {
   return <>

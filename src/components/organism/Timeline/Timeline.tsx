@@ -1,4 +1,4 @@
-import timeline from "@/styles/timeline.module.css";
+import timeline from "@/components/organism/Timeline/Timeline.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { ReactNode } from "react";

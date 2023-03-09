@@ -1,8 +1,8 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import posts from "@/styles/posts.module.css";
+import posts from "@/pages/posts/Posts.module.css";
 import remarkGfm from "remark-gfm";
-import CustomTagParser from "@/components/atom/custom-tag-parser";
+import CustomTagParser from "@/components/atom/CustomTagParser/CustomTagParser";
 
 type PostData = {
   content: string
@@ -11,7 +11,7 @@ type PostData = {
 const Posts = ({ content }: PostData) => {
   return <>
     <div className={posts.post}>
-      <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{h1: CustomTagParser}}>
+      <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{ h1: CustomTagParser }}>
         {content}
       </ReactMarkdown>
     </div>

@@ -1,9 +1,9 @@
 import Head from "next/head";
-import index from "@/styles/index.module.css";
-import SnsList from "@/components/molecule/sns-list";
-import Timeline from "@/components/organism/timeline";
-import Qualification from "@/components/organism/qualification";
-import Portfolio from "@/components/organism/portfolio";
+import index from "@/pages/profile/Profile.module.css";
+import SnsList from "@/components/molecule/SnsList/SnsList";
+import Timeline from "@/components/organism/Timeline/Timeline";
+import Qualification from "@/components/organism/Qualification/Qualification";
+import PostsList from "@/components/organism/PostsList/PostsList";
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
         </section>
         <section className={index.main}>
           <h1 className={index.h1}>制作物</h1>
-          <Portfolio />
+          <PostsList />
           <h1 className={index.h1}>経歴</h1>
           <Timeline />
           <h1 className={index.h1}>取得資格</h1>

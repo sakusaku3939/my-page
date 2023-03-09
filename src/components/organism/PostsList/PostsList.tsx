@@ -1,10 +1,10 @@
-import portfolio from "@/styles/portfolio.module.css";
+import portfolio from "@/components/organism/PostsList/PostsList.module.css";
 import common from "@/styles/common.module.css";
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Link from "next/link";
 
-const Portfolio = () => {
+const PostsList = () => {
   return <>
     <div className={portfolio.wrapper}>
       <Splide options={{
@@ -67,4 +67,4 @@ const Post = ({ date, imageUrl, title, tag, overview }: PostProps) => {
   </>;
 };
 
-export default Portfolio;
+export default PostsList;

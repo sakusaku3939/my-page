@@ -1,4 +1,4 @@
-import sns from "@/styles/sns-list.module.css";
+import sns from "@/components/molecule/SnsList/SnsList.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faSpeakerDeck } from "@fortawesome/free-brands-svg-icons";
 import { ReactNode } from "react";
