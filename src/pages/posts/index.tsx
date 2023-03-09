@@ -1,8 +1,10 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import posts from "@/pages/posts/Posts.module.css";
+import common from "@/styles/common.module.css";
 import remarkGfm from "remark-gfm";
 import CustomTagParser from "@/components/atom/CustomTagParser/CustomTagParser";
+import Head from "next/head";
 
 type PostData = {
   content: string
@@ -10,10 +12,30 @@ type PostData = {
 
 const Posts = ({ content }: PostData) => {
   return <>
-    <div className={posts.post}>
-      <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{ h1: CustomTagParser }}>
-        {content}
-      </ReactMarkdown>
+    <Head>
+      <title>Posts | Aokiti</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    <div className={posts.wrapper}>
+      <main>
+        <div className={`${posts.card} ${posts.post}`}>
+          <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{ h1: CustomTagParser }}>
+            {content}
+          </ReactMarkdown>
+        </div>
+      </main>
+      <aside>
+        <div className={`${posts.card} ${posts.category}`}>
+          <h1>すべてのカテゴリー</h1>
+          <ul className={common.tag}>
+            <li> Android / iOS</li>
+            <li> Flutter</li>
+            <li> Dart</li>
+            <li> アプリ甲子園</li>
+          </ul>
+        </div>
+      </aside>
     </div>
   </>;
 };
