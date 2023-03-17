@@ -80,12 +80,12 @@ export default function Profile() {
             <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021  第3位・技術賞">
               アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」を発表しました。第3位と技術賞を頂きました。
               <TimeLineLink
-                description="「プレゼンで時間オーバー」解決するアプリを高校生が開発｜ 高校生新聞オンライン"
-                href="https://www.koukouseishinbun.jp/articles/-/8347"
-              />
-              <TimeLineLink
                 description="発表動画"
                 href="https://youtu.be/JblLFCS-Eqw"
+              />
+              <TimeLineLink
+                description="「プレゼンで時間オーバー」解決するアプリを高校生が開発｜ 高校生新聞オンライン"
+                href="https://www.koukouseishinbun.jp/articles/-/8347"
               />
             </TimeLineItem>
             <TimeLineItem date="2022.8" icon={faTrophy} title="全国専門学科情報科研究協議会  優秀賞">

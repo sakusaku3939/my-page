@@ -31,3 +31,9 @@
     padding-left: 12px;
     border-left: 5px solid #757575;
 }
+
+@media screen and (max-width: 500px) {
+    .section {
+        padding: 0 32px 64px;
+    }
+}

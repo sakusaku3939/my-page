@@ -40,7 +40,7 @@
 }
 
 .tag li {
-    font-size: 11px!important;
+    font-size: 11px !important;
 }
 
 .textBox {
@@ -88,4 +88,11 @@
 
 .button a:hover {
     background-color: rgba(0, 0, 0, .05);
+}
+
+@media screen and (max-width: 500px) {
+    .card {
+        width: 320px;
+        margin: 16px 16px 32px;
+    }
 }
