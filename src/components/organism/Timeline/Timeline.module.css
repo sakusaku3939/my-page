@@ -1,5 +1,5 @@
 .list {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
 }
 
 .list li {
@@ -61,19 +61,29 @@
 
 .titleWrapper {
     display: flex;
-    padding-left: 32px;
+    padding-left: 36px;
 }
 
 .date {
+    color: #616161;
     font-weight: bold;
     min-width: 80px;
     padding-right: 16px;
 }
 
 .title {
+    display: flex;
     font-weight: bold;
     white-space: pre-wrap;
     padding-right: 28px;
+}
+
+.title span {
+    padding-left: 12px;
+}
+
+.title .icon {
+    color: #616161;
 }
 
 .content {
@@ -92,7 +102,7 @@
     white-space: pre-wrap;
 }
 
-.link span {
+.icon {
     min-width: 13px;
     height: 13px;
     margin-top: 5px;
