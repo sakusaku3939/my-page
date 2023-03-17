@@ -19,6 +19,8 @@ const CustomTagParser = ({ className, children }: HeadingProps) => {
             ))}
           </ul>
         </>;
+      default:
+        return <></>
     }
   }
 

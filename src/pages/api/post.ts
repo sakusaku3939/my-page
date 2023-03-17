@@ -22,20 +22,15 @@ export default function handler(
   const param = req.query as Param;
 
   if (param.name !== undefined) {
-    const fullPath = path.join(process.cwd(), `src/posts/${param.name}/index.md`);
+    const fullPath = path.join(process.cwd(), `src/posts/${param.name}.md`);
     const content = fs.readFileSync(fullPath, "utf8");
 
     res.status(200).json({
       content: content
     });
   } else {
-    const fullPath = path.join(process.cwd(), "src/posts/presc/index.md");
-    const content = fs.readFileSync(fullPath, "utf8");
-
     res.status(200).json({
-      content: content
+      content: ""
     });
   }
-
-
 }
