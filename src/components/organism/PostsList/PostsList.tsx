@@ -29,7 +29,7 @@ const PostsList = () => {
         <SplideSlide>
           <Post date="2021.1.1"
                 imageUrl="/posts/deepl-android/thumbnail.jpg"
-                title="OSS DeepL Android"
+                title="非公式版 DeepL翻訳アプリ"
                 tag={["Android", "Kotlin", "OSS"]}
                 overview="DeepL翻訳のクライアントアプリが欲しかったために作った非公式Androidアプリ" />
         </SplideSlide>

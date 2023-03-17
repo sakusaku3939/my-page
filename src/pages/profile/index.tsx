@@ -32,7 +32,7 @@ export default function Profile() {
                 Node.jsやチャットボットといったサーバー処理に加え、Vue.jsやjQueryといったクライアントサイドでも使用しています。
               </SkillsItem>
               <SkillsItem title="Dart">
-                Flutterを用いたモバイルアプリ開発時に使用しています。実務経験があります。
+                Flutterを用いたモバイルアプリ開発時に使用しています。実務での経験があります。
               </SkillsItem>
               <SkillsItem title="Kotlin">
                 Androidネイティブアプリ開発時に使用しています。過去にOSSプロジェクトを公開しました。
