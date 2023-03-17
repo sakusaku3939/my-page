@@ -1,18 +1,39 @@
-.wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 0 32px;
+.list li {
+    position: relative;
+    padding-bottom: 24px;
 }
 
-.card {
-    border: 1px solid rgba(0, 0, 0, .125);
-    padding: 32px;
-    margin: 16px;
-    width: 400px;
+.list li:before {
+    position: absolute;
+    display: block;
+    margin-top: 20px;
+    height: 12px;
+    width: 12px;
+    background-color: #424242;
+    border-radius: 6px;
+    content: "";
+}
+
+.list li:after {
+    position: absolute;
+    top: 32px;
+    left: 6px;
+    bottom: -24px;
+    width: 1px;
+    background-color: #424242;
+    content: "";
+}
+
+.list li:last-child:after {
+    height: 0;
+}
+
+.titleWrapper {
+    padding-left: 32px;
 }
 
 .title {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     padding-bottom: 4px;
 }
@@ -20,11 +41,6 @@
 .subtitle {
     color: #616161;
     white-space: pre-wrap;
-    margin-bottom: 24px;
-}
-
-.description {
-    font-size: 15px;
 }
 
 @media screen and (max-width: 700px) {

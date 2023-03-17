@@ -1,13 +1,10 @@
 .list {
-    width: 80vw;
-    max-width: 800px;
-    margin: 48px auto 40px;
+    margin-bottom: 40px;
 }
 
 .list li {
     position: relative;
-    min-height: 80px;
-    padding-bottom: 20px;
+    min-height: 72px;
 }
 
 .list li:before {
@@ -65,7 +62,6 @@
 .titleWrapper {
     display: flex;
     padding-left: 32px;
-    padding-bottom: 16px;
 }
 
 .date {
@@ -81,8 +77,9 @@
 }
 
 .content {
+    padding-top: 12px;
     padding-left: 32px;
-    padding-bottom: 32px;
+    padding-bottom: 40px;
     line-height: 1.7;
     color: #424242;
 }

@@ -1,23 +1,31 @@
 .wrapper {
-    max-width: 1360px;
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.wrapper:after {
+    content: "";
+    display: block;
+    width: 400px;
+    height: 0;
+    margin: 0 24px;
 }
 
 .card {
     position: relative;
-    width: 400px;
-    margin: 24px;
+    width: calc(50% - 12px);
+    margin-bottom: 24px;
 }
 
 .skin {
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 24px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
-    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, .125);
     overflow: hidden;
 }
 
 .image {
     width: 100%;
-    padding-top: 72%;
+    padding-top: 64%;
     background-size: cover;
     box-sizing: border-box;
 }
@@ -32,7 +40,6 @@
     padding: 4px 12px;
     margin: -4px;
     background-color: rgba(0, 0, 0, .3);
-    border-radius: 8px 0 8px 0;
 }
 
 .textBox {
@@ -45,10 +52,6 @@
     background: #ffffff;
 }
 
-.textBox > * + * {
-    margin-top: 8px;
-}
-
 .title {
     font-size: 24px;
     font-weight: bold;
@@ -57,14 +60,8 @@
     overflow: hidden;
 }
 
-.tag {
-    margin: 0 0 12px;
-    padding: 0;
-    font-size: 0;
-    list-style-type: none;
-}
-
 .overview {
+    margin-top: 8px;
     font-size: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -74,14 +71,14 @@
 
 .button {
     text-align: center;
-    margin-top: 28px;
-    margin-bottom: 112px;
+    margin-top: 16px;
+    margin-bottom: 80px;
 }
 
 .button a {
     border: solid 2px #616161;
     font-size: 14px;
-    padding: 14px 64px;
+    padding: 14px 56px;
     color: inherit !important;
     text-decoration: none;
     transition: .1s;
