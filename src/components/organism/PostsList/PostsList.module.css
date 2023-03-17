@@ -1,33 +1,30 @@
 .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.wrapper:after {
-    content: "";
-    display: block;
-    width: 400px;
-    height: 0;
-    margin: 0 24px;
+    max-width: 1360px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 24px;
 }
 
 .card {
     position: relative;
-    width: calc(50% - 12px);
-    margin-bottom: 24px;
+    width: 400px;
+    margin: 16px 24px 32px;
 }
 
 .skin {
-    border: 1px solid rgba(0, 0, 0, .125);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 16px 0, rgba(0, 0, 0, 0.04) 0 0 0 1px;
+    cursor: pointer;
     overflow: hidden;
 }
 
 .image {
     width: 100%;
-    padding-top: 64%;
+    padding-top: 56%;
     background-size: cover;
-    box-sizing: border-box;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .date {
@@ -42,11 +39,15 @@
     background-color: rgba(0, 0, 0, .3);
 }
 
+.tag li {
+    font-size: 11px!important;
+}
+
 .textBox {
     color: #424242;
     width: 100%;
     height: 100%;
-    padding: 16px 20px;
+    padding: 12px 20px 0;
     box-sizing: border-box;
     min-height: 160px;
     background: #ffffff;
@@ -58,10 +59,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin-bottom: 2px;
 }
 
 .overview {
-    margin-top: 8px;
+    margin-top: 12px;
     font-size: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -78,7 +80,7 @@
 .button a {
     border: solid 2px #616161;
     font-size: 14px;
-    padding: 14px 56px;
+    padding: 12px 56px;
     color: inherit !important;
     text-decoration: none;
     transition: .1s;
