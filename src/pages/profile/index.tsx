@@ -5,6 +5,7 @@ import { Qualification, QualificationItem } from "@/components/organism/Qualific
 import PostsList from "@/components/organism/PostsList/PostsList";
 import { Timeline, TimeLineItem, TimeLineLink } from "@/components/organism/Timeline/Timeline";
 import { faGraduationCap, faBriefcase, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { Skills, SkillsItem, SkillsItemWrapper, SkillsSubItemWrapper } from "@/components/organism/Skills/Skills";
 
 export default function Profile() {
   return (
@@ -22,6 +23,44 @@ export default function Profile() {
         </section>
         <section className={index.section}>
           <PostsList />
+
+          <h1 className={index.h1}>スキル</h1>
+          <Skills>
+            <h2 className={index.h2}>メイン言語</h2>
+            <SkillsItemWrapper>
+              <SkillsItem title="JavaScript">
+                Node.jsやチャットボットといったサーバー処理に加え、Vue.jsやjQueryといったクライアントサイドでも使用しています。
+              </SkillsItem>
+              <SkillsItem title="Dart">
+                Flutterを用いたモバイルアプリ開発時に使用しています。実務経験があります。
+              </SkillsItem>
+              <SkillsItem title="Kotlin">
+                Androidネイティブアプリ開発時に使用しています。過去にOSSプロジェクトを公開しました。
+              </SkillsItem>
+              <SkillsItem title="Java">
+                FRCのロボットプログラム作成時や、技術本から学ぶ時に使用しています。また、基本情報技術者試験の午後問題で選択しました。
+              </SkillsItem>
+            </SkillsItemWrapper>
+
+            <h2 className={index.h2}>サブ言語</h2>
+            <SkillsSubItemWrapper>
+              <SkillsItem title="TypeScript">
+                Next.jsを用いたWebシステムやDiscordボット作成時に使用しました。
+              </SkillsItem>
+              <SkillsItem title="Python">
+                技術本から学ぶ時やpygameを用いたゲーム開発で使用しました。
+              </SkillsItem>
+              <SkillsItem title="PHP">
+                Webシステム作成時や高校の情報システム実習で使用しました。
+              </SkillsItem>
+              <SkillsItem title="C">
+                高校のアルゴリズムの授業で習いました。簡単なソートアルゴリズム等を実装しました。
+              </SkillsItem>
+              <SkillsItem title="Go">
+                ブロックチェーンシステムの簡易再現や、分散ストレージの研究のために使用しました。
+              </SkillsItem>
+            </SkillsSubItemWrapper>
+          </Skills>
 
           <h1 className={index.h1}>経歴</h1>
           <Timeline>

@@ -24,3 +24,10 @@
     margin-bottom: 24px;
     font-size: 20px;
 }
+
+.h2 {
+    margin-bottom: 12px;
+    color: #616161;
+    padding-left: 12px;
+    border-left: 5px solid #757575;
+}
