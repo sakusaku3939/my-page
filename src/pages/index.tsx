@@ -1,5 +1,5 @@
 import Head from "next/head";
-import index from "@/pages/profile/Profile.module.css";
+import index from "@/pages/index.module.css";
 import SnsList from "@/components/molecule/SnsList/SnsList";
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
 import PostsList from "@/components/organism/PostsList/PostsList";
