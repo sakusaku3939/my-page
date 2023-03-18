@@ -6,8 +6,9 @@ import PostsList from "@/components/organism/PostsList/PostsList";
 import { Timeline, TimeLineItem, TimeLineLink } from "@/components/organism/Timeline/Timeline";
 import { faGraduationCap, faBriefcase, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { Skills, SkillsItem, SkillsItemWrapper, SkillsSubItemWrapper } from "@/components/organism/Skills/Skills";
+import { GetServerSidePropsContext } from "next";
 
-export default function Profile() {
+const Index = () => {
   return (
     <>
       <Head>
@@ -108,4 +109,20 @@ export default function Profile() {
       </main>
     </>
   );
-}
+};
+
+export const getServerSideProps = (
+  context: GetServerSidePropsContext
+) => {
+  const queryParam = context.query.posts;
+  if (queryParam !== undefined) {
+    context.res.writeHead(
+      302,
+      { Location: `https://portfolio.sakusaku3939.com?posts=${queryParam}` }
+    );
+    context.res.end();
+  }
+  return { props: {} };
+};
+
+export default Index;
