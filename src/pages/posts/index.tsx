@@ -55,8 +55,8 @@ export async function getStaticProps() {
 }
 
 const fetchPostData = async () => {
-  const res = await fetch("http://localhost:3000/api/post?name=presc");
-  const data: PostData = await res.json();
+  // const res = await fetch("http://localhost:3000/api/post?name=presc");
+  // const data: PostData = await res.json();
   // return data;
   return {content: ""};
 };
