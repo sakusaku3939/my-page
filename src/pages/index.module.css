@@ -33,7 +33,16 @@
 }
 
 @media screen and (max-width: 500px) {
+    .header {
+        padding-top: 64px;
+        padding-bottom: 48px;
+    }
+
     .section {
         padding: 0 32px 64px;
+    }
+
+    .title {
+        font-size: 48px;
     }
 }
