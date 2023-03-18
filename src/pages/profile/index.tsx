@@ -45,10 +45,10 @@ export default function Profile() {
             <h2 className={index.h2}>サブ言語</h2>
             <SkillsSubItemWrapper>
               <SkillsItem title="TypeScript">
-                Next.jsを用いたWebシステムやDiscordボット作成時に使用しました。
+                Next.jsを用いたWebシステムやDiscordボット作成に使用しました。
               </SkillsItem>
               <SkillsItem title="Python">
-                技術本から学ぶ時やpygameを用いたゲーム開発で使用しました。
+                技術本から学ぶ時やpygameを用いたゲーム開発にて使用しました。
               </SkillsItem>
               <SkillsItem title="PHP">
                 Webシステム作成時や高校の情報システム実習で使用しました。
@@ -57,7 +57,7 @@ export default function Profile() {
                 高校のアルゴリズムの授業で習いました。簡単なソートアルゴリズム等を実装しました。
               </SkillsItem>
               <SkillsItem title="Go">
-                ブロックチェーンシステムの簡易再現や、分散ストレージの研究のために使用しました。
+                ブロックチェーンシステムの簡易再現や、分散ストレージの研究で使用しました。
               </SkillsItem>
             </SkillsSubItemWrapper>
           </Skills>
@@ -65,9 +65,9 @@ export default function Profile() {
           <h1 className={index.h1}>経歴</h1>
           <Timeline>
             <TimeLineItem date="2019.4 ~" icon={faGraduationCap} title="東京都立新宿山吹高校（定時制） 情報科" />
-            <TimeLineItem date="2019.8 ~" icon={faBriefcase} title="ロボコンチーム  BWW 所属">
-              高1〜高3の間に世界最大級のロボコン FRC（FIRST Robotics
-              Competition）に出場するチーム「BWW」に設立メンバーとして活動しました。ソフトウェアや公式Webサイト作成、ブログやTwitter、YouTubeなどでの広報活動を行いました。
+            <TimeLineItem date="2019.8 ~" icon={faBriefcase} title="ロボコンチーム  BWW所属">
+              高1〜高3に世界最大級のロボコン FRC（FIRST Robotics
+              Competition）のチーム「BWW」に設立メンバーとして活動しました。ソフトウェアや公式Webサイト作成、ブログやTwitter、YouTubeなどでの広報活動を行いました。
               <TimeLineLink
                 description="公式Webサイト"
                 href="https://bww8231.fuji3.info/"
@@ -78,7 +78,7 @@ export default function Profile() {
               />
             </TimeLineItem>
             <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021  第3位・技術賞">
-              アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」を発表しました。第3位と技術賞を頂きました。
+              アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」を発表しました。1次, 2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
               <TimeLineLink
                 description="発表動画"
                 href="https://youtu.be/JblLFCS-Eqw"
