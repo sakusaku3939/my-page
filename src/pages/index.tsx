@@ -93,7 +93,7 @@ const Index = () => {
               専門学科 情報科の設置校が集まって年に1度開催する研究協議会にて、プレゼン原稿表示アプリ「Presc」を発表しました。生徒表彰にて優秀賞を頂きました。
               <br />
             </TimeLineItem>
-            <TimeLineItem date="2023.1 ~" icon={faBriefcase} title="株式会社Wandarlust  Locket開発">
+            <TimeLineItem date="2023.1 ~" icon={faBriefcase} title="株式会社Wanderlust  Locket開発">
               位置情報共有アプリ「Locket」のフロントエンド（Flutter）チームに約2ヶ月間所属しました。主にチャット機能の開発に携わりました。
               <br />
             </TimeLineItem>
