@@ -55,10 +55,12 @@ export async function getStaticProps() {
 }
 
 const fetchPostData = async () => {
-  // const res = await fetch("http://localhost:3000/api/post?name=presc");
-  // const data: PostData = await res.json();
-  // return data;
-  return {content: ""};
+  const env = process.env.VERCEL_URL;
+  const url = env !== undefined && env !== "" ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000";
+
+  const res = await fetch(`${url}/api/post?name=presc`);
+  const data: PostData = await res.json();
+  return data;
 };
 
 export default Posts;
