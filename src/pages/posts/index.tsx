@@ -55,7 +55,7 @@ export async function getStaticProps() {
 }
 
 const fetchPostData = async () => {
-  const vercelUrl = process.env.VERCEL_URL;
+  const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
   const url = vercelUrl !== undefined && vercelUrl.length > 0 ? `https://${vercelUrl}` : "http://localhost:3000";
 
   const res = await fetch(`${url}/api/post?name=presc`);
