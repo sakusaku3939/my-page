@@ -22,7 +22,8 @@ export default function handler(
   const param = req.query as Param;
 
   if (param.name !== undefined) {
-    const fullPath = path.join(process.cwd(), `src/posts/${param.name}.md`);
+    const isLocal = process.env.NEXT_PUBLIC_VERCEL_URL === undefined;
+    const fullPath = path.join(process.cwd(), `${isLocal ? "public/" : ""}`, "posts/presc/", `${param.name}.md`);
     const content = fs.readFileSync(fullPath, "utf8");
 
     res.status(200).json({
