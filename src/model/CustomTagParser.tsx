@@ -1,6 +1,6 @@
 import { HeadingProps } from "react-markdown/lib/ast-to-react";
 import common from "@/styles/common.module.css";
-import posts from "@/pages/posts/Posts.module.css";
+import posts from "@/styles/posts.module.css";
 
 const CustomTagParser = ({ className, children }: HeadingProps) => {
   if (children.toString().charAt(0) === "@") {

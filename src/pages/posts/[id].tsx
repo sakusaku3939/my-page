@@ -1,12 +1,12 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import posts from "@/pages/posts/Posts.module.css";
+import posts from "@/styles/posts.module.css";
 import common from "@/styles/common.module.css";
 import remarkGfm from "remark-gfm";
 import CustomTagParser from "@/model/CustomTagParser";
 import Head from "next/head";
 import Link from "next/link";
-import fetchPostData from "@/model/PostApi";
+import { getPostData, getAllPostIds } from "@/model/PostApi";
 
 type PostData = {
   content: string
@@ -49,9 +49,17 @@ const Posts = ({ content }: PostData) => {
 };
 
 export async function getStaticProps() {
-  const data = fetchPostData('presc');
+  const data = getPostData('presc');
   return {
     props: { content: data }
   };
+}
+
+export async function getStaticPaths() {
+  const paths = getAllPostIds()
+  return {
+    paths,
+    fallback: false
+  }
 }
 export default Posts;
