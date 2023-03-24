@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import CustomTagParser from "@/model/CustomTagParser";
 import Head from "next/head";
 import Link from "next/link";
+import fetchPostData from "@/model/PostApi";
 
 type PostData = {
   content: string
@@ -48,19 +49,9 @@ const Posts = ({ content }: PostData) => {
 };
 
 export async function getStaticProps() {
-  const data = await fetchPostData();
+  const data = fetchPostData('presc');
   return {
-    props: data
+    props: { content: data }
   };
 }
-
-const fetchPostData = async () => {
-  const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
-  const url = vercelUrl !== undefined ? `https://${vercelUrl}` : "http://localhost:3000";
-
-  const res = await fetch(`${url}/api/post?name=presc`);
-  const data: PostData = await res.json();
-  return data;
-};
-
 export default Posts;
