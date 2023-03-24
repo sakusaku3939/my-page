@@ -4,7 +4,7 @@ import posts from "@/styles/posts.module.css";
 
 export function CustomTagParser({ className, children }: HeadingProps) {
   if (children.toString().charAt(0) === "@") {
-    const params = children.toString().split(",");
+    const params = children.toString().split(" ");
     const name = params[0];
     const args = params.filter((_, index: number) => index !== 0);
 
@@ -19,8 +19,19 @@ export function CustomTagParser({ className, children }: HeadingProps) {
             ))}
           </ul>
         </>;
+      case "@speaker-deck":
+        return <>
+          <div className={posts.speakerDeck}>
+            <iframe
+              src={`https://speakerdeck.com/player/${args[0]}`}
+              data-darkreader-inline-border-top="" data-darkreader-inline-border-right=""
+              data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""
+              data-darkreader-inline-bgimage="" data-darkreader-inline-bgcolor=""
+              data-darkreader-inline-boxshadow="" data-ratio="1.78343949044586" />
+          </div>
+        </>;
       default:
-        return <></>
+        return <></>;
     }
   }
 
