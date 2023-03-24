@@ -3,7 +3,7 @@ import rehypeRaw from "rehype-raw";
 import posts from "@/styles/posts.module.css";
 import common from "@/styles/common.module.css";
 import remarkGfm from "remark-gfm";
-import CustomTagParser from "@/model/CustomTagParser";
+import { CustomTagParser } from "@/model/CustomTagParser";
 import Head from "next/head";
 import Link from "next/link";
 import { getPostData, getAllPostIds } from "@/model/PostApi";
@@ -49,17 +49,18 @@ const Posts = ({ content }: PostData) => {
 };
 
 export async function getStaticProps() {
-  const data = getPostData('presc');
+  const data = getPostData("presc");
   return {
     props: { content: data }
   };
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds()
+  const paths = getAllPostIds();
   return {
     paths,
     fallback: false
-  }
+  };
 }
+
 export default Posts;

@@ -2,7 +2,7 @@ import { HeadingProps } from "react-markdown/lib/ast-to-react";
 import common from "@/styles/common.module.css";
 import posts from "@/styles/posts.module.css";
 
-const CustomTagParser = ({ className, children }: HeadingProps) => {
+export function CustomTagParser({ className, children }: HeadingProps) {
   if (children.toString().charAt(0) === "@") {
     const params = children.toString().split(",");
     const name = params[0];
@@ -25,6 +25,4 @@ const CustomTagParser = ({ className, children }: HeadingProps) => {
   }
 
   return <h1 className={className}>{children}</h1>;
-};
-
-export default CustomTagParser;
+}

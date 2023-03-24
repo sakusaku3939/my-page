@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 
-const postsDirectory = path.join(process.cwd(), "posts/");
+const postsDirectory = path.join(process.cwd(), "_posts/");
 
 export function getPostData(name: string) {
   const fullPath = path.join(postsDirectory, `${name}.md`);
