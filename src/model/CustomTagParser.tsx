@@ -1,6 +1,7 @@
 import { HeadingProps } from "react-markdown/lib/ast-to-react";
 import common from "@/styles/common.module.css";
 import posts from "@/styles/posts.module.css";
+import Image from "next/image";
 
 export function CustomTagParser({ className, children }: HeadingProps) {
   if (children.toString().charAt(0) === "@") {
@@ -9,8 +10,13 @@ export function CustomTagParser({ className, children }: HeadingProps) {
     const args = params.filter((_, index: number) => index !== 0);
 
     switch (name) {
-      case "@br":
+      // @br(n)
+      case "@br1":
+        return <div style={{ height: 8 }}></div>;
+      case "@br2":
         return <div style={{ height: 12 }}></div>;
+      case "@br3":
+        return <div style={{ height: 16 }}></div>;
       case "@tag":
         return <>
           <ul className={`${common.tag} ${posts.tag}`}>
@@ -19,6 +25,8 @@ export function CustomTagParser({ className, children }: HeadingProps) {
             ))}
           </ul>
         </>;
+
+      // @speaker-deck (data-id)
       case "@speaker-deck":
         return <>
           <div className={posts.speakerDeck}>
@@ -30,6 +38,37 @@ export function CustomTagParser({ className, children }: HeadingProps) {
               data-darkreader-inline-boxshadow="" data-ratio="1.78343949044586" />
           </div>
         </>;
+
+      // @row (image-path) (image-path) ...
+      case "@row":
+        return <>
+          <div className={posts.row}>
+            {args.map((value: string, key: number) => <>
+              <div className={common.imageContainer}>
+                <Image key={key} src={value} alt="" fill style={{ objectFit: "contain" }} />
+              </div>
+            </>)}
+          </div>
+        </>;
+
+      // @row-link (image-path):(url) (image-path):(url) ...
+      case "@row-link":
+        return <>
+          <div className={posts.row}>
+            {args.map((value: string, key: number) => {
+              console.log(value)
+              const rowParams = value.split(":");
+              return <>
+                <div className={common.imageContainer}>
+                  <a href={"https://" + rowParams[1]} target="_blank">
+                    <Image key={key} src={rowParams[0]} alt="" fill style={{ objectFit: "contain" }} />
+                  </a>
+                </div>
+              </>;
+            })}
+          </div>
+        </>;
+
       default:
         return <></>;
     }

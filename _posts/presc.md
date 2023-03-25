@@ -11,8 +11,11 @@
 
 再生画面では、音声認識により原稿を自動でスクロールしてくれ、どこまで読んだかが一目で分かります。 また、書式の向き（縦書き、横書き）や文字の色、フォントサイズなど自由にカスタマイズ可能です。
 
-編集画面は基本的なメモ帳の機能（追加・編集・検索・削除）を行うことができ、即座に原稿を修正することができます。
-また、作った原稿はタグを付けて整理することができるため、たくさんの原稿の中からすぐに探し出せます。
+編集画面は、基本的なメモ帳の機能（追加・編集・検索・削除）に加え、作った原稿にタグを付けて整理することができます。
+
+## ダウンロード
+# @br1
+# @row-link /posts/presc/app-store.png:apps.apple.com/jp/app/presc/id1599599891 /posts/presc/google-play.png:play.google.com/store/apps/details?id=com.sakusaku3939.presc
 
 ## 発表資料
 # @speaker-deck c632239a5a8d4dcbafa33e1e3dfcab9d
