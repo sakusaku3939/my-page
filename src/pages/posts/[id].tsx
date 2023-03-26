@@ -3,7 +3,7 @@ import rehypeRaw from "rehype-raw";
 import posts from "@/styles/posts.module.css";
 import common from "@/styles/common.module.css";
 import remarkGfm from "remark-gfm";
-import { CustomTagParser } from "@/model/CustomTagParser";
+import { CustomTagParser, ImageTagParser } from "@/model/CustomTagParser";
 import Head from "next/head";
 import Link from "next/link";
 import { getPostData, getAllPostIds } from "@/model/PostApi";
@@ -28,7 +28,7 @@ const Posts = ({ content }: PostData) => {
           </ol>
         </nav>
         <div className={`${posts.card} ${posts.post}`}>
-          <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{ h1: CustomTagParser }}>
+          <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{ h1: CustomTagParser, img: ImageTagParser }}>
             {content}
           </ReactMarkdown>
         </div>

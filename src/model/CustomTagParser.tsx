@@ -56,7 +56,6 @@ export function CustomTagParser({ className, children }: HeadingProps) {
         return <>
           <div className={posts.row}>
             {args.map((value: string, key: number) => {
-              console.log(value)
               const rowParams = value.split(":");
               return <>
                 <div className={common.imageContainer}>
@@ -75,4 +74,12 @@ export function CustomTagParser({ className, children }: HeadingProps) {
   }
 
   return <h1 className={className}>{children}</h1>;
+}
+
+export function ImageTagParser(image: any) {
+  return <>
+    <span className={common.imageContainer}>
+      <Image src={image.src} alt="" fill style={{ objectFit: "contain" }} />
+    </span>
+  </>;
 }
