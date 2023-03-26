@@ -1,5 +1,5 @@
 # Presc
-# @tag Android&nbsp;/&nbsp;iOS Flutter Dart
+# @tag Android&nbsp;/&nbsp;iOS Flutter Dart アプリ甲子園
 # @thumbnail /posts/presc/thumbnail.jpg
 
 音声認識により話した分だけ自動でスクロールしてくれる、プレゼンテーション用の原稿表示アプリです。
@@ -54,13 +54,6 @@ https://qiita.com/sakusaku3939/items/9433f3fcfdad86cc264e
 ![](/posts/presc/vertical-slide.png)
 
 ## リンク
-
-- Android版
-  https://play.google.com/store/apps/details?id=com.sakusaku3939.presc
-
-- iOS版
-  https://apps.apple.com/jp/app/presc/id1599599891
-
 - 「プレゼンで時間オーバー」解決するアプリを高校生が開発 - 高校生新聞オンライン
   - 高校生新聞オンライン
     https://www.koukouseishinbun.jp/articles/-/8347
@@ -72,7 +65,6 @@ https://qiita.com/sakusaku3939/items/9433f3fcfdad86cc264e
   https://github.com/sakusaku3939/Presc
 
 ## 使用技術
-
 言語 ・・・ Dart
 フレームワーク ・・・ Flutter
 主要ライブラリ ・・・ speech_to_text(音声認識), provider(MVVMフレームワーク), sqflite(データベース)
