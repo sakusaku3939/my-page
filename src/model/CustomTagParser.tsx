@@ -77,9 +77,14 @@ export function CustomTagParser({ className, children }: HeadingProps) {
 }
 
 export function ImageTagParser(image: any) {
+  const regExp = /^\/public\//;
+  let src = image.src;
+  if (src.match(regExp)) {
+    src = "/" + src.split(regExp)[1];
+  }
   return <>
     <span className={common.imageContainer}>
-      <Image src={image.src} alt="" fill style={{ objectFit: "contain" }} />
+      <Image src={src} alt="" fill style={{ objectFit: "contain" }} />
     </span>
   </>;
 }

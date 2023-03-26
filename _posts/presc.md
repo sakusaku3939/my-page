@@ -36,12 +36,12 @@
 ## 技術面など
 アプリの開発はFlutterを採用しました。
 iOS・Androidの両端末に気軽にテスト配布できるように、DeployGateを利用しました。 Github Actionsを使用し、masterブランチにPull Requestを送ることで自動配布ができます。
-![](/posts/presc/architecture-slide.png)
+![](/public/posts/presc/architecture-slide.png)
 
 ### 音声認識における工夫
 音声認識によって得られた文章と実際の文章との一致判定は、形態素解析アルゴリズムを利用しています。
 また、Yahoo! JAPANが公開している ルビ振りWeb API を利用して文章をそれぞれひらがなに変換することで、音声認識の自動変換ミスなどによる認識漏れが起こらなくなるように改善しました。
-![](/posts/presc/separate-slide.png)
+![](/public/posts/presc/separate-slide.png)
 
 ### 原稿の縦書き
 Flutterは縦書き文字の描画に対応していないため、今回日本語の縦書きアルゴリズムを完全自作しました。
@@ -51,7 +51,7 @@ TextPainterを使用して1文字ずつ描画する方法と、Wrapウィジェ�
 https://qiita.com/sakusaku3939/items/9433f3fcfdad86cc264e
 
 - TextPainterで描画する方法（旧）
-![](/posts/presc/vertical-slide.png)
+![](/public/posts/presc/vertical-slide.png)
 
 ## リンク
 - 「プレゼンで時間オーバー」解決するアプリを高校生が開発 - 高校生新聞オンライン
