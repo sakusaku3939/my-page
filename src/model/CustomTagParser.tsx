@@ -17,14 +17,6 @@ export function CustomTagParser({ className, children }: HeadingProps) {
         return <div style={{ height: 12 }}></div>;
       case "@br3":
         return <div style={{ height: 16 }}></div>;
-      case "@tag":
-        return <>
-          <ul className={`${common.tag} ${posts.tag}`}>
-            {args.map((value: string, key: number) => (
-              <li key={key}>{value}</li>
-            ))}
-          </ul>
-        </>;
 
       // @speaker-deck (data-id)
       case "@speaker-deck":

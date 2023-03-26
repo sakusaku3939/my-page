@@ -6,13 +6,16 @@ import remarkGfm from "remark-gfm";
 import { CustomTagParser, ImageTagParser } from "@/model/CustomTagParser";
 import Head from "next/head";
 import Link from "next/link";
-import { getPostData, getAllPostIds } from "@/model/PostApi";
+import { getPostData, getAllPostSlugs } from "@/model/PostApi";
+import matter from "gray-matter";
+import { GetStaticPropsContext } from "next";
 
 type PostData = {
-  content: string
+  front: any,
+  markdownBody: string,
 }
 
-const Posts = ({ content }: PostData) => {
+const Posts = ({ front, markdownBody }: PostData) => {
   return <>
     <Head>
       <title>Posts | Aokiti</title>
@@ -24,12 +27,23 @@ const Posts = ({ content }: PostData) => {
         <nav>
           <ol className={posts.breadcrumb}>
             <li><Link href="">ホーム</Link></li>
-            <li>Presc</li>
+            <li>{front.title}</li>
           </ol>
         </nav>
         <div className={`${posts.card} ${posts.post}`}>
-          <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{ h1: CustomTagParser, img: ImageTagParser }}>
-            {content}
+          <div className={posts.title}>{front.title}</div>
+          <ul className={`${common.tag} ${posts.tag}`}>
+            {
+              front.tag.split(", ").map((value: string, key: number) => (
+                <li key={key}>{value}</li>
+              ))
+            }
+          </ul>
+          <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{
+            h1: CustomTagParser,
+            img: ImageTagParser
+          }}>
+            {markdownBody}
           </ReactMarkdown>
         </div>
       </main>
@@ -48,15 +62,21 @@ const Posts = ({ content }: PostData) => {
   </>;
 };
 
-export async function getStaticProps() {
-  const data = getPostData("presc");
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const rawSlug = context.params?.slug ?? "";
+  const slug = typeof rawSlug === "string" ? rawSlug : rawSlug[0];
+  const data = getPostData(slug);
+  const singleDocument = matter(data);
   return {
-    props: { content: data }
+    props: {
+      front: singleDocument.data,
+      markdownBody: singleDocument.content
+    }
   };
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = getAllPostSlugs();
   return {
     paths,
     fallback: false

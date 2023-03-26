@@ -8,12 +8,12 @@ export function getPostData(name: string) {
   return fs.readFileSync(fullPath, "utf8");
 }
 
-export function getAllPostIds() {
+export function getAllPostSlugs() {
   const fileNames = fs.readdirSync(postsDirectory)
   return fileNames.map(fileName => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, '')
+        slug: fileName.replace(/\.md$/, '')
       }
     }
   })
