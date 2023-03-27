@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+import matter from "gray-matter";
 
 const postsDirectory = path.join(process.cwd(), "_posts/");
 
@@ -17,4 +18,15 @@ export function getAllPostSlugs() {
       }
     }
   })
+}
+
+export function getAllPostOverview() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  let overviews = [];
+  for (let name of fileNames) {
+    const fullPath = path.join(postsDirectory, name);
+    const data = fs.readFileSync(fullPath, "utf8");
+   overviews.push(matter(data).data);
+  }
+  return overviews;
 }
