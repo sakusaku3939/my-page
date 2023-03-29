@@ -1,7 +1,8 @@
 ---
 title: Presc
 tag: Android / iOS, Flutter, Dart, アプリ甲子園
-thumbnail: /posts/presc/thumbnail.jpg
+overview: 音声認識により、どこまで読んだかが分かるプレゼンテーション用原稿表示アプリ
+date: 2021.10.25
 ---
 
 音声認識により話した分だけ自動でスクロールしてくれる、プレゼンテーション用の原稿表示アプリです。

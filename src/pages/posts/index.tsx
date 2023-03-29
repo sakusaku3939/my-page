@@ -1,5 +1,4 @@
 import index from "@/styles/index.module.css";
-import posts from "@/styles/posts.module.css";
 import common from "@/styles/common.module.css";
 import { getAllPostOverview } from "@/model/PostApi";
 import { Post } from "@/components/organism/PostsList/PostsList";
@@ -21,24 +20,16 @@ const Index = ({ overviews }: Props) => {
       </ul>
       <div className={index.wrapper}>
         <section className={index.postsList}>
-          <Post date="2021.10.25"
-                imageUrl="/posts/presc/thumbnail.jpg"
-                href="/posts/presc"
-                title="Presc"
-                tag={["Android / iOS", "Flutter", "Dart"]}
-                overview="音声認識により、どこまで読んだかが分かるプレゼンテーション用原稿表示アプリ" />
-          <Post date="2021.2.18"
-                imageUrl="/posts/tkg-beacon/thumbnail.jpg"
-                href="https://portfolio.sakusaku3939.com/?posts=tkg-beacon"
-                title="TKG Beacon"
-                tag={["Android", "Kotlin", "AltBeacon", "Firebase"]}
-                overview="ビーコンを利用した、生徒と先生の位置情報共有Androidアプリ" />
-          <Post date="2022.3.14"
-                imageUrl="/posts/like-button/thumbnail.jpg"
-                href="https://portfolio.sakusaku3939.com/?posts=like-button"
-                title="いいねボタン"
-                tag={["HTML / CSS / JavaScript", "Vue.js", "Firebase"]}
-                overview="プレゼン発表中にリアルタイムで「いいね！」が送れるシステム" />
+          {overviews.map((post: any) =>
+            <>
+              <Post date={post.date}
+                    imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
+                    href={`/posts/${post.slug}`}
+                    title={post.title}
+                    tag={post.tag.split(", ")}
+                    overview={post.overview} />
+            </>
+          )}
           <div className={index.postDummy} />
           <div className={index.postDummy} />
         </section>
@@ -46,11 +37,6 @@ const Index = ({ overviews }: Props) => {
           <Category />
         </div>
       </div>
-      {/*{overviews.map((overview: any) =>*/}
-      {/*  <>*/}
-      {/*    <div>{overview.title}</div>*/}
-      {/*  </>*/}
-      {/*)}*/}
     </>
   );
 };

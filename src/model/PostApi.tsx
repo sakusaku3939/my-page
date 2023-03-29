@@ -10,14 +10,14 @@ export function getPostData(name: string) {
 }
 
 export function getAllPostSlugs() {
-  const fileNames = fs.readdirSync(postsDirectory)
+  const fileNames = fs.readdirSync(postsDirectory);
   return fileNames.map(fileName => {
     return {
       params: {
-        slug: fileName.replace(/\.md$/, '')
+        slug: fileName.replace(/\.md$/, "")
       }
-    }
-  })
+    };
+  });
 }
 
 export function getAllPostOverview() {
@@ -26,7 +26,10 @@ export function getAllPostOverview() {
   for (let name of fileNames) {
     const fullPath = path.join(postsDirectory, name);
     const data = fs.readFileSync(fullPath, "utf8");
-   overviews.push(matter(data).data);
+    const front = matter(data).data;
+
+    front.slug = name.replace(/\.md$/, "");
+    overviews.push(front);
   }
-  return overviews;
+  return overviews.sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1);
 }
