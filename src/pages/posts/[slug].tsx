@@ -9,6 +9,7 @@ import Link from "next/link";
 import { getPostData, getAllPostSlugs } from "@/model/PostApi";
 import matter from "gray-matter";
 import { GetStaticPropsContext } from "next";
+import Category from "@/components/molecule/Category/Category";
 
 type PostData = {
   front: any,
@@ -30,7 +31,7 @@ const Posts = ({ front, markdownBody }: PostData) => {
             <li>{front.title}</li>
           </ol>
         </nav>
-        <div className={`${posts.card} ${posts.post}`}>
+        <div className={`${common.shadow} ${posts.post}`}>
           <div className={posts.title}>{front.title}</div>
           <ul className={`${common.tag} ${posts.tag}`}>
             {
@@ -47,17 +48,7 @@ const Posts = ({ front, markdownBody }: PostData) => {
           </ReactMarkdown>
         </div>
       </main>
-      <aside>
-        <div className={`${posts.card} ${posts.category}`}>
-          <h1>すべてのカテゴリー</h1>
-          <ul className={common.tag}>
-            <li>Android / iOS (3)</li>
-            <li>Flutter (2)</li>
-            <li>Dart (2)</li>
-            <li>アプリ甲子園 (1)</li>
-          </ul>
-        </div>
-      </aside>
+      <Category />
     </div>
   </>;
 };

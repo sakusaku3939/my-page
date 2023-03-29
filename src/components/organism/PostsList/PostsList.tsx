@@ -13,36 +13,44 @@ const PostsList = () => {
         autoWidth: true
       }}>
         <SplideSlide>
-          <Post date="2021.10.25"
-                imageUrl="/posts/presc/thumbnail.jpg"
-                href="https://portfolio.sakusaku3939.com/?posts=presc"
-                title="Presc"
-                tag={["Android / iOS", "Flutter", "Dart"]}
-                overview="音声認識により、どこまで読んだかが分かるプレゼンテーション用原稿表示アプリ" />
+          <div className={postList.card}>
+            <Post date="2021.10.25"
+                  imageUrl="/posts/presc/thumbnail.jpg"
+                  href="https://portfolio.sakusaku3939.com/?posts=presc"
+                  title="Presc"
+                  tag={["Android / iOS", "Flutter", "Dart"]}
+                  overview="音声認識により、どこまで読んだかが分かるプレゼンテーション用原稿表示アプリ" />
+          </div>
         </SplideSlide>
         <SplideSlide>
-          <Post date="2021.2.18"
-                imageUrl="/posts/tkg-beacon/thumbnail.jpg"
-                href="https://portfolio.sakusaku3939.com/?posts=tkg-beacon"
-                title="TKG Beacon"
-                tag={["Android", "Kotlin", "AltBeacon", "Firebase"]}
-                overview="ビーコンを利用した、生徒と先生の位置情報共有Androidアプリ" />
+          <div className={postList.card}>
+            <Post date="2021.2.18"
+                  imageUrl="/posts/tkg-beacon/thumbnail.jpg"
+                  href="https://portfolio.sakusaku3939.com/?posts=tkg-beacon"
+                  title="TKG Beacon"
+                  tag={["Android", "Kotlin", "AltBeacon", "Firebase"]}
+                  overview="ビーコンを利用した、生徒と先生の位置情報共有Androidアプリ" />
+          </div>
         </SplideSlide>
         <SplideSlide>
-          <Post date="2021.1.1"
-                imageUrl="/posts/deepl-android/thumbnail.jpg"
-                href="https://portfolio.sakusaku3939.com/?posts=android-deepl"
-                title="非公式版 DeepL翻訳アプリ"
-                tag={["Android", "Kotlin", "OSS"]}
-                overview="DeepL翻訳のクライアントアプリが欲しかったために作った非公式Androidアプリ" />
+          <div className={postList.card}>
+            <Post date="2021.1.1"
+                  imageUrl="/posts/deepl-android/thumbnail.jpg"
+                  href="https://portfolio.sakusaku3939.com/?posts=android-deepl"
+                  title="非公式版 DeepL翻訳アプリ"
+                  tag={["Android", "Kotlin", "OSS"]}
+                  overview="DeepL翻訳のクライアントアプリが欲しかったために作った非公式Androidアプリ" />
+          </div>
         </SplideSlide>
         <SplideSlide>
-          <Post date="2022.3.14"
-                imageUrl="/posts/like-button/thumbnail.jpg"
-                href="https://portfolio.sakusaku3939.com/?posts=like-button"
-                title="いいねボタン"
-                tag={["HTML / CSS / JavaScript", "Vue.js", "Firebase"]}
-                overview="プレゼン発表中にリアルタイムで「いいね！」が送れるシステム" />
+          <div className={postList.card}>
+            <Post date="2022.3.14"
+                  imageUrl="/posts/like-button/thumbnail.jpg"
+                  href="https://portfolio.sakusaku3939.com/?posts=like-button"
+                  title="いいねボタン"
+                  tag={["HTML / CSS / JavaScript", "Vue.js", "Firebase"]}
+                  overview="プレゼン発表中にリアルタイムで「いいね！」が送れるシステム" />
+          </div>
         </SplideSlide>
       </Splide>
     </div>
@@ -64,7 +72,7 @@ type PostProps = {
 const Post = ({ date, imageUrl, href, title, tag, overview }: PostProps) => {
   return <>
     <a className={postList.reset} href={href}>
-      <div className={`${postList.card} ${postList.skin}`}>
+      <div className={postList.skin}>
         <div className={postList.date}>{date}</div>
         <div className={postList.image} style={{ backgroundImage: `url(${imageUrl})` }} />
         <div className={postList.textBox}>
@@ -81,4 +89,4 @@ const Post = ({ date, imageUrl, href, title, tag, overview }: PostProps) => {
   </>;
 };
 
-export default PostsList;
+export { PostsList, Post };

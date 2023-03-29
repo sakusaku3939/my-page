@@ -2,7 +2,7 @@ import Head from "next/head";
 import index from "@/styles/index.module.css";
 import SnsList from "@/components/molecule/SnsList/SnsList";
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
-import PostsList from "@/components/organism/PostsList/PostsList";
+import { PostsList } from "@/components/organism/PostsList/PostsList";
 import { Timeline, TimeLineItem, TimeLineLink } from "@/components/organism/Timeline/Timeline";
 import { faGraduationCap, faBriefcase, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { Skills, SkillsItem, SkillsItemWrapper, SkillsSubItemWrapper } from "@/components/organism/Skills/Skills";
