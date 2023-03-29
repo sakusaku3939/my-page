@@ -71,7 +71,7 @@ type PostProps = {
 
 const Post = ({ date, imageUrl, href, title, tag, overview }: PostProps) => {
   return <>
-    <a className={postList.reset} href={href}>
+    <Link className={postList.reset} href={href}>
       <div className={postList.skin}>
         <div className={postList.date}>{date}</div>
         <div className={postList.image} style={{ backgroundImage: `url(${imageUrl})` }} />
@@ -85,7 +85,7 @@ const Post = ({ date, imageUrl, href, title, tag, overview }: PostProps) => {
           <div className={postList.overview}>{overview}</div>
         </div>
       </div>
-    </a>
+    </Link>
   </>;
 };
 

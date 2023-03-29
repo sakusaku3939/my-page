@@ -13,11 +13,17 @@ const Index = ({ overviews }: Props) => {
   return (
     <>
       <h1 className={index.postTitle}>記事一覧</h1>
+      <ul className={`${common.tag} ${index.mobileCategory}`}>
+        <li>Android / iOS (3)</li>
+        <li>Flutter (2)</li>
+        <li>Dart (2)</li>
+        <li>アプリ甲子園 (1)</li>
+      </ul>
       <div className={index.wrapper}>
         <section className={index.postsList}>
           <Post date="2021.10.25"
                 imageUrl="/posts/presc/thumbnail.jpg"
-                href="https://portfolio.sakusaku3939.com/?posts=presc"
+                href="/posts/presc"
                 title="Presc"
                 tag={["Android / iOS", "Flutter", "Dart"]}
                 overview="音声認識により、どこまで読んだかが分かるプレゼンテーション用原稿表示アプリ" />

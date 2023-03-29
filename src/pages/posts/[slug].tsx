@@ -27,7 +27,7 @@ const Posts = ({ front, markdownBody }: PostData) => {
       <main>
         <nav>
           <ol className={posts.breadcrumb}>
-            <li><Link href="">ホーム</Link></li>
+            <li><Link href="/posts">ホーム</Link></li>
             <li>{front.title}</li>
           </ol>
         </nav>
