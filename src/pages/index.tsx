@@ -36,7 +36,7 @@ const Index = () => {
                 Flutterを用いたモバイルアプリ開発時に使用しています。実務での経験があります。
               </SkillsItem>
               <SkillsItem title="Kotlin">
-                Androidネイティブアプリ開発時に使用しています。過去にOSSプロジェクトを公開しました。
+                Androidネイティブアプリ開発時に使用しています。過去にOSSを公開しました。
               </SkillsItem>
               <SkillsItem title="Java">
                 FRCのロボットプログラム作成時や、技術本から学ぶ時に使用しています。また、基本情報技術者試験の午後問題で選択しました。
