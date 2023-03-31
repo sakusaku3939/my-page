@@ -6,7 +6,7 @@ import remarkGfm from "remark-gfm";
 import { CustomTagParser, ImageTagParser } from "@/model/CustomTagParser";
 import Head from "next/head";
 import Link from "next/link";
-import { getPostData, getAllPostSlugs } from "@/model/PostApi";
+import { getPostData, getAllPostSlugs, getAllCategories } from "@/model/PostApi";
 import matter from "gray-matter";
 import { GetStaticPropsContext } from "next";
 import Category from "@/components/molecule/Category/Category";
@@ -14,9 +14,10 @@ import Category from "@/components/molecule/Category/Category";
 type PostData = {
   front: any,
   markdownBody: string,
+  categories: { [tag: string]: number }[],
 }
 
-const Posts = ({ front, markdownBody }: PostData) => {
+const Posts = ({ front, markdownBody, categories }: PostData) => {
   return <>
     <Head>
       <title>Posts | Aokiti</title>
@@ -48,7 +49,7 @@ const Posts = ({ front, markdownBody }: PostData) => {
           </ReactMarkdown>
         </div>
       </main>
-      <Category />
+      <Category tags={categories}/>
     </div>
   </>;
 };
@@ -58,10 +59,13 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const slug = typeof rawSlug === "string" ? rawSlug : rawSlug[0];
   const data = getPostData(slug);
   const singleDocument = matter(data);
+  const categories = getAllCategories();
+
   return {
     props: {
       front: singleDocument.data,
-      markdownBody: singleDocument.content
+      markdownBody: singleDocument.content,
+      categories: categories
     }
   };
 }

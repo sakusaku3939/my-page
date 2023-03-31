@@ -33,3 +33,24 @@ export function getAllPostOverview() {
   }
   return overviews.sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1);
 }
+
+export function getAllCategories() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  let tags = [];
+  for (let name of fileNames) {
+    const fullPath = path.join(postsDirectory, name);
+    const data = fs.readFileSync(fullPath, "utf8");
+    const front = matter(data).data;
+    tags.push(front.tag.split(", "));
+  }
+  const flatTags = tags.flat(2);
+
+  let categories: { [tag: string]: number }[] = [];
+  for (let tag of flatTags) {
+    const value = flatTags.filter(e => e === tag).length;
+    categories.push({ tag: tag, count: value });
+  }
+  categories.sort((a, b) => a.count < b.count ? 1 : -1);
+
+  return categories;
+}

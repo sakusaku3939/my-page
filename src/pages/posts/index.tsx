@@ -1,22 +1,24 @@
 import index from "@/styles/index.module.css";
 import common from "@/styles/common.module.css";
-import { getAllPostOverview } from "@/model/PostApi";
+import { getAllCategories, getAllPostOverview } from "@/model/PostApi";
 import { Post } from "@/components/organism/PostsList/PostsList";
 import Category from "@/components/molecule/Category/Category";
 
 type Props = {
+  categories: { [tag: string]: number }[],
   overviews: { [p: string]: any }[],
 }
 
-const Index = ({ overviews }: Props) => {
+const Index = ({ categories, overviews }: Props) => {
   return (
     <>
       <h1 className={index.postTitle}>記事一覧</h1>
       <ul className={`${common.tag} ${index.mobileCategory}`}>
-        <li>Android / iOS (3)</li>
-        <li>Flutter (2)</li>
-        <li>Dart (2)</li>
-        <li>アプリ甲子園 (1)</li>
+        {categories.map((category: any, key) =>
+          <>
+            <li key={key}>{category.tag} ({category.count})</li>
+          </>
+        )}
       </ul>
       <div className={index.wrapper}>
         <section className={index.postsList}>
@@ -34,7 +36,7 @@ const Index = ({ overviews }: Props) => {
           <div className={index.postDummy} />
         </section>
         <div className={index.category}>
-          <Category />
+          <Category tags={categories}/>
         </div>
       </div>
     </>
@@ -42,9 +44,13 @@ const Index = ({ overviews }: Props) => {
 };
 
 export async function getStaticProps() {
+  const categories = getAllCategories();
   const posts = getAllPostOverview();
   return {
-    props: { overviews: posts }
+    props: {
+      categories: categories,
+      overviews: posts
+    }
   };
 }
 
