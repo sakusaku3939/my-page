@@ -1,5 +1,4 @@
 import index from "@/styles/index.module.css";
-import common from "@/styles/common.module.css";
 import { getAllCategories, getAllPostOverview } from "@/model/PostApi";
 import { Post } from "@/components/organism/PostsList/PostsList";
 import Category from "@/components/molecule/Category/Category";
