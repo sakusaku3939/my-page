@@ -12,12 +12,12 @@ import { GetStaticPropsContext } from "next";
 import Category from "@/components/molecule/Category/Category";
 
 type PostData = {
-  front: any,
+  overview: any,
   markdownBody: string,
   categories: { [tag: string]: number }[],
 }
 
-const Posts = ({ front, markdownBody, categories }: PostData) => {
+const Posts = ({ overview, markdownBody, categories }: PostData) => {
   return <>
     <Head>
       <title>Posts | Aokiti</title>
@@ -29,14 +29,14 @@ const Posts = ({ front, markdownBody, categories }: PostData) => {
         <nav>
           <ol className={posts.breadcrumb}>
             <li><Link href="/posts">ホーム</Link></li>
-            <li>{front.title}</li>
+            <li>{overview.title}</li>
           </ol>
         </nav>
         <div className={`${common.shadow} ${posts.post}`}>
-          <div className={posts.title}>{front.title}</div>
+          <div className={posts.title}>{overview.title}</div>
           <ul className={`${common.tag} ${posts.tag}`}>
             {
-              front.tag.split(", ").map((value: string, key: number) => (
+              overview.tag.split(", ").map((value: string, key: number) => (
                 <li key={key}>{value}</li>
               ))
             }
@@ -57,13 +57,13 @@ const Posts = ({ front, markdownBody, categories }: PostData) => {
 export async function getStaticProps(context: GetStaticPropsContext) {
   const rawSlug = context.params?.slug ?? "";
   const slug = typeof rawSlug === "string" ? rawSlug : rawSlug[0];
-  const data = getPostData(slug);
+  const data = getPostData(`${slug}.md`);
   const singleDocument = matter(data);
   const categories = getAllCategories();
 
   return {
     props: {
-      front: singleDocument.data,
+      overview: singleDocument.data,
       markdownBody: singleDocument.content,
       categories: categories
     }

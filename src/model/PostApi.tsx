@@ -4,8 +4,8 @@ import matter from "gray-matter";
 
 const postsDirectory = path.join(process.cwd(), "_posts/");
 
-export function getPostData(name: string) {
-  const fullPath = path.join(postsDirectory, `${name}.md`);
+export function getPostData(filename: string) {
+  const fullPath = path.join(postsDirectory, filename);
   return fs.readFileSync(fullPath, "utf8");
 }
 
@@ -14,6 +14,7 @@ export function getAllPostSlugs() {
   return fileNames.map(fileName => {
     return {
       params: {
+        // ファイル名のみを取得してslugに返却
         slug: fileName.replace(/\.md$/, "")
       }
     };
@@ -24,31 +25,34 @@ export function getAllPostOverview() {
   const fileNames = fs.readdirSync(postsDirectory);
   let overviews = [];
   for (let name of fileNames) {
-    const fullPath = path.join(postsDirectory, name);
-    const data = fs.readFileSync(fullPath, "utf8");
-    const front = matter(data).data;
-
-    front.slug = name.replace(/\.md$/, "");
-    overviews.push(front);
+    // overviewにslugパラメータを追加してリストに格納
+    const overview = matter(getPostData(name)).data;
+    overview.slug = name.replace(/\.md$/, "");
+    overviews.push(overview);
   }
+  // 新しい日付順でソートして返却
   return overviews.sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1);
 }
 
 export function getAllCategories() {
   const fileNames = fs.readdirSync(postsDirectory);
+
+  // すべての投稿からタグを取得して1次元化する
   let tags = [];
   for (let name of fileNames) {
-    const fullPath = path.join(postsDirectory, name);
-    const data = fs.readFileSync(fullPath, "utf8");
-    const front = matter(data).data;
-    tags.push(front.tag.split(", "));
+    const overview = matter(getPostData(name)).data;
+    tags.push(overview.tag.split(", "));
   }
   const flatTags = tags.flat(2);
 
+  // 同じタグをまとめたオブジェクト配列を作成
   let categories: { [tag: string]: number }[] = [];
   for (let tag of flatTags) {
-    const value = flatTags.filter(e => e === tag).length;
-    categories.push({ tag: tag, count: value });
+    const count = flatTags.filter(e => e === tag).length;
+    const tagIndex = categories.findIndex(e => e.tag === tag);
+    if (tagIndex === -1) {
+      categories.push({ tag: tag, count: count });
+    }
   }
   categories.sort((a, b) => a.count < b.count ? 1 : -1);
 
