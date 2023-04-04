@@ -32,11 +32,6 @@
     border-left: 5px solid #757575;
 }
 
-.mobileCategory {
-    display: none;
-    text-align: center;
-}
-
 .wrapper {
     display: flex;
     justify-content: center;
@@ -84,18 +79,6 @@
     .category {
         display: none;
     }
-
-    .mobileCategory {
-        display: block;
-        margin: 0 auto 16px;
-        width: 80vw;
-        overflow-x: scroll;
-        white-space: nowrap;
-    }
-
-    .mobileCategory::-webkit-scrollbar {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 720px) {
@@ -116,5 +99,9 @@
 
     .title {
         font-size: 48px;
+    }
+
+    .postsList > * {
+        width: 90%;
     }
 }

@@ -13,13 +13,6 @@ const Index = ({ categories, overviews }: Props) => {
   return (
     <>
       <h1 className={index.postTitle}>記事一覧</h1>
-      <ul className={`${common.tag} ${index.mobileCategory}`}>
-        {categories.map((category: any, key) =>
-          <>
-            <li key={key}>{category.tag} ({category.count})</li>
-          </>
-        )}
-      </ul>
       <div className={index.wrapper}>
         <section className={index.postsList}>
           {overviews.map((post: any) =>
