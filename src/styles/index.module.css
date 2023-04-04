@@ -46,7 +46,7 @@
     font-size: 28px;
     font-weight: bold;
     text-align: center;
-    padding: 32px 16px 16px;
+    padding: 40px 16px 24px;
 }
 
 .postsList {
@@ -87,7 +87,14 @@
 
     .mobileCategory {
         display: block;
-        margin: 0 24px 16px;
+        margin: 0 auto 16px;
+        width: 80vw;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+
+    .mobileCategory::-webkit-scrollbar {
+        display: none;
     }
 }
 
