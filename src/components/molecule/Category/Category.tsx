@@ -1,21 +1,20 @@
 import category from "@/components/molecule/Category/Category.module.css";
 import common from "@/styles/common.module.css";
+import { renderCountTags } from "@/model/PostApi";
+import { useRouter } from "next/router";
 
 type Props = {
-  tags: { [tag: string]: number }[],
+  categories: { [tag: string]: number }[],
 }
 
-const Category = ({ tags }: Props) => {
+const Category = ({ categories }: Props) => {
+  const router = useRouter();
   return <>
     <aside className={category.aside}>
       <div className={`${common.shadow} ${category.skin}`}>
         <h1>すべてのカテゴリー</h1>
         <ul className={common.tag}>
-          {tags.map((category: any, key) =>
-            <>
-              <li key={key}>{category.tag} ({category.count})</li>
-            </>
-          )}
+          {renderCountTags(router, categories)}
         </ul>
       </div>
     </aside>

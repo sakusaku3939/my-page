@@ -28,7 +28,7 @@ const Index = ({ categories, overviews }: Props) => {
           <div className={index.postDummy} />
         </section>
         <div className={index.category}>
-          <Category tags={categories}/>
+          <Category categories={categories}/>
         </div>
       </div>
     </>

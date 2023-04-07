@@ -1,6 +1,8 @@
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
+import { NextRouter } from "next/router";
+import { MouseEvent } from "react";
 
 const postsDirectory = path.join(process.cwd(), "_posts/");
 
@@ -57,4 +59,28 @@ export function getAllCategories() {
   categories.sort((a, b) => a.count < b.count ? 1 : -1);
 
   return categories;
+}
+
+export function renderTags(router: NextRouter, tags: string[]) {
+  return tags.map((value: string, key: number) =>
+    <>
+      <li onClick={(e) => handleTagClick(e, router, value)} key={key}>{value}</li>
+    </>
+  );
+}
+
+export function renderCountTags(router: NextRouter, categories: { [tag: string]: number }[]) {
+  return categories.map((category: any, key) =>
+    <>
+      <li onClick={(e) => handleTagClick(e, router, category.tag)} key={key}>{category.tag} ({category.count})</li>
+    </>
+  );
+}
+
+function handleTagClick(e: MouseEvent, router: NextRouter, tag: string) {
+  e.preventDefault();
+  return router.push({
+    pathname: "/posts",
+    query: { filter: tag }
+  });
 }

@@ -6,10 +6,11 @@ import remarkGfm from "remark-gfm";
 import { CustomTagParser, ImageTagParser } from "@/model/CustomTagParser";
 import Head from "next/head";
 import Link from "next/link";
-import { getPostData, getAllPostSlugs, getAllCategories } from "@/model/PostApi";
+import { getPostData, getAllPostSlugs, getAllCategories, renderTags } from "@/model/PostApi";
 import matter from "gray-matter";
 import { GetStaticPropsContext } from "next";
 import Category from "@/components/molecule/Category/Category";
+import { useRouter } from "next/router";
 
 type PostData = {
   overview: any,
@@ -18,6 +19,7 @@ type PostData = {
 }
 
 const Posts = ({ overview, markdownBody, categories }: PostData) => {
+  const router = useRouter();
   return <>
     <Head>
       <title>Posts | Aokiti</title>
@@ -35,11 +37,7 @@ const Posts = ({ overview, markdownBody, categories }: PostData) => {
         <div className={`${common.shadow} ${posts.post}`}>
           <div className={posts.title}>{overview.title}</div>
           <ul className={`${common.tag} ${posts.tag}`}>
-            {
-              overview.tag.split(", ").map((value: string, key: number) => (
-                <li key={key}>{value}</li>
-              ))
-            }
+            {renderTags(router, overview.tag.split(", "))}
           </ul>
           <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{
             h1: CustomTagParser,
@@ -49,7 +47,7 @@ const Posts = ({ overview, markdownBody, categories }: PostData) => {
           </ReactMarkdown>
         </div>
       </main>
-      <Category tags={categories}/>
+      <Category categories={categories} />
     </div>
   </>;
 };

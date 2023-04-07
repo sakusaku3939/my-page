@@ -3,6 +3,8 @@ import common from "@/styles/common.module.css";
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Link from "next/link";
+import { renderTags } from "@/model/PostApi";
+import { useRouter } from "next/router";
 
 const PostsList = () => {
   return <>
@@ -70,6 +72,7 @@ type PostProps = {
 };
 
 const Post = ({ date, imageUrl, href, title, tag, overview }: PostProps) => {
+  const router = useRouter();
   return <>
     <Link className={postList.reset} href={href}>
       <div className={postList.skin}>
@@ -78,9 +81,7 @@ const Post = ({ date, imageUrl, href, title, tag, overview }: PostProps) => {
         <div className={postList.textBox}>
           <div className={postList.title}>{title}</div>
           <ul className={`${common.tag} ${postList.tag}`}>
-            {tag.map((value: string, key: number) => (
-              <li key={key}>{value}</li>
-            ))}
+            {renderTags(router, tag)}
           </ul>
           <div className={postList.overview}>{overview}</div>
         </div>
