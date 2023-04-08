@@ -44,6 +44,12 @@
     padding: 40px 16px 24px;
 }
 
+.postTitle span {
+    display: block;
+    color: #616161;
+    font-size: 16px;
+}
+
 .postsList {
     display: flex;
     flex-wrap: wrap;

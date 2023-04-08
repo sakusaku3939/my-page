@@ -5,14 +5,15 @@ import Category from "@/components/molecule/Category/Category";
 import { GetServerSidePropsContext } from "next";
 
 type Props = {
+  filter: string | string[],
   categories: { [tag: string]: number }[],
   overviews: { [p: string]: any }[],
 }
 
-const Index = ({ categories, overviews }: Props) => {
+const Index = ({ filter, categories, overviews }: Props) => {
   return (
     <>
-      <h1 className={index.postTitle}>記事一覧</h1>
+      <h1 className={index.postTitle}>記事一覧<span>{filter?.length ? `「${filter}」 の記事` : ""}</span></h1>
       <div className={index.wrapper}>
         <section className={index.postsList}>
           {overviews.map((post: any) =>
@@ -25,6 +26,7 @@ const Index = ({ categories, overviews }: Props) => {
                     overview={post.overview} />
             </>
           )}
+          <div className={index.postDummy} />
           <div className={index.postDummy} />
           <div className={index.postDummy} />
         </section>
@@ -42,6 +44,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext<{ sl
   const posts = getPostOverview(filter);
   return {
     props: {
+      filter: filter ?? "",
       categories: categories,
       overviews: posts
     }
