@@ -1,7 +1,8 @@
 import index from "@/styles/index.module.css";
-import { getAllCategories, getAllPostOverview } from "@/model/PostApi";
+import { getAllCategories, getPostOverview } from "@/model/PostApi";
 import { Post } from "@/components/organism/PostsList/PostsList";
 import Category from "@/components/molecule/Category/Category";
+import { GetServerSidePropsContext } from "next";
 
 type Props = {
   categories: { [tag: string]: number }[],
@@ -28,16 +29,17 @@ const Index = ({ categories, overviews }: Props) => {
           <div className={index.postDummy} />
         </section>
         <div className={index.category}>
-          <Category categories={categories}/>
+          <Category categories={categories} />
         </div>
       </div>
     </>
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps(context: GetServerSidePropsContext<{ slug: string }>) {
+  const { filter } = context.query;
   const categories = getAllCategories();
-  const posts = getAllPostOverview();
+  const posts = getPostOverview(filter);
   return {
     props: {
       categories: categories,

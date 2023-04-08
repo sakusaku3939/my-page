@@ -23,14 +23,23 @@ export function getAllPostSlugs() {
   });
 }
 
-export function getAllPostOverview() {
+export function getPostOverview(filter: string | string[] | undefined) {
   const fileNames = fs.readdirSync(postsDirectory);
   let overviews = [];
   for (let name of fileNames) {
-    // overviewにslugパラメータを追加してリストに格納
+    // overviewにslugパラメータを追加
     const overview = matter(getPostData(name)).data;
     overview.slug = name.replace(/\.md$/, "");
-    overviews.push(overview);
+
+    // フィルターがある場合は合致するものだけリストに格納
+    if (filter !== undefined) {
+      const tags = overview.tag.split(", ");
+      if (tags.includes(filter)) {
+        overviews.push(overview);
+      }
+    } else {
+      overviews.push(overview);
+    }
   }
   // 新しい日付順でソートして返却
   return overviews.sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1);
