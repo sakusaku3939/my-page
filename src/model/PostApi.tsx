@@ -33,8 +33,8 @@ export function getPostOverview(filter: string | string[] | undefined) {
 
     // フィルターがある場合は合致するものだけリストに格納
     if (filter !== undefined && typeof filter === "string") {
-      const tags = overview.tag.replaceAll(" ", "").split(/[,/]/);
-      const doIncludeTag = tags.filter((tag: string) => filter.replaceAll(" ", "").split("/").includes(tag));
+      const tags = overview.tag.split(", ");
+      const doIncludeTag = tags.filter((tag: string) => tag.includes(filter));
       if (doIncludeTag.length) {
         overviews.push(overview);
       }
@@ -60,7 +60,7 @@ export function getAllCategories() {
   // 同じタグをまとめたオブジェクト配列を作成
   let categories: { [tag: string]: number }[] = [];
   for (let tag of flatTags) {
-    const count = flatTags.filter(e => e === tag).length;
+    const count = flatTags.filter(e => e.includes(tag)).length;
     const tagIndex = categories.findIndex(e => e.tag === tag);
     if (tagIndex === -1) {
       categories.push({ tag: tag, count: count });
