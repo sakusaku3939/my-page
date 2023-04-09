@@ -32,9 +32,10 @@ export function getPostOverview(filter: string | string[] | undefined) {
     overview.slug = name.replace(/\.md$/, "");
 
     // フィルターがある場合は合致するものだけリストに格納
-    if (filter !== undefined) {
-      const tags = overview.tag.split(", ");
-      if (tags.includes(filter)) {
+    if (filter !== undefined && typeof filter === "string") {
+      const tags = overview.tag.replaceAll(" ", "").split(/[,/]/);
+      const doIncludeTag = tags.filter((tag: string) => filter.replaceAll(" ", "").split("/").includes(tag));
+      if (doIncludeTag.length) {
         overviews.push(overview);
       }
     } else {
