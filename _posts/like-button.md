@@ -12,17 +12,13 @@ date: 2022.3.14
 
 <video src="/posts/like-button/demo-video.mp4" controls autoplay muted></video>
 
-# スクショなど
+管理者画面にログインすることで発表者の切り替え・追加・コメントの削除等を、リアルタイムに行うことができます。
 
-# @row /posts/like-button/switch-screenshot.jpg /posts/like-button/add-screenshot.jpg
-# @row /posts/like-button/view-comment-screenshot.jpg /posts/like-button/presentation-screenshot.jpg
-
-![](/public/posts/like-button/home-screenshot.jpg)
-
+# @row /posts/like-button/home-screenshot.jpg /posts/like-button/switch-screenshot.jpg
+# @row /posts/like-button/add-screenshot.jpg /posts/like-button/view-comment-screenshot.jpg
 
 # 情報科発表会2022の様子
-当日は最大20台の同時接続があり、合計3,967回のいいねと200個のコメントがスクリーンに流れました。
+当日は最大20台の同時接続があり、3,967回のいいねと200個のコメントがスクリーンに流れました。
 
 ![](/public/posts/like-button/thumbnail.jpg)
-![](/public/posts/like-button/comment-photo1.jpg)
-![](/public/posts/like-button/comment-photo2.jpg)
+![](/public/posts/like-button/comment-photo.jpg)

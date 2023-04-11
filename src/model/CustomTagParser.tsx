@@ -50,7 +50,7 @@ export function CustomTagParser({ className, children }: HeadingProps) {
             {args.map((value: string, key: number) => {
               const rowParams = value.split(":");
               return <>
-                <div className={common.imageLinkContainer}>
+                <div className={`${common.imageContainer} ${posts.rowLink}`}>
                   <a href={"https://" + rowParams[1]} target="_blank">
                     <Image key={key} src={rowParams[0]} alt="" fill style={{ objectFit: "contain" }} />
                   </a>

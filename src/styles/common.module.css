@@ -16,17 +16,11 @@
     background-color: #616161;
 }
 
-.imageContainer, .imageLinkContainer {
+.imageContainer {
     position: unset !important;
 }
 
 .imageContainer img {
-    position: relative !important;
-    width: 100% !important;
-    height: unset !important;
-}
-
-.imageLinkContainer img {
     position: relative !important;
     width: unset !important;
     height: 100% !important;
