@@ -37,7 +37,7 @@ date: 2022.3.14
 
 
 # リンク
-- 「完成サイト（いいね・コメントは反映されません）  
+- 完成サイト（いいね・コメントは反映されません）  
   https://yamabuki-like-button.web.app/
 - GitHub  
   https://github.com/sakusaku3939/like-button
