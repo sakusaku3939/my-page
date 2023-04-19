@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { NextRouter } from "next/router";
 import { MouseEvent } from "react";
 
-const postsDirectory = path.join(process.cwd(), "_posts/");
+const postsDirectory = path.join(process.cwd(), "posts/");
 
 export function getPostData(filename: string) {
   const fullPath = path.join(postsDirectory, filename);
