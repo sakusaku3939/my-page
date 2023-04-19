@@ -17,8 +17,33 @@ date: 2022.3.14
 # @row /posts/like-button/home-screenshot.jpg /posts/like-button/switch-screenshot.jpg
 # @row /posts/like-button/add-screenshot.jpg /posts/like-button/view-comment-screenshot.jpg
 
+
+# 技術面
+フロントエンドはJavaScriptフレームワークのVue.js、バックエンドはFirebaseを採用しました。 
+発表者の書き込み・切り替えにはFirestoreを使用し、ユーザーによるいいねやコメントといった書き込みが多い処理は、Realtime Databaseを使用することで無料枠の範囲に収めました。
+
+いいねが送られた時のアニメーション再生はLottie-webを使用しました。
+
+![](/public/posts/like-button/architecture.jpg)
+
+コメントはNGワードによるフィルタリングを行い、加えて不適切なコメントは管理者画面で削除する ~(ただしクライアント側でlistenしているため一度流れ始めたコメントは非表示にならない)~　ことが可能です。
+
+
 # 情報科発表会2022の様子
 当日は最大20台の同時接続があり、3,967回のいいねと200個のコメントがスクリーンに流れました。
 
 ![](/public/posts/like-button/thumbnail.jpg)
 ![](/public/posts/like-button/comment-photo.jpg)
+
+
+# リンク
+- 「完成サイト（いいね・コメントは反映されません）  
+  https://yamabuki-like-button.web.app/
+- GitHub  
+  https://github.com/sakusaku3939/like-button
+
+
+# 使用技術
+言語・・・HTML, CSS, JavaScript
+フレームワーク、ライブラリ・・・Vue.js, Lottie, Firebase
+ツール・・・WebStorm, Adobe XD
