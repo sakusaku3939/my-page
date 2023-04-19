@@ -16,12 +16,14 @@ date: 2021.10.25
 
 編集画面は、基本的なメモ帳の機能（追加・編集・検索・削除）に加え、作った原稿にタグを付けて整理することができます。
 
+
 # ダウンロード
 # @br1
 # @row-link /posts/presc/app-store.png:apps.apple.com/jp/app/presc/id1599599891 /posts/presc/google-play.png:play.google.com/store/apps/details?id=com.sakusaku3939.presc
 
 # 発表資料
 # @speaker-deck c632239a5a8d4dcbafa33e1e3dfcab9d
+
 
 # 受賞歴
 ## アプリ甲子園
@@ -35,6 +37,7 @@ date: 2021.10.25
 
 ## 全国専門学科情報科研究協議会
 専門学科「情報科」の設置高校が集まって年に1度開催する、研究協議会の生徒表彰にて優秀賞を頂きました。
+
 
 # 技術面など
 アプリの開発はFlutterを採用しました。
@@ -56,16 +59,18 @@ https://qiita.com/sakusaku3939/items/9433f3fcfdad86cc264e
 - TextPainterで描画する方法（旧）
 ![](/public/posts/presc/vertical-slide.png)
 
+
 # リンク
 - 「プレゼンで時間オーバー」解決するアプリを高校生が開発 - 高校生新聞オンライン
   - 高校生新聞オンライン
     https://www.koukouseishinbun.jp/articles/-/8347
 
-  - Yahooニュース（現在削除済み）
+  - Yahooニュース（現在は削除）
     https://news.yahoo.co.jp/articles/ef4c1e6e6dc0843e9473f593b7eefe8369e5e29b
 
 - GitHub
   https://github.com/sakusaku3939/Presc
+
 
 # 使用技術
 言語 ・・・ Dart
