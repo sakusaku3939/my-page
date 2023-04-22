@@ -16,9 +16,10 @@ const Index = ({ filter, categories, overviews }: Props) => {
       <h1 className={index.postTitle}>記事一覧<span>{filter?.length ? `「${filter}」 の記事` : ""}</span></h1>
       <div className={index.wrapper}>
         <section className={index.postsList}>
-          {overviews.map((post: any) =>
+          {overviews.map((post: any, key: number) =>
             <>
-              <Post date={post.date}
+              <Post key={key}
+                    date={post.date}
                     imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
                     href={`/posts/${post.slug}`}
                     title={post.title}
