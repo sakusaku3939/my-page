@@ -3,6 +3,7 @@ import { getAllCategories, getPostOverview } from "@/model/PostApi";
 import { Post } from "@/components/organism/PostsList/PostsList";
 import Category from "@/components/molecule/Category/Category";
 import { GetServerSidePropsContext } from "next";
+import Head from "next/head";
 
 type Props = {
   filter: string | string[],
@@ -13,6 +14,11 @@ type Props = {
 const Index = ({ filter, categories, overviews }: Props) => {
   return (
     <>
+      <Head>
+        <title>Aokiti | Posts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <h1 className={index.postTitle}>記事一覧<span>{filter?.length ? `「${filter}」 の記事` : ""}</span></h1>
       <div className={index.wrapper}>
         <section className={index.postsList}>

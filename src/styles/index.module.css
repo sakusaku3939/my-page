@@ -91,6 +91,10 @@
     .postsList > * {
         width: 80%;
     }
+
+    .postTitle {
+        padding: 32px 16px 16px;
+    }
 }
 
 @media screen and (max-width: 500px) {

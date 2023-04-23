@@ -4,7 +4,7 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { Router } from "next/router";
 
-NProgress.configure({ showSpinner: false, speed: 400, minimum: 0.25 });
+NProgress.configure({ showSpinner: false, speed: 300, minimum: 0.25 });
 
 export default function App({ Component, pageProps }: AppProps) {
   Router.events.on("routeChangeStart", () => NProgress.start());
