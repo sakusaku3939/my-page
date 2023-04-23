@@ -130,7 +130,7 @@
     }
 
     .post {
-        padding: 24px 32px;
+        padding: 32px;
     }
 
     .post .title {
@@ -140,11 +140,11 @@
 
 @media screen and (max-width: 500px) {
     .wrapper {
-        padding: 12px 8px 0;
+        padding: 24px 8px 0;
     }
 
     .post {
-        padding: 24px 16px;
+        padding: 32px 16px;
     }
 
     .breadcrumb {

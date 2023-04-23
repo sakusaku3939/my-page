@@ -22,3 +22,7 @@ main {
 a {
     @apply underline text-blue-600 visited:text-purple-800
 }
+
+#nprogress .bar {
+    background: #616161 !important;
+}
