@@ -17,12 +17,13 @@ date: 2021.10.25
 編集画面は、基本的なメモ帳の機能（追加・編集・検索・削除）に加え、作った原稿にタグを付けて整理することができます。
 
 
+# 発表資料
+# @speaker-deck c632239a5a8d4dcbafa33e1e3dfcab9d
+
+
 # ダウンロード
 # @br1
 # @row-link /posts/presc/app-store.png:apps.apple.com/jp/app/presc/id1599599891 /posts/presc/google-play.png:play.google.com/store/apps/details?id=com.sakusaku3939.presc
-
-# 発表資料
-# @speaker-deck c632239a5a8d4dcbafa33e1e3dfcab9d
 
 
 # 受賞歴
