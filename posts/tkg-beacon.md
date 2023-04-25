@@ -25,3 +25,26 @@ Androidアプリの開発にはKotlin、バックエンドはFirebaseを使用�
 教室に設置したビーコン情報の検知には、AltBeaconライブラリを使用し、Appleが規格したBLE（Bluetooth Low Energy）のiBeaconのみに対応しました。
 
 ビーコンには主に、Major（階数）とMiner（同一階のID）とUUID（教室名などと紐付け）の3つのデータを設定しており、フォアグラウンドで取得したデータを、定期的にRealtime Database上に送信することで、リアルタイムに位置情報を反映することができます。
+
+![](/public/posts/tkg-beacon/beacon.png)
+
+ユーザー情報やプロフィール画像は、FirestoreやCloud Storage内に保存しました。
+また、Firebase Authenticationを使用して、SlackやMediumで採用されているメールリンク認証（パスワードレス認証）を実現しました。 メールアドレスを入力して、その受信ボックス宛に送られてきたURLをクリックすることで認証が完了します。
+
+![](/public/posts/tkg-beacon/architecture.png)
+
+
+# リンク
+- リリース版（Android）
+https://github.com/sakusaku3939/Beacon/releases
+
+- GitHub
+https://github.com/sakusaku3939/Beacon
+
+
+# 使用技術
+言語・・・Kotlin
+フレームワーク、ライブラリ・・・Firebase, AltBeacon, Coil, uCrop
+バックエンド・・・Firebase Auth, Realtime Database, Cloud Firestore, Cloud Storage
+ツール・・・Git, Adobe XD, Android Studio
+OS・・・Windows
