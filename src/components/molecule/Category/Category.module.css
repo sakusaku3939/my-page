@@ -21,3 +21,11 @@
         margin-right: 0;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .skin {
+        width: 282px;
+        min-width: 282px;
+        border: 1px solid #424242;
+    }
+}

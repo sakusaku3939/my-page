@@ -3,9 +3,9 @@
     font-size: 12px;
     margin: 0 2px 6px;
     padding: 2px 10px;
-    border: 1px solid var(--light-grey);
+    border: 1px solid var(--text-light-grey);
     border-radius: 24px;
-    color: var(--light-grey);
+    color: var(--text-light-grey);
     text-decoration: none;
     cursor: pointer;
     transition: .1s;
@@ -27,6 +27,6 @@
 }
 
 .shadow {
-    background-color: #ffffff;
+    background-color: var(--background-color);
     box-shadow: rgba(0, 0, 0, 0.06) 0 4px 24px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
 }

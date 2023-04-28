@@ -7,7 +7,7 @@
 }
 
 .card {
-    background-color: #ffffff;
+    background-color: var(--background-color);
     box-shadow: rgba(0, 0, 0, 0.06) 0 4px 24px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .breadcrumb a {
-    color: #000000 !important;
+    color: var(--text-color) !important;
 }
 
 .speakerDeck {
@@ -149,5 +149,19 @@
 
     .breadcrumb {
         margin-bottom: 12px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .card {
+        border: 2px solid #424242;
+    }
+
+    .post {
+        border: 1px solid #424242;
+    }
+
+    .post h1 {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 }
