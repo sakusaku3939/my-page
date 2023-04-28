@@ -79,7 +79,7 @@
 .breadcrumb li:not(:last-of-type)::after {
     content: "›";
     margin: 0 12px;
-    color: #616161;
+    color: var(--light-grey);
 }
 
 .breadcrumb a {

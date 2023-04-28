@@ -13,7 +13,7 @@
     margin-top: 8px;
     height: 12px;
     width: 12px;
-    background-color: #424242;
+    background-color: var(--grey);
     border-radius: 6px;
     content: "";
 }
@@ -24,7 +24,7 @@
     left: 6px;
     bottom: -8px;
     width: 1px;
-    background-color: #424242;
+    background-color: var(--grey);
     content: "";
 }
 
@@ -66,7 +66,7 @@
 }
 
 .date {
-    color: #616161;
+    color: var(--light-grey);
     font-weight: bold;
     min-width: 80px;
     padding-right: 16px;
@@ -84,7 +84,7 @@
 }
 
 .title .icon {
-    color: #616161;
+    color: var(--light-grey);
 }
 
 .content {
@@ -92,7 +92,7 @@
     padding-left: 32px;
     padding-bottom: 40px;
     line-height: 1.7;
-    color: #424242;
+    color: var(--grey);
 }
 
 .link {

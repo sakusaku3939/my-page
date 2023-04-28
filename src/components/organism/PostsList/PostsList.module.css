@@ -44,11 +44,11 @@
 }
 
 .textBox {
-    color: #424242;
+    color: var(--grey);
     width: 100%;
     height: 160px;
     padding: 12px 20px 0;
-    background: #ffffff;
+    background-color: var(--background-color);
 }
 
 .title {
@@ -76,7 +76,7 @@
 }
 
 .button a {
-    border: solid 2px #616161;
+    border: solid 2px var(--light-grey);
     font-size: 14px;
     padding: 12px 56px;
     transition: .1s;
@@ -95,5 +95,15 @@
     .card {
         width: 320px;
         margin: 16px 16px 32px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .skin {
+        border: 1px solid #424242;
+    }
+
+    .button a {
+        border: solid 2px #424242;
     }
 }

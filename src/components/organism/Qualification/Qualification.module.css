@@ -9,7 +9,7 @@
     margin-top: 20px;
     height: 12px;
     width: 12px;
-    background-color: #424242;
+    background-color: var(--grey);
     border-radius: 6px;
     content: "";
 }
@@ -20,7 +20,7 @@
     left: 6px;
     bottom: -24px;
     width: 1px;
-    background-color: #424242;
+    background-color: var(--grey);
     content: "";
 }
 
@@ -39,7 +39,7 @@
 }
 
 .subtitle {
-    color: #616161;
+    color: var(--light-grey);
     white-space: pre-wrap;
 }
 

@@ -27,7 +27,7 @@
 
 .h2 {
     margin-bottom: 12px;
-    color: #616161;
+    color: var(--light-grey);
     padding-left: 12px;
     border-left: 5px solid #757575;
 }
@@ -46,7 +46,7 @@
 
 .postTitle span {
     display: block;
-    color: #616161;
+    color: var(--light-grey);
     font-size: 16px;
 }
 
