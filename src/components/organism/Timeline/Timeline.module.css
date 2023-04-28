@@ -49,8 +49,8 @@
     right: 0;
     width: 8px;
     height: 8px;
-    border-bottom: 3px solid #424242;
-    border-right: 3px solid #424242;
+    border-bottom: 3px solid var(--grey);
+    border-right: 3px solid var(--grey);
     transform: translateY(-25%) rotate(45deg);
     content: '';
     transition: transform .3s;
