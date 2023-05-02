@@ -1,6 +1,6 @@
 ---
 title: 生徒証バーコード
-tag: Android / iOS, Cordova, JavaScript, Monaca
+tag: Android / iOS, Cordova, JavaScript
 overview: 学校の伝言システムで使用できる生徒証バーコード表示アプリ
 date: 2022.2.28
 ---
@@ -18,5 +18,5 @@ date: 2022.2.28
 
 # 使用技術
 言語・・・JavaScript
-フレームワーク、ライブラリ・・・Monaca (Cordova), Onsen UI, JsBarcode, PhoneGap BarcodeScanner
+フレームワーク、ライブラリ・・・Cordova (Monaca), Onsen UI, JsBarcode, PhoneGap BarcodeScanner
 ツール・・・Monaca Cloud IDE
