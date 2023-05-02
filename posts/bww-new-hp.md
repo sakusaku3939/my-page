@@ -25,7 +25,7 @@ https://bww8231.fuji3.info
 
 
 # その他
-ホームページでも使われている2つの動画は自分で制作しました。
+ホームページでも使われている2つの動画は自分が制作しました。
 
 # @youtube j4t0hAsJ-mU
 # @youtube hfJ194l3SEw
