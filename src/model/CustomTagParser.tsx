@@ -60,6 +60,14 @@ export function CustomTagParser({ className, children }: HeadingProps) {
           </div>
         </>;
 
+      // @youtube (youtube-id)
+      case "@youtube":
+        return <>
+          <div className={posts.youtube}>
+            <iframe src={`https://www.youtube.com/embed/${params[1]}`} allowFullScreen></iframe>
+          </div>
+        </>;
+
       default:
         return <></>;
     }

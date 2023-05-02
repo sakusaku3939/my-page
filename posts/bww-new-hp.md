@@ -24,6 +24,12 @@ https://bww8231.fuji3.info
 ![](/public/posts/bww-new-hp/mockup.png)
 
 
+# その他
+ホームページでも使われている2つの動画は自分で制作しました。
+
+# @youtube j4t0hAsJ-mU
+# @youtube hfJ194l3SEw
+
 # リンク
 - 完成サイト  
 https://bww8231.fuji3.info
