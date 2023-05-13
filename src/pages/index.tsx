@@ -30,7 +30,7 @@ const Index = () => {
             <h2 className={index.h2}>メイン言語</h2>
             <SkillsItemWrapper>
               <SkillsItem title="JavaScript">
-                Node.jsやチャットボットといったサーバー処理に加え、Vue.jsやjQueryといったクライアントサイドでも使用しています。
+                Node.jsやチャットボットといったサーバーサイドや、Vue.jsやjQueryを用いたWebアプリ開発に使用しています。
               </SkillsItem>
               <SkillsItem title="Dart">
                 Flutterを用いたモバイルアプリ開発時に使用しています。実務での経験があります。
@@ -46,19 +46,19 @@ const Index = () => {
             <h2 className={index.h2}>サブ言語</h2>
             <SkillsSubItemWrapper>
               <SkillsItem title="TypeScript">
-                Next.jsを用いたWebシステムやDiscordボット作成に使用しました。
+                Next.jsを用いた自作CMSサイトやDiscordボット作成に使用しました。
               </SkillsItem>
               <SkillsItem title="Python">
                 技術本から学ぶ時やpygameを用いたゲーム開発にて使用しました。
               </SkillsItem>
               <SkillsItem title="PHP">
-                Webシステム作成時や高校の情報システム実習で使用しました。
+                Webアプリ作成時や高校の情報システムの授業で使用しました。
               </SkillsItem>
               <SkillsItem title="C">
                 高校のアルゴリズムの授業で習いました。簡単なソートアルゴリズム等を実装しました。
               </SkillsItem>
               <SkillsItem title="Go">
-                ブロックチェーンシステムの簡易再現や、分散ストレージの研究で使用しました。
+                ブロックチェーンシステムの簡易再現や、分散ストレージの学習に使用しました。
               </SkillsItem>
             </SkillsSubItemWrapper>
           </Skills>
