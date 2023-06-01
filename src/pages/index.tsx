@@ -19,7 +19,7 @@ const Index = () => {
       <main>
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
-          <div className={index.subtitle}>B1 / 中澤大越研 <a href="https://d-hacks.jn.sfc.keio.ac.jp/">d-hacks</a> , <a href="https://www.jn.sfc.keio.ac.jp/">sensys</a></div>
+          <div className={index.subtitle}>B1 / 中澤大越研 <a href="https://d-hacks.jn.sfc.keio.ac.jp/" target="_blank">d-hacks</a> , <a href="https://www.jn.sfc.keio.ac.jp/" target="_blank">sensys</a></div>
           <SnsList />
         </section>
         <section className={index.section}>
