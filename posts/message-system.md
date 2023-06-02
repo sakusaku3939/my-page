@@ -1,7 +1,7 @@
 ---
 title: Web版 伝言システム
 tag: HTML / CSS / JavaScript, PHP, Apache
-overview: 学校に置いてある伝言システムのWeb版を開発
+overview: 学校に置いてある伝言システムのWeb版開発
 date: 2020.9.30
 ---
 
