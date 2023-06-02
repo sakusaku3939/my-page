@@ -44,6 +44,6 @@ date: 2022.3.14
 
 
 # 使用技術
-言語・・・HTML, CSS, JavaScript
-フレームワーク、ライブラリ・・・Vue.js, Lottie, Firebase
-ツール・・・WebStorm, Adobe XD
+言語 ・・・ HTML, CSS, JavaScript
+フレームワーク、ライブラリ ・・・ Vue.js, Lottie, Firebase
+ツール ・・・ Adobe XD

@@ -40,4 +40,4 @@ https://github.com/frcbww/Website
 # 使用技術
 言語・・・HTML, CSS, JavaScript
 フレームワーク、ライブラリ・・・Anime.js, Modernizr
-ツール・・・GitHub Pages, Adobe XD, WebStorm
+ツール・・・GitHub Pages, Adobe XD

@@ -28,4 +28,4 @@ date: 2020.9.30
 # 使用技術
 言語・・・HTML, CSS, PHP, JavaScript
 フレームワーク、ライブラリ・・・Bootstrap, SQLite
-ツール・・・PlantUML, Apache, Git, VSCode
+ツール・・・PlantUML, Apache

@@ -43,8 +43,7 @@ https://github.com/sakusaku3939/Beacon
 
 
 # 使用技術
-言語・・・Kotlin
-フレームワーク、ライブラリ・・・Firebase, AltBeacon, Coil, uCrop
-バックエンド・・・Firebase Auth, Realtime Database, Cloud Firestore, Cloud Storage
-ツール・・・Git, Adobe XD, Android Studio
-OS・・・Windows
+言語 ・・・ Kotlin
+フレームワーク、ライブラリ ・・・ Firebase, AltBeacon, Coil, uCrop
+バックエンド ・・・ Firebase Auth, Realtime Database, Cloud Firestore, Cloud Storage
+ツール ・・・ Adobe XD

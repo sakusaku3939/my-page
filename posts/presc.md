@@ -77,4 +77,4 @@ https://qiita.com/sakusaku3939/items/9433f3fcfdad86cc264e
 言語 ・・・ Dart
 フレームワーク ・・・ Flutter
 主要ライブラリ ・・・ speech_to_text(音声認識), provider(MVVMフレームワーク), sqflite(データベース)
-ツール ・・・ DeployGate, Adobe XD, Android Studio
+ツール ・・・ DeployGate, Adobe XD
