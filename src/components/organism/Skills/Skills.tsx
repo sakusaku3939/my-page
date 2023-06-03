@@ -49,7 +49,7 @@ const SkillsItem = ({ title, children }: SkillItemProps) => {
     <>
       <div className={`${skills.card}`}>
         <div className={skills.title} onClick={(e) => handleTagClick(e, router, title)}>
-          <Image src={`/language-icon/${title}.png`} alt={title} width={16} height={16}
+          <Image src={`/language-icon/${title}.png`} alt={title} width={16} height={16} priority={true}
                  style={{ objectFit: "contain" }} />
           <span>{title}</span>
         </div>
