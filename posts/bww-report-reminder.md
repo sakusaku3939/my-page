@@ -1,6 +1,6 @@
 ---
 title: 活動報告リマインダー
-tag: Google Apps Script, Slack, BWW
+tag: Google Apps Script, Slack, BWW, bot
 overview: 活動日に活動報告を忘れないよう通知してくれるSlackボット
 date: 2020.12.26
 ---

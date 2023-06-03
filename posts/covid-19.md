@@ -1,6 +1,6 @@
 ---
 title: COVID-19 bot
-tag: Hubot, JavaScript, Slack
+tag: JavaScript, Slack, bot
 overview: 新型コロナウイルスに関する情報を取得してくれるSlackボット
 date: 2020.7.13
 ---
