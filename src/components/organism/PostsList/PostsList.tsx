@@ -18,7 +18,7 @@ const PostsList = () => {
           <div className={postList.card}>
             <Post date="2021.10.25"
                   imageUrl="/posts/presc/thumbnail.jpg"
-                  href="https://portfolio.sakusaku3939.com/?posts=presc"
+                  href="/posts/presc"
                   title="Presc"
                   tag={["Android / iOS", "Flutter", "Dart", "アプリ甲子園"]}
                   overview="音声認識により、どこまで読んだかが分かるプレゼンテーション用原稿表示アプリ" />
@@ -28,27 +28,27 @@ const PostsList = () => {
           <div className={postList.card}>
             <Post date="2021.2.18"
                   imageUrl="/posts/tkg-beacon/thumbnail.jpg"
-                  href="https://portfolio.sakusaku3939.com/?posts=tkg-beacon"
+                  href="/posts/tkg-beacon"
                   title="TKG Beacon"
                   tag={["Android", "Kotlin", "AltBeacon", "Firebase"]}
-                  overview="ビーコンを利用した、生徒と先生の位置情報共有Androidアプリ" />
+                  overview="BLEビーコンを利用した、生徒と先生の教室位置共有アプリ" />
           </div>
         </SplideSlide>
         <SplideSlide>
           <div className={postList.card}>
-            <Post date="2021.1.1"
-                  imageUrl="/posts/deepl-android/thumbnail.jpg"
-                  href="https://portfolio.sakusaku3939.com/?posts=android-deepl"
-                  title="非公式版 DeepL翻訳アプリ"
-                  tag={["Android", "Kotlin", "OSS"]}
-                  overview="DeepL翻訳のクライアントアプリが欲しかったために作った非公式Androidアプリ" />
+            <Post date="2020.5.13"
+                  imageUrl="/posts/syobon-action/thumbnail.jpg"
+                  href="/posts/syobon-action"
+                  title="しょぼんのアクション Python版"
+                  tag={["Python", "pygame", "Excel"]}
+                  overview="ちくさん制作の「しょぼんのアクション」をPythonで１から作り直したもの" />
           </div>
         </SplideSlide>
         <SplideSlide>
           <div className={postList.card}>
             <Post date="2022.3.14"
                   imageUrl="/posts/like-button/thumbnail.jpg"
-                  href="https://portfolio.sakusaku3939.com/?posts=like-button"
+                  href="/posts/like-button"
                   title="いいねボタン"
                   tag={["HTML / CSS / JavaScript", "Vue.js", "Firebase"]}
                   overview="プレゼン発表中にリアルタイムで「いいね！」が送れるシステム" />
@@ -57,7 +57,7 @@ const PostsList = () => {
       </Splide>
     </div>
     <div className={postList.button}>
-      <Link className={postList.reset} href="https://portfolio.sakusaku3939.com">もっと見る</Link>
+      <Link className={postList.reset} href="/posts">もっと見る</Link>
     </div>
   </>;
 };
