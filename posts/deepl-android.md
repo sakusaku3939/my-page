@@ -5,14 +5,13 @@ overview: DeepL翻訳のクライアントアプリが欲しかったために�
 date: 2021.1.1
 ---
 
-AndroidのGUIコンポーネントの「WebView」といわれる技術を使用して、非公式のDeepL翻訳クライアントアプリを制作しました。
-必要な要素以外はJavaScriptを使用して隠しています。
+AndroidのWebViewとJavaScriptを使用して、シンプルな非公式のDeepL翻訳クライアントアプリを制作しました。
+選択メニューからの翻訳、ダークモードなどに対応しています。
 
-アプリはMITライセンスでOSS化しており、2023年5月時点で 55個の解決済みIssues と 37個のPull requests がマージされました。
+アプリはMITライセンスでOSS化しており、2023年5月時点で <a href="https://github.com/sakusaku3939/DeepLAndroid/issues?q=is%3Aissue+is%3Aclosed" target="_blank">55個の解決済みIssues</a> と <a href="https://github.com/sakusaku3939/DeepLAndroid/pulls?q=is%3Apr+is%3Aclosed" target="_blank">37個のPull requests</a> がマージされました。
 アプリの言語は英語・日本語に加え、コントリビューターにより計8ヶ国語に対応しています。
 
 ![](/public/posts/deepl-android/screenshot.png)
-
 
 # リンク
 - リリース版 (F-Droid)  

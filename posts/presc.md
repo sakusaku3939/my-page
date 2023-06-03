@@ -58,6 +58,7 @@ TextPainterを使用して1文字ずつ描画する方法と、Wrapウィジェ�
 https://qiita.com/sakusaku3939/items/9433f3fcfdad86cc264e
 
 - TextPainterで描画する方法（旧）
+https://qiita.com/sakusaku3939/items/64d453f4cf4be875aa67
 ![](/public/posts/presc/vertical-slide.png)
 
 
@@ -66,7 +67,7 @@ https://qiita.com/sakusaku3939/items/9433f3fcfdad86cc264e
   - 高校生新聞オンライン
     https://www.koukouseishinbun.jp/articles/-/8347
 
-  - Yahooニュース（現在は削除）
+  - Yahooニュース（現在削除済み）
     https://news.yahoo.co.jp/articles/ef4c1e6e6dc0843e9473f593b7eefe8369e5e29b
 
 - GitHub
@@ -75,6 +76,5 @@ https://qiita.com/sakusaku3939/items/9433f3fcfdad86cc264e
 
 # 使用技術
 言語 ・・・ Dart
-フレームワーク ・・・ Flutter
-主要ライブラリ ・・・ speech_to_text(音声認識), provider(MVVMフレームワーク), sqflite(データベース)
+フレームワーク、ライブラリ ・・・ Flutter, speech_to_text, provider, sqflite
 ツール ・・・ DeployGate, Adobe XD

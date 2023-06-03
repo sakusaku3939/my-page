@@ -1,11 +1,11 @@
 ---
 title: TKG Beacon
 tag: Android, Kotlin, AltBeacon, Firebase
-overview: ビーコンを利用した、生徒と先生の位置情報共有Androidアプリ
+overview: BLEビーコンを利用した、生徒と先生の教室位置共有アプリ
 date: 2021.2.18
 ---
 
-ビーコンを活用した、学校内の位置共有アプリ「TKG Beacon」です。教室一つ一つにビーコンを置き、そのビーコンのIDをアプリが取得することで、位置を把握する仕組みになっています。
+BLEビーコンを活用した、学校内の位置共有アプリ「TKG Beacon」です。教室一つ一つにビーコンを置き、そのビーコンのIDをアプリが取得することで、位置を把握する仕組みになっています。
 学校に滞在する先生に用がある時に、どの教室にいるかが一目でわかります。
 
 # @row /posts/tkg-beacon/video1.gif /posts/tkg-beacon/video2.gif /posts/tkg-beacon/video3.gif /posts/tkg-beacon/video4.gif

@@ -1,6 +1,6 @@
 ---
 title: BWW New HP
-tag: HTML / CSS / JavaScript, Adobe XD, BWW
+tag: HTML / CSS / JavaScript, BWW
 overview: ロボット大会チーム「BWW」の公式ホームページ
 date: 2020.10.15
 ---
@@ -24,8 +24,8 @@ https://bww8231.fuji3.info
 ![](/public/posts/bww-new-hp/mockup.png)
 
 
-# その他
-ホームページでも使われている2つの動画は自分が制作しました。
+# おまけ
+ホームページで使われている2つの動画を制作しました。
 
 # @youtube j4t0hAsJ-mU
 # @youtube hfJ194l3SEw
