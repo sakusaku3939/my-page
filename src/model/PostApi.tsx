@@ -87,7 +87,7 @@ export function renderCountTags(router: NextRouter, categories: { [tag: string]:
   );
 }
 
-function handleTagClick(e: MouseEvent, router: NextRouter, tag: string) {
+export function handleTagClick(e: MouseEvent, router: NextRouter, tag: string) {
   e.preventDefault();
   return router.push({
     pathname: "/posts",
