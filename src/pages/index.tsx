@@ -7,6 +7,7 @@ import { Timeline, TimeLineItem, TimeLineLink } from "@/components/organism/Time
 import { faGraduationCap, faBriefcase, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { Skills, SkillsItem, SkillsItemWrapper, SkillsSubItemWrapper } from "@/components/organism/Skills/Skills";
 import { GetServerSidePropsContext } from "next";
+import NoColorLink from "@/components/atom/NoColorLink/NoColorLink";
 
 const Index = () => {
   return (
@@ -19,7 +20,10 @@ const Index = () => {
       <main>
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
-          <div className={index.subtitle}>B1 / 中澤大越研 <a href="https://d-hacks.jn.sfc.keio.ac.jp/" target="_blank">d-hacks</a> , <a href="https://www.jn.sfc.keio.ac.jp/" target="_blank">sensys</a></div>
+          <div className={index.subtitle}>B1 / 中澤大越研&nbsp;
+            <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" />
+            , <NoColorLink href="https://www.jn.sfc.keio.ac.jp/" title="sensys" />
+          </div>
           <SnsList />
         </section>
         <section className={index.section}>
