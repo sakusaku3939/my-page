@@ -20,7 +20,7 @@ const PostsList = () => {
                   imageUrl="/posts/presc/thumbnail.jpg"
                   href="https://portfolio.sakusaku3939.com/?posts=presc"
                   title="Presc"
-                  tag={["Android / iOS", "Flutter", "Dart"]}
+                  tag={["Android / iOS", "Flutter", "Dart", "アプリ甲子園"]}
                   overview="音声認識により、どこまで読んだかが分かるプレゼンテーション用原稿表示アプリ" />
           </div>
         </SplideSlide>

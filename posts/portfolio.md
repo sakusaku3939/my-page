@@ -1,6 +1,6 @@
 ---
 title: 旧Portfolio
-tag: HTML / CSS / JavaScript, PHP, GCP
+tag: HTML / CSS / JavaScript, PHP, Google Cloud
 overview: 自分用のオリジナルポートフォリオサイト
 date: 2020.7.6
 ---

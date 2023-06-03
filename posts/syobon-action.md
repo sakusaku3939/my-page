@@ -1,6 +1,6 @@
 ---
 title: しょぼんのアクション Python版
-tag: Python, pygame, xlrd
+tag: Python, pygame, Excel
 overview: ちくさん制作の「しょぼんのアクション」をPythonで１から作り直したもの
 date: 2020.5.13
 ---

@@ -1,6 +1,6 @@
 ---
 title: COVID-19 bot
-tag: Node.js, Hubot, Vagrant, Slack
+tag: Hubot, JavaScript, Slack
 overview: 新型コロナウイルスに関する情報を取得してくれるSlackボット
 date: 2020.7.13
 ---

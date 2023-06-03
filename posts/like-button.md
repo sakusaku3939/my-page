@@ -45,5 +45,6 @@ date: 2022.3.14
 
 # 使用技術
 言語 ・・・ HTML, CSS, JavaScript
-フレームワーク、ライブラリ ・・・ Vue.js, Lottie, Firebase
+フレームワーク、ライブラリ ・・・ Vue.js, Lottie
+バックエンド ・・・ Firebase Auth, Realtime Database, Cloud Firestore, Cloud Storage
 ツール ・・・ Adobe XD
