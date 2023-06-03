@@ -25,6 +25,6 @@ covid19 (都道府県名)  - 指定した都道府県の累計陽性者数を表
   https://github.com/sakusaku3939/covid19
 
 # 使用技術
-フレームワーク、ライブラリ・・・Node.js, Hubot
+フレームワーク、ライブラリ ・・・ Node.js, Hubot
 ジェネレーター・・・Yeoman, generator-hubot
-ツール・・・Slack, HerokuCLI, Vagrant, VirtualBox
+ツール ・・・ Slack, HerokuCLI, Vagrant, VirtualBox

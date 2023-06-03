@@ -23,5 +23,5 @@ https://github.com/sakusaku3939/DeepLAndroid/releases
 https://github.com/sakusaku3939/DeepLAndroid
 
 # 使用技術
-言語・・・Kotlin
-フレームワーク、ライブラリ・・・WebView
+言語 ・・・ Kotlin
+フレームワーク、ライブラリ ・・・ WebView

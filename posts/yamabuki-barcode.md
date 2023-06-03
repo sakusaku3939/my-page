@@ -17,6 +17,6 @@ date: 2022.2.28
 
 
 # 使用技術
-言語・・・JavaScript
-フレームワーク、ライブラリ・・・Cordova (Monaca), Onsen UI, JsBarcode, PhoneGap BarcodeScanner
-ツール・・・Monaca Cloud IDE
+言語 ・・・ JavaScript
+フレームワーク、ライブラリ ・・・ Cordova (Monaca), Onsen UI, JsBarcode, PhoneGap BarcodeScanner
+ツール ・・・ Monaca Cloud IDE

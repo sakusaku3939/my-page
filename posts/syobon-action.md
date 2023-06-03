@@ -32,6 +32,6 @@ resフォルダの中にあるステージデータ.xlsxのシート「1-1」を
   http://chibicon.net/slink/j062101/
 
 # 使用技術
-言語・・・Python
-フレームワーク、ライブラリ・・・Pygame, Tkinter, xlrd, cx_Freeze, NumPy
-ツール・・・Excel
+言語 ・・・ Python
+フレームワーク、ライブラリ ・・・ Pygame, Tkinter, xlrd, cx_Freeze, NumPy
+ツール ・・・ Excel

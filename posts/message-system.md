@@ -26,6 +26,6 @@ date: 2020.9.30
 ![](/public/posts/message-system/login.png)
 
 # 使用技術
-言語・・・HTML, CSS, PHP, JavaScript
-フレームワーク、ライブラリ・・・Bootstrap, SQLite
-ツール・・・PlantUML, Apache
+言語 ・・・ HTML, CSS, PHP, JavaScript
+フレームワーク、ライブラリ ・・・ Bootstrap, SQLite
+ツール ・・・ PlantUML, Apache

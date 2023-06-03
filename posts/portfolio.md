@@ -19,6 +19,6 @@ HTML5から導入されたHistoryAPIのpushStateメソッドを利用して、SP
   https://github.com/sakusaku3939/Portfolio
 
 # 使用技術
-言語・・・HTML, CSS, JavaScript, PHP
-フレームワーク、ライブラリ・・・jQuery, SweetAlert, PACE, PHPMailer
+言語 ・・・ HTML, CSS, JavaScript, PHP
+フレームワーク、ライブラリ ・・・ jQuery, SweetAlert, PACE, PHPMailer
 クラウド・・・Google Cloud Platform（2022年にHerokuから移行）

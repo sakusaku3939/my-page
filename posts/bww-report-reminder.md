@@ -15,6 +15,6 @@ date: 2020.12.26
 ![](/public/posts/bww-report-reminder/screenshots.png)
 
 # 使用技術
-言語・・・Google Apps Script（GAS）
-フレームワーク、ライブラリ・・・TimeTree API
-ツール・・・Slack, TimeTree
+言語 ・・・ Google Apps Script（GAS）
+フレームワーク、ライブラリ ・・・ TimeTree API
+ツール ・・・ Slack, TimeTree
