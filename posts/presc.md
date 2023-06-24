@@ -27,17 +27,15 @@ date: 2021.10.25
 
 
 # 受賞歴
-## アプリ甲子園
-2021年度のアプリ甲子園にて、3位と技術賞をいただきました。
+- ## アプリ甲子園
+  2021年度のアプリ甲子園にて、3位と技術賞をいただきました。
+  - 発表アーカイブ - アプリ甲子園2021 No.5 プレゼン原稿表示アプリ「Presc」  
+    https://youtu.be/JblLFCS-Eqw
 
-- 2021年入賞作品の紹介記事 - PR TIMES
-  https://prtimes.jp/main/html/rd/p/000000124.000019771.html
+# @br1
 
-- アプリ甲子園 発表アーカイブ - YouTube
-  https://youtu.be/JblLFCS-Eqw
-
-## 全国専門学科情報科研究協議会
-専門学科「情報科」の設置高校が集まって年に1度開催する、研究協議会の生徒表彰にて優秀賞を頂きました。
+- ## 全国専門学科情報科研究協議会
+  専門学科「情報科」の設置高校が集まって年に1度開催する、研究協議会の生徒表彰にて優秀賞を頂きました。
 
 
 # 技術面など
@@ -63,12 +61,12 @@ https://qiita.com/sakusaku3939/items/64d453f4cf4be875aa67
 
 
 # リンク
-- 「プレゼンで時間オーバー」解決するアプリを高校生が開発 - 高校生新聞オンライン
-  - 高校生新聞オンライン
-    https://www.koukouseishinbun.jp/articles/-/8347
-
+- 「プレゼンで時間オーバー」解決するアプリを高校生が開発
   - Yahooニュース（現在削除済み）
     https://news.yahoo.co.jp/articles/ef4c1e6e6dc0843e9473f593b7eefe8369e5e29b
+
+  - 高校生新聞オンライン
+    https://www.koukouseishinbun.jp/articles/-/8347
 
 - GitHub
   https://github.com/sakusaku3939/Presc
