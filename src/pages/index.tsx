@@ -34,35 +34,35 @@ const Index = () => {
             <h2 className={index.h2}>メイン言語</h2>
             <SkillsItemWrapper>
               <SkillsItem title="JavaScript">
-                Node.jsやチャットボットといったサーバーサイドや、Vue.jsやjQueryを用いたWebアプリ開発に使用
+                主にサーバー用途やAPIで使用。Node.js、チャットボット、Vue.jsなど
               </SkillsItem>
               <SkillsItem title="Dart">
-                Flutterを用いたモバイルアプリ開発時に使用。実務での経験あり
+                実務の経験あり。Flutterを用いたモバイルアプリ開発など
               </SkillsItem>
               <SkillsItem title="Kotlin">
-                Androidネイティブアプリ開発時に使用。過去にOSSのアプリストアに公開
+                過去にOSSを公開。Androidのネイティブアプリ開発など
               </SkillsItem>
-              <SkillsItem title="Java">
-                ロボットプログラム作成時や、技術本から勉強する時に使用。基本情報技術者試験の午後問題で選択
+              <SkillsItem title="Python">
+                主に研究で使用。PyTorchの深層学習モデル、ゲーム開発など
               </SkillsItem>
             </SkillsItemWrapper>
 
             <h2 className={index.h2}>サブ言語</h2>
             <SkillsSubItemWrapper>
               <SkillsItem title="TypeScript">
-                Next.jsを用いた自作CMSサイトや、Discordボット作成に使用
+                Next.jsを用いた自作CMS、Discordボット作成など
               </SkillsItem>
-              <SkillsItem title="Python">
-                技術本から勉強する時や、ゲーム開発に使用
+              <SkillsItem title="Java">
+                基本情報技術者の午後で選択。ロボットのプログラム、技術本の勉強など
               </SkillsItem>
               <SkillsItem title="PHP">
-                Webアプリ作成、情報システムの授業で使用
+                Webアプリ開発、Apacheサーバーなど
               </SkillsItem>
               <SkillsItem title="C">
-                高校のアルゴリズムの授業で使用。簡単なソートプログラムの実装など
+                高校のプログラムの授業で使用
               </SkillsItem>
               <SkillsItem title="Go">
-                ブロックチェーンの簡易再現、分散ストレージの学習に使用
+                ブロックチェーン、分散ストレージの勉強など
               </SkillsItem>
             </SkillsSubItemWrapper>
           </Skills>

@@ -19,7 +19,7 @@ const Index = ({ filter, categories, overviews }: Props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className={index.postTitle}>記事一覧<span>{filter?.length ? `「${filter}」 の記事` : ""}</span></h1>
+      <h1 className={index.postTitle}>Aokiti の制作物<span>{filter?.length ? `「${filter}」 の記事` : ""}</span></h1>
       <div className={index.wrapper}>
         <section className={index.postsList}>
           {overviews.map((post: any, key: number) =>
