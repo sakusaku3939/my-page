@@ -1,6 +1,11 @@
 .tag {
     overflow-x: scroll;
     white-space: nowrap;
-    margin: 0 auto;
+    margin: 0 auto 12px;
     width: 82%;
+    scrollbar-width: none;
+}
+
+.tag::-webkit-scrollbar {
+    display: none;
 }
