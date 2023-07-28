@@ -8,6 +8,7 @@ import { faGraduationCap, faBriefcase, faTrophy } from "@fortawesome/free-solid-
 import { Skills, SkillsItem, SkillsItemWrapper, SkillsSubItemWrapper } from "@/components/organism/Skills/Skills";
 import { GetServerSidePropsContext } from "next";
 import NoColorLink from "@/components/atom/NoColorLink/NoColorLink";
+import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <HamburgerMenu />
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
           <div className={index.subtitle}>B1 / 中澤大越研&nbsp;

@@ -5,6 +5,7 @@ import Category from "@/components/molecule/Category/Category";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory";
+import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 
 type Props = {
   filter: string | string[],
@@ -20,6 +21,7 @@ const Index = ({ filter, categories, overviews }: Props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <HamburgerMenu />
       <h1 className={index.postTitle}>Aokiti の制作物<span>{filter?.length ? `「${filter}」 の記事` : ""}</span></h1>
       <div className={index.mobileCategory}>
         <MobileCategory categories={categories} />
