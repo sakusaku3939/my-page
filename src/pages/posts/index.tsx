@@ -22,7 +22,7 @@ const Index = ({ filter, categories, overviews }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HamburgerMenu />
-      <h1 className={index.postTitle}>Aokiti の制作物<span>{filter?.length ? `「${filter}」 の記事` : ""}</span></h1>
+      <h1 className={index.postTitle}>Aokitiの記事一覧<span>{filter?.length ? `「${filter}」 の記事` : ""}</span></h1>
       <div className={index.mobileCategory}>
         <MobileCategory categories={categories} />
       </div>
