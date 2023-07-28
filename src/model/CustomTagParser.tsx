@@ -35,11 +35,11 @@ export function CustomTagParser({ className, children }: HeadingProps) {
       case "@row":
         return <>
           <div className={posts.row}>
-            {args.map((value: string, key: number) => <>
-              <div className={common.imageContainer}>
-                <Image key={key} src={value} alt="" fill style={{ objectFit: "contain" }} />
+            {args.map((value: string, key: number) => (
+              <div className={common.imageContainer} key={key}>
+                <Image src={value} alt="" fill style={{ objectFit: "contain" }} />
               </div>
-            </>)}
+            ))}
           </div>
         </>;
 

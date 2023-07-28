@@ -26,17 +26,15 @@ const Index = ({ filter, categories, overviews }: Props) => {
       </div>
       <div className={index.wrapper}>
         <section className={index.postsList}>
-          {overviews.map((post: any, key: number) =>
-            <>
-              <Post key={key}
-                    date={post.date}
-                    imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
-                    href={`/posts/${post.slug}`}
-                    title={post.title}
-                    tag={post.tag.split(", ")}
-                    overview={post.overview} />
-            </>
-          )}
+          {overviews.map((post: any, key: number) => (
+            <Post key={key}
+                  date={post.date}
+                  imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
+                  href={`/posts/${post.slug}`}
+                  title={post.title}
+                  tag={post.tag.split(", ")}
+                  overview={post.overview} />
+          ))}
           <div className={index.postDummy} />
           <div className={index.postDummy} />
           <div className={index.postDummy} />
