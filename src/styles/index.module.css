@@ -103,6 +103,7 @@
     .postsList > * {
         width: 80%;
         padding-bottom: 4px;
+        margin: 16px 0;
     }
 
     .postDummy {
