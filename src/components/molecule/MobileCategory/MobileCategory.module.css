@@ -1,0 +1,6 @@
+.tag {
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin: 0 auto;
+    width: 82%;
+}

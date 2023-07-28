@@ -4,6 +4,7 @@ import { Post } from "@/components/organism/PostsList/PostsList";
 import Category from "@/components/molecule/Category/Category";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
+import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory";
 
 type Props = {
   filter: string | string[],
@@ -20,6 +21,9 @@ const Index = ({ filter, categories, overviews }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className={index.postTitle}>Aokiti の制作物<span>{filter?.length ? `「${filter}」 の記事` : ""}</span></h1>
+      <div className={index.mobileCategory}>
+        <MobileCategory categories={categories} />
+      </div>
       <div className={index.wrapper}>
         <section className={index.postsList}>
           {overviews.map((post: any, key: number) =>

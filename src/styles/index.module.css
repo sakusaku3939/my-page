@@ -75,6 +75,10 @@
     margin-right: 48px;
 }
 
+.mobileCategory {
+    display: none;
+}
+
 @media screen and (max-width: 1700px) {
     .postsList > * {
         max-width: none;
@@ -85,15 +89,20 @@
     .category {
         display: none;
     }
+
+    .mobileCategory {
+        display: inline;
+    }
 }
 
 @media screen and (max-width: 720px) {
     .postsList > * {
         width: 80%;
+        padding-bottom: 4px;
     }
 
-    .postTitle {
-        padding: 32px 16px 16px;
+    .postDummy {
+        display: none;
     }
 }
 
