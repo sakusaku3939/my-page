@@ -58,7 +58,7 @@ const Index = () => {
                 基本情報技術者の午後で選択。ロボットのプログラム、技術本の勉強など
               </SkillsItem>
               <SkillsItem title="PHP">
-                Webアプリ開発、Apacheサーバーなど
+                Webアプリ開発、Apacheなど
               </SkillsItem>
               <SkillsItem title="C">
                 高校のプログラムの授業で使用
