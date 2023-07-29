@@ -6,11 +6,11 @@ date: 2020.7.6
 ---
 
 HTML,CSS,PHPで作った自作CMSに、メールフォームを実装した自分用のポートフォリオサイトです。
-HTML5から導入されたHistoryAPIのpushStateメソッドを利用して、SPA（シングルページアプリケーション）を構築しました。
+History APIのpushStateメソッドを利用して、SPA（シングルページアプリケーション）を再現しました。
+https://portfolio.sakusaku3939.com
 
 ![](/public/posts/portfolio/screenshot1.png)
 ![](/public/posts/portfolio/screenshot2.png)
-
 
 # リンク
 - 完成サイト  

@@ -6,7 +6,6 @@ date: 2021.1.1
 ---
 
 AndroidのWebViewとJavaScriptを使用して、シンプルな非公式のDeepL翻訳クライアントアプリを制作しました。
-選択メニューからの翻訳、ダークモードなどに対応しています。
 
 アプリはMITライセンスでOSS化しており、2023年5月時点で <a href="https://github.com/sakusaku3939/DeepLAndroid/issues?q=is%3Aissue+is%3Aclosed" target="_blank">55個の解決済みIssues</a> と <a href="https://github.com/sakusaku3939/DeepLAndroid/pulls?q=is%3Apr+is%3Aclosed" target="_blank">37個のPull requests</a> がマージされました。
 アプリの言語は英語・日本語に加え、コントリビューターにより計8ヶ国語に対応しています。
