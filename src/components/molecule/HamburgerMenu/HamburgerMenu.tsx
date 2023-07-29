@@ -20,7 +20,7 @@ const HamburgerMenu = () => {
     <div className={`${menu.content} ${isMenuOpen ? menu.open : ""}`} style={{ height: windowSize.height }}>
       <div className={menu.linkWrapper}>
         <Link className={menu.link} href="/" onClick={() => setIsMenuOpen(false)}>HOME</Link>
-        <Link className={menu.link} href="/posts" onClick={() => setIsMenuOpen(false)}>記事一覧</Link>
+        <Link className={menu.link} href="/posts" onClick={() => setIsMenuOpen(false)}>制作物</Link>
       </div>
     </div>
   </>;
