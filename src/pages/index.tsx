@@ -36,16 +36,16 @@ const Index = () => {
             <h2 className={index.h2}>メイン言語</h2>
             <SkillsItemWrapper>
               <SkillsItem title="JavaScript">
-                主にサーバー用途やAPIで使用。Node.js、チャットボット、Vue.jsなど
+                主にサーバー用途やAPI開発で使用。Node.js、チャットボット、Vue.jsなど
               </SkillsItem>
               <SkillsItem title="Dart">
                 実務の経験あり。Flutterを用いたモバイルアプリ開発など
               </SkillsItem>
               <SkillsItem title="Kotlin">
-                過去にOSSを公開。Androidのネイティブアプリ開発など
+                過去にOSSを公開。Androidアプリの開発など
               </SkillsItem>
               <SkillsItem title="Python">
-                主に研究で使用。PyTorchの深層学習モデル、ゲーム開発など
+                主に研究で使用。PyTorchを用いた深層学習、ゲーム開発など
               </SkillsItem>
             </SkillsItemWrapper>
 
@@ -55,13 +55,13 @@ const Index = () => {
                 Next.jsを用いた自作CMS、Discordボット作成など
               </SkillsItem>
               <SkillsItem title="Java">
-                基本情報技術者の午後で選択。ロボットのプログラム、技術本の勉強など
+                ロボットのプログラム、技術本での勉強など
               </SkillsItem>
               <SkillsItem title="PHP">
                 Webアプリ開発、Apacheなど
               </SkillsItem>
               <SkillsItem title="C">
-                高校のプログラムの授業で使用
+                高校のプログラミングの授業で使用
               </SkillsItem>
               <SkillsItem title="Go">
                 ブロックチェーン、分散ストレージの勉強など
