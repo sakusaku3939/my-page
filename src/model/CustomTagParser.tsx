@@ -1,13 +1,12 @@
-import { HeadingProps } from "react-markdown/lib/ast-to-react";
 import common from "@/styles/common.module.css";
 import posts from "@/styles/posts.module.css";
 import Image from "next/image";
 
-export function CustomTagParser({ className, children }: HeadingProps) {
+export function CustomTagParser({ className, children }: any) {
   if (children.toString().charAt(0) === "@") {
     const params = children.toString().split(" ");
     const name = params[0];
-    const args = params.filter((_, index: number) => index !== 0);
+    const args = params.filter((_: string, index: number) => index !== 0);
 
     switch (name) {
       // @br(n)
@@ -49,13 +48,13 @@ export function CustomTagParser({ className, children }: HeadingProps) {
           <div className={posts.row}>
             {args.map((value: string, key: number) => {
               const rowParams = value.split(":");
-              return <>
-                <div className={`${common.imageContainer} ${posts.rowLink}`}>
+              return (
+                <div className={`${common.imageContainer} ${posts.rowLink}`} key={key}>
                   <a href={"https://" + rowParams[1]} target="_blank">
-                    <Image key={key} src={rowParams[0]} alt="" fill style={{ objectFit: "contain" }} />
+                    <Image src={rowParams[0]} alt="" fill style={{ objectFit: "contain" }} />
                   </a>
                 </div>
-              </>;
+              );
             })}
           </div>
         </>;
