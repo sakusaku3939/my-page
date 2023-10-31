@@ -22,7 +22,7 @@ const Posts = ({ overview, markdownBody, categories }: PostData) => {
   const router = useRouter();
   return <>
     <Head>
-      <title>{overview.title} | Aokiti</title>
+      <title>{`${overview.title} | Aokiti`}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
