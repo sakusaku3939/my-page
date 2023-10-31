@@ -1,9 +1,10 @@
+import React from "react";
 import common from "@/styles/common.module.css";
 import posts from "@/styles/posts.module.css";
 import Image from "next/image";
 
-export function CustomTagParser({ className, children }: any) {
-  if (children.toString().charAt(0) === "@") {
+export function CustomTagParser({ className, children }: React.JSX.IntrinsicElements['h1']) {
+  if (children && children.toString().charAt(0) === "@") {
     const params = children.toString().split(" ");
     const name = params[0];
     const args = params.filter((_: string, index: number) => index !== 0);
