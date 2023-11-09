@@ -1,7 +1,7 @@
 ---
-title: 個人サイト
+title: プロフィールサイト
 tag: TypeScript, Next.js, Vercel
-overview: Nextで作った自作CMS
+overview: Next.js+Markdownの記事管理システム
 date: 2023.6.4
 ---
 
