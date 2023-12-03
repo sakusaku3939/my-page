@@ -1,7 +1,7 @@
 import menu from "@/components/molecule/HamburgerMenu/HamburgerMenu.module.css";
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import getWindowSize from "@/model/GetWindowSize";
+import { MenuItem } from "@/components/molecule/Menu/Menu";
 
 const HamburgerMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,9 +23,7 @@ const HamburgerMenu = () => {
     </div>
     <div className={`${menu.content} ${isMenuOpen ? menu.open : ""}`} style={{ height: windowSize.height }}>
       <div className={menu.linkWrapper}>
-        <Link className={menu.link} href="/" onClick={() => setIsMenuOpen(false)}>HOME</Link>
-        <Link className={menu.link} href="/profile" onClick={() => setIsMenuOpen(false)}>プロフィール</Link>
-        <Link className={menu.link} href="/posts" onClick={() => setIsMenuOpen(false)}>制作物</Link>
+        <MenuItem onClick={() => setIsMenuOpen(false)} />
       </div>
     </div>
   </>;

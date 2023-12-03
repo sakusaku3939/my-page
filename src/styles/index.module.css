@@ -32,6 +32,14 @@
     border-left: 5px solid #757575;
 }
 
+.menuVisibility {
+    display: initial;
+}
+
+.hamburgerVisibility {
+    display: none;
+}
+
 .wrapper {
     display: flex;
     justify-content: center;
@@ -103,6 +111,14 @@
 
     .postTitle {
         padding-bottom: 24px;
+    }
+
+    .menuVisibility {
+        display: none;
+    }
+
+    .hamburgerVisibility {
+        display: initial;
     }
 }
 
