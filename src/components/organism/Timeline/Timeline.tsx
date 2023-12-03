@@ -22,13 +22,14 @@ type TimeLineItemProps = {
   date: string
   icon: IconDefinition
   title: string
+  open?: boolean
   children?: ReactNode
 };
 
-const TimeLineItem = ({ date, icon, title, children }: TimeLineItemProps) => {
+const TimeLineItem = ({ date, icon, title, open = false, children }: TimeLineItemProps) => {
   return <>
     <li>
-      <details className={timeline.accordion}>
+      <details className={timeline.accordion} open={open}>
         <summary>
           <div className={timeline.titleWrapper}>
             <div className={timeline.date}>{date}</div>

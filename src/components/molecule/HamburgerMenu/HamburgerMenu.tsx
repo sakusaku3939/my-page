@@ -24,6 +24,7 @@ const HamburgerMenu = () => {
     <div className={`${menu.content} ${isMenuOpen ? menu.open : ""}`} style={{ height: windowSize.height }}>
       <div className={menu.linkWrapper}>
         <Link className={menu.link} href="/" onClick={() => setIsMenuOpen(false)}>HOME</Link>
+        <Link className={menu.link} href="/profile" onClick={() => setIsMenuOpen(false)}>プロフィール</Link>
         <Link className={menu.link} href="/posts" onClick={() => setIsMenuOpen(false)}>制作物</Link>
       </div>
     </div>
