@@ -44,7 +44,7 @@ const Index = () => {
                 過去にOSSを公開。Androidアプリの開発など
               </SkillsItem>
               <SkillsItem title="Python">
-                主に研究で使用。PyTorchを用いた深層学習、ゲーム開発など
+                主に研究で使用。PyTorchを用いた深層学習、ゲーム作成など
               </SkillsItem>
             </SkillsItemWrapper>
 
@@ -63,7 +63,10 @@ const Index = () => {
                 高校のプログラミングの授業で使用
               </SkillsItem>
               <SkillsItem title="Go">
-                ブロックチェーン、分散ストレージの勉強など
+                ブロックチェーン、分散ストレージ関連の勉強など
+              </SkillsItem>
+              <SkillsItem title="Ruby">
+                Railsを用いたWebアプリ作成など
               </SkillsItem>
             </SkillsSubItemWrapper>
           </Skills>
