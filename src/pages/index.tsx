@@ -32,23 +32,23 @@ const Index = () => {
 
           <h1 className={index.h1}>スキル</h1>
           <Skills>
-            <h2 className={index.h2}>メイン言語</h2>
+            <h2 className={index.h2}>メイン言語（多分使える）</h2>
             <SkillsItemWrapper>
-              <SkillsItem title="JavaScript">
-                主にサーバー用途やAPI開発で使用。Node.js、チャットボット、Vue.jsなど
-              </SkillsItem>
               <SkillsItem title="Dart">
                 実務の経験あり。Flutterを用いたモバイルアプリ開発など
               </SkillsItem>
-              <SkillsItem title="Kotlin">
-                過去にOSSを公開。Androidアプリの開発など
+              <SkillsItem title="JavaScript">
+                サーバー用途やAPI開発で使用。Node.js、チャットボット、Vue.jsなど
               </SkillsItem>
               <SkillsItem title="Python">
                 主に研究で使用。PyTorchを用いた深層学習、ゲーム作成など
               </SkillsItem>
+              <SkillsItem title="Kotlin">
+                過去にOSSを公開。Androidアプリの開発など
+              </SkillsItem>
             </SkillsItemWrapper>
 
-            <h2 className={index.h2}>サブ言語</h2>
+            <h2 className={index.h2}>サブ言語（あまり覚えてない）</h2>
             <SkillsSubItemWrapper>
               <SkillsItem title="TypeScript">
                 Next.jsを用いた自作CMS、Discordボット作成など
@@ -66,10 +66,10 @@ const Index = () => {
                 簡単なWindowsフォームアプリの作成
               </SkillsItem>
               <SkillsItem title="Go">
-                ブロックチェーン、分散ストレージ関連の勉強など
+                ブロックチェーン、分散ストレージの勉強で使用
               </SkillsItem>
               <SkillsItem title="Ruby">
-                授業で使用。Railsを用いたWebアプリを作成
+                授業で使用。Railsを用いたWebサイトを作成
               </SkillsItem>
             </SkillsSubItemWrapper>
           </Skills>
