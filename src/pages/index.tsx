@@ -48,7 +48,7 @@ const Index = () => {
               </SkillsItem>
             </SkillsItemWrapper>
 
-            <h2 className={index.h2}>サブ言語（あまり覚えてない）</h2>
+            <h2 className={index.h2}>サブ言語（あまり覚えてないかも）</h2>
             <SkillsSubItemWrapper>
               <SkillsItem title="TypeScript">
                 Next.jsを用いた自作CMS、Discordボット作成など
