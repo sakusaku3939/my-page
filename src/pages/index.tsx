@@ -68,9 +68,6 @@ const Index = () => {
               <SkillsItem title="Go">
                 ブロックチェーン、分散ストレージの勉強で使用
               </SkillsItem>
-              <SkillsItem title="Ruby">
-                授業で使用。Railsを用いたWebサイトを作成
-              </SkillsItem>
             </SkillsSubItemWrapper>
           </Skills>
         </section>
