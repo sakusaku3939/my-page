@@ -37,6 +37,7 @@ const Index = () => {
             <br />
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
+          <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="SFC-RG d-hacks & sensys（中澤・大越研究室）" />
         </Timeline>
 
         <h1 className={index.h1}>受賞歴</h1>

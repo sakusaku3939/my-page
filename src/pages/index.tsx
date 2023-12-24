@@ -21,7 +21,7 @@ const Index = () => {
         <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
-          <div className={index.subtitle}>B1 / 中澤大越研&nbsp;
+          <div className={index.subtitle}>B1 / SFC-RG&nbsp;
             <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" />
             , <NoColorLink href="https://www.jn.sfc.keio.ac.jp/" title="sensys" />
           </div>
@@ -48,7 +48,7 @@ const Index = () => {
               </SkillsItem>
             </SkillsItemWrapper>
 
-            <h2 className={index.h2}>サブ言語（あまり覚えてないかも）</h2>
+            <h2 className={index.h2}>サブ言語（あまり使ってない）</h2>
             <SkillsSubItemWrapper>
               <SkillsItem title="TypeScript">
                 Next.jsを用いた自作CMS、Discordボット作成など
@@ -66,7 +66,7 @@ const Index = () => {
                 簡単なWindowsフォームアプリの作成
               </SkillsItem>
               <SkillsItem title="Go">
-                ブロックチェーン、分散ストレージの勉強で使用
+                分散ストレージ技術の勉強で使用
               </SkillsItem>
             </SkillsSubItemWrapper>
           </Skills>
