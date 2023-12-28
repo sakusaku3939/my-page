@@ -34,10 +34,15 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2023.1 ~" icon={faBriefcase} title="株式会社Wanderlust Locket開発" open={true}>
             位置情報共有アプリ「Locket」のフロントエンド（Flutter）チームに約2ヶ月間所属しました。主にチャット機能、プロフィール画面等の開発に携わりました。
-            <br />
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-          <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="SFC-RG d-hacks & sensys（中澤・大越研究室）" />
+          <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="SFC-RG d-hacks, sensys" open={true}>
+            RG研究グループの中澤・大越研究室（d-hacksとsensys）で深層学習を用いた画像位置推定に関する研究をしています。
+            <TimeLineLink
+              description="RG"
+              href="https://rg.sfc.keio.ac.jp/ja"
+            />
+          </TimeLineItem>
         </Timeline>
 
         <h1 className={index.h1}>受賞歴</h1>
