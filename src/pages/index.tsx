@@ -21,7 +21,7 @@ const Index = () => {
         <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
-          <div className={index.subtitle}>B1 / SFC-RG&nbsp;
+          <div className={index.subtitle}>B1 / RG&nbsp;
             <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" />
             , <NoColorLink href="https://www.jn.sfc.keio.ac.jp/" title="sensys" />
           </div>

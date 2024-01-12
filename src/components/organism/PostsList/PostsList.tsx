@@ -36,22 +36,22 @@ const PostsList = () => {
         </SplideSlide>
         <SplideSlide>
           <div className={postList.card}>
-            <Post date="2020.5.13"
-                  imageUrl="/posts/syobon-action/thumbnail.jpg"
-                  href="/posts/syobon-action"
-                  title="しょぼんのアクション Python版"
-                  tag={["Python", "pygame", "Excel"]}
-                  overview="ちくさん制作の「しょぼんのアクション」をPythonで１から作り直したもの" />
-          </div>
-        </SplideSlide>
-        <SplideSlide>
-          <div className={postList.card}>
             <Post date="2022.3.14"
                   imageUrl="/posts/like-button/thumbnail.jpg"
                   href="/posts/like-button"
                   title="いいねボタン"
                   tag={["HTML / CSS / JavaScript", "Vue.js", "Firebase"]}
                   overview="プレゼン発表中にリアルタイムで「いいね！」が送れるシステム" />
+          </div>
+        </SplideSlide>
+        <SplideSlide>
+          <div className={postList.card}>
+            <Post date="2020.5.13"
+                  imageUrl="/posts/syobon-action/thumbnail.jpg"
+                  href="/posts/syobon-action"
+                  title="しょぼんのアクション Python版"
+                  tag={["Python", "pygame", "Excel"]}
+                  overview="ちくさん制作の「しょぼんのアクション」をPythonで１から作り直したもの" />
           </div>
         </SplideSlide>
       </Splide>
