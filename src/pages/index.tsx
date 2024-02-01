@@ -57,16 +57,19 @@ const Index = () => {
                 ロボットのプログラム、技術本での勉強など
               </SkillsItem>
               <SkillsItem title="PHP">
-                Webアプリ開発、Apacheなど
+                Webアプリ作成、Apacheなど
+              </SkillsItem>
+              <SkillsItem title="Ruby">
+                授業で使用。Railsを用いたWebアプリを作成
               </SkillsItem>
               <SkillsItem title="C">
                 高校のプログラミングの授業で使用
               </SkillsItem>
+              <SkillsItem title="Go">
+                ブロックチェーン、IPFSの勉強で使用
+              </SkillsItem>
               <SkillsItem title="C#">
                 簡単なWindowsフォームアプリの作成
-              </SkillsItem>
-              <SkillsItem title="Go">
-                分散ストレージ技術の勉強で使用
               </SkillsItem>
             </SkillsSubItemWrapper>
           </Skills>
