@@ -23,6 +23,10 @@ a {
     @apply underline text-blue-600 visited:text-purple-800
 }
 
+sup {
+    @apply text-blue-600
+}
+
 #nprogress .bar {
     background: var(--light-grey) !important;
 }
@@ -30,5 +34,9 @@ a {
 @media (prefers-color-scheme: dark) {
     a {
         @apply underline text-blue-300 visited:text-purple-500
+    }
+
+    sup {
+        @apply text-blue-300
     }
 }
