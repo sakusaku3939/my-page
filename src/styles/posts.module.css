@@ -146,6 +146,13 @@
     white-space: pre-wrap;
 }
 
+.post pre:has(code) > code {
+    color: #fff;
+    background-color: transparent;
+    padding: 0;
+    font-size: 14px;
+}
+
 .post code {
     color: #000;
     background-color: #eff1f3;
