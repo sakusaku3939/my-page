@@ -17,7 +17,7 @@
 }
 
 .imageContainer {
-    position: unset;
+    position: relative;
     display: grid;
 }
 

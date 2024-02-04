@@ -113,8 +113,12 @@
 }
 
 .rowLink {
-    display: inline!important;
+    display: inline !important;
     height: 80px;
+}
+
+.rowLink a {
+    position: relative;
 }
 
 .youtube {
