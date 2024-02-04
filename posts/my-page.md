@@ -7,7 +7,6 @@ date: 2023.6.4
 
 自分用のオリジナルプロフィールサイトをNext.js + Vercelを使用して構築しました。
 記事管理ページには、Markdownを利用したカスタムCMSが組み込まれており、カテゴリー別のフィルタリング検索が可能です。
-https://sakusaku3939.com/
 
 ![](/public/posts/my-page/screenshot1.png)
 # @br-4px
@@ -21,9 +20,7 @@ https://sakusaku3939.com/
 
 # リンク
 - 完成サイト  
-  https://sakusaku3939.com/  
-  https://sakusaku3939.com/profile  
-  https://sakusaku3939.com/posts
+  https://sakusaku3939.com/
 - GitHub  
   https://github.com/sakusaku3939/my-page
 
