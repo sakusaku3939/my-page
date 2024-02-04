@@ -21,6 +21,7 @@
 }
 
 .imageContainer img {
+    display: inline;
     position: relative !important;
     width: unset !important;
     height: 100% !important;
