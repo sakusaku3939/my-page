@@ -50,7 +50,7 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
               return (
                 <div className={`${common.imageContainer} ${posts.rowLink}`} key={key}>
                   <a href={"https://" + rowParams[1]} target="_blank">
-                    <Image src={rowParams[0]} alt="" fill style={{ objectFit: "contain" }} />
+                    <Image src={rowParams[0]} alt="" fill />
                   </a>
                 </div>
               );
@@ -82,7 +82,7 @@ export function ImageTagParser(image: any) {
   }
   return <>
     <span className={common.imageContainer}>
-      <Image src={src} alt="" fill style={{ objectFit: "contain" }} />
+      <Image src={src} alt="" fill />
     </span>
   </>;
 }
