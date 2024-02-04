@@ -33,9 +33,10 @@ date: 2022.3.14
 当日は最大20台の同時接続があり、3,967回のいいねと200個のコメントがスクリーンに流れました。
 
 ![](/public/posts/like-button/thumbnail.jpg)
+# @br-4px
 
 # @row /posts/like-button/photo1.jpg /posts/like-button/photo2.jpg
-# @br-16px
+# @br-4px
 
 ![](/public/posts/like-button/photo3.jpg)
 

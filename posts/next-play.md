@@ -17,6 +17,7 @@ SNSの機能に加えて、プレイ中のゲームの配信やコメントが�
 本サイトでは、ゲーム配信やSNS機能に加えて、配信中に送ったコメントが自動でタイムラインにも投稿されます。これによって、コメントを伝って他のフォロワーも配信を知ることができ、新しい繋がりを作れる仕組みになっています。
 
 ![](/public/posts/next-play/streamer1.png)
+# @br-4px
 
 # @row /posts/next-play/viewer1.png /posts/next-play/viewer2.png
 # @br-16px
@@ -29,10 +30,10 @@ SNSの機能に加えて、プレイ中のゲームの配信やコメントが�
 WebRTC (Web Real-Time Communications) は、仲介を必要とせずにP2Pでリアルタイムにブラウザ間で映像・音声や任意のデータの送受信を実現できる技術です。内部にはUDPプロトコルが使用されています。P2Pで双方向通信を行うために、相手のIPアドレスの情報が必要になるため、事前に仲介としてシグナリングサーバーを用いてIPアドレスや証明書のフィンガープリント情報をSDPと呼ばれるプロトコルで交換して、次にICEプロトコル<sup>\*1</sup> によって端末同士のNAT越えを行います。
 # @br-16px
 
-<sup>\*1</sup> ICEプロトコルを使用したNAT越えは、STUNサーバーとTURNサーバーが一般的に使用されます。STUNサーバーは受け取ったIPアドレスをそのままクライアントに返す仕組みで、ユーザー自身のIPアドレスを通信相手に伝えることが可能になります。
+<sup>\*1</sup> ICEプロトコルを使用したNAT越えは、STUNサーバーとTURNサーバーが一般的に使用されます。STUNサーバーは受け取ったIPアドレスをそのままクライアントに返す仕組みで、ユーザー自身のIPアドレスを通信相手に伝えることが可能です。
 
 ![](/public/posts/next-play/webrtc-sequence.png)
-# @br-16px
+# @br-32px
 
 本アプリケーションでは、Ruby on Railsの「Action Cable」を使用して、WebSocketを用いたシグナリングサーバーを自作しました。また、WebRTCのAPIを使用して、SDPの交換とICEプロトコルによる通信経路の確保、映像・音声の送受信を行うコードをJavaScriptで作成しました。
 STUNサーバーはGoogleが提供する <code>stun.l.google.com:19302</code> を使用しました。

@@ -11,6 +11,7 @@ date: 2022.2.28
 生徒証のバーコード登録は「カメラ読み取り」「生徒番号の入力」の2つの方式に対応しています。
 
 ![](/public/posts/yamabuki-barcode/poster.png)
+# @br-16px
 
 ▼ 学校に設置されている伝言システム
 ![](/public/posts/yamabuki-barcode/message-system.jpg)

@@ -12,16 +12,17 @@ date: 2020.9.30
 # @speaker-deck a268a54f6a9945ca8f4b67becb3a9978
 
 # スクリーンショット
-生徒の画面
+- 生徒の画面
 ![](/public/posts/message-system/viewer.png)
 
-先生の画面
+- 先生の画面
 ![](/public/posts/message-system/sender.png)
 
-管理者画面
+- 管理者画面
 ![](/public/posts/message-system/admin.png)
+# @br-8px
 
-伝言システムのログイン画面
+- 伝言システムのログイン画面
 ![](/public/posts/message-system/login.png)
 
 # 使用技術

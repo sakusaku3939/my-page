@@ -53,10 +53,11 @@ Flutterは縦書き文字の描画に対応していないため、今回日本�
 TextPainterを使用して1文字ずつ描画する方法と、Wrapウィジェットを活用する方法を考案し、現在のバージョンでは後者のアルゴリズムが使われています。
 
 - Flutterで日本語の縦書きを実現する② - Aokiti
-https://qiita.com/sakusaku3939/items/9433f3fcfdad86cc264e
+  https://qiita.com/sakusaku3939/items/9433f3fcfdad86cc264e
 
 - TextPainterで描画する方法（旧）
-https://qiita.com/sakusaku3939/items/64d453f4cf4be875aa67
+  https://qiita.com/sakusaku3939/items/64d453f4cf4be875aa67
+
 ![](/public/posts/presc/vertical-slide.png)
 
 
