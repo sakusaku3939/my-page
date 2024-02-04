@@ -35,7 +35,7 @@ date: 2022.3.14
 ![](/public/posts/like-button/thumbnail.jpg)
 
 # @row /posts/like-button/photo1.jpg /posts/like-button/photo2.jpg
-# @br3
+# @br-16px
 
 ![](/public/posts/like-button/photo3.jpg)
 

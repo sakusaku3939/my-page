@@ -19,7 +19,7 @@ SNSの機能に加えて、プレイ中のゲームの配信やコメントが�
 ![](/public/posts/next-play/streamer1.png)
 
 # @row /posts/next-play/viewer1.png /posts/next-play/viewer2.png
-# @br3
+# @br-16px
 
 ユーザーが配信を開始する場合は、テキスト入力フォームの下にある「▼配信を開始する」ボタンをクリックして、①サムネイル画像をアップロードし、②配信の枠をクリックしてWebRTCの画面共有を行うことで、配信が可能です。
 
@@ -27,12 +27,12 @@ SNSの機能に加えて、プレイ中のゲームの配信やコメントが�
 
 # 技術面
 WebRTC (Web Real-Time Communications) は、仲介を必要とせずにP2Pでリアルタイムにブラウザ間で映像・音声や任意のデータの送受信を実現できる技術です。内部にはUDPプロトコルが使用されています。P2Pで双方向通信を行うために、相手のIPアドレスの情報が必要になるため、事前に仲介としてシグナリングサーバーを用いてIPアドレスや証明書のフィンガープリント情報をSDPと呼ばれるプロトコルで交換して、次にICEプロトコル<sup>\*1</sup> によって端末同士のNAT越えを行います。
-# @br3
+# @br-16px
 
 <sup>\*1</sup> ICEプロトコルを使用したNAT越えは、STUNサーバーとTURNサーバーが一般的に使用されます。STUNサーバーは受け取ったIPアドレスをそのままクライアントに返す仕組みで、ユーザー自身のIPアドレスを通信相手に伝えることが可能になります。
 
 ![](/public/posts/next-play/webrtc-sequence.png)
-# @br3
+# @br-16px
 
 本アプリケーションでは、Ruby on Railsの「Action Cable」を使用して、WebSocketを用いたシグナリングサーバーを自作しました。また、WebRTCのAPIを使用して、SDPの交換とICEプロトコルによる通信経路の確保、映像・音声の送受信を行うコードをJavaScriptで作成しました。
 STUNサーバーはGoogleが提供する <code>stun.l.google.com:19302</code> を使用しました。

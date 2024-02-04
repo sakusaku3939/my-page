@@ -3,20 +3,18 @@ import common from "@/styles/common.module.css";
 import posts from "@/styles/posts.module.css";
 import Image from "next/image";
 
-export function CustomTagParser({ className, children }: React.JSX.IntrinsicElements['h1']) {
+export function CustomTagParser({ className, children }: React.JSX.IntrinsicElements["h1"]) {
   if (children && children.toString().charAt(0) === "@") {
     const params = children.toString().split(" ");
     const name = params[0];
     const args = params.filter((_: string, index: number) => index !== 0);
+    let matched;
 
     switch (name) {
-      // @br(n)
-      case "@br1":
-        return <div style={{ height: 8 }}></div>;
-      case "@br2":
-        return <div style={{ height: 12 }}></div>;
-      case "@br3":
-        return <div style={{ height: 16 }}></div>;
+      // ex. @br-8px, @br-16px
+      case (matched = name.match(/^@br-(\d+)px$/)) && name:
+        const height = parseInt(matched![1], 10);
+        return <div style={{ height: height }}></div>;
 
       // @speaker-deck (data-id)
       case "@speaker-deck":
