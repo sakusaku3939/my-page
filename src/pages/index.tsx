@@ -67,6 +67,9 @@ const Index = () => {
               <SkillsItem title="Go">
                 ブロックチェーン、IPFSの勉強で使用
               </SkillsItem>
+              <SkillsItem title="Scala">
+                動画投稿サイトのメディアサーバー作成
+              </SkillsItem>
               <SkillsItem title="C#">
                 簡単なWindowsフォームアプリの作成
               </SkillsItem>
