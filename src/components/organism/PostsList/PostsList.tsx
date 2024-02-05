@@ -54,6 +54,16 @@ const PostsList = () => {
                   overview="ちくさん制作の「しょぼんのアクション」をPythonで１から作り直したもの" />
           </div>
         </SplideSlide>
+        <SplideSlide>
+          <div className={postList.card}>
+            <Post date="2024.1.19"
+                  imageUrl="/posts/next-play/thumbnail.jpg"
+                  href="/posts/next-play"
+                  title="NextPlay"
+                  tag={["Ruby", "Ruby on Rails", "JavaScript", "WebRTC"]}
+                  overview="WebRTCでゲーム配信やコメントができるゲーマーSNS" />
+          </div>
+        </SplideSlide>
       </Splide>
     </div>
     <div className={postList.button}>

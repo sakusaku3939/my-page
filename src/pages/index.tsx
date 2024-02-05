@@ -59,7 +59,7 @@ const Index = () => {
                 Webアプリ作成、Apacheなど
               </SkillsItem>
               <SkillsItem title="Ruby">
-                授業で使用。Railsを用いたWebアプリを作成
+                授業で使用。Railsを用いたSNSサイトを作成
               </SkillsItem>
               <SkillsItem title="C">
                 高校のプログラミングの授業で使用
