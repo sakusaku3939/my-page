@@ -4,6 +4,7 @@ import posts from "@/styles/posts.module.css";
 import Image from "next/image";
 
 export function CustomTagParser({ className, children }: React.JSX.IntrinsicElements["h1"]) {
+  const [imageLoaded, setImageLoaded] = useState(false);
   if (children && children.toString().charAt(0) === "@") {
     const params = children.toString().split(" ");
     const name = params[0];
@@ -35,7 +36,8 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
           <div className={posts.row}>
             {args.map((value: string, key: number) => (
               <div className={common.imageContainer} key={key}>
-                <Image src={value} alt="" sizes="100%" fill placeholder="blur" blurDataURL={value} />
+                <span className={`${common.placeholder} ${imageLoaded ? common.loaded : ""}`} />
+                <Image src={value} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
               </div>
             ))}
           </div>
