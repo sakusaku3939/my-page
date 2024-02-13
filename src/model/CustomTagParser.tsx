@@ -84,7 +84,7 @@ export function ImageTagParser(image: any) {
   return <>
     <span className={common.imageContainer}>
       <Image src={src} alt="" sizes="100%" fill />
-      {/*<span className={common.imagePlaceholder} />*/}
+      <span className={common.imagePlaceholder} />
     </span>
   </>;
 }
