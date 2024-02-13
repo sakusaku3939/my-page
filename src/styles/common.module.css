@@ -18,24 +18,22 @@
 
 .imageContainer {
     position: relative;
-    display: grid;
 }
 
-.imageContainer:before {
-    content: '';
+.imagePlaceholder {
+    display: block;
     width: 100%;
-    grid-area: 1 / 1 / 2 / 2;
     background-color: #EEEEEE;
     padding-top: 40%;
 }
 
 .imageContainer img {
-    display: block;
     position: relative !important;
-    grid-area: 1 / 1 / 2 / 2;
-    object-fit: contain;
 }
 
+.imageContainer img[src] + .imagePlaceholder {
+    display: none;
+}
 
 .shadow {
     background-color: var(--background-color);
