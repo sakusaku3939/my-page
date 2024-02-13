@@ -20,8 +20,19 @@
     position: relative;
 }
 
+.placeholder {
+    display: block;
+    background-color: #EEEEEE;
+    padding-top: 56.25%;
+}
+
+.placeholder.loaded {
+    display: none;
+}
+
 .imageContainer img {
     position: relative !important;
+    object-fit: contain;
 }
 
 .shadow {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import common from "@/styles/common.module.css";
 import posts from "@/styles/posts.module.css";
 import Image from "next/image";
@@ -80,9 +80,11 @@ export function ImageTagParser(image: any) {
   if (src.match(regExp)) {
     src = "/" + src.split(regExp)[1];
   }
+  const [imageLoaded, setImageLoaded] = useState(false);
   return <>
     <span className={common.imageContainer}>
-      <Image src={src} alt="" sizes="100%" fill placeholder="blur" blurDataURL={src} />
+      <span className={`${common.placeholder} ${imageLoaded ? common.loaded : ""}`} />
+      <Image src={src} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
     </span>
   </>;
 }
