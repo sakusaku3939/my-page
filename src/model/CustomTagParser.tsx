@@ -34,9 +34,9 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
       case "@row":
         return <>
           <div className={posts.row}>
+            <span className={`${common.placeholder} ${imageLoaded ? common.loaded : ""}`} />
             {args.map((value: string, key: number) => (
               <div className={common.imageContainer} key={key}>
-                <span className={`${common.placeholder} ${imageLoaded ? common.loaded : ""}`} />
                 <Image src={value} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
               </div>
             ))}
