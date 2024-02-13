@@ -23,6 +23,7 @@
 .placeholder {
     display: block;
     background-color: #EEEEEE;
+    width: 100%;
     padding-top: 40%;
 }
 
