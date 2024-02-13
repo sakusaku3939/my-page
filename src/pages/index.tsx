@@ -36,22 +36,22 @@ const Index = () => {
               <SkillsItem title="Dart">
                 実務の経験あり。Flutterを用いたモバイルアプリ開発など
               </SkillsItem>
+              <SkillsItem title="Python">
+                主に研究で使用。PyTorchを用いた深層学習、ゲーム作成など
+              </SkillsItem>
               <SkillsItem title="JavaScript">
                 サーバー用途やAPI開発で使用。Node.js、チャットボット、Vue.jsなど
               </SkillsItem>
-              <SkillsItem title="Python">
-                主に研究で使用。PyTorchを用いた深層学習、ゲーム作成など
+              <SkillsItem title="TypeScript">
+                Next.jsを用いた自作CMS、Discordボット作成など
               </SkillsItem>
               <SkillsItem title="Kotlin">
                 過去にOSSを公開。Androidアプリの開発など
               </SkillsItem>
             </SkillsItemWrapper>
 
-            <h2 className={index.h2}>サブ言語（あまり使ってない）</h2>
+            <h2 className={index.h2}>サブ言語（ほとんど使ってない）</h2>
             <SkillsSubItemWrapper>
-              <SkillsItem title="TypeScript">
-                Next.jsを用いた自作CMS、Discordボット作成など
-              </SkillsItem>
               <SkillsItem title="Java">
                 ロボットのプログラム、技術本での勉強など
               </SkillsItem>
