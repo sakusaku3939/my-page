@@ -35,8 +35,7 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
           <div className={posts.row}>
             {args.map((value: string, key: number) => (
               <div className={common.imageContainer} key={key}>
-                <Image src={value} alt="" sizes="100%" fill style={{ objectFit: "contain" }} />
-                <span className={common.imagePlaceholder} />
+                <Image src={value} alt="" sizes="100%" fill placeholder="blur" blurDataURL={value} />
               </div>
             ))}
           </div>
@@ -83,8 +82,7 @@ export function ImageTagParser(image: any) {
   }
   return <>
     <span className={common.imageContainer}>
-      <Image src={src} alt="" sizes="100%" fill />
-      <span className={common.imagePlaceholder} />
+      <Image src={src} alt="" sizes="100%" fill placeholder="blur" blurDataURL={src} />
     </span>
   </>;
 }
