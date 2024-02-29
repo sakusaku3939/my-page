@@ -65,10 +65,10 @@ const Index = () => {
                 高校のプログラミングの授業で使用
               </SkillsItem>
               <SkillsItem title="Go">
-                ブロックチェーン、IPFSの勉強で使用
+                ブロックチェーン、IPFSの勉強に使用
               </SkillsItem>
               <SkillsItem title="Scala">
-                動画投稿サイトのメディアサーバー作成
+                動画配信システムのメディアサーバー作成
               </SkillsItem>
               <SkillsItem title="C#">
                 簡単なWindowsフォームアプリの作成
