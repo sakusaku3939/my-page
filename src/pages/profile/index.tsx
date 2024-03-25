@@ -20,9 +20,9 @@ const Index = () => {
         <h1 className={index.h1}>経歴</h1>
         <Timeline>
           <TimeLineItem date="2019.4 ~" icon={faGraduationCap} title="東京都立新宿山吹高校（定時制） 情報科" />
-          <TimeLineItem date="2019.8 ~" icon={faBriefcase} title="FRCチーム BWW所属" open={true}>
+          <TimeLineItem date="2019.8 ~" icon={faBriefcase} title="ロボコンチーム BWW所属" open={true}>
             高1〜高3に世界最大級のロボコン FRC（FIRST Robotics
-            Competition）のチーム「BWW」に創設メンバーとして活動しました。ロボットのプログラミングや公式Webサイト作成、YouTube動画編集、Twitter、ブログなどでの広報活動を行いました。
+            Competition）のチーム「BWW」で活動しました。ロボットのプログラミングや公式Webサイト作成、YouTube動画編集、Twitter、ブログなどでの広報活動を行いました。
             <TimeLineLink
               description="公式Webサイト"
               href="https://bww8231.fuji3.info/"
