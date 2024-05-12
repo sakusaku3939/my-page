@@ -2,7 +2,7 @@ import index from "@/styles/index.module.css";
 import Head from "next/head";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { Timeline, TimeLineItem, TimeLineLink } from "@/components/organism/Timeline/Timeline";
-import { faBriefcase, faGraduationCap, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { faBriefcase, faChalkboardTeacher, faGraduationCap, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
 
 const Index = () => {
@@ -45,7 +45,7 @@ const Index = () => {
           </TimeLineItem>
         </Timeline>
 
-        <h1 className={index.h1}>受賞歴</h1>
+        <h1 className={index.h1}>発表・受賞歴</h1>
         <Timeline>
           <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞">
             アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」を発表しました。1次・2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
@@ -61,6 +61,8 @@ const Index = () => {
           <TimeLineItem date="2022.8" icon={faTrophy} title="全国専門学科情報科研究協議会 優秀賞">
             高校の情報科設置校が集まって年に1度開催する研究協議会にて、Prescを発表しました。生徒表彰にて優秀賞を頂きました。
             <br />
+          </TimeLineItem>
+          <TimeLineItem date="2024.5" icon={faChalkboardTeacher} title="第82回ユビキタスコンピューティングシステム（UBI）研究発表会 発表">
           </TimeLineItem>
         </Timeline>
 
