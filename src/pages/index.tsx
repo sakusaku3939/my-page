@@ -37,7 +37,7 @@ const Index = () => {
                 実務の経験あり。Flutterを用いたモバイルアプリ開発など
               </SkillsItem>
               <SkillsItem title="Python">
-                主に研究で使用。PyTorchを用いた深層学習、ゲーム作成など
+                主に研究で使用。PyTorchによる深層学習、OpenCVなど
               </SkillsItem>
               <SkillsItem title="JavaScript">
                 サーバー用途やAPI開発で使用。Node.js、チャットボット、Vue.jsなど

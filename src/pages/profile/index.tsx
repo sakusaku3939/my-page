@@ -36,8 +36,8 @@ const Index = () => {
             位置情報共有アプリ「Locket」のフロントエンド（Flutter）チームに約2ヶ月間所属しました。主にチャット機能、プロフィール画面等の開発に携わりました。
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-          <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="RG 中澤・大越研究室 d-hacks" open={true}>
-            RG研究グループの中澤・大越研究室（d-hacks）で深層学習やCVに関する研究を行っています。
+          <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="RG d-hacks 中澤・大越研究室" open={true}>
+            RG研究グループの d-hacks（中澤・大越研究室）で深層学習やCVに関する研究を行っています。
             <TimeLineLink
               description="RG"
               href="https://rg.sfc.keio.ac.jp/ja"
@@ -64,7 +64,7 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
                         title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）">
-            学部2年の時に、研究テーマ「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」について、UBI研究会にて発表しました。（Full-paper, 国内,
+            学部2年時に、研究テーマ「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」について、UBI研究会にて発表しました。（Full-paper, 国内,
             査読無し）
             <TimeLineLink
               description="id.nii.ac.jp/1001/00233750/"
