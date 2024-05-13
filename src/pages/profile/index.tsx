@@ -63,7 +63,7 @@ const Index = () => {
             <br />
           </TimeLineItem>
           <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
-                        title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）" open={true}>
+                        title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）">
             学部2年の時に、研究テーマ「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」について、UBI研究会にて発表しました。（Full-paper, 国内,
             査読無し）
             <TimeLineLink
