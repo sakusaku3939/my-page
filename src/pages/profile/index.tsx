@@ -4,6 +4,7 @@ import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { Timeline, TimeLineItem, TimeLineLink } from "@/components/organism/Timeline/Timeline";
 import { faBriefcase, faChalkboardTeacher, faGraduationCap, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
+import Link from "next/link";
 
 const Index = () => {
   return (
@@ -48,14 +49,14 @@ const Index = () => {
         <h1 className={index.h1}>受賞 ・ 研究発表</h1>
         <Timeline>
           <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞" open={true}>
-            アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」を発表しました。1次・2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
+            アプリ甲子園2021にて、<Link href="/posts/presc">プレゼン原稿表示アプリ「Presc」</Link> を発表しました。1次・2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
             <TimeLineLink
               description="「プレゼンで時間オーバー」解決するアプリを高校生が開発｜ 高校生新聞オンライン"
               href="https://www.koukouseishinbun.jp/articles/-/8347"
             />
           </TimeLineItem>
           <TimeLineItem date="2022.8" icon={faTrophy} title="全国専門学科情報科研究協議会 優秀賞" open={true}>
-            高校の情報科設置校が集まって年に1度開催する研究協議会にて、プレゼン原稿表示アプリ「Presc」を発表しました。生徒表彰にて優秀賞を頂きました。
+            高校の情報科設置校が集まって年に1度開催する研究協議会にて、<Link href="/posts/presc">Presc</Link> を発表しました。生徒表彰にて優秀賞を頂きました。
             <br />
           </TimeLineItem>
           <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
