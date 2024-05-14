@@ -22,7 +22,7 @@ const Index = () => {
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
           <div className={index.subtitle}>B2 / SFC-RG&nbsp;
-            <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" />
+            <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" target="_blank" />
           </div>
           <SnsList />
         </section>

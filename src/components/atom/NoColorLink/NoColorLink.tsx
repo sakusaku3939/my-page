@@ -1,13 +1,15 @@
 import noColor from "@/components/atom/NoColorLink/NoColorLink.module.css";
+import Link from "next/link";
 
 type Props = {
   href: string,
   title: string,
+  target?: string,
 }
 
-const NoColorLink = ({ href, title }: Props) => {
+const NoColorLink = ({ href, title, target = "" }: Props) => {
   return <>
-    <a href={href} target="_blank" className={noColor.link}>{title}</a>
+    <Link href={href} target={target} className={noColor.link}>{title}</Link>
   </>;
 };
 export default NoColorLink;
