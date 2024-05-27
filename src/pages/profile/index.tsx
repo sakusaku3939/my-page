@@ -67,7 +67,7 @@ const Index = () => {
             査読無し）
             <TimeLineLink
               description="id.nii.ac.jp/1001/00233750/"
-              href="http://id.nii.ac.jp/1001/00233750/"
+              href="https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=233864&item_no=1&page_id=13&block_id=8"
             />
             <TimeLineLink
               description="第82回研究会 | IPSJ SIGUBI"
