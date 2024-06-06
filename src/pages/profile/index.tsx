@@ -15,7 +15,7 @@ const Index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HamburgerMenu />
-      <h1 className={index.profileTitle}>プロフィールなど</h1>
+      <h1 className={index.profileTitle}>プロフィール</h1>
 
       <section className={index.section}>
         <h1 className={index.h1}>経歴</h1>

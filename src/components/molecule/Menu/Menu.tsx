@@ -18,7 +18,7 @@ type MenuItemProps = {
 const MenuItem = ({ onClick }: MenuItemProps) => {
   return <>
     <Link className={hamburger.link} href="/" onClick={onClick}>HOME</Link>
-    <Link className={hamburger.link} href="/profile" onClick={onClick}>プロフィールなど</Link>
+    <Link className={hamburger.link} href="/profile" onClick={onClick}>プロフィール</Link>
     <Link className={hamburger.link} href="/posts" onClick={onClick}>制作物</Link>
   </>;
 };
