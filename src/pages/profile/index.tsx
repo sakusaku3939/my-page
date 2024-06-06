@@ -21,9 +21,9 @@ const Index = () => {
         <h1 className={index.h1}>経歴</h1>
         <Timeline>
           <TimeLineItem date="2019.4 ~" icon={faGraduationCap} title="東京都立新宿山吹高校（定時制） 情報科" />
-          <TimeLineItem date="2019.8 ~" icon={faBriefcase} title="ロボコンチーム BWW所属">
+          <TimeLineItem date="2019.8 ~" icon={faBriefcase} title="FRCロボコンチーム BWW">
             高1〜高3に世界最大級のロボコン FRC（FIRST Robotics
-            Competition）のチーム「BWW」で活動しました。ロボットのプログラミングや公式Webサイト作成、YouTube動画編集、Twitter、ブログなどでの広報活動を行いました。
+            Competition）のチーム「BWW」に初期メンバーとして活動しました。ロボットのプログラミングや公式Webサイト作成、YouTube動画編集、Twitter、ブログなどでの広報活動を行いました。
             <TimeLineLink
               description="公式Webサイト"
               href="https://bww8231.fuji3.info/"
@@ -34,11 +34,11 @@ const Index = () => {
             />
           </TimeLineItem>
           <TimeLineItem date="2023.1 ~" icon={faBriefcase} title="株式会社Wanderlust Locket開発">
-            位置情報共有アプリ「Locket」のフロントエンド（Flutter）チームに約2ヶ月間所属しました。主にチャット機能、プロフィール画面等の開発に携わりました。
+            位置情報共有アプリ「Locket」のフロントエンド（Flutter）チームに約2ヶ月間所属しました。主にチャット機能、プロフィール画面等の開発にフルタイムで携わりました。
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="RG d-hacks 中澤・大越研究室" open={true}>
-            RG研究グループの d-hacks（中澤・大越研究室）で深層学習やCVに関する研究を行っています。
+            慶應義塾大学 村井合同研究会（RG）の d-hacks（中澤・大越研究室）で深層学習やCVに関する研究を行っています。
             <TimeLineLink
               description="RG"
               href="https://rg.sfc.keio.ac.jp/ja"
@@ -48,7 +48,7 @@ const Index = () => {
 
         <h1 className={index.h1}>受賞 ・ 研究発表</h1>
         <Timeline>
-          <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞" open={true}>
+          <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞">
             アプリ甲子園2021にて、<NoColorLink href="/posts/presc"
                                          title="プレゼン原稿表示アプリ「Presc」" /> を発表しました。1次・2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
             <TimeLineLink
@@ -56,13 +56,13 @@ const Index = () => {
               href="https://www.koukouseishinbun.jp/articles/-/8347"
             />
           </TimeLineItem>
-          <TimeLineItem date="2022.8" icon={faTrophy} title="全国専門学科情報科研究協議会 優秀賞" open={true}>
+          <TimeLineItem date="2022.8" icon={faTrophy} title="全国専門学科情報科研究協議会 優秀賞">
             高校の情報科設置校が集まって年に1度開催する研究協議会にて、<NoColorLink href="/posts/presc"
                                                                          title="Presc" /> を発表しました。生徒表彰にて優秀賞を頂きました。
             <br />
           </TimeLineItem>
           <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
-                        title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）" open={true}>
+                        title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）">
             学部2年時に、研究テーマ「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」について、UBI研究会にて発表しました。（Full-paper, 国内,
             査読無し）
             <TimeLineLink
