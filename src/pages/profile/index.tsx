@@ -46,7 +46,7 @@ const Index = () => {
           </TimeLineItem>
         </Timeline>
 
-        <h1 className={index.h1}>受賞 ・ 研究発表</h1>
+        <h1 className={index.h1}>受賞歴</h1>
         <Timeline>
           <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞">
             アプリ甲子園2021にて、<NoColorLink href="/posts/presc"
@@ -61,10 +61,14 @@ const Index = () => {
                                                                          title="Presc" /> を発表しました。生徒表彰にて優秀賞を頂きました。
             <br />
           </TimeLineItem>
+        </Timeline>
+
+        <h1 className={index.h1}>研究発表</h1>
+        <Timeline>
           <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
                         title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）">
-            学部2年時に、研究テーマ「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」について、IPSJ UBI研究会にて発表しました。（Full-paper, 国内,
-            査読無し）
+            学部2年時に、研究テーマ「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」について、IPSJ UBI研究会にて発表しました。（Full-paper,
+            国内, 査読無し）
             <TimeLineLink
               description="id.nii.ac.jp/1001/00233750/"
               href="https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=233864&item_no=1&page_id=13&block_id=8"
@@ -76,8 +80,8 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2024.6" icon={faChalkboardTeacher}
                         title="ACM MobiSys'24 Poster/Demo発表">
-            国際会議のACM MobiSys 2024の Demo/Poster セッションに採択され、「Demo: Image-based Indoor Localization using Object Detection and LSTM」について、デモ発表しました。（Poster/Demo, 国際,
-            査読あり）
+            国際会議のACM MobiSys 2024の Demo/Poster セッションに採択、「Demo: Image-based Indoor Localization using Object
+            Detection and LSTM」について、デモ発表しました。（Poster/Demo, 国際, 査読あり）
             <TimeLineLink
               description="doi.org/10.1145/3643832.3661836"
               href="https://doi.org/10.1145/3643832.3661836"
