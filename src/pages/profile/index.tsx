@@ -63,15 +63,28 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
                         title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）">
-            学部2年時に、研究テーマ「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」について、UBI研究会にて発表しました。（Full-paper, 国内,
+            学部2年時に、研究テーマ「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」について、IPSJ UBI研究会にて発表しました。（Full-paper, 国内,
             査読無し）
             <TimeLineLink
               description="id.nii.ac.jp/1001/00233750/"
               href="https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=233864&item_no=1&page_id=13&block_id=8"
             />
             <TimeLineLink
-              description="第82回研究会 | IPSJ SIGUBI"
-              href="https://sigubi.ipsj.or.jp/seminar82/"
+              description="【発表】 学部2年 青木君が研究内容を情報処理学会第82回UBI研究会で発表しました – “一般物体検出とLSTMを用いた画像に基づく屋内位置推定” | Nakazawa and Okoshi Lab."
+              href="https://www.jn.sfc.keio.ac.jp/%e3%80%90%e7%99%ba%e8%a1%a8%e3%80%91%e5%ad%a6%e9%83%a82%e5%b9%b4-%e9%9d%92%e6%9c%a8%e5%90%9b%e3%81%8c%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9%e3%82%92%e6%83%85%e5%a0%b1%e5%87%a6%e7%90%86%e5%ad%a6%e4%bc%9a/?utm_campaign=shareaholic&utm_medium=copy_link&utm_source=bookmark"
+            />
+          </TimeLineItem>
+          <TimeLineItem date="2024.6" icon={faChalkboardTeacher}
+                        title="ACM MobiSys'24 Poster/Demo発表">
+            国際会議のACM MobiSys 2024の Demo/Poster セッションに採択され、「Demo: Image-based Indoor Localization using Object Detection and LSTM」について、デモ発表しました。（Poster/Demo, 国際,
+            査読あり）
+            <TimeLineLink
+              description="doi.org/10.1145/3643832.3661836"
+              href="https://doi.org/10.1145/3643832.3661836"
+            />
+            <TimeLineLink
+              description="ACM MobiSys 2024"
+              href="https://www.sigmobile.org/mobisys/2024/"
             />
           </TimeLineItem>
         </Timeline>
