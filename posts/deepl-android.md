@@ -1,14 +1,14 @@
 ---
 title: OSSプロジェクト 非公式DeepL翻訳
 tag: Android, Kotlin, OSS
-overview: DeepL翻訳のクライアントアプリが欲しかったために作った非公式Androidアプリ
+overview: WebViewとJavaScriptを使用したAPIキーを必要としない非公式Androidクライアントアプリ
 date: 2021.1.1
 ---
 
-AndroidのWebViewとJavaScriptを使用して、シンプルな非公式のDeepL翻訳クライアントアプリを制作しました。
+2021年の当時、DeepL公式のAndroidアプリが無く、わざわざブラウザからアクセスする必要がありました。そこで、WebViewとJavaScriptを使用して、シンプルな非公式のDeepL翻訳クライアントアプリを開発しました。
 
-アプリはMITライセンスでOSS化しており、2024年6月時点で <a href="https://github.com/sakusaku3939/DeepLAndroid/issues?q=is%3Aissue+is%3Aclosed" target="_blank">61個の解決済みIssues</a> と <a href="https://github.com/sakusaku3939/DeepLAndroid/pulls?q=is%3Apr+is%3Aclosed" target="_blank">38個のPull requests</a> がマージされました。
-アプリの言語は英語・日本語に加え、コントリビューターにより計9ヶ国語に対応しています。
+アプリをOSS化したところ大きな反響があり、2024年6月時点で <a href="https://github.com/sakusaku3939/DeepLAndroid/issues?q=is%3Aissue+is%3Aclosed" target="_blank">61個の解決済みIssues</a> と <a href="https://github.com/sakusaku3939/DeepLAndroid/pulls?q=is%3Apr+is%3Aclosed" target="_blank">38個のPull requests</a> がマージされました。
+おかげで、アプリ自体の言語は英語・日本語に加え、コントリビューターにより計9ヶ国語に対応しています。
 https://github.com/sakusaku3939/DeepLAndroid
 
 ![](/public/posts/deepl-android/screenshot.png)

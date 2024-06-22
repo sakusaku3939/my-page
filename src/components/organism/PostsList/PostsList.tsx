@@ -26,12 +26,12 @@ const PostsList = () => {
         </SplideSlide>
         <SplideSlide>
           <div className={postList.card}>
-            <Post date="2021.2.18"
-                  imageUrl="/posts/tkg-beacon/thumbnail.jpg"
-                  href="/posts/tkg-beacon"
-                  title="TKG Beacon"
-                  tag={["Android", "Kotlin", "AltBeacon", "Firebase"]}
-                  overview="BLEビーコンを利用した、生徒と先生の教室位置共有アプリ" />
+            <Post date="2021.1.1"
+                  imageUrl="/posts/deepl-android/thumbnail.jpg"
+                  href="/posts/deepl-android"
+                  title="OSSプロジェクト 非公式DeepL翻訳"
+                  tag={["Android", "Kotlin", "OSS"]}
+                  overview="WebViewとJavaScriptを使用したAPIキーを必要としない非公式Androidクライアントアプリ" />
           </div>
         </SplideSlide>
         <SplideSlide>
