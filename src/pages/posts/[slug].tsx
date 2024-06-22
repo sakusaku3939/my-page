@@ -2,6 +2,7 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import posts from "@/styles/posts.module.css";
 import common from "@/styles/common.module.css";
+import mdStyle from "@/styles/markdown.module.css";
 import remarkGfm from "remark-gfm";
 import { CustomTagParser, ImageTagParser } from "@/model/CustomTagParser";
 import Head from "next/head";
@@ -39,10 +40,13 @@ const Posts = ({ overview, markdownBody, categories }: PostData) => {
           <ul className={`${common.tag} ${posts.tag}`}>
             {renderTags(router, overview.tag.split(", "))}
           </ul>
-          <ReactMarkdown rehypePlugins={[remarkGfm, rehypeRaw]} components={{
-            h1: CustomTagParser,
-            img: ImageTagParser
-          }}>
+          <ReactMarkdown
+            className={mdStyle.markdown}
+            rehypePlugins={[remarkGfm, rehypeRaw]}
+            components={{
+              h1: CustomTagParser,
+              img: ImageTagParser
+            }}>
             {markdownBody}
           </ReactMarkdown>
         </div>

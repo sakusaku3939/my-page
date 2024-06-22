@@ -17,6 +17,13 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
         const height = parseInt(matched![1], 10);
         return <div style={{ height: height }}></div>;
 
+      // @img-400px (image-path)
+      case (matched = name.match(/^@img-(\d+)px$/)) && name:
+        const width = parseInt(matched![1], 10);
+        return <div className={common.imageContainer} style={{ maxWidth: `${width}px` }}>
+          <Image src={args[0]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
+        </div>;
+
       // @speaker-deck (data-id)
       case "@speaker-deck":
         return <>
