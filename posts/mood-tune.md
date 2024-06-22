@@ -32,6 +32,8 @@ date: 2024.3.24
 - GitHub  
   https://github.com/yusei399/CryptoAIHackathon  
   https://github.com/yusei399/CryptoAIHackathon_backend
+- 東京AI祭  
+  https://www.aisai.tokyo/
 
 # 使用技術
 言語 ・・・ TypeScript,  Python
