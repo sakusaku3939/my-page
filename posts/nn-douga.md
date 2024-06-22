@@ -16,9 +16,11 @@ N予備校の「ニコニコ動画再現 Webアプリ」を参考に制作した
 ![](/public/posts/nn-douga/screenshot2.png)
 ![](/public/posts/nn-douga/screenshot3.png)
 
-
 # 使用技術
 言語・・・Pug, CSS, JavaScript, Scala
 フレームワーク、ライブラリ・・・Express.js, Play Framework, Akka, FFmpeg, MP4Box
 データベース・・・MySQL, Redis
 ツール・・・Git, Vagrant, VirtualBox
+
+# 備考
+N予備校（プログラミング教材）の2020年度Webコースを、1年かけて全て修了しました。サーバーサイドやLinux関連、配信技術の知識が実践的にまとまっていて良い教材でした。

@@ -1,11 +1,11 @@
 ---
 title: BWW New HP
 tag: HTML / CSS / JavaScript, BWW
-overview: ロボット大会チーム「BWW」の公式ホームページ
+overview: 高1~高3の間に参加していたFRCロボコンチーム「BWW」の公式ホームページ
 date: 2020.10.15
 ---
 
-自分が所属しているロボコンチーム「BWW」の新ホームページを1から制作しました。
+高1~高3の間に所属していたFRCロボコンチームの新ホームページをHTML, CSS, JavaScriptを使用して1から制作しました。
 https://bww8231.fuji3.info
 
 ![](/public/posts/bww-new-hp/home.png)
@@ -14,7 +14,7 @@ https://bww8231.fuji3.info
 
 
 # 技術面
-ホスティングサービスには表示速度や維持費の観点から静的サイトであるGitHub Pagesを採用し、HTML, CSS, JavaScriptのみを使用して制作しました。
+ホスティングサービスには表示速度や維持費の観点から静的サイトであるGitHub Pagesを採用し、HTML, CSS, JavaScriptのみを直接使用して制作しました。
 
 ページ速度改善のために、画像の遅延読み込みやWebP画像の切り替え処理実装といった対策を行いました。 画像の遅延読み込みには標準実装のObserver APIを使用し、独自実装によって外部との通信量を抑えました。
 # @row /posts/bww-new-hp/speed1.png /posts/bww-new-hp/speed2.png
@@ -25,7 +25,7 @@ https://bww8231.fuji3.info
 
 
 # おまけ
-ホームページで使われている2つの動画を制作しました。
+ホームページで使われている2つの動画は自作しました。DJI Pocket 2で撮影した映像をPowerDirectorとFilmoraで編集しています。
 
 # @youtube j4t0hAsJ-mU
 # @youtube hfJ194l3SEw
