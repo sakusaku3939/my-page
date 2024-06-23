@@ -5,27 +5,27 @@ import Image from "next/image";
 
 export function CustomTagParser({ className, children }: React.JSX.IntrinsicElements["h1"]) {
   const [imageLoaded, setImageLoaded] = useState(false);
-  if (children && children.toString().charAt(0) === "@") {
+  if (children) {
     const params = children.toString().split(" ");
     const name = params[0];
     const args = params.filter((_: string, index: number) => index !== 0);
     let matched;
 
     switch (name) {
-      // ex. @br-8px, @br-16px
-      case (matched = name.match(/^@br-(\d+)px$/)) && name:
+      // br-8px, br-16px
+      case (matched = name.match(/^br-(\d+)px$/)) && name:
         const height = parseInt(matched![1], 10);
         return <div style={{ height: height }}></div>;
 
-      // @img-400px (image-path)
-      case (matched = name.match(/^@img-(\d+)px$/)) && name:
+      // img-400px (image-path)
+      case (matched = name.match(/^img-(\d+)px$/)) && name:
         const width = parseInt(matched![1], 10);
         return <div className={common.imageContainer} style={{ maxWidth: `${width}px` }}>
           <Image src={args[0]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
         </div>;
 
-      // @speaker-deck (data-id)
-      case "@speaker-deck":
+      // speaker-deck (data-id)
+      case "speaker-deck":
         return <>
           <div className={posts.speakerDeck}>
             <iframe
@@ -37,8 +37,8 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
           </div>
         </>;
 
-      // @row (image-path) (image-path) ...
-      case "@row":
+      // row (image-path) (image-path) ...
+      case "row":
         return <>
           <div className={posts.row}>
             <span className={`${common.placeholder} ${imageLoaded ? common.loaded : ""}`} />
@@ -50,8 +50,8 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
           </div>
         </>;
 
-      // @row-link (image-path):(url) (image-path):(url) ...
-      case "@row-link":
+      // row-link (image-path):(url) (image-path):(url) ...
+      case "row-link":
         return <>
           <div className={posts.row}>
             {args.map((value: string, key: number) => {
@@ -67,8 +67,8 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
           </div>
         </>;
 
-      // @youtube (youtube-id)
-      case "@youtube":
+      // youtube (youtube-id)
+      case "youtube":
         return <>
           <div className={posts.youtube}>
             <iframe src={`https://www.youtube.com/embed/${params[1]}`} allowFullScreen></iframe>
@@ -76,7 +76,7 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
         </>;
 
       default:
-        return <></>;
+        return <h1 className={className}>{children}</h1>;
     }
   }
 

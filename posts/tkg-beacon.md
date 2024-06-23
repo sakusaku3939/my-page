@@ -8,16 +8,16 @@ date: 2021.2.18
 BLEビーコンを活用した、学校内の位置共有アプリ「TKG Beacon」です。教室一つ一つにビーコンを置き、そのビーコンのIDをアプリが取得することで、位置を把握する仕組みになっています。
 学校に滞在する先生に用がある時に、どの教室にいるかが一目でわかります。
 
-# @row /posts/tkg-beacon/video1.gif /posts/tkg-beacon/video2.gif /posts/tkg-beacon/video3.gif /posts/tkg-beacon/video4.gif
+# row /posts/tkg-beacon/video1.gif /posts/tkg-beacon/video2.gif /posts/tkg-beacon/video3.gif /posts/tkg-beacon/video4.gif
 
 初回起動時はログイン画面とパーミッション確認があり、ログイン画面ではUXの向上などの観点から、パスワードレス認証であるマジックリンクを採用しました。
 この認証方法では、登録されたメールアドレス宛に1回限り使えるログイン用の認証リンクを送り、それをクリックすることでログインできます。
 
-# @row /posts/tkg-beacon/onbording1.gif /posts/tkg-beacon/onbording2.png /posts/tkg-beacon/onbording3.png /posts/tkg-beacon/onbording4.png
+# row /posts/tkg-beacon/onbording1.gif /posts/tkg-beacon/onbording2.png /posts/tkg-beacon/onbording3.png /posts/tkg-beacon/onbording4.png
 
 
 # 発表資料
-# @speaker-deck 70cd51a1ddba4f40bfc002267c31fd31
+# speaker-deck 70cd51a1ddba4f40bfc002267c31fd31
 
 
 # 技術面など

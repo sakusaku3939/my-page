@@ -14,9 +14,9 @@ date: 2024.3.24
 # 東京AI祭2024 ハッカソン
 書類審査とセミファイナルを通過し、ファイナルデモデーで発表を行いました。
 本プロダクトは中澤大越研の学部生メンバー4人で共同開発しました。（フロントエンド＆発表を担当）
-# @speaker-deck e73cc90d859a458189e3e55958039391
-# @br-4px
-# @row /posts/mood-tune/photo1.png /posts/mood-tune/photo2.png
+# speaker-deck e73cc90d859a458189e3e55958039391
+# br-4px
+# row /posts/mood-tune/photo1.png /posts/mood-tune/photo2.png
 
 
 # 技術面

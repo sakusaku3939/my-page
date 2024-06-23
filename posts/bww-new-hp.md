@@ -9,7 +9,7 @@ date: 2020.10.15
 https://bww8231.fuji3.info
 
 ![](/public/posts/bww-new-hp/home.png)
-# @br-4px
+# br-4px
 ![](/public/posts/bww-new-hp/frc.png)
 
 
@@ -17,8 +17,8 @@ https://bww8231.fuji3.info
 ホスティングサービスには表示速度や維持費の観点から静的サイトであるGitHub Pagesを採用し、HTML, CSS, JavaScriptのみを直接使用して制作しました。
 
 ページ速度改善のために、画像の遅延読み込みやWebP画像の切り替え処理実装といった対策を行いました。 画像の遅延読み込みには標準実装のObserver APIを使用し、独自実装によって外部との通信量を抑えました。
-# @row /posts/bww-new-hp/speed1.png /posts/bww-new-hp/speed2.png
-# @br-16px
+# row /posts/bww-new-hp/speed1.png /posts/bww-new-hp/speed2.png
+# br-16px
 
 デザインはプロトタイピングツールのAdobe XDを使用して作成しました。
 ![](/public/posts/bww-new-hp/mockup.png)
@@ -27,8 +27,8 @@ https://bww8231.fuji3.info
 # おまけ
 ホームページで使われている2つの動画は自作しました。DJI Pocket 2で撮影した映像をPowerDirectorとFilmoraで編集しています。
 
-# @youtube j4t0hAsJ-mU
-# @youtube hfJ194l3SEw
+# youtube j4t0hAsJ-mU
+# youtube hfJ194l3SEw
 
 # リンク
 - 完成サイト  

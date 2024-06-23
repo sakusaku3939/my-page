@@ -14,8 +14,8 @@ date: 2022.3.14
 
 管理者画面にログインすることで発表者の切り替え・追加・コメントの削除等を、リアルタイムに行うことができます。
 
-# @row /posts/like-button/home-screenshot.jpg /posts/like-button/switch-screenshot.jpg
-# @row /posts/like-button/add-screenshot.jpg /posts/like-button/view-comment-screenshot.jpg
+# row /posts/like-button/home-screenshot.jpg /posts/like-button/switch-screenshot.jpg
+# row /posts/like-button/add-screenshot.jpg /posts/like-button/view-comment-screenshot.jpg
 
 
 # 技術面
@@ -33,10 +33,10 @@ date: 2022.3.14
 当日は最大20台の同時接続があり、3,967回のいいねと200個のコメントがスクリーンに流れました。
 
 ![](/public/posts/like-button/thumbnail.jpg)
-# @br-4px
+# br-4px
 
-# @row /posts/like-button/photo1.jpg /posts/like-button/photo2.jpg
-# @br-4px
+# row /posts/like-button/photo1.jpg /posts/like-button/photo2.jpg
+# br-4px
 
 ![](/public/posts/like-button/photo3.jpg)
 

@@ -9,7 +9,7 @@ date: 2023.6.4
 記事管理ページには、Markdownを利用したカスタムCMSが組み込まれており、カテゴリー別のフィルタリング検索が可能です。
 
 ![](/public/posts/my-page/screenshot1.png)
-# @br-4px
+# br-4px
 ![](/public/posts/my-page/screenshot2.png)
 
 # 技術面など

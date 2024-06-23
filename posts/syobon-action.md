@@ -8,14 +8,14 @@ date: 2020.5.13
 昔流行った鬼畜ゲーム「しょぼんのアクション」を１から作り直してリメイクしたものです。 1面で登場する敵・トラップ・ステージのみを再現しました。
 Excelからのステージデータ読み取りに対応したため、簡単にステージの自作・改造が出来ます。
 
-# @row /posts/syobon-action/syobon1.jpg /posts/syobon-action/syobon2.jpg
+# row /posts/syobon-action/syobon1.jpg /posts/syobon-action/syobon2.jpg
 
 # 良くなった点
 60fps対応。
 Excelからステージデータが読み取れるため、簡単にステージ改造・自作が出来る。
 コードを追加・変更することで、簡単に様々な敵や要素を追加可能。
 
-# @row /posts/syobon-action/syobon3.jpg /posts/syobon-action/syobon4.jpg
+# row /posts/syobon-action/syobon3.jpg /posts/syobon-action/syobon4.jpg
 
 # ステージの改造方法
 resフォルダの中にあるステージデータ.xlsxのシート「1-1」を編集することでステージの改造・自作が出来ます。

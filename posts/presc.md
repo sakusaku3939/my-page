@@ -18,12 +18,12 @@ date: 2021.10.25
 
 
 # 発表資料
-# @speaker-deck c632239a5a8d4dcbafa33e1e3dfcab9d
+# speaker-deck c632239a5a8d4dcbafa33e1e3dfcab9d
 
 
 # ダウンロード
-# @br-8px
-# @row-link /posts/presc/app-store.png:apps.apple.com/jp/app/presc/id1599599891 /posts/presc/google-play.png:play.google.com/store/apps/details?id=com.sakusaku3939.presc
+# br-8px
+# row-link /posts/presc/app-store.png:apps.apple.com/jp/app/presc/id1599599891 /posts/presc/google-play.png:play.google.com/store/apps/details?id=com.sakusaku3939.presc
 
 
 # 受賞歴
@@ -32,7 +32,7 @@ date: 2021.10.25
   - 発表アーカイブ - アプリ甲子園2021 No.5 プレゼン原稿表示アプリ「Presc」  
     https://youtu.be/JblLFCS-Eqw
 
-# @br-8px
+# br-8px
 
 - ## 全国専門学科情報科研究協議会
   専門学科「情報科」の設置高校が集まって年に1度開催する、研究協議会の生徒表彰にて優秀賞を頂きました。

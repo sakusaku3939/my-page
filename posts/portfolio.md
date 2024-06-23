@@ -10,7 +10,7 @@ History APIのpushStateメソッドを利用して、SPA（シングルページ
 https://portfolio.sakusaku3939.com
 
 ![](/public/posts/portfolio/screenshot1.png)
-# @br-4px
+# br-4px
 ![](/public/posts/portfolio/screenshot2.png)
 
 # リンク

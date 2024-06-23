@@ -10,7 +10,7 @@ date: 2023.1.25
 [→ Discordに追加する](https://discord.com/api/oauth2/authorize?client_id=1044007415680598068&permissions=2164262912&scope=bot%20applications.commands)
 
 ![](/public/posts/discord-vc/video.gif)
-# @br-16px
+# br-16px
 
 bot用サーバーにはGlitchを使用しました。スリープ回避のためにGoogle App Scriptによって定期実行を行っています。
 

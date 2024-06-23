@@ -21,19 +21,19 @@ WebViewを使用し、必要な要素以外はJavaScriptで隠すことでネイ
 |--------------------------------------------------|---------------------------------------------------|-----------------------------------------------------|
 | ![](/public/posts/deepl-android/main-screen.png) | ![](/public/posts/deepl-android/context-menu.gif) | ![](/public/posts/deepl-android/setting-screen.png) |
 
-# @br-8px
+# br-8px
 
 - 選択メニューからDeepLアプリを起動
   - 制作者: @fm-sys, @sakusaku3939, @S-H-Y-A
   - Pull Requests: [#25](https://github.com/sakusaku3939/DeepLAndroid/pull/25), [#40](https://github.com/sakusaku3939/DeepLAndroid/pull/40), [#57](https://github.com/sakusaku3939/DeepLAndroid/pull/57), [#62](https://github.com/sakusaku3939/DeepLAndroid/issues/62), [#67](https://github.com/sakusaku3939/DeepLAndroid/pull/67)
   - 議論・バグ修正: [#1](https://github.com/sakusaku3939/DeepLAndroid/issues/1), [#5](https://github.com/sakusaku3939/DeepLAndroid/issues/5), [#6](https://github.com/sakusaku3939/DeepLAndroid/issues/6), [#24](https://github.com/sakusaku3939/DeepLAndroid/issues/24), [#51](https://github.com/sakusaku3939/DeepLAndroid/issues/51), [#59](https://github.com/sakusaku3939/DeepLAndroid/issues/59), [#60](https://github.com/sakusaku3939/DeepLAndroid/issues/60), [#62](https://github.com/sakusaku3939/DeepLAndroid/issues/62), [#64](https://github.com/sakusaku3939/DeepLAndroid/issues/60), [#69](https://github.com/sakusaku3939/DeepLAndroid/issues/69)
-# @br-16px
+# br-16px
 
 - 設定画面・ダークモードへの切り替え
   - 制作者: @S-H-Y-A, @sakusaku3939
   - Pull Requests: [#28](https://github.com/sakusaku3939/DeepLAndroid/pull/28), [#30](https://github.com/sakusaku3939/DeepLAndroid/pull/30), [#37](https://github.com/sakusaku3939/DeepLAndroid/pull/37)
   - 議論・バグ修正: [#17](https://github.com/sakusaku3939/DeepLAndroid/issues/17), [#33](https://github.com/sakusaku3939/DeepLAndroid/issues/33), [#34](https://github.com/sakusaku3939/DeepLAndroid/issues/34), [#38](https://github.com/sakusaku3939/DeepLAndroid/issues/38), [#55](https://github.com/sakusaku3939/DeepLAndroid/issues/55), [#99](https://github.com/sakusaku3939/DeepLAndroid/issues/99)
-# @br-16px
+# br-16px
 
 - JavaScript関連
   - 制作者: @sakusaku3939, @S-H-Y-A, @fm-sys, @Mephodio
