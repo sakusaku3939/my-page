@@ -1,5 +1,5 @@
 ---
-title: OSSプロジェクト 非公式DeepL翻訳
+title: OSS 非公式DeepL翻訳
 tag: Android, Kotlin, OSS
 overview: WebViewとJavaScriptを使用した非公式Androidクライアントアプリ
 date: 2021.1.1
