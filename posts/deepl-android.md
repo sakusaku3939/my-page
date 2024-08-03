@@ -28,11 +28,7 @@ https://github.com/sakusaku3939/DeepLAndroid/releases
 - GitHub  
 https://github.com/sakusaku3939/DeepLAndroid
 
-# 使用技術
-言語 ・・・ Kotlin, JavaScript
-フレームワーク、ライブラリ ・・・ WebView
-
-# GitHubリンク
+# GitHub
 - 選択メニューからDeepLアプリを起動
   - Pull Requests: [#25](https://github.com/sakusaku3939/DeepLAndroid/pull/25), [#40](https://github.com/sakusaku3939/DeepLAndroid/pull/40), [#57](https://github.com/sakusaku3939/DeepLAndroid/pull/57), [#62](https://github.com/sakusaku3939/DeepLAndroid/issues/62), [#67](https://github.com/sakusaku3939/DeepLAndroid/pull/67)
   - 議論・バグ修正: [#1](https://github.com/sakusaku3939/DeepLAndroid/issues/1), [#5](https://github.com/sakusaku3939/DeepLAndroid/issues/5), [#6](https://github.com/sakusaku3939/DeepLAndroid/issues/6), [#24](https://github.com/sakusaku3939/DeepLAndroid/issues/24), [#51](https://github.com/sakusaku3939/DeepLAndroid/issues/51), [#59](https://github.com/sakusaku3939/DeepLAndroid/issues/59), [#60](https://github.com/sakusaku3939/DeepLAndroid/issues/60), [#62](https://github.com/sakusaku3939/DeepLAndroid/issues/62), [#64](https://github.com/sakusaku3939/DeepLAndroid/issues/60), [#69](https://github.com/sakusaku3939/DeepLAndroid/issues/69)
@@ -46,3 +42,7 @@ https://github.com/sakusaku3939/DeepLAndroid
 - JavaScript関連
   - Pull Requests: [#2](https://github.com/sakusaku3939/DeepLAndroid/pull/2), [#35](https://github.com/sakusaku3939/DeepLAndroid/pull/35), [#36](https://github.com/sakusaku3939/DeepLAndroid/pull/36)
   - 議論・バグ修正: [#19](https://github.com/sakusaku3939/DeepLAndroid/issues/19), [#23](https://github.com/sakusaku3939/DeepLAndroid/issues/23), [#77](https://github.com/sakusaku3939/DeepLAndroid/issues/77), [#80](https://github.com/sakusaku3939/DeepLAndroid/issues/80), [#90](https://github.com/sakusaku3939/DeepLAndroid/issues/90), [#96](https://github.com/sakusaku3939/DeepLAndroid/issues/96), [#104](https://github.com/sakusaku3939/DeepLAndroid/issues/104), [#111](https://github.com/sakusaku3939/DeepLAndroid/issues/111)
+
+# 使用技術
+言語 ・・・ Kotlin, JavaScript
+フレームワーク、ライブラリ ・・・ WebView

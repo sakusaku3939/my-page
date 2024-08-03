@@ -22,7 +22,7 @@ const Index = () => {
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
           <div className={index.subtitle}>B2 / SFC-RG&nbsp;
-            <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" target="_blank" />
+            <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" target="_blank" /> / Flutter
           </div>
           <SnsList />
         </section>
@@ -40,13 +40,13 @@ const Index = () => {
                 主に研究で使用。PyTorchによる深層学習、OpenCVなど
               </SkillsItem>
               <SkillsItem title="JavaScript">
-                サーバー用途やAPI開発で使用。Node.js、チャットボット、Vue.jsなど
+                サーバー用途やAPI開発、フロント周りで使用。Node.js、Vue.jsなど
               </SkillsItem>
               <SkillsItem title="TypeScript">
                 Next.jsを用いた自作CMS、Discordボット作成など
               </SkillsItem>
               <SkillsItem title="Kotlin">
-                過去にOSSを公開。Androidアプリの開発など
+                OSSのアプリを運営。Androidアプリの開発など
               </SkillsItem>
             </SkillsItemWrapper>
 
@@ -59,10 +59,10 @@ const Index = () => {
                 Webアプリ作成、Apacheなど
               </SkillsItem>
               <SkillsItem title="Ruby">
-                授業で使用。Railsを用いたSNSサイトを作成
+                授業で勉強。Railsを用いたSNSサイトを作成
               </SkillsItem>
               <SkillsItem title="C">
-                高校のプログラミングの授業で使用
+                高校でアルゴリズムとプログラミングの授業で使用
               </SkillsItem>
               <SkillsItem title="Go">
                 ブロックチェーン、IPFSの勉強に使用
