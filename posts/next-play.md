@@ -1,7 +1,7 @@
 ---
 title: NextPlay
 tag: Ruby, Ruby on Rails, JavaScript, WebRTC
-overview: WebRTCでゲーム配信やコメントができるゲーマーSNS
+overview: WebRTCでゲーム配信やコメントができるゲーマー向けSNS
 date: 2024.1.19
 ---
 

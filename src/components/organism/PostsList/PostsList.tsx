@@ -26,22 +26,22 @@ const PostsList = () => {
         </SplideSlide>
         <SplideSlide>
           <div className={postList.card}>
-            <Post date="2021.1.1"
-                  imageUrl="/posts/deepl-android/thumbnail.jpg"
-                  href="/posts/deepl-android"
-                  title="OSS 非公式DeepL翻訳"
-                  tag={["Android", "Kotlin", "OSS"]}
-                  overview="WebViewとJavaScriptを使用した非公式Androidクライアントアプリ" />
-          </div>
-        </SplideSlide>
-        <SplideSlide>
-          <div className={postList.card}>
             <Post date="2024.3.24"
                   imageUrl="/posts/mood-tune/thumbnail.jpg"
                   href="/posts/mood-tune"
                   title="MoodTune"
                   tag={["Python", "機械学習", "Next.js", "TypeScript"]}
                   overview="環境音からSpotifyの音楽を推薦してくれるAIアプリ" />
+          </div>
+        </SplideSlide>
+        <SplideSlide>
+          <div className={postList.card}>
+            <Post date="2024.1.19"
+                  imageUrl="/posts/next-play/thumbnail.jpg"
+                  href="/posts/next-play"
+                  title="NextPlay"
+                  tag={["Ruby", "Ruby on Rails", "JavaScript", "WebRTC"]}
+                  overview="WebRTCでゲーム配信やコメントができるゲーマー向けSNS" />
           </div>
         </SplideSlide>
         <SplideSlide>
@@ -66,12 +66,12 @@ const PostsList = () => {
         </SplideSlide>
         <SplideSlide>
           <div className={postList.card}>
-            <Post date="2024.1.19"
-                  imageUrl="/posts/next-play/thumbnail.jpg"
-                  href="/posts/next-play"
-                  title="NextPlay"
-                  tag={["Ruby", "Ruby on Rails", "JavaScript", "WebRTC"]}
-                  overview="WebRTCでゲーム配信やコメントができるゲーマーSNS" />
+            <Post date="2021.1.1"
+                  imageUrl="/posts/deepl-android/thumbnail.jpg"
+                  href="/posts/deepl-android"
+                  title="OSS 非公式DeepL翻訳"
+                  tag={["Android", "Kotlin", "OSS"]}
+                  overview="WebViewとJavaScriptを使用した非公式Androidクライアントアプリ" />
           </div>
         </SplideSlide>
       </Splide>
