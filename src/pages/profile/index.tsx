@@ -4,6 +4,7 @@ import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { Timeline, TimeLineItem, TimeLineLink } from "@/components/organism/Timeline/Timeline";
 import { faBriefcase, faChalkboardTeacher, faGraduationCap, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
+import { FooterMenu } from "@/components/molecule/Menu/Menu";
 
 const Index = () => {
   return (
@@ -94,6 +95,8 @@ const Index = () => {
           <QualificationItem title="ITパスポート試験" period="2020年秋期" institution="経済産業省" />
         </Qualification>
       </section>
+
+      <FooterMenu />
     </>
   );
 };

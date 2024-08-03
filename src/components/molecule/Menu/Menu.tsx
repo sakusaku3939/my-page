@@ -4,11 +4,15 @@ import Link from "next/link";
 import React from "react";
 
 const Menu = () => {
-  return <>
-    <section className={menu.wrapper}>
-      <MenuItem />
-    </section>
-  </>;
+  return <div className={menu.wrapper}>
+    <MenuItem />
+  </div>;
+};
+
+const FooterMenu = () => {
+  return <div className={menu.footer}>
+    <MenuItem />
+  </div>;
 };
 
 type MenuItemProps = {
@@ -23,4 +27,4 @@ const MenuItem = ({ onClick }: MenuItemProps) => {
   </>;
 };
 
-export { Menu, MenuItem };
+export { Menu, FooterMenu, MenuItem };

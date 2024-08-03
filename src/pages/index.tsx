@@ -6,7 +6,7 @@ import { Skills, SkillsItem, SkillsItemWrapper, SkillsSubItemWrapper } from "@/c
 import { GetServerSidePropsContext } from "next";
 import NoColorLink from "@/components/atom/NoColorLink/NoColorLink";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
-import { Menu } from "@/components/molecule/Menu/Menu";
+import { FooterMenu, Menu } from "@/components/molecule/Menu/Menu";
 
 const Index = () => {
   return (
@@ -76,6 +76,8 @@ const Index = () => {
             </SkillsSubItemWrapper>
           </Skills>
         </section>
+
+        <FooterMenu />
       </main>
     </>
   );

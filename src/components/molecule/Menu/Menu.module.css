@@ -7,3 +7,12 @@
 .wrapper > * {
     font-size: 18px !important;
 }
+
+.footer {
+    position: relative;
+    text-align: center;
+}
+
+.footer > * {
+    font-size: 18px !important;
+}

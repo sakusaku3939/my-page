@@ -6,6 +6,7 @@ import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
+import { FooterMenu } from "@/components/molecule/Menu/Menu";
 
 type Props = {
   filter: string | string[],
@@ -45,6 +46,7 @@ const Index = ({ filter, categories, overviews }: Props) => {
           <Category categories={categories} />
         </div>
       </div>
+      <FooterMenu />
     </>
   );
 };
