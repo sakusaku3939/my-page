@@ -48,12 +48,13 @@ const TimeLineItem = ({ date, icon, title, open = false, children }: TimeLineIte
 
 type TimeLineLinkProps = {
   description: string
-  href: string
+  href: string,
+  target?: string,
 };
 
-const TimeLineLink = ({ description, href }: TimeLineLinkProps) => {
+const TimeLineLink = ({ description, href, target = "_blank" }: TimeLineLinkProps) => {
   return <>
-    <Link className={timeline.link} href={href} target="_blank">
+    <Link className={timeline.link} href={href} target={target}>
       <FontAwesomeIcon className={timeline.icon} icon={faUpRightFromSquare} />
       {"  " + description}
     </Link>
