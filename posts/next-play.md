@@ -6,7 +6,6 @@ date: 2024.1.19
 ---
 
 SNSの機能に加えて、プレイ中のゲームの配信やコメントができるゲーマー向けSNSです。
-
 アプリケーションはRuby on Rails、ゲーム画面の配信はWebRTCとWebSocketを使用しました。
 
 <video src="/posts/next-play/demo-video.mp4" controls autoplay muted></video>
