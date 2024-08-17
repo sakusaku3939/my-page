@@ -1,5 +1,5 @@
 import index from "@/styles/index.module.css";
-import { getAllCategories, getPostOverview } from "@/model/PostApi";
+import { getAllCategories, getPostOverview, Overview } from "@/model/PostApi";
 import { Post } from "@/components/organism/PostsList/PostsList";
 import Category from "@/components/molecule/Category/Category";
 import { GetServerSidePropsContext } from "next";
@@ -11,7 +11,7 @@ import { FooterMenu } from "@/components/molecule/Menu/Menu";
 type Props = {
   filter: string | string[],
   categories: { [tag: string]: number }[],
-  overviews: { [p: string]: any }[],
+  overviews: Overview[],
 }
 
 const Index = ({ filter, categories, overviews }: Props) => {
@@ -29,7 +29,7 @@ const Index = ({ filter, categories, overviews }: Props) => {
       </div>
       <div className={index.wrapper}>
         <section className={index.postsList}>
-          {overviews.map((post: any, key: number) => (
+          {overviews.map((post: Overview, key: number) => (
             <Post key={key}
                   date={post.date}
                   imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}

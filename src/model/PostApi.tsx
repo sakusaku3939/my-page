@@ -6,6 +6,15 @@ import { MouseEvent } from "react";
 
 const postsDirectory = path.join(process.cwd(), "posts/");
 
+export type Overview = {
+  title: string,
+  date: string,
+  tag: string,
+  slug: string,
+  overview: string,
+  thumbnail: string
+}
+
 export function getPostData(filename: string) {
   const fullPath = path.join(postsDirectory, filename);
   return fs.readFileSync(fullPath, "utf8");
@@ -25,7 +34,7 @@ export function getAllPostSlugs() {
 
 export function getPostOverview(filter: string | string[] | undefined) {
   const fileNames = fs.readdirSync(postsDirectory);
-  let overviews = [];
+  let overviews: Overview[] = [];
   for (let name of fileNames) {
     // overviewにslugパラメータを追加
     const overview = matter(getPostData(name)).data;
@@ -36,10 +45,10 @@ export function getPostOverview(filter: string | string[] | undefined) {
       const tags = overview.tag.split(", ");
       const doIncludeTag = tags.filter((tag: string) => doMatchTag(tag, filter));
       if (doIncludeTag.length) {
-        overviews.push(overview);
+        overviews.push((overview as Overview));
       }
     } else {
-      overviews.push(overview);
+      overviews.push((overview as Overview));
     }
   }
   // 新しい日付順でソートして返却
