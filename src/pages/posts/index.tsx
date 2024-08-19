@@ -55,11 +55,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext<{ sl
   const { filter } = context.query;
   const categories = getAllCategories();
   const posts = getPostOverview(filter);
+  const sortedPinnedPosts = posts.sort((a, b) => a.pinned && !b.pinned ? -1 : 1);
   return {
     props: {
       filter: filter ?? "",
       categories: categories,
-      overviews: posts
+      overviews: sortedPinnedPosts
     }
   };
 }
