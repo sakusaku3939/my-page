@@ -34,14 +34,14 @@ const Index = () => {
             />
           </TimeLineItem>
           <TimeLineItem date="2023.1 ~" icon={faBriefcase} title="株式会社Wanderlust Locket開発" open={true}>
-            位置情報共有アプリ「Locket」のフロントエンド（Flutter）チームに約2ヶ月間参画しました。主にチャット機能、プロフィール画面の開発にフルタイムで従事しました。
+            位置情報共有アプリ「Locket」の開発に、Flutterエンジニアとして約2ヶ月間参画しました。主にチャット機能、プロフィール画面の開発に従事しました。
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-          <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="RG d-hacks 中澤・大越研究室" open={true}>
-            慶應義塾大学 村井合同研究会（RG）の d-hacks（中澤・大越研究室）で深層学習やCVに関する研究を行っています。
+          <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
+            学部1年の4月から慶應義塾大学 村井合同研究会（RG）の中澤・大越研究室（d-hacks）に所属し、深層学習やCVに関する研究を行っています。
             <TimeLineLink
-              description="RG"
-              href="https://rg.sfc.keio.ac.jp/ja"
+              description="d-hacks"
+              href="https://d-hacks.jn.sfc.keio.ac.jp/"
             />
           </TimeLineItem>
         </Timeline>
@@ -69,13 +69,17 @@ const Index = () => {
         <h1 className={index.h1}>研究発表</h1>
         <Timeline>
           <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
-                        title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）">
+                        title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）" open={true}>
             研究テーマ 「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」 について、情報処理学会の UBI82
             にて発表しました。（Full-paper,
             国内, 査読無し）
             <TimeLineLink
               description="id.nii.ac.jp/1001/00233750/"
               href="https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=233864&item_no=1&page_id=13&block_id=8"
+            />
+            <TimeLineLink
+              description="【発表】 学部2年 青木君が研究内容を情報処理学会第82回UBI研究会で発表しました – “一般物体検出とLSTMを用いた画像に基づく屋内位置推定” | Nakazawa and Okoshi Lab."
+              href="https://www.jn.sfc.keio.ac.jp/%e3%80%90%e7%99%ba%e8%a1%a8%e3%80%91%e5%ad%a6%e9%83%a82%e5%b9%b4-%e9%9d%92%e6%9c%a8%e5%90%9b%e3%81%8c%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9%e3%82%92%e6%83%85%e5%a0%b1%e5%87%a6%e7%90%86%e5%ad%a6%e4%bc%9a/?utm_campaign=shareaholic&utm_medium=copy_link&utm_source=bookmark"
             />
           </TimeLineItem>
           <TimeLineItem date="2024.6" icon={faChalkboardTeacher}
