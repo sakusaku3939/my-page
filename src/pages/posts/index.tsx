@@ -36,6 +36,7 @@ const Index = ({ filter, categories, overviews }: Props) => {
                   href={`/posts/${post.slug}`}
                   title={post.title}
                   tag={post.tag.split(", ")}
+                  pinned={post.pinned}
                   overview={post.overview} />
           ))}
           <div className={index.postDummy} />

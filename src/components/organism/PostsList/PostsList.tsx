@@ -5,6 +5,8 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Link from "next/link";
 import { renderTags } from "@/model/PostApi";
 import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faThumbtack } from "@fortawesome/free-solid-svg-icons";
 
 const PostsList = () => {
   return <>
@@ -46,12 +48,12 @@ const PostsList = () => {
         </SplideSlide>
         <SplideSlide>
           <div className={postList.card}>
-            <Post date="2022.3.14"
-                  imageUrl="/posts/like-button/thumbnail.jpg"
-                  href="/posts/like-button"
-                  title="いいねボタン"
-                  tag={["HTML / CSS / JavaScript", "Vue.js", "Firebase"]}
-                  overview="プレゼン発表中にリアルタイムで「いいね！」が送れるシステム" />
+            <Post date="2021.2.18"
+                  imageUrl="/posts/tkg-beacon/thumbnail.jpg"
+                  href="/posts/tkg-beacon"
+                  title="TKG Beacon"
+                  tag={["Android", "Kotlin", "AltBeacon", "Firebase"]}
+                  overview="BLEビーコンを利用した、生徒と先生の教室位置共有アプリ" />
           </div>
         </SplideSlide>
         <SplideSlide>
@@ -88,16 +90,19 @@ type PostProps = {
   href: string
   title: string
   tag: string[]
+  pinned?: boolean,
   overview: string
 };
 
-const Post = ({ date, imageUrl, href, title, tag, overview }: PostProps) => {
+const Post = ({ date, imageUrl, href, title, tag, pinned, overview }: PostProps) => {
   const router = useRouter();
   return <>
     <Link className={postList.reset} href={href}>
       <div className={postList.skin}>
         <div className={postList.date}>{date}</div>
         <div className={postList.image} style={{ backgroundImage: `url(${imageUrl})` }} />
+        {pinned && <FontAwesomeIcon className={postList.pin} icon={faStar} />}
+
         <div className={postList.textBox}>
           <div className={postList.title}>{title}</div>
           <ul className={`${common.tag} ${postList.tag}`}>

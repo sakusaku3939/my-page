@@ -3,6 +3,7 @@ title: OSS 非公式DeepL翻訳
 tag: Android, Kotlin, OSS
 overview: WebViewとJavaScriptを使用した非公式Androidクライアントアプリ
 date: 2021.1.1
+pinned: true
 ---
 
 2021年の当時、DeepL公式のAndroidアプリが無く、わざわざブラウザからアクセスする必要がありました。そこで、WebViewとJavaScriptを使用して、シンプルな非公式のDeepL翻訳クライアントアプリを開発しました。

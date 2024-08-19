@@ -39,6 +39,15 @@
     background-color: rgba(0, 0, 0, .3);
 }
 
+.pin {
+    position: absolute;
+    color: #FFCA28;
+    width: 14px;
+    z-index: 1;
+    top: 4px;
+    right: 12px;
+}
+
 .tag li {
     font-size: 11px !important;
 }
