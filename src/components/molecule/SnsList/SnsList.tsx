@@ -26,7 +26,7 @@ const SnsList = () => {
           <FontAwesomeIcon icon={faSpeakerDeck} />
         </SnsButton>
         <SnsButton title={"Connpass"} style={sns.connpass} href={"https://connpass.com/user/Aokiti/"}>
-          <Image src={"/icon/connpass_logo.png"} alt={""} layout={"fill"} objectFit={"contain"} />
+          <Image src={"/icon/connpass_logo.png"} alt={""} fill style={{ objectFit: "contain" }} />
         </SnsButton>
       </div>
     </>
