@@ -69,8 +69,8 @@ const Index = () => {
         <h1 className={index.h1}>研究発表</h1>
         <Timeline>
           <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
-                        title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）" open={true}>
-            研究テーマ 「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」 について、情報処理学会の UBI82
+                        title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）" open={false}>
+            研究テーマ 「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」 について、学部2年時に情報処理学会の UBI82
             にて発表しました。（Full-paper,
             国内, 査読無し）
             <TimeLineLink
@@ -84,7 +84,7 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2024.6" icon={faChalkboardTeacher}
                         title="ACM MobiSys'24 Poster/Demo" open={true}>
-            大学1年時の研究について、国際会議 MobiSys 2024 の Poster/Demo セッションにて 「Demo: Image-based Indoor
+            学部2年時に、国際会議 MobiSys 2024 の Poster/Demo セッションにて 「Demo: Image-based Indoor
             Localization using Object Detection and LSTM」 を発表しました。（Demo, 国際, 査読あり）
             <TimeLineLink
               description="doi.org/10.1145/3643832.3661836"

@@ -21,7 +21,7 @@ const Index = () => {
         <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
-          <div className={index.subtitle}>B2 / SFC-RG&nbsp;
+          <div className={index.subtitle}>B2 / RG&nbsp;
             <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" target="_blank" /> / Flutter
           </div>
           <SnsList />
@@ -59,10 +59,10 @@ const Index = () => {
                 Webアプリ作成、Apacheなど
               </SkillsItem>
               <SkillsItem title="Ruby">
-                授業で勉強。Railsを用いたSNSサイトを作成
+                RailsとWebRTCを用いたWebアプリを作成
               </SkillsItem>
               <SkillsItem title="C">
-                高校でアルゴリズムとプログラミングの授業で使用
+                高校のプログラミングの授業で使用
               </SkillsItem>
               <SkillsItem title="Go">
                 ブロックチェーン、IPFSの勉強に使用
