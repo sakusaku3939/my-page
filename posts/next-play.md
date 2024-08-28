@@ -45,5 +45,5 @@ STUNサーバーはGoogleが提供する <code>stun.l.google.com:19302</code> �
 
 # 使用技術
 言語 ・・・ Ruby, JavaScript
-フレームワーク、ライブラリ ・・・ Ruby on Rails,  Action Cable,  devise（ユーザー認証）
+フレームワーク、ライブラリ ・・・ Ruby on Rails,  Action Cable,  devise（ユーザー認証）,  SQLite3
 ツール ・・・ Docker,  Figma
