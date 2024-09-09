@@ -20,8 +20,8 @@ const Index = () => {
       <section className={index.section}>
         <h1 className={index.h1}>経歴</h1>
         <Timeline>
-          <TimeLineItem date="2019.4 ~" icon={faGraduationCap} title="東京都立新宿山吹高校（定時制） 情報科" />
-          <TimeLineItem date="2019.8 ~" icon={faBriefcase} title="FRCロボコンチーム BWW" open={true}>
+          <TimeLineItem date="2019.4 ~" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
+          <TimeLineItem date="2019.8 ~" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
             高1〜高3に世界最大級のロボコン FRC（FIRST Robotics
             Competition）のチーム「BWW」に初期メンバーとして活動しました。ロボットのプログラミングや公式Webサイト作成、YouTube動画編集、クラウドファンディング、ブログなどでの広報活動を行いました。
             <TimeLineLink
@@ -33,10 +33,13 @@ const Index = () => {
               href="https://www.youtube.com/@BWW8231"
             />
           </TimeLineItem>
-          <TimeLineItem date="2023.1 ~" icon={faBriefcase} title="株式会社Wanderlust Locket開発" open={true}>
-            位置情報共有アプリ「Locket」の開発に、Flutterエンジニアとして約2ヶ月間参画しました。主にチャット機能、プロフィール画面の開発に従事しました。
+          <TimeLineItem date="2023.1 ~" icon={faBriefcase} title="株式会社Wanderlust Locket開発" open={false}>
+            Flutterフロントエンドチームで約2ヶ月間、位置情報共有アプリ「Locket」の開発に従事しました。チャット機能やプロフィール画面などの新規開発や、チケット管理ツールを用いたスクラム開発を行いました。
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
+          <TimeLineItem date="2024.8 ~" icon={faBriefcase} title="Gather Inc. インターンシップ" open={true}>
+            外出先が見つかるAIアプリ「GatherGo」の開発に、Flutterインターンとして従事しています。Clean Architectureとチケット駆動開発による0→1の開発に携わっています。
+          </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
             学部1年の4月から慶應義塾大学 村井合同研究会（RG）の中澤・大越研究室（d-hacks）に所属し、深層学習やCVに関する研究を行っています。
             <TimeLineLink
