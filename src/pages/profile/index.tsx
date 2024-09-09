@@ -38,7 +38,7 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
           <TimeLineItem date="2024.8 ~" icon={faBriefcase} title="Gather Inc. インターンシップ" open={true}>
-            外出先が見つかるAIアプリ「GatherGo」の開発に、Flutterインターンとして従事しています。Clean Architectureとチケット駆動開発による0→1の開発に携わっています。
+            Gather株式会社でインターンとしてFlutterアプリの開発に携わっています。Clean Architectureとチケット駆動による0→1の開発に従事しています。
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
             学部1年の4月から慶應義塾大学 村井合同研究会（RG）の中澤・大越研究室（d-hacks）に所属し、深層学習やCVに関する研究を行っています。
