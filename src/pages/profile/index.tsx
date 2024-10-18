@@ -33,15 +33,15 @@ const Index = () => {
               href="https://www.youtube.com/@BWW8231"
             />
           </TimeLineItem>
-          <TimeLineItem date="2023.1 ~" icon={faBriefcase} title="株式会社Wanderlust Locket開発" open={false}>
+          <TimeLineItem date="2023.1 ~" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア" open={false}>
             Flutterフロントエンドチームで約2ヶ月間、位置情報共有アプリ「Locket」の開発に従事しました。チャット機能やプロフィール画面などの新規開発や、チケット管理ツールを用いたスクラム開発を行いました。
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-          <TimeLineItem date="2024.8 ~" icon={faBriefcase} title="Gather Inc. インターンシップ" open={true}>
-            Gather株式会社でインターンとしてFlutterアプリの開発に携わっています。Clean Architectureとチケット駆動による0→1の開発に従事しています。
+          <TimeLineItem date="2024.8 ~" icon={faBriefcase} title="Gather Inc. 開発アルバイト" open={true}>
+            現在、Gather株式会社にてFlutterアプリの0→1開発に携わっています。技術総括のもと、Clean Architectureとチケット駆動によるアプリケーション開発を行っています。
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
-            学部1年の4月から慶應義塾大学 村井合同研究会（RG）の中澤・大越研究室（d-hacks）に所属し、深層学習やCVに関する研究を行っています。
+            学部1年の4月から村井合同研究会（RG）の中澤・大越研究室（d-hacks）に所属し、深層学習やCVに関する研究を行っています。
             <TimeLineLink
               description="d-hacks"
               href="https://d-hacks.jn.sfc.keio.ac.jp/"
