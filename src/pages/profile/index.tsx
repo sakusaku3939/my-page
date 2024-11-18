@@ -23,7 +23,7 @@ const Index = () => {
           <TimeLineItem date="2019.4 ~ 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
           <TimeLineItem date="2019.8 ~ 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
             高1〜高3に世界最大級のロボコン FRC（FIRST Robotics
-            Competition）のチーム「BWW」に初期メンバーとして活動しました。ロボットのプログラミングや公式Webサイト作成、YouTube動画編集、クラウドファンディング、ブログなどでの広報活動を行いました。
+            Competition）のチーム「BWW」に初期メンバーとして活動しました。Javaによるロボット制御のプログラミングを担当したほか、公式Webサイトの制作、YouTube動画編集、ブログなどでの広報活動を行いました。
             <TimeLineLink
               description="公式Webサイト"
               href="https://bww8231.fuji3.info/"
@@ -39,11 +39,10 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~ 2027.3" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
           <TimeLineItem date="2024.8 ~ 現在" icon={faBriefcase} title="Gather Inc. 開発アルバイト" open={false}>
-            現在、Gather株式会社にてFlutterアプリの0→1開発に携わっています。技術総括のもと、Clean
-            Architectureとチケット駆動によるアプリケーション開発を行っています。
+            現在、Gather株式会社にてFlutterアプリの0→1開発に従事しています。技術総括のもと、アーキテクチャの選定から携わり、Clean Architecture と Riverpod+freezed を活用したチケット駆動開発を行っています。
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~ 現在" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
-            学部1年の4月から村井合同研究会（RG）の中澤・大越研究室（d-hacks）に所属し、深層学習やCVに関する研究を行っています。
+            大学1年の4月から村井合同研究会（RG）の中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する勉強や研究に取り組んでいます。
             <TimeLineLink
               description="d-hacks"
               href="https://d-hacks.jn.sfc.keio.ac.jp/"
