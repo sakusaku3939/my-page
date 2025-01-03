@@ -39,10 +39,10 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~ 2027.3" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
           <TimeLineItem date="2024.8 ~ 2024.12" icon={faBriefcase} title="Gather Inc. 開発アルバイト" open={false}>
-            Gather株式会社にてFlutterアプリの0→1開発に従事しました。技術総括のもと、アーキテクチャの選定から携わり、Clean Architecture と Riverpod+freezed+hooks によるチケット駆動開発を行いました。
+            お出かけ先を提案してくれるAI 「GatherGo」 のFlutterチームで0→1開発に携わりました。技術総括のもとアーキテクチャの選定から携わり、Clean Architectureベースと Riverpod+freezed+hooks によるチケット駆動開発を行いました。
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~ 現在" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
-            大学1年の4月から村井合同研究会（RG）の中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する勉強や研究に取り組んでいます。
+            村井合同研究会（RG）の中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する勉強や研究に取り組んでいます。
             <TimeLineLink
               description="d-hacks"
               href="https://d-hacks.jn.sfc.keio.ac.jp/"
