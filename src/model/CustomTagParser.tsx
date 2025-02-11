@@ -42,11 +42,12 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
         return <>
           <div className={posts.row}>
             <span className={`${common.placeholder} ${imageLoaded ? common.loaded : ""}`} />
-            {args.map((value: string, key: number) => (
+            {args.map((value: string, key: number) => <>
               <div className={common.imageContainer} key={key}>
                 <Image src={value} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
               </div>
-            ))}
+              <div style={{ width: 3 }} />
+            </>)}
           </div>
         </>;
 
