@@ -29,7 +29,7 @@ date: 2024.6.7
 - 論文URL： [id.nii.ac.jp/1001/00233750/](http://id.nii.ac.jp/1001/00233750/)
 # br-24px
 
-# three-row 21.91 /posts/yolo-lstm/ubi1.jpg /posts/yolo-lstm/ubi2.jpg /posts/yolo-lstm/ubi.jpg
+# three-row 21.91 /posts/yolo-lstm/ubi1.jpg /posts/yolo-lstm/ubi2.jpg /posts/yolo-lstm/ubi3.jpg
 # br-32px
 
 また、翌月の6月に国際会議 ACM MobiSys'24 のDemo sessionにおいて、デモ発表を行いました。
