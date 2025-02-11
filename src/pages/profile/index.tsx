@@ -80,7 +80,7 @@ const Index = () => {
             国内, 査読無し）
             <TimeLineLink
               description="id.nii.ac.jp/1001/00233750/"
-              href="https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=233864&item_no=1&page_id=13&block_id=8"
+              href="https://ipsj.ixsq.nii.ac.jp/records/233864"
             />
             <TimeLineLink
               description="【発表】 学部2年 青木君が研究内容を情報処理学会第82回UBI研究会で発表しました – “一般物体検出とLSTMを用いた画像に基づく屋内位置推定” | Nakazawa and Okoshi Lab."
