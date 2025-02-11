@@ -23,7 +23,7 @@ date: 2024.6.7
 
 
 # 発表
-2024年5月に情報処理学会 第82回UBI研究会にて口頭発表を行いました。(左下は屋久島で名物の亀の手)
+2024年5月に情報処理学会 第82回UBI研究会にて口頭発表を行いました。(左下は屋久島名物の亀の手)
 
 - [【発表】 学部2年 青木君が研究内容を情報処理学会第82回UBI研究会で発表しました – “一般物体検出とLSTMを用いた画像に基づく屋内位置推定” | Nakazawa and Okoshi Lab.](https://www.jn.sfc.keio.ac.jp/%e3%80%90%e7%99%ba%e8%a1%a8%e3%80%91%e5%ad%a6%e9%83%a82%e5%b9%b4-%e9%9d%92%e6%9c%a8%e5%90%9b%e3%81%8c%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9%e3%82%92%e6%83%85%e5%a0%b1%e5%87%a6%e7%90%86%e5%ad%a6%e4%bc%9a/?utm_campaign=shareaholic&utm_medium=copy_link&utm_source=bookmark)
 - 論文URL： [id.nii.ac.jp/1001/00233750/](http://id.nii.ac.jp/1001/00233750/)
