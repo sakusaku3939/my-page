@@ -67,6 +67,28 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
           </div>
         </>;
 
+      // three-row (side-weight)% (image-path) (image-path) (image-path)
+      case "three-row":
+        const weight = parseFloat(args[0]);
+        return <>
+          <div className={posts.row}>
+            <span className={`${common.placeholder} ${imageLoaded ? common.loaded : ""}`} />
+            <div style={{ display: "flex", flexDirection: "column", width: `${weight}%` }}>
+              <div className={common.imageContainer} style={{ height: "50%" }}>
+                <Image src={args[1]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
+              </div>
+              <div style={{ height: 3 }} />
+              <div className={common.imageContainer} style={{ height: "50%" }}>
+                <Image src={args[2]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
+              </div>
+            </div>
+            <div style={{ width: 3 }} />
+            <div className={common.imageContainer} style={{ width: `${100 - weight}%` }}>
+              <Image src={args[3]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
+            </div>
+          </div>
+        </>;
+
       // youtube (youtube-id)
       case "youtube":
         return <>
