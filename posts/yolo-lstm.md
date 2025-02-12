@@ -1,6 +1,6 @@
 ---
 title: YoloLSTM
-tag: 機械学習, ACM MobiSys Demo, IPSJ UBI, Flutter
+tag: 機械学習, ACM MobiSys, IPSJ UBI, Flutter
 overview: 一般物体検出とLSTMを用いた画像に基づく屋内位置推定
 date: 2024.6.7
 ---
