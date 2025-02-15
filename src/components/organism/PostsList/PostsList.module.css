@@ -100,6 +100,13 @@
     text-decoration: none;
 }
 
+.right {
+    display: inline;
+    width: 14px;
+    margin-left: 12px;
+    margin-bottom: 2px;
+}
+
 @media screen and (max-width: 500px) {
     .card {
         width: 328px;

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { renderTags } from "@/model/PostApi";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faThumbtack } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
 
 const PostsList = () => {
   return <>
@@ -79,7 +79,8 @@ const PostsList = () => {
       </Splide>
     </div>
     <div className={postList.button}>
-      <Link className={postList.reset} href="/posts">もっと見る</Link>
+      <Link className={postList.reset} href="/posts">もっと見る<FontAwesomeIcon className={postList.right}
+                                                                                icon={faArrowRight} /></Link>
     </div>
   </>;
 };
