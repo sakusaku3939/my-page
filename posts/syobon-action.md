@@ -28,11 +28,19 @@ Python版しょぼんのアクションを強化学習で実行する環境を�
 
 <video src="/posts/syobon-action/rl-early.mp4" controls autoplay muted></video>
 
+↓ 一番うまくいったエピソード
+<video src="/posts/syobon-action/rl-umee.mp4" controls autoplay muted></video>
+
+2500エピソードほど学習させてみましたが、報酬設定かモデルの設計が良くないためかゴールまで辿り着くことはできませんでした。（もしうまく直せた方がいればプルリクお待ちしております）
+![](/public/posts/syobon-action/rl-rewards.png)
+
 # リンク
 - リリース版DL  
   https://github.com/sakusaku3939/SyobonAction/releases
 - GitHub  
   https://github.com/sakusaku3939/SyobonAction
+- しょぼんのアクション強化学習 (PPOベース)  
+  https://github.com/sakusaku3939/SyobonAction/tree/RL-PPO
 - ちく制作しょぼんのアクション(原作)DL  
   http://chibicon.net/slink/j062101/
 
