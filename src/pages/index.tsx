@@ -22,7 +22,7 @@ const Index = () => {
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
           <div className={index.subtitle}>B2 / RG&nbsp;
-            <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" target="_blank" /> / Flutterが好き
+            <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" target="_blank" /> / アプリ開発, 深層学習
           </div>
           <SnsList />
         </section>
