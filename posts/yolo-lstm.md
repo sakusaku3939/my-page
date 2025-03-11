@@ -3,6 +3,7 @@ title: YoloLSTM
 tag: 機械学習, ACM MobiSys, IPSJ UBI, Flutter
 overview: 一般物体検出とLSTMを用いた画像に基づく屋内位置推定
 date: 2024.6.7
+pinned: true
 ---
 
 一般物体検出とCNNおよびLSTMを組み合わせることで、物体の特徴や数に着目した自己位置推定モデルを構築しました。
