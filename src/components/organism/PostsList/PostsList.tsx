@@ -71,9 +71,9 @@ const PostsList = () => {
             <Post date="2021.1.1"
                   imageUrl="/posts/deepl-android/thumbnail.jpg"
                   href="/posts/deepl-android"
-                  title="OSS 非公式DeepL翻訳"
+                  title="OSS版 DeepL翻訳アプリ"
                   tag={["Android", "Kotlin", "OSS"]}
-                  overview="WebViewとJavaScriptを使用した非公式Androidクライアントアプリ" />
+                  overview="非公式のDeepL翻訳サードパーティアプリ開発とOSSプロジェクト運営" />
           </div>
         </SplideSlide>
       </Splide>
