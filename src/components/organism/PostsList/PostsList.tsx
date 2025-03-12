@@ -42,7 +42,7 @@ const PostsList = () => {
                   imageUrl="/posts/yolo-lstm/thumbnail.jpg"
                   href="/posts/yolo-lstm"
                   title="YoloLSTM"
-                  tag={["深層学習", "ACM MobiSys", "IPSJ UBI"," Flutter"]}
+                  tag={["深層学習", "ACM MobiSys", "IPSJ UBI", " Flutter"]}
                   overview="一般物体検出と深層学習をもとに、物体の特徴や数に着目した自己位置推定モデルの研究" />
           </div>
         </SplideSlide>
@@ -69,7 +69,7 @@ const PostsList = () => {
       </Splide>
     </div>
     <div className={postList.button}>
-      <Link className={postList.reset} href="/posts">もっと見る<FontAwesomeIcon className={postList.right}
+      <Link className={postList.reset} href="/posts">もっと見る<FontAwesomeIcon className={postList.rightArrow}
                                                                                 icon={faArrowRight} /></Link>
     </div>
   </>;

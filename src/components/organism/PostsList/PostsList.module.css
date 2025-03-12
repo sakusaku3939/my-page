@@ -100,11 +100,24 @@
     text-decoration: none;
 }
 
-.right {
+.rightArrow {
+    animation: rightArrow 1.5s linear infinite;
     display: inline;
     width: 14px;
     margin-left: 12px;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
+}
+
+@keyframes rightArrow {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(4px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 @media screen and (max-width: 500px) {
