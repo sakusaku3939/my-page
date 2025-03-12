@@ -1,7 +1,7 @@
 ---
-title: OSS 非公式DeepL翻訳
+title: OSS版 DeepL翻訳アプリ
 tag: Android, Kotlin, OSS
-overview: WebViewとJavaScriptを使用した非公式Androidクライアントアプリ
+overview: 非公式のDeepL翻訳サードパーティアプリ開発とOSSプロジェクト運営
 date: 2020.8.1
 pinned: true
 ---
