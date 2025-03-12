@@ -32,7 +32,7 @@ const PostsList = () => {
                   imageUrl="/posts/530-app/thumbnail.jpg"
                   href="/posts/530-app"
                   title="ごみ量可視化アプリ"
-                  tag={["Android / iOS", "Flutter", "Dart", "廃棄物資源循環学会"]}
+                  tag={["Android / iOS", "Flutter", "廃棄物資源循環学会"]}
                   overview="自宅のゴミ排出量の可視化、ごみ収集車の到着予定時間を表示できる実証実験アプリ" />
           </div>
         </SplideSlide>
