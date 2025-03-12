@@ -28,42 +28,22 @@ const PostsList = () => {
         </SplideSlide>
         <SplideSlide>
           <div className={postList.card}>
-            <Post date="2024.3.24"
-                  imageUrl="/posts/mood-tune/thumbnail.jpg"
-                  href="/posts/mood-tune"
-                  title="MoodTune"
-                  tag={["Python", "機械学習", "Next.js", "TypeScript"]}
-                  overview="環境音からSpotifyの音楽を推薦してくれるAIアプリ" />
+            <Post date="2025.2.10"
+                  imageUrl="/posts/530-app/thumbnail.jpg"
+                  href="/posts/530-app"
+                  title="ごみ量可視化アプリ"
+                  tag={["Android / iOS", "Flutter", "Dart", "廃棄物資源循環学会"]}
+                  overview="自宅のゴミ排出量の可視化、ごみ収集車の到着予定時間を表示できる実証実験アプリ" />
           </div>
         </SplideSlide>
         <SplideSlide>
           <div className={postList.card}>
-            <Post date="2024.1.19"
-                  imageUrl="/posts/next-play/thumbnail.jpg"
-                  href="/posts/next-play"
-                  title="NextPlay"
-                  tag={["Ruby", "Ruby on Rails", "JavaScript", "WebRTC"]}
-                  overview="WebRTCでゲーム配信やコメントができるゲーマー向けSNS" />
-          </div>
-        </SplideSlide>
-        <SplideSlide>
-          <div className={postList.card}>
-            <Post date="2021.2.18"
-                  imageUrl="/posts/tkg-beacon/thumbnail.jpg"
-                  href="/posts/tkg-beacon"
-                  title="TKG Beacon"
-                  tag={["Android", "Kotlin", "AltBeacon", "Firebase"]}
-                  overview="BLEビーコンを利用した、生徒と先生の教室位置共有アプリ" />
-          </div>
-        </SplideSlide>
-        <SplideSlide>
-          <div className={postList.card}>
-            <Post date="2020.5.13"
-                  imageUrl="/posts/syobon-action/thumbnail.jpg"
-                  href="/posts/syobon-action"
-                  title="しょぼんのアクション Python版"
-                  tag={["Python", "pygame", "Excel"]}
-                  overview="ちくさん制作の「しょぼんのアクション」をPythonで１から作り直したもの" />
+            <Post date="2024.6.7"
+                  imageUrl="/posts/yolo-lstm/thumbnail.jpg"
+                  href="/posts/yolo-lstm"
+                  title="YoloLSTM"
+                  tag={["深層学習", "ACM MobiSys", "IPSJ UBI"," Flutter"]}
+                  overview="一般物体検出と深層学習をもとに、物体の特徴や数に着目した自己位置推定モデルの研究" />
           </div>
         </SplideSlide>
         <SplideSlide>
@@ -74,6 +54,16 @@ const PostsList = () => {
                   title="OSS版 DeepL翻訳アプリ"
                   tag={["Android", "Kotlin", "OSS"]}
                   overview="非公式のDeepL翻訳サードパーティアプリ開発とOSSプロジェクト運営" />
+          </div>
+        </SplideSlide>
+        <SplideSlide>
+          <div className={postList.card}>
+            <Post date="2024.3.24"
+                  imageUrl="/posts/mood-tune/thumbnail.jpg"
+                  href="/posts/mood-tune"
+                  title="MoodTune"
+                  tag={["Python", "機械学習", "Next.js", "TypeScript"]}
+                  overview="環境音からSpotifyの音楽を推薦してくれるAIアプリ" />
           </div>
         </SplideSlide>
       </Splide>

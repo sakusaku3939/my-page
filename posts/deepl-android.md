@@ -6,7 +6,7 @@ date: 2020.8.1
 pinned: true
 ---
 
-2020年の当時、DeepL公式のAndroidアプリが無く、わざわざブラウザからアクセスする必要がありました。そこで、WebViewとJavaScriptを使用して、シンプルな非公式のDeepL翻訳クライアントアプリを開発しました。
+2020年の当時、DeepL公式のAndroidアプリが無く、わざわざブラウザからアクセスする必要がありました。そこで、WebViewとJavaScriptを使用して、シンプルなDeepL翻訳サードパーティアプリを開発しました。
 
 アプリをOSS化したところ大きな反響があり、2025年1月時点で <a href="https://github.com/sakusaku3939/DeepLAndroid/issues?q=is%3Aissue+is%3Aclosed" target="_blank">68個の解決済みIssues</a> と <a href="https://github.com/sakusaku3939/DeepLAndroid/pulls?q=is%3Apr+is%3Aclosed" target="_blank">48個のPull requests</a> がマージされました。
 アプリ自体の言語は英語・日本語に加え、コントリビューターにより計11ヶ国語に対応しています。
