@@ -67,7 +67,9 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2022.8" icon={faTrophy} title="全国専門学科情報科研究協議会 優秀賞">
             高校の情報科設置校が集まって年に1度開催する研究協議会にて、Prescを発表しました。生徒表彰にて優秀賞を頂きました。
-            <br />
+          </TimeLineItem>
+          <TimeLineItem date="2025.3" icon={faTrophy} title="廃棄物資源循環学会 優秀ポスター賞">
+            廃棄物資源循環学会にて「細粒度ゴミ排出量データを活用した市民向けゴミ収集可視化アプリケーションの開発」の発表を行い、優秀ポスター賞を受賞しました。
           </TimeLineItem>
         </Timeline>
 
@@ -75,9 +77,8 @@ const Index = () => {
         <Timeline>
           <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
                         title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）" open={false}>
-            研究テーマ 「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」 について、学部2年時に情報処理学会の UBI82
-            にて発表しました。（Full-paper,
-            国内, 査読無し）
+            研究テーマ 「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」 について、情報処理学会の
+            UBI82研究会にて発表しました。（Full-paper, 国内, 査読無し）
             <TimeLineLink
               description="id.nii.ac.jp/1001/00233750/"
               href="https://ipsj.ixsq.nii.ac.jp/records/233864"
@@ -89,8 +90,8 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2024.6" icon={faChalkboardTeacher}
                         title="ACM MobiSys'24 Poster/Demo" open={true}>
-            学部2年時に、国際会議 MobiSys 2024 の Poster/Demo セッションにて 「Demo: Image-based Indoor
-            Localization using Object Detection and LSTM」 を発表しました。（Demo, 国際, 査読あり）
+            国際会議 MobiSys 2024 の Poster/Demo セッションにて「Demo: Image-based Indoor
+            Localization using Object Detection and LSTM」を発表しました。（Demo, 国際, 査読あり）
             <TimeLineLink
               description="doi.org/10.1145/3643832.3661836"
               href="https://doi.org/10.1145/3643832.3661836"
