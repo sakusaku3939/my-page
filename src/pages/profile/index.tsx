@@ -70,6 +70,10 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2025.3" icon={faTrophy} title="廃棄物資源循環学会 優秀ポスター賞">
             廃棄物資源循環学会にて「細粒度ゴミ排出量データを活用した市民向けゴミ収集可視化アプリケーションの開発」の発表を行い、優秀ポスター賞を頂きました。
+            <TimeLineLink
+              description="青木勇樹さん(環2)が令和6年度 廃棄物資源循環学会関東支部 講演会・研究発表会で「優秀ポスター賞」を受賞 | 慶應義塾大学 湘南藤沢キャンパス（SFC）"
+              href="https://www.sfc.keio.ac.jp/news/025657.html"
+            />
           </TimeLineItem>
         </Timeline>
 
