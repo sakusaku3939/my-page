@@ -25,8 +25,7 @@ https://bww8231.fuji3.info
 
 
 # おまけ
-ホームページで使われている2つの動画は自作したものになります。（小学生の時から趣味で動画編集をやってました）
-DJI Pocket 2で撮影した映像をPowerDirectorとFilmoraで編集しています。
+ホームページで使われている2つの動画を制作しました。PowerDirectorとFilmoraで編集しています。
 
 # youtube j4t0hAsJ-mU
 # youtube hfJ194l3SEw
