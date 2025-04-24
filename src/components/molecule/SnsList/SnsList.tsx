@@ -2,6 +2,7 @@ import sns from "@/components/molecule/SnsList/SnsList.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faSpeakerDeck } from "@fortawesome/free-brands-svg-icons";
 import { ReactNode } from "react";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
 
 const SnsList = () => {
   return (
@@ -27,6 +28,9 @@ const SnsList = () => {
         <SnsButton title={"LinkedIn"} style={sns.linkedIn} href={"https://www.linkedin.com/in/yuki-aoki/"}>
           <div className={sns.linkedInBackground} />
           <FontAwesomeIcon icon={faLinkedin} />
+        </SnsButton>
+        <SnsButton title={"ブクログ"} style={sns.bookLog} href={"https://booklog.jp/users/aokiti"}>
+          <FontAwesomeIcon icon={faBook} />
         </SnsButton>
       </div>
     </>

@@ -56,6 +56,12 @@
 .linkedIn * {
 }
 
+.bookLog {
+    color: #52b8db;
+    width: 27px;
+    height: 27px;
+}
+
 .connpass {
     position: relative;
 }
