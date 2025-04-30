@@ -35,10 +35,10 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2023.1 ~ 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
                         open={false}>
-            Flutterフロントエンドチームで約3ヶ月間、位置情報共有アプリ「Locket」の開発に従事しました。チャット機能やプロフィール画面などの新規開発や、チケット管理ツールを用いたスクラム開発を行いました。
+            Flutterフロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発に従事しました。チャット機能などの新規機能開発や、JIRAによるスクラム開発を経験しました。
           </TimeLineItem>
           <TimeLineItem date="2023.4 ~ 2027.3" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-          <TimeLineItem date="2024.8 ~ 2024.12" icon={faBriefcase} title="Gather Inc. 開発アルバイト" open={false}>
+          <TimeLineItem date="2024.8 ~ 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア" open={false}>
             お出かけ先を提案してくれるAI 「GatherGo」 のFlutterチームで0→1開発に携わりました。技術総括のもとアーキテクチャの選定から携わり、Clean
             Architectureベースと Riverpod+freezed+hooks によるチケット駆動開発を行いました。
           </TimeLineItem>
