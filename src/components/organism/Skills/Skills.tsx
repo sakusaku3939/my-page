@@ -45,7 +45,7 @@ type SkillItemProps = {
 
 const SkillsItem = ({ title, children }: SkillItemProps) => {
   const router = useRouter();
-  const name = title.replace("#", "sharp")
+  const name = title.replace("#", "sharp").replace("/", "slash");
   return (
     <>
       <div className={`${skills.card}`}>
