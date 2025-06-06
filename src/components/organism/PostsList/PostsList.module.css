@@ -14,9 +14,21 @@
 
 .skin {
     position: relative;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 16px 0, rgba(0, 0, 0, 0.04) 0 0 0 1px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 4px 16px 0, rgba(0, 0, 0, 0.05) 0 0 0 1px;
     cursor: pointer;
     overflow: hidden;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--background-color);
+}
+
+.skin:hover {
+    transform: translateY(-3px);
+    box-shadow: rgba(0, 0, 0, 0.15) 0 12px 40px 0, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+}
+
+.skin:active {
+    transform: translateY(-2px);
 }
 
 .image {
@@ -88,10 +100,12 @@
     border: solid 2px var(--light-grey);
     font-size: 14px;
     padding: 12px 56px;
-    transition: .1s;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 0 0 var(--light-grey);
 }
 
 .button a:hover {
+    box-shadow: inset 0 0 0 1px var(--light-grey);
     background-color: rgba(0, 0, 0, .05);
 }
 
