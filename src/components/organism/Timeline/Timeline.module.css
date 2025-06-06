@@ -65,10 +65,17 @@
     padding-left: 36px;
 }
 
-.date {
+.date--single {
     color: var(--light-grey);
     font-weight: bold;
     min-width: 80px;
+    padding-right: 16px;
+}
+
+.date--range {
+    color: var(--light-grey);
+    font-weight: bold;
+    min-width: 144px;
     padding-right: 16px;
 }
 

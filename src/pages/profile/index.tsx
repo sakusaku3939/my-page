@@ -93,7 +93,7 @@ const Index = () => {
             />
           </TimeLineItem>
           <TimeLineItem date="2024.6" icon={faChalkboardTeacher}
-                        title="ACM MobiSys'24 Poster/Demo" open={true}>
+                        title="ACM MobiSys'24 Demo" open={true}>
             国際会議 MobiSys 2024 の Poster/Demo セッションにて「Demo: Image-based Indoor
             Localization using Object Detection and LSTM」を発表しました。（Demo, 国際, 査読あり）
             <TimeLineLink
