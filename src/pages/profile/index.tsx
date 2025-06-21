@@ -37,6 +37,12 @@ const Index = () => {
           <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
                         open={false}>
             フロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発（Flutter）にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、開発速度と品質の両立を重視したスクラム開発を経験しました。
+            <TimelineImage
+              title="Locket | 位置情報共有アプリ"
+              period="2023年1月 - 2023年3月"
+              imageUrl="/timeline/locket.png"
+              showModal={true}
+            />
           </TimeLineItem>
           <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア" open={false}>
             お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャの選定から携わり、Clean
