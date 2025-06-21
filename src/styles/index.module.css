@@ -58,10 +58,14 @@
 }
 
 .profileTitle {
+    text-align: center;
     font-size: 28px;
     font-weight: bold;
-    text-align: center;
-    padding: 56px 16px;
+    padding: 48px 16px;
+}
+
+.profileTitle div {
+    padding-bottom: 16px;
 }
 
 .postTitle {

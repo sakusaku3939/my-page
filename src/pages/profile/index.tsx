@@ -6,6 +6,7 @@ import { faBriefcase, faChalkboardTeacher, faGraduationCap, faTrophy } from "@fo
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import TimelineImage from "@/components/molecule/TimelineImage/TimelineImage";
+import SnsList from "@/components/molecule/SnsList/SnsList";
 
 const Index = () => {
   return (
@@ -16,7 +17,10 @@ const Index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HamburgerMenu />
-      <h1 className={index.profileTitle}>プロフィール</h1>
+      <h1 className={index.profileTitle}>
+        <div>プロフィール</div>
+        <SnsList />
+      </h1>
 
       <section className={index.section}>
         <h1 className={index.h1}>経歴</h1>
