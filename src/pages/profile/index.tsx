@@ -43,7 +43,7 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
           <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
-            村井合同研究会（RG）の中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する勉強や研究に取り組んでいます。
+            村井合同研究会（RG）の中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
             <TimeLineLink
               description="d-hacks"
               href="https://d-hacks.jn.sfc.keio.ac.jp/"
