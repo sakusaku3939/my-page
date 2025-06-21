@@ -6,7 +6,7 @@ date: 2020.10.15
 ---
 
 高1~高3の間に所属していたFRCロボコンチームの新ホームページをHTML, CSS, JavaScriptを使用して1から制作しました。
-https://bww8231.fuji3.info
+https://frcbww.github.io/Website/
 
 ![](/public/posts/bww-new-hp/home.png)
 # br-4px
@@ -32,7 +32,7 @@ https://bww8231.fuji3.info
 
 # リンク
 - 完成サイト  
-https://bww8231.fuji3.info
+https://frcbww.github.io/Website/
 - GitHub  
 https://github.com/frcbww/Website
 

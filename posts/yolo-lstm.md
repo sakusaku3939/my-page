@@ -46,11 +46,15 @@ Demo sessionでは、本研究のモデルを用いて写真から研究室の�
 
 
 # リンク
-- 論文コード (GitHub)  
+- コード (GitHub)  
   https://github.com/sakusaku3939/YoloLSTM
 - デモアプリ (GitHub)  
   https://github.com/sakusaku3939/localization-app
+- IPSJ UBI82 (論文URL)  
+  [id.nii.ac.jp/1001/00233750/](http://id.nii.ac.jp/1001/00233750/)
+- ACM MobiSys'24 (論文URL)  
+  [doi.org/10.1145/3643832.3661836](https://dl.acm.org/doi/10.1145/3643832.3661836)
 
 # 使用技術
-言語 ・・・ Python, (Dart)
-フレームワーク、ライブラリ ・・・ PyTorch, YOLOv8, (Flutter)
+言語 ・・・ Python, Dart
+フレームワーク、ライブラリ ・・・ PyTorch, YOLOv8, Flutter
