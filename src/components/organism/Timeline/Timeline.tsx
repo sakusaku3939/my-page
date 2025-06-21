@@ -1,7 +1,7 @@
 import timeline from "@/components/organism/Timeline/Timeline.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare, IconDefinition } from "@fortawesome/free-solid-svg-icons";
-import { ReactNode } from "react";
+import { ReactNode, useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
 type TimeLineProps = {
@@ -27,6 +27,9 @@ type TimeLineItemProps = {
 };
 
 const TimeLineItem = ({ date, icon, title, open = false, children }: TimeLineItemProps) => {
+  const [isOpen, setIsOpen] = useState(open);
+  const contentRef = useRef<HTMLDivElement>(null);
+
   // 日付の形式に応じたCSSクラスを生成
   const getDateType = (dateStr: string): "single" | "range" => {
     return dateStr.includes("-") ? "range" : "single";
@@ -34,11 +37,26 @@ const TimeLineItem = ({ date, icon, title, open = false, children }: TimeLineIte
   const dateType = getDateType(date);
   const dateClassName = `${timeline.date} ${timeline[`date--${dateType}`]}`;
 
+  // アコーディオンメニューのアニメーション
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    if (contentRef.current) {
+      if (isOpen) {
+        contentRef.current.style.maxHeight = contentRef.current.scrollHeight + "px";
+      } else {
+        contentRef.current.style.maxHeight = "0px";
+      }
+    }
+  }, [isOpen]);
+
   return <>
     <li>
       <div className={timeline.card}>
-        <details className={timeline.accordion} open={open}>
-          <summary>
+        <div className={`${timeline.accordion} ${isOpen ? timeline.open : ""}`}>
+          <div className={timeline.summary} onClick={handleToggle}>
             <div className={timeline.titleWrapper}>
               <div className={`${date} ${dateClassName}`}>{date}</div>
               <div className={timeline.title}>
@@ -47,9 +65,17 @@ const TimeLineItem = ({ date, icon, title, open = false, children }: TimeLineIte
               </div>
               {children && <div className={timeline.arrow} />}
             </div>
-          </summary>
-          {children && <div className={timeline.content}>{children}</div>}
-        </details>
+          </div>
+          {children && (
+            <div
+              ref={contentRef}
+              className={timeline.content}>
+              <div className={timeline.contentInner}>
+                {children}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </li>
   </>;
