@@ -68,10 +68,12 @@ const Index = () => {
         <Timeline>
           <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞" open={true}>
             アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」 を発表しました。1次・2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
-            <TimeLineLink
-              description="プレゼン原稿表示アプリ「Presc」"
+            <TimelineImage
+              title="プレゼン原稿表示アプリ「Presc」"
+              period="2021年6月 - 現在"
+              imageUrl="/posts/presc/thumbnail2.png"
               href="/posts/presc"
-              target=""
+              target="_self"
             />
             <TimeLineLink
               description="「プレゼンで時間オーバー」解決するアプリを高校生が開発｜ 高校生新聞オンライン"
