@@ -17,13 +17,14 @@
 
 .subtitle {
     text-align: center;
-    margin: 0 32px 16px 32px;
+    margin: 0 16px 16px;
 }
 
 .subtitle span::before {
     content: "/";
     margin: 0 12px;
     color: var(--light-grey);
+    font-size: 12px;
 }
 
 .subtitle span:first-child::before {
@@ -157,6 +158,10 @@
 
     .title {
         font-size: 48px;
+    }
+
+    .subtitle span::before {
+        margin: 0 8px;
     }
 
     .postsList > * {
