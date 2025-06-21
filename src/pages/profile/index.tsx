@@ -5,6 +5,7 @@ import { Timeline, TimeLineItem, TimeLineLink } from "@/components/organism/Time
 import { faBriefcase, faChalkboardTeacher, faGraduationCap, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
+import TimelineImage from "@/components/molecule/TimelineImage/TimelineImage";
 
 const Index = () => {
   return (
@@ -40,6 +41,12 @@ const Index = () => {
           <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア" open={false}>
             お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャの選定から携わり、Clean
             Architecture + Riverpodによるチケット駆動開発を経験しました。マップ画面やチャットなどUIの実装、キャッシュ戦略含むコア部分の開発など、ゼロベースから幅広い実装を担いました。
+            <TimelineImage
+              title="GatherGo | お出かけ先レコメンドAI"
+              period="2024年8月 - 2024年12月"
+              imageUrl="/timeline/gathergo.png"
+              showModal={true}
+            />
           </TimeLineItem>
           <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
           <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
