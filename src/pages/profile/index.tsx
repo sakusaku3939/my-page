@@ -22,7 +22,7 @@ const Index = () => {
         <Timeline>
           <TimeLineItem date="2019.4 - 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
           <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
-            高1〜高3に世界最大級のロボコン FRC（FIRST Robotics
+            高1〜高3に世界級のロボコン FRC（FIRST Robotics
             Competition）のチーム「BWW」に初期メンバーとして活動しました。Javaによるロボット制御のプログラミングを担当したほか、公式Webサイトの制作、YouTube動画編集、ブログなどでの広報活動を行いました。
             <TimeLineLink
               description="公式Webサイト"
@@ -35,11 +35,11 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
                         open={false}>
-            Flutterフロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発に従事しました。チャット機能などの新規機能開発や、JIRAによるスクラム開発を経験しました。
+            フロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発（Flutter）にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、開発速度と品質の両立を重視したスクラム開発を経験しました。
           </TimeLineItem>
           <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア" open={false}>
-            お出かけ先を提案してくれるAI 「GatherGo」 のFlutterチームで0→1開発に携わりました。技術総括のもとアーキテクチャの選定から携わり、Clean
-            Architectureベースと Riverpod+freezed+hooks によるチケット駆動開発を行いました。
+            お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャの選定から携わり、Clean
+            Architecture + Riverpodによるチケット駆動開発を経験しました。マップ画面やチャットなどUIの実装、キャッシュ戦略含むコア部分の開発など、ゼロベースから幅広い実装を担いました。
           </TimeLineItem>
           <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
           <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
