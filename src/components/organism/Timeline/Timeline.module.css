@@ -46,7 +46,7 @@
 .arrow {
     position: absolute;
     top: 8px;
-    right: 0;
+    right: 2px;
     width: 10px;
     height: 10px;
     border-bottom: 3px solid var(--grey);
@@ -72,9 +72,9 @@
 .date {
     color: var(--background-color);
     font-weight: bold;
-    padding: 2px 16px;
+    padding: 2px 0;
     text-align: center;
-    background-color: var(--light-grey2);
+    background-color: var(--text-grey);
     border-radius: 16px;
     max-width: max-content;
     height: 28px;
@@ -90,7 +90,7 @@
 }
 
 .titleWrapper .icon {
-    color: var(--light-grey2);
+    color: var(--text-grey);
 }
 
 .title {
@@ -104,6 +104,7 @@
     color: var(--text-color);
     text-decoration: none;
     padding-left: 16px;
+    padding-right: 24px;
 }
 
 .content {
@@ -146,6 +147,12 @@
 
     .date {
         margin-bottom: 8px;
+        font-size: 14px;
+        height: 24px;
+    }
+
+    .date--range {
+        min-width: 140px;
     }
 
     .arrow {
