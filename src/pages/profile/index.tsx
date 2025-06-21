@@ -25,18 +25,25 @@ const Index = () => {
           <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
             高1〜高3に世界級のロボコン FRC（FIRST Robotics
             Competition）のチーム「BWW」に初期メンバーとして活動しました。Javaによるロボット制御のプログラミングを担当したほか、公式Webサイトの制作、YouTube動画編集、ブログなどでの広報活動を行いました。
-            <TimeLineLink
-              description="公式Webサイト"
-              href="https://bww8231.fuji3.info/"
+            <TimelineImage
+              title="FRCロボコンチーム BWW"
+              period="2019年8月 - 2022年3月"
+              imageUrl="/posts/bww-new-hp/thumbnail.jpg"
+              href="https://frcbww.github.io/Website/"
             />
             <TimeLineLink
               description="YouTube"
               href="https://www.youtube.com/@BWW8231"
             />
+            <TimeLineLink
+              description="BWW Blog"
+              href="https://bwwfrcteam.blogspot.com/"
+            />
           </TimeLineItem>
           <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
                         open={false}>
-            フロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発（Flutter）にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、開発速度と品質の両立を重視したスクラム開発を経験しました。
+            フロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発（Flutter）にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、
+            開発速度と品質を重視したスクラム開発を経験しました。
             <TimelineImage
               title="Locket | 位置情報共有アプリ"
               period="2023年1月 - 2023年3月"
@@ -82,9 +89,23 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2022.8" icon={faTrophy} title="全国専門学科情報科研究協議会 優秀賞">
             高校の情報科設置校が集まって年に1度開催する研究協議会にて、Prescを発表しました。生徒表彰にて優秀賞を頂きました。
+            <TimelineImage
+              title="プレゼン原稿表示アプリ「Presc」"
+              period="2021年6月 - 現在"
+              imageUrl="/posts/presc/thumbnail2.png"
+              href="/posts/presc"
+              target="_self"
+            />
           </TimeLineItem>
           <TimeLineItem date="2025.3" icon={faTrophy} title="廃棄物資源循環学会 優秀ポスター賞">
             廃棄物資源循環学会にて「細粒度ゴミ排出量データを活用した市民向けゴミ収集可視化アプリケーションの開発」の発表を行い、優秀ポスター賞を頂きました。
+            <TimelineImage
+              title="ごみ量可視化アプリ"
+              period="2024年9月 - 2025年3月"
+              imageUrl="/posts/530-app/thumbnail.jpg"
+              href="/posts/530-app"
+              target="_self"
+            />
             <TimeLineLink
               description="青木勇樹さん(環2)が令和6年度 廃棄物資源循環学会関東支部 講演会・研究発表会で「優秀ポスター賞」を受賞 | 慶應義塾大学 湘南藤沢キャンパス（SFC）"
               href="https://www.sfc.keio.ac.jp/news/025657.html"
@@ -102,6 +123,13 @@ const Index = () => {
               description="id.nii.ac.jp/1001/00233750/"
               href="https://ipsj.ixsq.nii.ac.jp/records/233864"
             />
+            <TimelineImage
+              title="YoloLSTM | 一般物体検出とLSTMを用いた画像に基づく屋内位置推定"
+              period="2023年4月 - 2024年6月"
+              imageUrl="/posts/yolo-lstm/thumbnail.jpg"
+              href="/posts/yolo-lstm"
+              target="_self"
+            />
             <TimeLineLink
               description="【発表】 学部2年 青木君が研究内容を情報処理学会第82回UBI研究会で発表しました – “一般物体検出とLSTMを用いた画像に基づく屋内位置推定” | Nakazawa and Okoshi Lab."
               href="https://www.jn.sfc.keio.ac.jp/%e3%80%90%e7%99%ba%e8%a1%a8%e3%80%91%e5%ad%a6%e9%83%a82%e5%b9%b4-%e9%9d%92%e6%9c%a8%e5%90%9b%e3%81%8c%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9%e3%82%92%e6%83%85%e5%a0%b1%e5%87%a6%e7%90%86%e5%ad%a6%e4%bc%9a/?utm_campaign=shareaholic&utm_medium=copy_link&utm_source=bookmark"
@@ -114,6 +142,13 @@ const Index = () => {
             <TimeLineLink
               description="doi.org/10.1145/3643832.3661836"
               href="https://doi.org/10.1145/3643832.3661836"
+            />
+            <TimelineImage
+              title="YoloLSTM | 一般物体検出とLSTMを用いた画像に基づく屋内位置推定"
+              period="2023年4月 - 2024年6月"
+              imageUrl="/posts/yolo-lstm/thumbnail.jpg"
+              href="/posts/yolo-lstm"
+              target="_self"
             />
           </TimeLineItem>
         </Timeline>
