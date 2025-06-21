@@ -2,7 +2,6 @@ import Head from "next/head";
 import index from "@/styles/index.module.css";
 import SnsList from "@/components/molecule/SnsList/SnsList";
 import { PostsList } from "@/components/organism/PostsList/PostsList";
-import { Skills, SkillsItem, SkillsItemWrapper, SkillsSubItemWrapper } from "@/components/organism/Skills/Skills";
 import { GetServerSidePropsContext } from "next";
 import NoColorLink from "@/components/atom/NoColorLink/NoColorLink";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
@@ -21,8 +20,11 @@ const Index = () => {
         <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
         <section className={index.header}>
           <div className={index.title}>Aokiti</div>
-          <div className={index.subtitle}>B3 / RG&nbsp;
-            <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks" target="_blank" /> / アプリ開発, 深層学習
+          <div className={index.subtitle}>
+            <span>Keio SFC B3</span>
+            <span>RG <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks"
+                                  target="_blank" /></span>
+            <span>アプリ開発, 深層学習</span>
           </div>
           <SnsList />
         </section>

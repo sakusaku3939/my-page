@@ -17,7 +17,18 @@
 
 .subtitle {
     text-align: center;
-    margin-bottom: 16px;
+    margin: 0 32px 16px 32px;
+}
+
+.subtitle span::before {
+    content: "/";
+    margin: 0 12px;
+    color: var(--light-grey);
+}
+
+.subtitle span:first-child::before {
+    content: "";
+    margin: 0;
 }
 
 .h1 {
