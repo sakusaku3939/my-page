@@ -28,27 +28,29 @@ type TimeLineItemProps = {
 
 const TimeLineItem = ({ date, icon, title, open = false, children }: TimeLineItemProps) => {
   // 日付の形式に応じたCSSクラスを生成
-  const getDateType = (dateStr: string): 'single' | 'range' => {
-    return dateStr.includes('~') ? 'range' : 'single';
+  const getDateType = (dateStr: string): "single" | "range" => {
+    return dateStr.includes("-") ? "range" : "single";
   };
   const dateType = getDateType(date);
   const dateClassName = `${timeline.date} ${timeline[`date--${dateType}`]}`;
 
   return <>
     <li>
-      <details className={timeline.accordion} open={open}>
-        <summary>
-          <div className={timeline.titleWrapper}>
-            <div className={dateClassName}>{date}</div>
-            <div className={timeline.title}>
-              <FontAwesomeIcon className={timeline.icon} icon={icon} />
-              <span>{title}</span>
+      <div className={timeline.card}>
+        <details className={timeline.accordion} open={open}>
+          <summary>
+            <div className={timeline.titleWrapper}>
+              <div className={`${date} ${dateClassName}`}>{date}</div>
+              <div className={timeline.title}>
+                <FontAwesomeIcon className={timeline.icon} icon={icon} />
+                <span>{title}</span>
+              </div>
+              {children && <div className={timeline.arrow} />}
             </div>
-            {children && <div className={timeline.arrow} />}
-          </div>
-        </summary>
-        {children && <div className={timeline.content}>{children}</div>}
-      </details>
+          </summary>
+          {children && <div className={timeline.content}>{children}</div>}
+        </details>
+      </div>
     </li>
   </>;
 };

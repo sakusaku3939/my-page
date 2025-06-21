@@ -4,7 +4,7 @@
 
 .list li {
     position: relative;
-    min-height: 72px;
+    min-height: 80px;
 }
 
 .list li:before {
@@ -65,38 +65,46 @@
     padding-left: 36px;
 }
 
-.date--single {
-    color: var(--light-grey);
+.date {
+    color: var(--background-color);
     font-weight: bold;
+    padding: 2px 16px;
+    text-align: center;
+    background-color: var(--light-grey2);
+    border-radius: 16px;
+    max-width: max-content;
+    height: 28px;
+    margin-right: 20px;
+}
+
+.date--single {
     min-width: 80px;
-    padding-right: 16px;
 }
 
 .date--range {
-    color: var(--light-grey);
-    font-weight: bold;
-    min-width: 144px;
-    padding-right: 16px;
+    min-width: 148px;
+}
+
+.titleWrapper .icon {
+    color: var(--light-grey2);
 }
 
 .title {
     display: flex;
     font-weight: bold;
     white-space: pre-wrap;
-    padding-right: 28px;
+    padding: 2px 0;
 }
 
 .title span {
-    padding-left: 12px;
-}
-
-.title .icon {
-    color: var(--light-grey);
+    color: var(--text-color);
+    text-decoration: none;
+    padding-left: 16px;
 }
 
 .content {
-    padding-top: 12px;
-    padding-left: 32px;
+    padding-top: 16px;
+    padding-left: 40px;
     padding-bottom: 48px;
     color: var(--text-grey);
 }
@@ -123,6 +131,10 @@
     .list li {
         min-height: 88px;
         padding-bottom: 32px;
+    }
+
+    .date {
+        margin-bottom: 8px;
     }
 
     .accordion .arrow {

@@ -5,6 +5,7 @@
     --text-light-grey: #616161;
     --grey: #424242;
     --light-grey: #616161;
+    --light-grey2: #424242;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,5 +16,6 @@
         --text-light-grey: #BDBDBD;
         --grey: #757575;
         --light-grey: #9E9E9E;
+        --light-grey2: #BDBDBD;
     }
 }

@@ -20,8 +20,8 @@ const Index = () => {
       <section className={index.section}>
         <h1 className={index.h1}>経歴</h1>
         <Timeline>
-          <TimeLineItem date="2019.4 ~ 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
-          <TimeLineItem date="2019.8 ~ 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
+          <TimeLineItem date="2019.4 - 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
+          <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
             高1〜高3に世界最大級のロボコン FRC（FIRST Robotics
             Competition）のチーム「BWW」に初期メンバーとして活動しました。Javaによるロボット制御のプログラミングを担当したほか、公式Webサイトの制作、YouTube動画編集、ブログなどでの広報活動を行いました。
             <TimeLineLink
@@ -33,16 +33,16 @@ const Index = () => {
               href="https://www.youtube.com/@BWW8231"
             />
           </TimeLineItem>
-          <TimeLineItem date="2023.1 ~ 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
+          <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
                         open={false}>
             Flutterフロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発に従事しました。チャット機能などの新規機能開発や、JIRAによるスクラム開発を経験しました。
           </TimeLineItem>
-          <TimeLineItem date="2023.4 ~ 2027.3" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-          <TimeLineItem date="2024.8 ~ 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア" open={false}>
+          <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア" open={false}>
             お出かけ先を提案してくれるAI 「GatherGo」 のFlutterチームで0→1開発に携わりました。技術総括のもとアーキテクチャの選定から携わり、Clean
             Architectureベースと Riverpod+freezed+hooks によるチケット駆動開発を行いました。
           </TimeLineItem>
-          <TimeLineItem date="2023.4 ~ 現在" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
+          <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
+          <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
             村井合同研究会（RG）の中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する勉強や研究に取り組んでいます。
             <TimeLineLink
               description="d-hacks"
