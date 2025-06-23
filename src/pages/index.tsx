@@ -6,6 +6,7 @@ import { GetServerSidePropsContext } from "next";
 import NoColorLink from "@/components/atom/NoColorLink/NoColorLink";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu, Menu } from "@/components/molecule/Menu/Menu";
+import TypewriterTitle from "@/components/atom/TypewriterTitle/TypewriterTitle";
 
 const Index = () => {
   return (
@@ -19,7 +20,7 @@ const Index = () => {
         <span className={index.menuVisibility}><Menu /></span>
         <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
         <section className={index.header}>
-          <div className={index.title}>Aokiti</div>
+          <TypewriterTitle text="Aokiti" speed={80} />
           <div className={index.subtitle}>
             <span>Keio SFC B3</span>
             <span>RG <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks"
