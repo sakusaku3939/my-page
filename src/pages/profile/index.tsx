@@ -18,7 +18,7 @@ const Index = () => {
       </Head>
       <HamburgerMenu />
       <h1 className={index.profileTitle}>
-        <div>プロフィール</div>
+        <div>略歴</div>
         <SnsList />
       </h1>
 
