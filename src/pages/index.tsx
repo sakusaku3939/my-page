@@ -20,7 +20,7 @@ const Index = () => {
         <span className={index.menuVisibility}><Menu /></span>
         <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
         <section className={index.header}>
-          <TypewriterTitle text="Aokiti" speed={80} />
+          <div className={index.title}>Aokiti</div>
           <div className={index.subtitle}>
             <span>Keio SFC B3</span>
             <span>RG <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks"
