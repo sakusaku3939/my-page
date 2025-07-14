@@ -6,7 +6,6 @@ import { GetServerSidePropsContext } from "next";
 import NoColorLink from "@/components/atom/NoColorLink/NoColorLink";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu, Menu } from "@/components/molecule/Menu/Menu";
-import TypewriterTitle from "@/components/atom/TypewriterTitle/TypewriterTitle";
 
 const Index = () => {
   return (
