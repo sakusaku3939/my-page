@@ -7,10 +7,11 @@
     --grey: #424242;
     --light-grey: #616161;
     --overlay-gradient: linear-gradient(
-            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0.7) 0%,
             rgba(255, 255, 255, 1) 20%
     );
-    --overlay-filter: blur(8px) hue-rotate(-30deg) contrast(2);
+    --overlay-filter: blur(8px) hue-rotate(60deg) contrast(2);
+    --overlay-transform-y: translateY(-20%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,9 +24,10 @@
         --grey: #757575;
         --light-grey: #9E9E9E;
         --overlay-gradient: linear-gradient(
-                rgba(30, 30, 30, 0.7) 0%,
-                rgba(22, 27, 34, 1) 90%
+                rgba(30, 30, 30, 0.8) 0%,
+                rgba(22, 27, 34, 1) 80%
         );
-        --overlay-filter: blur(8px);
+        --overlay-filter: blur(8px) hue-rotate(50deg) contrast(2);
+        --overlay-transform-y: translateY(0);
     }
 }
