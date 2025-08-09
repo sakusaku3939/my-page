@@ -26,7 +26,7 @@
     background-position: 0 50%;
     background-size: var(--bg-w) 100%;
     filter: var(--overlay-filter);
-    transform: scale(1.1) var(--overlay-transform-y);
+    transform: scale(1.1);
     z-index: 0;
     opacity: 0.8;
     animation: bg-scroll 10s linear infinite;

@@ -7,11 +7,10 @@
     --grey: #424242;
     --light-grey: #616161;
     --overlay-gradient: linear-gradient(
-            rgba(255, 255, 255, 0.7) 0%,
-            rgba(255, 255, 255, 1) 20%
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 1) 10%
     );
-    --overlay-filter: blur(8px) hue-rotate(60deg) contrast(2);
-    --overlay-transform-y: translateY(-20%);
+    --overlay-filter: blur(8px) hue-rotate(20deg) contrast(2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,6 +27,5 @@
                 rgba(22, 27, 34, 1) 80%
         );
         --overlay-filter: blur(8px) hue-rotate(50deg) contrast(2);
-        --overlay-transform-y: translateY(0);
     }
 }
