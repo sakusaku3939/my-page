@@ -6,8 +6,20 @@ import { GetServerSidePropsContext } from "next";
 import NoColorLink from "@/components/atom/NoColorLink/NoColorLink";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu, Menu } from "@/components/molecule/Menu/Menu";
+import { useEffect } from "react";
 
 const Index = () => {
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/images/background.jpg";
+    img.onload = () => {
+      const aspect = img.width / img.height;
+      const containerHeight = window.innerHeight;
+      const scaledWidth = aspect * containerHeight;
+      document.documentElement.style.setProperty("--bg-w", `${scaledWidth}px`);
+    };
+  }, []);
+
   return (
     <>
       <Head>
