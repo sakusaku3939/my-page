@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --bg-w: 1000px;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;

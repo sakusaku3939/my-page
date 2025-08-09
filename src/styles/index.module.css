@@ -24,7 +24,7 @@
     background-image: url('/images/background.jpg');
     background-repeat: repeat-x;
     background-position: 0 50%;
-    background-size: auto 100%;
+    background-size: var(--bg-w) 100%;
     filter: var(--overlay-filter);
     transform: scale(1.1);
     z-index: 0;
