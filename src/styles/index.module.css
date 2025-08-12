@@ -28,8 +28,17 @@
     filter: var(--overlay-filter);
     transform: scale(1.1);
     z-index: 0;
-    opacity: 0.8;
-    animation: bg-scroll 10s linear infinite;
+    opacity: 0;
+    animation: fade-in 2s ease-in forwards, bg-scroll 10s linear infinite;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes bg-scroll {
