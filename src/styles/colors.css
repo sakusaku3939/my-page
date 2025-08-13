@@ -26,6 +26,6 @@
                 rgba(30, 30, 30, 0.8) 0%,
                 rgba(22, 27, 34, 1) 80%
         );
-        --overlay-filter: blur(8px) hue-rotate(20deg) contrast(2);
+        --overlay-filter: blur(8px) hue-rotate(40deg) contrast(2);
     }
 }
