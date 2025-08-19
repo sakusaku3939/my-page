@@ -10,13 +10,21 @@ import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    const img = new Image();
-    img.src = "/images/background.jpg";
-    img.onload = () => {
-      const aspect = img.width / img.height;
-      const containerHeight = window.innerHeight;
-      const scaledWidth = aspect * containerHeight;
-      document.documentElement.style.setProperty("--bg-w", `${scaledWidth}px`);
+    const handleLoad = () => {
+      const img = new Image();
+      img.src = "/images/background.jpg";
+      img.onload = () => {
+        const aspect = img.width / img.height;
+        const containerHeight = window.innerHeight;
+        const scaledWidth = aspect * containerHeight;
+        document.documentElement.style.setProperty("--bg-w", `${scaledWidth}px`);
+      };
+    };
+
+    window.addEventListener("load", handleLoad);
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
     };
   }, []);
 
