@@ -3,6 +3,7 @@ import common from "@/styles/common.module.css";
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Link from "next/link";
+import Image from "next/image";
 import { renderTags } from "@/model/PostApi";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -91,7 +92,16 @@ const Post = ({ date, imageUrl, href, title, tag, pinned, overview }: PostProps)
     <Link className={postList.reset} href={href}>
       <div className={postList.skin}>
         <div className={postList.date}>{date}</div>
-        <div className={postList.image} style={{ backgroundImage: `url(${imageUrl})` }} />
+
+        <div className={postList.imageWrapper}>
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            style={{ objectFit: "cover", objectPosition: "center" }}
+          />
+        </div>
+
         {pinned && <FontAwesomeIcon className={postList.pin} icon={faStar} />}
 
         <div className={postList.textBox}>
