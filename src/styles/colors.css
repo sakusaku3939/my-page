@@ -10,7 +10,7 @@
             rgba(255, 255, 255, 0.8) 0%,
             rgba(255, 255, 255, 1) 20%
     );
-    --overlay-filter: blur(8px) hue-rotate(20deg) contrast(2);
+    --overlay-filter: blur(8px) hue-rotate(0deg) contrast(2);
 }
 
 @media (prefers-color-scheme: dark) {
