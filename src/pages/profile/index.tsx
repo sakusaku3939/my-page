@@ -66,8 +66,8 @@ const Index = () => {
             />
           </TimeLineItem>
           <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-          <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="村井合同研究会 d-hacks" open={true}>
-            村井合同研究会（RG）の中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
+          <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="中澤・大越研究室 d-hacks" open={true}>
+            RGの中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
             <TimeLineLink
               description="d-hacks"
               href="https://d-hacks.jn.sfc.keio.ac.jp/"
@@ -153,6 +153,16 @@ const Index = () => {
               imageUrl="/posts/yolo-lstm/thumbnail.jpg"
               href="/posts/yolo-lstm"
               target="_self"
+            />
+          </TimeLineItem>
+          <TimeLineItem date="2025.8" icon={faChalkboardTeacher}
+                        title="MIRU 2025 ポスター発表" open={false}>
+            画像の認識・理解シンポジウム MIRU 2025にて「Dy-YOLO-World:
+            文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出」について一般論文ポスター発表を行いました。（Poster,
+            国内, 査読なし）
+            <TimeLineLink
+              description="【発表】学部3年 青木君が研究内容をMIRU 2025で発表しました – “Dy-YOLO-World: 文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出” | Nakazawa and Okoshi Lab."
+              href="https://www.jn.sfc.keio.ac.jp/%e3%80%90%e7%99%ba%e8%a1%a8%e3%80%91%e5%ad%a6%e9%83%a83%e5%b9%b4-%e9%9d%92%e6%9c%a8%e5%90%9b%e3%81%8c%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9%e3%82%92miru-2025%e3%81%a7%e7%99%ba%e8%a1%a8%e3%81%97%e3%81%be/"
             />
           </TimeLineItem>
         </Timeline>
