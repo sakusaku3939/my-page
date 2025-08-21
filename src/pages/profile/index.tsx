@@ -23,7 +23,7 @@ const Index = () => {
       </h1>
 
       <section className={index.section}>
-        <h1 className={index.h1}>経歴</h1>
+        <h1 className={index.h1}>所属歴</h1>
         <Timeline>
           <TimeLineItem date="2019.4 - 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
           <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
@@ -44,6 +44,18 @@ const Index = () => {
               href="https://bwwfrcteam.blogspot.com/"
             />
           </TimeLineItem>
+          <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
+          <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="中澤・大越研究室 d-hacks" open={true}>
+            RGの中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
+            <TimeLineLink
+              description="d-hacks"
+              href="https://d-hacks.jn.sfc.keio.ac.jp/"
+            />
+          </TimeLineItem>
+        </Timeline>
+
+        <h1 className={index.h1}>職歴 ・ インターンシップ</h1>
+        <Timeline>
           <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
                         open={false}>
             フロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発（Flutter）にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、
@@ -65,14 +77,10 @@ const Index = () => {
               showModal={true}
             />
           </TimeLineItem>
-          <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-          <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="中澤・大越研究室 d-hacks" open={true}>
-            RGの中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
-            <TimeLineLink
-              description="d-hacks"
-              href="https://d-hacks.jn.sfc.keio.ac.jp/"
-            />
-          </TimeLineItem>
+          <TimeLineItem date="2025.6 - 2024.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
+                        open={false}></TimeLineItem>
+          <TimeLineItem date="2025.8 - 現在" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン"
+                        open={false}></TimeLineItem>
         </Timeline>
 
         <h1 className={index.h1}>受賞歴</h1>
@@ -156,7 +164,7 @@ const Index = () => {
             />
           </TimeLineItem>
           <TimeLineItem date="2025.8" icon={faChalkboardTeacher}
-                        title="MIRU 2025 ポスター発表" open={false}>
+                        title="MIRU 2025 インタラクティブ発表" open={false}>
             画像の認識・理解シンポジウム MIRU 2025にて「Dy-YOLO-World:
             文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出」について一般論文ポスター発表を行いました。（Poster,
             国内, 査読なし）
