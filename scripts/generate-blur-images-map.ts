@@ -23,32 +23,51 @@ async function main() {
 
   let entries: any[] = [];
   try {
-    entries = await fs.readdir(postsDir, { withFileTypes: true }) as any[];
+    entries = (await fs.readdir(postsDir, { withFileTypes: true })) as any[];
   } catch (e) {
     console.error(`public/posts が見つかりません: ${postsDir}`);
     process.exit(1);
   }
 
+  console.log(`ブラー画像生成中...`);
+
+  const imageExt = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
+
   for (const ent of entries) {
     if (!ent.isDirectory()) continue;
 
-    const rel = `/posts/${ent.name}/thumbnail.jpg`;
-    const abs = path.join(postsDir, ent.name, "thumbnail.jpg");
-
-    const exists = await fileExists(abs);
-    if (!exists) continue;
-
+    let files: any[] = [];
+    const postDir = path.join(postsDir, ent.name);
     try {
-      const buf = await sharp(abs)
-        .rotate()              // EXIF の向きを考慮
-        .resize(24)            // 低解像度（16〜32）
-        .jpeg({ quality: 40 }) // 軽量化
-        .toBuffer();
+      files = (await fs.readdir(postDir, { withFileTypes: true })) as any[];
+    } catch (e) {
+      console.warn(`fail /posts/${ent.name}`, e);
+      continue;
+    }
 
-      blurMap[rel] = `data:image/jpeg;base64,${buf.toString("base64")}`;
-      console.log(`ok  ${rel}`);
-    } catch (err) {
-      console.warn(`fail ${rel}`, err);
+    for (const f of files) {
+      if (!f.isFile()) continue;
+
+      const ext = path.extname(f.name).toLowerCase();
+      if (!imageExt.has(ext)) continue;
+
+      const rel = `/posts/${ent.name}/${f.name}`;
+      const abs = path.join(postsDir, ent.name, f.name);
+
+      const exists = await fileExists(abs);
+      if (!exists) continue;
+
+      try {
+        const buf = await sharp(abs)
+          .rotate()              // EXIF の向きを考慮
+          .resize(24)            // 低解像度（16〜32）
+          .jpeg({ quality: 40 }) // 軽量化（プレースホルダーは JPEG に統一）
+          .toBuffer();
+
+        blurMap[rel] = `data:image/jpeg;base64,${buf.toString("base64")}`;
+      } catch (err) {
+        console.warn(`fail ${rel}`, err);
+      }
     }
   }
 

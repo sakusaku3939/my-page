@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import common from "@/styles/common.module.css";
 import posts from "@/styles/posts.module.css";
 import Image from "next/image";
+import { ImageWithPlaceholder } from "@/components/atom/ImageWithPlaceholder/ImageWithPlaceholder";
 
 export function CustomTagParser({ className, children }: React.JSX.IntrinsicElements["h1"]) {
-  const [imageLoaded, setImageLoaded] = useState(false);
   if (children) {
     const params = children.toString().split(" ");
     const name = params[0];
@@ -20,9 +20,7 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
       // img-400px (image-path)
       case (matched = name.match(/^img-(\d+)px$/)) && name:
         const width = parseInt(matched![1], 10);
-        return <div className={common.imageContainer} style={{ maxWidth: `${width}px` }}>
-          <Image src={args[0]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
-        </div>;
+        return <ImageWithPlaceholder src={args[0]} containerStyle={{ maxWidth: `${width}px` }} />;
 
       // speaker-deck (data-id)
       case "speaker-deck":
@@ -42,17 +40,9 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
         const sideWeight = parseFloat(args[0]);
         return <>
           <div className={posts.row}>
-            <div style={{ width: `${sideWeight}%` }}>
-              <div className={common.imageContainer}>
-                <Image src={args[1]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
-              </div>
-            </div>
+            <ImageWithPlaceholder src={args[1]} containerStyle={{ width: `${sideWeight}%` }} />
             <div style={{ width: 3 }} />
-            <div style={{ width: `${100 - sideWeight}%` }}>
-              <div className={common.imageContainer}>
-                <Image src={args[2]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
-              </div>
-            </div>
+            <ImageWithPlaceholder src={args[2]} containerStyle={{ width: `${100 - sideWeight}%` }} />
           </div>
         </>;
 
@@ -61,34 +51,23 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
         const weight = parseFloat(args[0]);
         return <>
           <div className={posts.row}>
-            <span className={`${common.placeholder} ${imageLoaded ? common.loaded : ""}`} />
             <div style={{ display: "flex", flexDirection: "column", width: `${weight}%` }}>
-              <div className={common.imageContainer} style={{ height: "50%" }}>
-                <Image src={args[1]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
-              </div>
+              <ImageWithPlaceholder src={args[1]} containerStyle={{ height: "50%" }} />
               <div style={{ height: 3 }} />
-              <div className={common.imageContainer} style={{ height: "50%" }}>
-                <Image src={args[2]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
-              </div>
+              <ImageWithPlaceholder src={args[2]} containerStyle={{ height: "50%" }} />
             </div>
             <div style={{ width: 3 }} />
-            <div className={common.imageContainer} style={{ width: `${100 - weight}%` }}>
-              <Image src={args[3]} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
-            </div>
+            <ImageWithPlaceholder src={args[3]} containerStyle={{ width: `${100 - weight}%` }} />
           </div>
         </>;
-
 
       // row (image-path) (image-path) ...
       // 3つ以上の横並びに使う
       case "row":
         return <>
           <div className={posts.row}>
-            <span className={`${common.placeholder} ${imageLoaded ? common.loaded : ""}`} />
             {args.map((value: string, key: number) => <>
-              <div className={common.imageContainer} key={key}>
-                <Image src={value} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
-              </div>
+              <ImageWithPlaceholder src={value} key={key} containerStyle={{ width: "100%" }} />
               <div style={{ width: 3 }} />
             </>)}
           </div>
@@ -133,11 +112,8 @@ export function ImageTagParser(image: any) {
   if (src.match(regExp)) {
     src = "/" + src.split(regExp)[1];
   }
-  const [imageLoaded, setImageLoaded] = useState(false);
+
   return <>
-    <span className={common.imageContainer}>
-      <span className={`${common.placeholder} ${imageLoaded ? common.loaded : ""}`} />
-      <Image src={src} alt="" sizes="100%" fill onLoad={() => setImageLoaded(true)} />
-    </span>
+    <ImageWithPlaceholder src={src} />
   </>;
 }
