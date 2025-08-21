@@ -102,6 +102,7 @@ const Post = ({ date, imageUrl, href, title, tag, pinned, overview }: PostProps)
             {...(blur ? { placeholder: "blur" as const, blurDataURL: blur } : {})}
             alt={title}
             fill
+            sizes="100%"
             style={{ objectFit: "cover", objectPosition: "center" }}
           />
         </div>
