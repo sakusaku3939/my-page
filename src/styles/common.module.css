@@ -20,17 +20,6 @@
     position: relative;
 }
 
-.placeholder {
-    display: block;
-    background-color: #EEEEEE;
-    width: 100%;
-    padding-top: 40%;
-}
-
-.placeholder.loaded {
-    display: none;
-}
-
 .imageContainer img {
     position: relative !important;
     object-fit: contain;
