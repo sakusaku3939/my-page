@@ -8,6 +8,7 @@ import { renderTags } from "@/model/PostApi";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
+import blurMap from "@/__generated__/blur-image-map";
 
 const PostsList = () => {
   return <>
@@ -88,6 +89,8 @@ type PostProps = {
 
 const Post = ({ date, imageUrl, href, title, tag, pinned, overview }: PostProps) => {
   const router = useRouter();
+  const blur = (blurMap as Record<string, string>)[imageUrl];
+
   return <>
     <Link className={postList.reset} href={href}>
       <div className={postList.skin}>
@@ -96,6 +99,7 @@ const Post = ({ date, imageUrl, href, title, tag, pinned, overview }: PostProps)
         <div className={postList.imageWrapper}>
           <Image
             src={imageUrl}
+            {...(blur ? { placeholder: "blur" as const, blurDataURL: blur } : {})}
             alt={title}
             fill
             style={{ objectFit: "cover", objectPosition: "center" }}
