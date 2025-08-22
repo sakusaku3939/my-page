@@ -70,6 +70,14 @@
     right: 12px;
 }
 
+.tag {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+}
+
 .tag li {
     font-size: 11px !important;
 }
