@@ -8,11 +8,12 @@ date: 2022.3.14
 高校で一年に一回行われる「情報科発表会」で使用する、いいねボタン同期システムを開発しました。
 発表について「いいね！」と思ったときにハートボタンを押すといいねが送れます。言葉で伝えたい時は、下の入力欄にコメントを入力して送信することで「コメントを送る」ことが可能です。
 
-送ったいいねとコメントは全体のスクリーンにリアルタイムで表示され、発表の感想を会場内で共有することができます。
+送ったいいねとコメントは全体のスクリーンにリアルタイムで表示され、発表の感想を会場内で共有できます。
 
 <video src="/posts/like-button/demo-video.mp4" controls autoplay muted></video>
+# br-4px
 
-管理者画面にログインすることで発表者の切り替え・追加・コメントの削除等を、リアルタイムに行うことができます。
+管理者画面にログインすることで発表者の切り替え・追加・コメントの削除等を、リアルタイムに行えます。
 
 # row /posts/like-button/home-screenshot.jpg /posts/like-button/switch-screenshot.jpg
 # row /posts/like-button/add-screenshot.jpg /posts/like-button/view-comment-screenshot.jpg
