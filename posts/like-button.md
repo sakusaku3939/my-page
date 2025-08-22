@@ -25,6 +25,7 @@ date: 2022.3.14
 いいねが送られた時のアニメーション再生はLottie-webを使用しました。
 
 ![](/public/posts/like-button/architecture.jpg)
+# br-4px
 
 コメントはNGワードによるフィルタリングを行い、加えて不適切なコメントは管理者画面で削除、ユーザーブロックすることが可能です。
 
@@ -32,14 +33,11 @@ date: 2022.3.14
 # 情報科発表会2022の様子
 当日は最大20台の同時接続があり、3,967回のいいねと200個のコメントがスクリーンに流れました。
 
-![](/public/posts/like-button/thumbnail.jpg)
+![](/public/posts/like-button/photo2.jpg)
 # br-4px
 
-# row /posts/like-button/photo1.jpg /posts/like-button/photo2.jpg
+# row /posts/like-button/photo1.jpg /posts/like-button/photo3.jpg
 # br-4px
-
-![](/public/posts/like-button/photo3.jpg)
-
 
 # 中澤・大越研究室 WIP/TERM合宿 最終発表
 2024年秋学期の最終発表でいいねボタンを運用しました。コメント履歴表示の追加 (写真3枚目) や、管理者画面のUX改善を行い、3日間で4,788回のいいねと445個のコメントがスクリーンに流れました。
@@ -48,7 +46,7 @@ date: 2022.3.14
 # br-4px
 
 # row /posts/like-button/photo2024_2.jpg /posts/like-button/photo2024_3.jpg
-# br-24px
+# br-28px
 
 2025年春学期では、さらにWebRTCを用いたライブ配信機能をアップデートして運用しました。
 （写真2枚目は、学会の発表で京都に遠征していた時に、同時進行していた研究室の最終発表をリモートで視聴した時のもの）
