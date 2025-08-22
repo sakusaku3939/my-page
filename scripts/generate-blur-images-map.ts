@@ -29,7 +29,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(`ブラー画像生成中...`);
+  console.log(`プレースホルダー画像を生成中...`);
 
   const imageExt = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
 
