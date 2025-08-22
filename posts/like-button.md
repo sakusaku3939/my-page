@@ -16,7 +16,7 @@ date: 2022.3.14
 
 # row /posts/like-button/home-screenshot.jpg /posts/like-button/switch-screenshot.jpg
 # row /posts/like-button/add-screenshot.jpg /posts/like-button/view-comment-screenshot.jpg
-
+# br-4px
 
 # 技術面
 フロントエンドはJavaScriptフレームワークのVue.js、バックエンドはFirebaseを採用しました。 
@@ -41,15 +41,20 @@ date: 2022.3.14
 ![](/public/posts/like-button/photo3.jpg)
 
 
-# 中澤・大越研究室 2024秋学期 最終発表
-2025年に最終発表でシステムを運用する機会がありました。コメント履歴表示の追加 (写真3枚目) や、管理者画面のUX改善を行い、3日間で4,788回のいいねと445個のコメントがスクリーンに流れました。
+# 中澤・大越研究室 WIP/TERM合宿 最終発表
+2024年秋学期の最終発表でいいねボタンを運用しました。コメント履歴表示の追加 (写真3枚目) や、管理者画面のUX改善を行い、3日間で4,788回のいいねと445個のコメントがスクリーンに流れました。
 
 ![](/public/posts/like-button/photo2024_1.jpg)
 # br-4px
 
 # row /posts/like-button/photo2024_2.jpg /posts/like-button/photo2024_3.jpg
-# br-4px
+# br-24px
 
+2025年春学期では、さらにWebRTCを用いたライブ配信機能をアップデートして運用しました。
+（写真2枚目は、学会の発表で京都に遠征していた時に、同時進行していた研究室の最終発表をリモートで視聴した時のもの）
+
+# row /posts/like-button/photo2025_1.jpg /posts/like-button/webrtc_in_miru.jpg
+# br-4px
 
 # リンク
 - 完成サイト（いいね・コメントはセキュリティ上反映されません）  
