@@ -23,7 +23,6 @@
     height: 100%;
     background-image: url('/images/background.jpg');
     background-repeat: repeat-x;
-    background-position: 0 50%;
     background-size: var(--bg-w) 100%;
     filter: var(--overlay-filter);
     transform: scale(1.1);
@@ -43,10 +42,10 @@
 
 @keyframes bg-scroll {
     from {
-        background-position: 0 50%;
+        background-position: 500px 50%;
     }
     to {
-        background-position: calc(-1 * var(--bg-w)) 50%;
+        background-position: calc(500px - var(--bg-w)) 50%;
     }
 }
 
