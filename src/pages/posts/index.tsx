@@ -1,12 +1,13 @@
 import index from "@/styles/index.module.css";
-import { getAllCategories, getPostOverview, Overview } from "@/model/PostApi";
+import type { Overview } from "@/model/type/Overview";
 import { Post } from "@/components/organism/PostsList/PostsList";
 import Category from "@/components/molecule/Category/Category";
-import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 type Props = {
   filter: string | string[],
@@ -14,7 +15,44 @@ type Props = {
   overviews: Overview[],
 }
 
-const Index = ({ filter, categories, overviews }: Props) => {
+const Index = () => {
+  const router = useRouter();
+  const q = router.query.filter;
+  const filterText = Array.isArray(q) ? q.join(", ") : (q ?? "");
+
+  const [categories, setCategories] = useState<Props["categories"]>([]);
+  const [overviews, setOverviews] = useState<Props["overviews"]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    const controller = new AbortController();
+
+    (async () => {
+      try {
+        setError(null);
+        const res = await fetch(`/api/posts${filterText ? `?filter=${encodeURIComponent(filterText)}` : ""}`, {
+          signal: controller.signal
+        });
+        if (!res.ok) {
+          console.error(`HTTP error. status: ${res.status}`);
+          setError("データの取得に失敗しました。");
+        }
+        const json = await res.json();
+        setCategories(json.categories ?? []);
+        setOverviews(json.overviews ?? []);
+      } catch (e: any) {
+        if (e.name !== "AbortError") {
+          console.error(e);
+          setError("データの取得に失敗しました。");
+        }
+      }
+    })();
+
+    return () => controller.abort();
+  }, [filterText, router.isReady]);
+
   return (
     <>
       <Head>
@@ -23,13 +61,14 @@ const Index = ({ filter, categories, overviews }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HamburgerMenu />
-      <h1 className={index.postTitle}>制作物一覧<span>{filter?.length ? `「${filter}」 の記事` : ""}</span></h1>
+      <h1 className={index.postTitle}>制作物一覧<span>{filterText?.length ? `「${filterText}」 の記事` : ""}</span></h1>
       <div className={index.mobileCategory}>
         <MobileCategory categories={categories} />
       </div>
       <div className={index.wrapper}>
         <section className={index.postsList}>
-          {overviews.map((post: Overview, key: number) => (
+          {error && <div>{error}</div>}
+          {!error && overviews.map((post: Overview, key: number) => (
             <Post key={key}
                   date={post.date}
                   imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
@@ -51,19 +90,5 @@ const Index = ({ filter, categories, overviews }: Props) => {
     </>
   );
 };
-
-export async function getServerSideProps(context: GetServerSidePropsContext<{ slug: string }>) {
-  const { filter } = context.query;
-  const categories = getAllCategories();
-  const posts = getPostOverview(filter);
-  const sortedPinnedPosts = posts.sort((a, b) => a.pinned && !b.pinned ? -1 : 1);
-  return {
-    props: {
-      filter: filter ?? "",
-      categories: categories,
-      overviews: sortedPinnedPosts
-    }
-  };
-}
 
 export default Index;
