@@ -4,7 +4,7 @@ import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Link from "next/link";
 import Image from "next/image";
-import { renderTags } from "@/model/PostApi";
+import { renderTags } from "@/model/PostClient";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";

@@ -1,6 +1,6 @@
 import category from "@/components/molecule/Category/Category.module.css";
 import common from "@/styles/common.module.css";
-import { renderCountTags } from "@/model/PostApi";
+import { renderCountTags } from "@/model/PostClient";
 import { useRouter } from "next/router";
 
 type Props = {

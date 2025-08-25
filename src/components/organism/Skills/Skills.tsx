@@ -1,7 +1,7 @@
 import skills from "@/components/organism/Skills/Skills.module.css";
 import { ReactNode } from "react";
 import Image from "next/image";
-import { handleTagClick } from "@/model/PostApi";
+import { handleTagClick } from "@/model/PostClient";
 import { useRouter } from "next/router";
 
 type SkillProps = {
