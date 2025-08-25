@@ -63,18 +63,4 @@ const Index = () => {
   );
 };
 
-export const getServerSideProps = (
-  context: GetServerSidePropsContext
-) => {
-  const queryParam = context.query.posts;
-  if (queryParam !== undefined) {
-    context.res.writeHead(
-      302,
-      { Location: `https://portfolio.sakusaku3939.com?posts=${queryParam}` }
-    );
-    context.res.end();
-  }
-  return { props: {} };
-};
-
 export default Index;
