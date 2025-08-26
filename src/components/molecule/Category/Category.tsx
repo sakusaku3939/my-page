@@ -28,7 +28,7 @@ const Category = ({ categories }: Props) => {
 const PlaceholderCategory = () => {
   return (
     <ul className={`${common.tag} ${category.placeholderTag}`}>
-      {Array(16).fill(0).map((_, i) => <li key={i}>&nbsp;</li>)}
+      {Array(32).fill(0).map((_, i) => <li key={i}>&nbsp;</li>)}
     </ul>
   );
 };
