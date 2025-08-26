@@ -121,4 +121,30 @@ const Post = ({ date, imageUrl, href, title, tag, pinned, overview }: PostProps)
   </>;
 };
 
-export { PostsList, Post };
+const PlaceholderPost = () => {
+  return <>
+    <div className={postList.placeholder}>
+      <div className={`${postList.skin} ${postList.placeholder}`}>
+        <div className={postList.imageWrapper}>
+          <div className={postList.imagePlaceholder}>&nbsp;</div>
+        </div>
+        <div className={postList.textBox}>
+          <div className={postList.title}>
+            <div className={postList.titlePlaceholder}>&nbsp;</div>
+          </div>
+          <ul className={`${common.tag} ${postList.tag}`}>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+          <div className={postList.overview}>
+            <div className={postList.overviewPlaceholder}>&nbsp;</div>
+            <div className={postList.overviewPlaceholder}>&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </>;
+};
+
+export { PostsList, Post, PlaceholderPost };
