@@ -1,6 +1,6 @@
 import index from "@/styles/index.module.css";
 import type { Overview } from "@/model/type/Overview";
-import { Post } from "@/components/organism/PostsList/PostsList";
+import { PlaceholderPost, Post } from "@/components/organism/PostsList/PostsList";
 import Category from "@/components/molecule/Category/Category";
 import Head from "next/head";
 import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory";
@@ -23,6 +23,7 @@ const Index = () => {
   const [categories, setCategories] = useState<Props["categories"]>([]);
   const [overviews, setOverviews] = useState<Props["overviews"]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -48,6 +49,7 @@ const Index = () => {
           setError("データの取得に失敗しました。");
         }
       }
+      setLoaded(true);
     })();
 
     return () => controller.abort();
@@ -67,7 +69,13 @@ const Index = () => {
       </div>
       <div className={index.wrapper}>
         <section className={index.postsList}>
+          {/* エラー時 */}
           {error && <div>{error}</div>}
+
+          {/* ロード中のプレースホルダー */}
+          {!loaded && !error && Array(5).fill(0).map((_, i) => <PlaceholderPost key={i} />)}
+
+          {/* 投稿一覧 */}
           {!error && overviews.map((post: Overview, key: number) => (
             <Post key={key}
                   date={post.date}
