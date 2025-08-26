@@ -50,8 +50,16 @@ const SkillsItem = ({ title, children }: SkillItemProps) => {
     <>
       <div className={`${skills.card}`}>
         <div className={skills.title} onClick={(e) => handleTagClick(e, router, title)}>
-          <Image src={`/language-icon/${name}.png`} alt={title} width={16} height={16} priority={true}
-                 style={{ objectFit: "contain" }} />
+          <div className={skills.iconWrapper}>
+            <Image
+              src={`/language-icon/${name}.png`}
+              alt={title}
+              fill
+              priority={true}
+              sizes="16px"
+              style={{ objectFit: "contain" }}
+            />
+          </div>
           <span>{title}</span>
         </div>
         <div className={skills.content}>{children}</div>
