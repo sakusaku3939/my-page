@@ -171,10 +171,6 @@
     background-color: var(--placeholder-color);
 }
 
-.placeholder .tag li {
-    border-color: var(--placeholder-color);
-}
-
 .placeholder .overview {
     margin-top: 16px;
 }
@@ -194,6 +190,7 @@
 .placeholder .tag li {
     width: 56px;
     background-color: var(--placeholder-color);
+    border-color: var(--placeholder-color);
 }
 
 .imagePlaceholder {

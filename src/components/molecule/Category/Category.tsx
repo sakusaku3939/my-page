@@ -13,11 +13,24 @@ const Category = ({ categories }: Props) => {
     <aside className={category.aside}>
       <div className={`${common.shadow} ${category.skin}`}>
         <h1>すべてのカテゴリー</h1>
-        <ul className={common.tag}>
-          {renderCountTags(router, categories)}
-        </ul>
+        {categories.length === 0 ? (
+          <PlaceholderCategory />
+        ) : (
+          <ul className={common.tag}>
+            {renderCountTags(router, categories)}
+          </ul>
+        )}
       </div>
     </aside>
   </>;
 };
-export default Category
+
+const PlaceholderCategory = () => {
+  return (
+    <ul className={`${common.tag} ${category.placeholderTag}`}>
+      {Array(16).fill(0).map((_, i) => <li key={i}>&nbsp;</li>)}
+    </ul>
+  );
+};
+
+export default Category;
