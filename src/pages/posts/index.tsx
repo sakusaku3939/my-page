@@ -31,16 +31,21 @@ const Index = () => {
     const controller = new AbortController();
 
     (async () => {
+      setLoaded(false);
+      setError(null);
+      setOverviews([]);
+
       try {
-        setError(null);
         const res = await fetch(`/api/posts${filterText ? `?filter=${encodeURIComponent(filterText)}` : ""}`, {
           signal: controller.signal
         });
+
         if (!res.ok) {
           console.error(`HTTP error. status: ${res.status}`);
           setError("データの取得に失敗しました。");
         }
         const json = await res.json();
+
         setCategories(json.categories ?? []);
         setOverviews(json.overviews ?? []);
       } catch (e: any) {
@@ -49,6 +54,7 @@ const Index = () => {
           setError("データの取得に失敗しました。");
         }
       }
+
       setLoaded(true);
     })();
 
