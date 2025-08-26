@@ -6,6 +6,7 @@
     --text-light-grey: #616161;
     --grey: #424242;
     --light-grey: #616161;
+    --placeholder-color: #EEEEEE;
     --overlay-gradient: linear-gradient(
             rgba(255, 255, 255, 0.8) 0%,
             rgba(255, 255, 255, 1) 20%
@@ -22,6 +23,7 @@
         --text-light-grey: #BDBDBD;
         --grey: #757575;
         --light-grey: #9E9E9E;
+        --placeholder-color: #424242;
         --overlay-gradient: linear-gradient(
                 rgba(30, 30, 30, 0.8) 0%,
                 rgba(22, 27, 34, 1) 80%
