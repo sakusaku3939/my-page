@@ -64,7 +64,8 @@ const Posts = () => {
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <div className={posts.wrapper}>
-      <main>
+      {!overview && <PlaceholderPostDetail />}
+      {overview && <main className={posts.main}>
         <nav>
           <ol className={posts.breadcrumb}>
             <li><Link href="/posts">ホーム</Link></li>
@@ -89,10 +90,38 @@ const Posts = () => {
             </ReactMarkdown>
           )}
         </div>
-      </main>
+      </main>}
       <Category categories={categories} />
     </div>
   </>;
+};
+
+const PlaceholderPostDetail = () => {
+  return (
+    <div className={`${posts.main} ${posts.placeholder}`}>
+      <nav>
+        <ol className={posts.breadcrumb}>
+          <li><Link href="/posts">ホーム</Link></li>
+          <li>&nbsp;</li>
+        </ol>
+      </nav>
+      <div className={`${common.shadow} ${posts.post}`}>
+        <div className={posts.title}>
+          <div className={posts.titlePlaceholder}>&nbsp;</div>
+        </div>
+        <ul className={`${common.tag} ${posts.tag}`}>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+        </ul>
+        <div>
+          {Array(30).fill(0).map((_, i) => (
+            <div key={i} className={posts.overviewPlaceholder}>&nbsp;</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Posts;
