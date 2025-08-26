@@ -79,7 +79,7 @@ const Index = () => {
           {error && <div>{error}</div>}
 
           {/* ロード中のプレースホルダー */}
-          {!loaded && !error && Array(5).fill(0).map((_, i) => <PlaceholderPost key={i} />)}
+          {!loaded && !error && Array(6).fill(0).map((_, i) => <PlaceholderPost key={i} />)}
 
           {/* 投稿一覧 */}
           {!error && overviews.map((post: Overview, key: number) => (
