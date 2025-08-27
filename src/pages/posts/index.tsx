@@ -15,7 +15,7 @@ type Props = {
   overviews: Overview[],
 }
 
-let cachedData: { categories: any[]; overviews: any[] } | null = null;
+let cachedData: { filterText: string, categories: any[]; overviews: any[] } | null = null;
 
 const Index = () => {
   const router = useRouter();
@@ -28,7 +28,11 @@ const Index = () => {
   const [loaded, setLoaded] = useState(cachedData !== null);
 
   useEffect(() => {
-    if (!router.isReady || cachedData) return;
+    if (!router.isReady) return;
+    if (cachedData?.filterText === filterText) {
+      // キャッシュが有効なら再取得しない
+      return;
+    }
 
     const controller = new AbortController();
 
@@ -52,6 +56,7 @@ const Index = () => {
         setOverviews(json.overviews ?? []);
 
         cachedData = {
+          filterText,
           categories: json.categories ?? [],
           overviews: json.overviews ?? []
         };
