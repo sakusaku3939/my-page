@@ -15,18 +15,20 @@ type Props = {
   overviews: Overview[],
 }
 
+let cachedData: { categories: any[]; overviews: any[] } | null = null;
+
 const Index = () => {
   const router = useRouter();
   const q = router.query.filter;
   const filterText = Array.isArray(q) ? q.join(", ") : (q ?? "");
 
-  const [categories, setCategories] = useState<Props["categories"]>([]);
-  const [overviews, setOverviews] = useState<Props["overviews"]>([]);
+  const [categories, setCategories] = useState<Props["categories"]>((cachedData?.categories ?? []));
+  const [overviews, setOverviews] = useState<Props["overviews"]>((cachedData?.overviews ?? []));
   const [error, setError] = useState<string | null>(null);
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(cachedData !== null);
 
   useEffect(() => {
-    if (!router.isReady) return;
+    if (!router.isReady || cachedData) return;
 
     const controller = new AbortController();
 
@@ -48,6 +50,11 @@ const Index = () => {
 
         setCategories(json.categories ?? []);
         setOverviews(json.overviews ?? []);
+
+        cachedData = {
+          categories: json.categories ?? [],
+          overviews: json.overviews ?? []
+        };
       } catch (e: any) {
         if (e.name !== "AbortError") {
           console.error(e);
