@@ -9,6 +9,9 @@ type Props = {
 
 const MobileCategory = ({ categories }: Props) => {
   const router = useRouter();
+  if (categories.length === 0) {
+    return <PlaceholderMobileCategory />;
+  }
   return <>
     <div className={category.tag}>
       <ul className={common.tag}>
@@ -17,4 +20,15 @@ const MobileCategory = ({ categories }: Props) => {
     </div>
   </>;
 };
+
+const PlaceholderMobileCategory = ({}) => {
+  return (
+    <div className={category.tag}>
+      <ul className={`${common.tag} ${category.placeholder}`}>
+        {Array(10).fill(0).map((_, i) => <li key={i}>&nbsp;</li>)}
+      </ul>
+    </div>
+  );
+};
+
 export default MobileCategory;

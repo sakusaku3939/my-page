@@ -9,3 +9,9 @@
 .tag::-webkit-scrollbar {
     display: none;
 }
+
+.placeholder li {
+    width: 88px;
+    background-color: var(--placeholder-color);
+    border-color: var(--placeholder-color);
+}
