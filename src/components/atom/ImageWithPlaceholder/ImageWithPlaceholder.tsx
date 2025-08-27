@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CSSProperties, useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import common from "@/styles/common.module.css";
 import blurMap from "@/__generated__/blur-image-map";
 
@@ -21,6 +21,7 @@ export function ImageWithPlaceholder({ src, alt = "", sizes = "100%", key, conta
   const placeholder = blur ? <Image src={blur} alt="" sizes="100%" fill /> : null;
 
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [previewSrc, setPreviewSrc] = useState<string | null>(null);
 
   return (
     <>
@@ -33,8 +34,33 @@ export function ImageWithPlaceholder({ src, alt = "", sizes = "100%", key, conta
           sizes={sizes}
           fill
           onLoad={() => setImageLoaded(true)}
+          onClick={() => setPreviewSrc(src)}
         />
       </span>
+
+      {/* プレビュー用モーダル */}
+      {previewSrc && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.8)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 9
+          }}
+          onClick={() => setPreviewSrc(null)}>
+          <img
+            src={previewSrc}
+            style={{ maxWidth: "90%", maxHeight: "90%" }}
+            alt={alt}
+          />
+        </div>
+      )}
     </>
   );
 }
