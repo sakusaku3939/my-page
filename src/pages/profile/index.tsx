@@ -23,7 +23,7 @@ const Index = () => {
       </h1>
 
       <section className={index.section}>
-        <h1 className={index.h1}>所属歴</h1>
+        <h1 className={index.h1}>所属</h1>
         <Timeline>
           <TimeLineItem date="2019.4 - 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
           <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
