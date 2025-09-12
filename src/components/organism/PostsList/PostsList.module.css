@@ -114,6 +114,7 @@
     text-align: center;
     margin-top: 16px;
     margin-bottom: 72px;
+    vertical-align: center;
 }
 
 .button a {
@@ -138,6 +139,7 @@
     animation: rightArrow 1.5s linear infinite;
     display: inline;
     width: 14px;
+
     margin-left: 12px;
 }
 
