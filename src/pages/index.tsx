@@ -16,25 +16,23 @@ const Index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BackgroundGradientWrapper>
-        <div className={index.content}>
-          <span className={index.menuVisibility}><Menu /></span>
-          <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
-          <section className={index.header}>
-            <div className={index.title}>Aokiti</div>
-            <div className={index.subtitle}>
-              <span>Keio SFC B3</span>
-              <span>RG <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks"
-                                    target="_blank" /></span>
-              <span>アプリ開発, 深層学習</span>
-            </div>
-            <SnsList />
-          </section>
-          <section className={index.section}>
-            <PostsList />
-          </section>
+        <span className={index.menuVisibility}><Menu /></span>
+        <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
+        <section className={index.header}>
+          <div className={index.title}>Aokiti</div>
+          <div className={index.subtitle}>
+            <span>Keio SFC B3</span>
+            <span>RG <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks"
+                                  target="_blank" /></span>
+            <span>アプリ開発, 深層学習</span>
+          </div>
+          <SnsList />
+        </section>
+        <section className={index.section}>
+          <PostsList />
+        </section>
 
-          <FooterMenu />
-        </div>
+        <FooterMenu />
       </BackgroundGradientWrapper>
     </>
   );

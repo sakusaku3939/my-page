@@ -20,6 +20,11 @@
     animation: fade-in 2s ease-in forwards, bg-scroll 10s linear infinite;
 }
 
+.children {
+    position: relative;
+    z-index: 1;
+}
+
 @keyframes fade-in {
     from {
         opacity: 0;

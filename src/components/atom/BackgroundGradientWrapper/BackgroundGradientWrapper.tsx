@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import gradient from "./BackgroundGradientWrapper.module.css";
 
 type Props = {
-  children: React.ReactElement
+  children?: any
 }
 
 export function BackgroundGradientWrapper({ children }: Props) {
@@ -30,7 +30,7 @@ export function BackgroundGradientWrapper({ children }: Props) {
       <div className={gradient.backgroundImage}></div>
       <div className={gradient.overlay}></div>
 
-      {children}
+      <div className={gradient.children}>{children}</div>
     </main>
   );
 }
