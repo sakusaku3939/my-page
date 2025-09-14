@@ -115,7 +115,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: 100dvh;
 }
 
 .qrCode {
@@ -125,15 +125,10 @@
     object-fit: contain;
     background: linear-gradient(180deg, #ffffff, #f0f4ff);
     border-radius: 32px;
-}
-
-.qrCode::before {
-    content: "";
-    position: absolute;
-    inset: -3px;
-    border-radius: 36px;
-    background: black;
-    z-index: -1;
+    box-shadow:
+            0 0 40px rgba(0, 0, 0, 0.1),
+            0 0 80px rgba(0, 0, 0, 0.1),
+            0 0 120px rgba(0, 0, 0, 0.1);
 }
 
 .qrCode img {
