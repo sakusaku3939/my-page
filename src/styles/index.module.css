@@ -123,8 +123,17 @@
     width: 300px;
     aspect-ratio: 1/1;
     object-fit: contain;
-    background-color: white;
+    background: linear-gradient(180deg, #ffffff, #f0f4ff);
     border-radius: 32px;
+}
+
+.qrCode::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 36px;
+    background: black;
+    z-index: -1;
 }
 
 .qrCode img {
