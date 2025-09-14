@@ -110,6 +110,32 @@
     display: none;
 }
 
+.qrCodeWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.qrCode {
+    position: relative;
+    width: 300px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 32px;
+}
+
+.qrCode img {
+    padding: 32px;
+}
+
+.qrCodeText {
+    text-align: center;
+    margin-top: 4px;
+}
+
 @media screen and (max-width: 1700px) {
     .postsList > * {
         max-width: none;
