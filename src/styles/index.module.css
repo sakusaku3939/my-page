@@ -116,6 +116,7 @@
     align-items: center;
     flex-direction: column;
     height: 100dvh;
+    overflow: hidden;
 }
 
 .qrCode {
@@ -125,10 +126,7 @@
     object-fit: contain;
     background: linear-gradient(180deg, #ffffff, #f0f4ff);
     border-radius: 32px;
-    box-shadow:
-            0 0 40px rgba(0, 0, 0, 0.1),
-            0 0 80px rgba(0, 0, 0, 0.1),
-            0 0 120px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1), 0 0 80px rgba(0, 0, 0, 0.1), 0 0 120px rgba(0, 0, 0, 0.1);
 }
 
 .qrCode img {
@@ -137,7 +135,7 @@
 
 .qrCodeText {
     text-align: center;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 
 @media screen and (max-width: 1700px) {
