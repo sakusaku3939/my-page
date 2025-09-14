@@ -35,6 +35,10 @@ sup {
     background: var(--light-grey) !important;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 @media (prefers-color-scheme: dark) {
     a {
         @apply underline text-blue-300 visited:text-purple-500

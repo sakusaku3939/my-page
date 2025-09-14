@@ -8,6 +8,8 @@ const Index = () => {
   const qrRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    document.body.classList.add("no-scroll");
+
     const qr = qrRef.current;
     if (!qr) return;
 
@@ -43,6 +45,7 @@ const Index = () => {
     }
 
     return () => {
+      document.body.classList.remove("no-scroll");
       window.removeEventListener("deviceorientation", handleOrientationForMobile);
       window.removeEventListener("mousemove", handleMouseMoveForPC);
     };
