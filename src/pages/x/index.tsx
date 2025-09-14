@@ -63,7 +63,7 @@ const Index = () => {
           <div className={index.qrCode} ref={qrRef}>
             <Image src="/images/qrcode.svg" alt="QR Code" sizes="100%" fill />
           </div>
-          <p className={index.qrCodeText}>@aokiti_tech</p>
+          <p className={index.qrCodeText}>@ aokiti_tech</p>
         </div>
       </BackgroundGradientWrapper>
     </>
