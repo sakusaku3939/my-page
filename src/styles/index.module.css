@@ -116,7 +116,7 @@
     align-items: center;
     flex-direction: column;
     height: 100dvh;
-    overflow: hidden;
+    perspective: 1000px;
 }
 
 .qrCode {
@@ -135,7 +135,7 @@
 
 .qrCodeText {
     text-align: center;
-    margin-top: 8px;
+    margin-top: 12px;
 }
 
 @media screen and (max-width: 1700px) {
