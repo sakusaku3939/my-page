@@ -11,13 +11,20 @@ const Index = () => {
     const qr = qrRef.current;
     if (!qr) return;
 
+    let baseBeta: number | null = null;
+    let baseGamma: number | null = null;
+
     const handleOrientationForMobile = (event: DeviceOrientationEvent) => {
       const { beta, gamma } = event;
-      if (beta !== null && gamma !== null) {
-        const x = Math.max(-15, Math.min(15, gamma));
-        const y = Math.max(-15, Math.min(15, beta - 90));
-        qr.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-      }
+      if (!beta || !gamma) return;
+
+      if (baseBeta === null) baseBeta = beta;
+      if (baseGamma === null) baseGamma = gamma;
+
+      const x = Math.max(-15, Math.min(15, gamma - baseGamma));
+      const y = -Math.max(-15, Math.min(15, beta - baseBeta));
+
+      qr.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
     };
 
     const handleMouseMoveForPC = (event: MouseEvent) => {
@@ -27,10 +34,13 @@ const Index = () => {
       qr.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
     };
 
-    if ("DeviceOrientationEvent" in window) {
+    const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) {
       window.addEventListener("deviceorientation", handleOrientationForMobile);
+    } else {
+      window.addEventListener("mousemove", handleMouseMoveForPC);
     }
-    window.addEventListener("mousemove", handleMouseMoveForPC);
 
     return () => {
       window.removeEventListener("deviceorientation", handleOrientationForMobile);
