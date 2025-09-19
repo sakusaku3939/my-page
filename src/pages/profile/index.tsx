@@ -79,7 +79,9 @@ const Index = () => {
           </TimeLineItem>
           <TimeLineItem date="2025.6 - 2024.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
                         open={false}></TimeLineItem>
-          <TimeLineItem date="2025.8 - 現在" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン"
+          <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン"
+                        open={false}></TimeLineItem>
+          <TimeLineItem date="2025.9 - 現在" icon={faBriefcase} title="株式会社MIXI Flutterインターン"
                         open={false}></TimeLineItem>
         </Timeline>
 
