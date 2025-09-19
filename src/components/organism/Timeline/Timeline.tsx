@@ -1,6 +1,6 @@
 import timeline from "@/components/organism/Timeline/Timeline.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpRightFromSquare, IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { faChevronCircleLeft, faUpRightFromSquare, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { ReactNode, useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
@@ -63,7 +63,12 @@ const TimeLineItem = ({ date, icon, title, open = false, children }: TimeLineIte
                 <FontAwesomeIcon className={timeline.icon} icon={icon} />
                 <span>{title}</span>
               </div>
-              {children && <div className={timeline.arrow} />}
+              {children && <div className={timeline.arrow}>
+                <FontAwesomeIcon
+                  icon={faChevronCircleLeft}
+                  className={timeline.arrowIcon}
+                />
+              </div>}
             </div>
           </div>
           {children && (
