@@ -23,6 +23,29 @@ WebViewを使用し、必要な要素以外はJavaScriptで隠すことでネイ
 |--------------------------------------------------|---------------------------------------------------|-----------------------------------------------------|
 | ![](/public/posts/deepl-android/main-screen.png) | ![](/public/posts/deepl-android/context-menu.gif) | ![](/public/posts/deepl-android/setting-screen.png) |
 
+# スクリーンショットによる表示崩れの自動検知
+
+WebViewで表示しているDeepL翻訳のページは、不定期にデザインアップデートが入ることで要素のIDや配置が変わり、JavaScriptによる要素の非表示処理が効かなくなることがありました。結果として、ユーザーからのIssue報告を受けるまで発見が遅れ、数日間アプリが壊れた状態で放置されてしまうケースがありました。
+
+そこで、技術的な解決策として、スクリーンショットの差分を用いたインストルメンテーションテストをCI/CDパイプラインに組み込み、定期実行によってWebViewの表示崩れを自動で検知できる仕組みを構築しました。
+
+![](/public/posts/deepl-android/webview-test.png)
+# br-24px
+
+CIは以下のフローによって行われます。
+
+① GitHub Actions上でAndroidエミュレーターを起動する
+② [pedrovgs/Shot](https://github.com/pedrovgs/Shot) を用いてWebView画面のスクリーンショットを撮影
+③ Shotで生成されたスクリーンショット差分ページをGitHub Pagesにデプロイ
+④ 差分がある場合はCIジョブが失敗し、メールで通知
+
+ただし、実際には対応の必要がない細かなデザイン変更も検知されます。その場合でも、更新用のCIジョブを実行すれば、手作業でスクリーンショットを撮り直すことなく、新しいスクリーンショットを自動コミットできるようになっています。
+
+![](/public/posts/deepl-android/webview-test2.png)
+# br-8px
+
+![](/public/posts/deepl-android/webview-test3.png)
+
 # リンク
 - リリース版 (F-Droid)  
 https://f-droid.org/packages/com.example.deeplviewer
