@@ -11,7 +11,7 @@ pinned: true
 アプリをOSS化したところ大きな反響があり、2025年1月時点で <a href="https://github.com/sakusaku3939/DeepLAndroid/issues?q=is%3Aissue+is%3Aclosed" target="_blank">68個の解決済みIssues</a> と <a href="https://github.com/sakusaku3939/DeepLAndroid/pulls?q=is%3Apr+is%3Aclosed" target="_blank">48個のPull requests</a> がマージされました。
 アプリ自体の言語は英語・日本語に加え、コントリビューターにより計11ヶ国語に対応しています。
 
-また、OSS専用アプリストアのF-Droidにリリースを行い、現在も公開されています。
+また、OSS専用アプリストアのF-Droidにリリースを行い、2021年から現在まで公開されています。
 https://github.com/sakusaku3939/DeepLAndroid
 
 ![](/public/posts/deepl-android/screenshot.png)
