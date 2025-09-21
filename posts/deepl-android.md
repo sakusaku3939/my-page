@@ -46,7 +46,7 @@ CIは以下のフローによって行われます。
 
 ![](/public/posts/deepl-android/webview-test3.png)
 
-# コントリビューターの協力により追加された機能
+# コントリビューターの協力
 Thank you to @S-H-Y-A, @fm-sys, @Mephodio, ... and all contributors!
 
 - 選択メニューからDeepLアプリを起動
