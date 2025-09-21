@@ -39,24 +39,18 @@ CIは以下のフローによって行われます。
 ③ Shotで生成されたスクリーンショット差分ページをGitHub Pagesにデプロイ
 ④ 差分がある場合はCIジョブが失敗し、メールで通知
 
-ただし、実際には対応の必要がない細かなデザイン変更も検知されます。その場合でも、更新用のCIジョブを実行すれば、手作業でスクリーンショットを撮り直すことなく、新しいスクリーンショットを自動コミットできるようになっています。
+ただし、実際には対応の必要がない細かなデザイン変更も検知されてしまうことがあります。その場合でも、更新用のCIジョブを実行すれば、手作業でスクリーンショットを撮り直すことなく、新しいスクリーンショットを自動コミットできるようになっています。
 
 ![](/public/posts/deepl-android/webview-test2.png)
 # br-8px
 
 ![](/public/posts/deepl-android/webview-test3.png)
 
-# リンク
-- リリース版 (F-Droid)  
-https://f-droid.org/packages/com.example.deeplviewer
-- リリース版 (GitHub)  
-https://github.com/sakusaku3939/DeepLAndroid/releases
-- GitHub  
-https://github.com/sakusaku3939/DeepLAndroid
+# コントリビューターの協力により追加された機能
+Thank you to @S-H-Y-A, @fm-sys, @Mephodio, ... and all contributors!
 
-# GitHub
 - 選択メニューからDeepLアプリを起動
-  - Pull Requests: [#25](https://github.com/sakusaku3939/DeepLAndroid/pull/25), [#40](https://github.com/sakusaku3939/DeepLAndroid/pull/40), [#57](https://github.com/sakusaku3939/DeepLAndroid/pull/57), [#62](https://github.com/sakusaku3939/DeepLAndroid/issues/62), [#67](https://github.com/sakusaku3939/DeepLAndroid/pull/67)
+  - Pull Requests: [#25](https://github.com/sakusaku3939/DeepLAndroid/pull/25), [#40](https://github.com/sakusaku3939/DeepLAndroid/pull/40), [#57](https://github.com/sakusaku3939/DeepLAndroid/pull/57), [#67](https://github.com/sakusaku3939/DeepLAndroid/pull/67)
   - 議論・バグ修正: [#1](https://github.com/sakusaku3939/DeepLAndroid/issues/1), [#5](https://github.com/sakusaku3939/DeepLAndroid/issues/5), [#6](https://github.com/sakusaku3939/DeepLAndroid/issues/6), [#24](https://github.com/sakusaku3939/DeepLAndroid/issues/24), [#51](https://github.com/sakusaku3939/DeepLAndroid/issues/51), [#59](https://github.com/sakusaku3939/DeepLAndroid/issues/59), [#60](https://github.com/sakusaku3939/DeepLAndroid/issues/60), [#62](https://github.com/sakusaku3939/DeepLAndroid/issues/62), [#64](https://github.com/sakusaku3939/DeepLAndroid/issues/60), [#69](https://github.com/sakusaku3939/DeepLAndroid/issues/69)
 # br-16px
 
@@ -68,6 +62,14 @@ https://github.com/sakusaku3939/DeepLAndroid
 - JavaScript関連
   - Pull Requests: [#2](https://github.com/sakusaku3939/DeepLAndroid/pull/2), [#35](https://github.com/sakusaku3939/DeepLAndroid/pull/35), [#36](https://github.com/sakusaku3939/DeepLAndroid/pull/36)
   - 議論・バグ修正: [#19](https://github.com/sakusaku3939/DeepLAndroid/issues/19), [#23](https://github.com/sakusaku3939/DeepLAndroid/issues/23), [#77](https://github.com/sakusaku3939/DeepLAndroid/issues/77), [#80](https://github.com/sakusaku3939/DeepLAndroid/issues/80), [#90](https://github.com/sakusaku3939/DeepLAndroid/issues/90), [#96](https://github.com/sakusaku3939/DeepLAndroid/issues/96), [#104](https://github.com/sakusaku3939/DeepLAndroid/issues/104), [#111](https://github.com/sakusaku3939/DeepLAndroid/issues/111)
+
+# リンク
+- リリース版 (F-Droid)  
+  https://f-droid.org/packages/com.example.deeplviewer
+- リリース版 (GitHub)  
+  https://github.com/sakusaku3939/DeepLAndroid/releases
+- GitHub  
+  https://github.com/sakusaku3939/DeepLAndroid
 
 # 使用技術
 言語 ・・・ Kotlin, JavaScript
