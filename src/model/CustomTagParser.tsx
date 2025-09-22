@@ -1,6 +1,6 @@
 import React from "react";
 import common from "@/styles/common.module.css";
-import posts from "@/styles/posts.module.css";
+import posts from "@/pages/posts/posts.module.css";
 import Image from "next/image";
 import { ImageWithPlaceholder } from "@/components/atom/ImageWithPlaceholder/ImageWithPlaceholder";
 

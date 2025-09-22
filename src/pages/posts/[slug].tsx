@@ -1,8 +1,8 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import posts from "@/styles/posts.module.css";
 import common from "@/styles/common.module.css";
-import mdStyle from "@/styles/markdown.module.css";
+import posts from "./posts.module.css";
+import mdStyle from "./markdown.module.css";
 import remarkGfm from "remark-gfm";
 import { CustomTagParser, ImageTagParser } from "@/model/CustomTagParser";
 import Head from "next/head";
