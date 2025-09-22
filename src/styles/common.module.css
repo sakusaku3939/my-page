@@ -1,3 +1,32 @@
+.section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 56px 32px;
+}
+
+.h1 {
+    margin-bottom: 24px;
+    font-size: 18px;
+}
+
+.h2 {
+    margin-bottom: 12px;
+    color: var(--light-grey);
+    padding-left: 12px;
+    border-left: 5px solid #757575;
+}
+
+.profileTitle {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 56px 16px;
+}
+
+.profileTitle div {
+    padding-bottom: 16px;
+}
+
 .tag li {
     display: inline-block;
     font-size: 12px;
@@ -28,4 +57,10 @@
 .shadow {
     background-color: var(--background-color);
     box-shadow: rgba(0, 0, 0, 0.06) 0 4px 24px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
+}
+
+@media screen and (max-width: 500px) {
+    .section {
+        padding: 0 32px 32px;
+    }
 }

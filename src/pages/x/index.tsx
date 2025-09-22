@@ -1,5 +1,5 @@
 import Head from "next/head";
-import index from "@/styles/index.module.css";
+import index from "./index.module.css";
 import { BackgroundGradientWrapper } from "@/components/atom/BackgroundGradientWrapper/BackgroundGradientWrapper";
 import Image from "next/image";
 import { useEffect, useRef } from "react";

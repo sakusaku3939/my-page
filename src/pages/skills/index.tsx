@@ -1,4 +1,4 @@
-import index from "@/styles/index.module.css";
+import common from "@/styles/common.module.css";
 import Head from "next/head";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
@@ -13,11 +13,11 @@ const Index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HamburgerMenu />
-      <h1 className={index.profileTitle}>スキル</h1>
+      <h1 className={common.profileTitle}>スキル</h1>
 
-      <section className={index.section}>
+      <section className={common.section}>
         <Skills>
-          <h2 className={index.h2}>メイン言語（多分使える）</h2>
+          <h2 className={common.h2}>メイン言語（多分使える）</h2>
           <SkillsItemWrapper>
             <SkillsItem title="Dart">
               実務経験あり。Flutterを用いたモバイルアプリ開発など
@@ -36,7 +36,7 @@ const Index = () => {
             </SkillsItem>
           </SkillsItemWrapper>
 
-          <h2 className={index.h2}>サブ言語（ほとんど使ってない/軽く触った）</h2>
+          <h2 className={common.h2}>サブ言語（ほとんど使ってない/軽く触った）</h2>
           <SkillsSubItemWrapper>
             <SkillsItem title="Java">
               ロボコンのプログラム開発、Androidアプリなど

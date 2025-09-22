@@ -1,4 +1,4 @@
-import index from "@/styles/index.module.css";
+import common from "@/styles/common.module.css";
 import Head from "next/head";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { Timeline, TimeLineItem, TimeLineLink } from "@/components/organism/Timeline/Timeline";
@@ -17,13 +17,13 @@ const Index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HamburgerMenu />
-      <h1 className={index.profileTitle}>
+      <h1 className={common.profileTitle}>
         <div>略歴・プロフィール</div>
         <SnsList />
       </h1>
 
-      <section className={index.section}>
-        <h1 className={index.h1}>所属</h1>
+      <section className={common.section}>
+        <h1 className={common.h1}>所属</h1>
         <Timeline>
           <TimeLineItem date="2019.4 - 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
           <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
@@ -54,7 +54,7 @@ const Index = () => {
           </TimeLineItem>
         </Timeline>
 
-        <h1 className={index.h1}>職歴 ・ インターンシップ</h1>
+        <h1 className={common.h1}>職歴 ・ インターンシップ</h1>
         <Timeline>
           <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
                         open={false}>
@@ -85,7 +85,7 @@ const Index = () => {
                         open={false}></TimeLineItem>
         </Timeline>
 
-        <h1 className={index.h1}>受賞歴</h1>
+        <h1 className={common.h1}>受賞歴</h1>
         <Timeline>
           <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞" open={true}>
             アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」 を発表しました。1次・2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
@@ -127,7 +127,7 @@ const Index = () => {
           </TimeLineItem>
         </Timeline>
 
-        <h1 className={index.h1}>研究発表</h1>
+        <h1 className={common.h1}>研究発表</h1>
         <Timeline>
           <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
                         title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）" open={false}>
@@ -177,7 +177,7 @@ const Index = () => {
           </TimeLineItem>
         </Timeline>
 
-        <h1 className={index.h1}>資格</h1>
+        <h1 className={common.h1}>資格</h1>
         <Qualification>
           <QualificationItem title="基本情報技術者試験" period="2022年春期" institution="経済産業省" />
           <QualificationItem title="ITパスポート試験" period="2020年秋期" institution="経済産業省" />

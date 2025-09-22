@@ -1,5 +1,5 @@
 import Head from "next/head";
-import index from "@/styles/index.module.css";
+import index from "./index.module.css";
 import SnsList from "@/components/molecule/SnsList/SnsList";
 import { PostsList } from "@/components/organism/PostsList/PostsList";
 import NoColorLink from "@/components/atom/NoColorLink/NoColorLink";

@@ -1,4 +1,4 @@
-import index from "@/styles/index.module.css";
+import index from "./index.module.css";
 import type { Overview } from "@/model/type/Overview";
 import { PlaceholderPost, Post } from "@/components/organism/PostsList/PostsList";
 import Category from "@/components/molecule/Category/Category";
