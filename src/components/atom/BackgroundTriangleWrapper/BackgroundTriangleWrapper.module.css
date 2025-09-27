@@ -1,7 +1,6 @@
 .root {
     position: relative;
     z-index: 0;
-    isolation: isolate;
 }
 
 .wrapper {
@@ -21,12 +20,12 @@
 
 .wrapper span:nth-child(1) {
     width: 100%;
-    height: 100px;
+    height: 80px;
     background: var(--triangle-color1);
 }
 
 .wrapper span:nth-child(2) {
     width: 20%;
-    height: 120px;
+    height: 100px;
     background: var(--triangle-color2);
 }

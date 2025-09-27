@@ -1,12 +1,17 @@
 import bg from "./BackgroundTriangleWrapper.module.css";
 
-const BackgroundTriangleWrapper = () => {
+type Props = {
+  children?: any
+}
+
+const BackgroundTriangleWrapper = ({children}: Props) => {
   return (
     <div className={bg.root}>
       <div className={bg.wrapper} aria-hidden="true">
         <span />
         <span />
       </div>
+      {children}
     </div>
   );
 };
