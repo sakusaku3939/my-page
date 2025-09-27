@@ -1,9 +1,3 @@
-.pageRoot {
-    position: relative;
-    z-index: 0;
-    isolation: isolate;
-}
-
 .postTitle {
     font-size: 28px;
     font-weight: bold;

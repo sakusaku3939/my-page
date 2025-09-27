@@ -7,6 +7,7 @@ import { Qualification, QualificationItem } from "@/components/organism/Qualific
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import TimelineImage from "@/components/molecule/TimelineImage/TimelineImage";
 import SnsList from "@/components/molecule/SnsList/SnsList";
+import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <BackgroundTriangleWrapper />
       <HamburgerMenu />
       <h1 className={common.profileTitle}>
         <div>略歴・プロフィール</div>

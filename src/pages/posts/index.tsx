@@ -81,42 +81,40 @@ const Index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={index.pageRoot}>
-        <BackgroundTriangleWrapper />
-        <HamburgerMenu />
-        <h1 className={index.postTitle}>制作物一覧<span>{filterText?.length ? `「${filterText}」 の記事` : ""}</span></h1>
-        <div className={index.mobileCategory}>
-          <MobileCategory categories={categories} />
-        </div>
-        <div className={index.wrapper}>
-          <section className={index.postsList}>
-            {/* エラー時 */}
-            {error && <div>{error}</div>}
+      <BackgroundTriangleWrapper />
+      <HamburgerMenu />
+      <h1 className={index.postTitle}>制作物一覧<span>{filterText?.length ? `「${filterText}」 の記事` : ""}</span></h1>
+      <div className={index.mobileCategory}>
+        <MobileCategory categories={categories} />
+      </div>
+      <div className={index.wrapper}>
+        <section className={index.postsList}>
+          {/* エラー時 */}
+          {error && <div>{error}</div>}
 
-            {/* ロード中のプレースホルダー */}
-            {!loaded && !error && Array(6).fill(0).map((_, i) => <PlaceholderPost key={i} />)}
+          {/* ロード中のプレースホルダー */}
+          {!loaded && !error && Array(6).fill(0).map((_, i) => <PlaceholderPost key={i} />)}
 
-            {/* 投稿一覧 */}
-            {!error && overviews.map((post: Overview, key: number) => (
-              <Post key={key}
-                    date={post.date}
-                    imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
-                    href={`/posts/${post.slug}`}
-                    title={post.title}
-                    tag={post.tag.split(", ")}
-                    pinned={post.pinned}
-                    overview={post.overview} />
-            ))}
-            <div className={index.postDummy} />
-            <div className={index.postDummy} />
-            <div className={index.postDummy} />
-          </section>
-          <div className={index.category}>
-            <Category categories={categories} />
-          </div>
+          {/* 投稿一覧 */}
+          {!error && overviews.map((post: Overview, key: number) => (
+            <Post key={key}
+                  date={post.date}
+                  imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
+                  href={`/posts/${post.slug}`}
+                  title={post.title}
+                  tag={post.tag.split(", ")}
+                  pinned={post.pinned}
+                  overview={post.overview} />
+          ))}
+          <div className={index.postDummy} />
+          <div className={index.postDummy} />
+          <div className={index.postDummy} />
+        </section>
+        <div className={index.category}>
+          <Category categories={categories} />
         </div>
-        <FooterMenu />
-      </main>
+      </div>
+      <FooterMenu />
     </>
   );
 };

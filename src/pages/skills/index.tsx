@@ -3,6 +3,7 @@ import Head from "next/head";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { Skills, SkillsItem, SkillsItemWrapper, SkillsSubItemWrapper } from "@/components/organism/Skills/Skills";
+import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <BackgroundTriangleWrapper />
       <HamburgerMenu />
       <h1 className={common.profileTitle}>スキル</h1>
 
