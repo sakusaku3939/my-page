@@ -82,10 +82,8 @@ const Index = () => {
       </Head>
       <main className={index.pageRoot}>
         <div className={index.bgTriangleWrapper} aria-hidden="true">
-          <span className={index.bgTriangle} />
-        </div>
-        <div className={`${index.bgTriangleWrapper} ${index.bgTriangleStyleMini}`} aria-hidden="true">
-          <span className={index.bgTriangle} />
+          <span />
+          <span />
         </div>
         <HamburgerMenu />
         <h1 className={index.postTitle}>制作物一覧<span>{filterText?.length ? `「${filterText}」 の記事` : ""}</span></h1>

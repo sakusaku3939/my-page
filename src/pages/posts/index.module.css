@@ -9,25 +9,26 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100px;
     z-index: -1;
 }
 
-.bgTriangleStyleMini {
-    width: 20%;
-    height: 120px;
-}
-
-.bgTriangle {
+.bgTriangleWrapper span {
     position: absolute;
     inset: 0;
     display: block;
-    background: var(--triangle-color);
     clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
-.bgTriangleStyleMini .bgTriangle {
-    background: var(--triangle-color-mini);
+.bgTriangleWrapper span:nth-child(1) {
+    width: 100%;
+    height: 100px;
+    background: var(--triangle-color1);
+}
+
+.bgTriangleWrapper span:nth-child(2) {
+    width: 20%;
+    height: 120px;
+    background: var(--triangle-color2);
 }
 
 .postTitle {
