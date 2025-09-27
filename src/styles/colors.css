@@ -12,6 +12,7 @@
             rgba(255, 255, 255, 1) 20%
     );
     --overlay-filter: blur(8px) hue-rotate(0deg) contrast(2);
+    --triangle-color: #F5F5F5;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,5 +30,6 @@
                 rgba(22, 27, 34, 1) 80%
         );
         --overlay-filter: blur(8px) hue-rotate(40deg) contrast(2);
+        --triangle-color: #424242;
     }
 }

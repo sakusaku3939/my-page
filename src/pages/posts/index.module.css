@@ -1,3 +1,26 @@
+.pageRoot {
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+}
+
+.bgTriangleWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: clamp(96px, 12vw, 100px);
+    z-index: -1;
+}
+
+.bgTriangle {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background: var(--triangle-color);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
 .postTitle {
     font-size: 28px;
     font-weight: bold;
