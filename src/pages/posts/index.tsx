@@ -8,6 +8,7 @@ import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 
 type Props = {
   filter: string | string[],
@@ -81,10 +82,7 @@ const Index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={index.pageRoot}>
-        <div className={index.bgTriangleWrapper} aria-hidden="true">
-          <span />
-          <span />
-        </div>
+        <BackgroundTriangleWrapper />
         <HamburgerMenu />
         <h1 className={index.postTitle}>制作物一覧<span>{filterText?.length ? `「${filterText}」 の記事` : ""}</span></h1>
         <div className={index.mobileCategory}>
