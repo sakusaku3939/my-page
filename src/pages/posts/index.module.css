@@ -9,8 +9,13 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: clamp(96px, 12vw, 100px);
+    height: 100px;
     z-index: -1;
+}
+
+.bgTriangleStyleMini {
+    width: 20%;
+    height: 120px;
 }
 
 .bgTriangle {
@@ -19,6 +24,10 @@
     display: block;
     background: var(--triangle-color);
     clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.bgTriangleStyleMini .bgTriangle {
+    background: var(--triangle-color-mini);
 }
 
 .postTitle {
