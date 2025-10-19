@@ -23,7 +23,7 @@ resフォルダの中にあるステージデータ.xlsxのシート「1-1」を
 
 ![](/public/posts/syobon-action/syobon-making.gif)
 
-# (2025.2.21追記) しょぼんのアクション強化学習
+# (2025.2.21) しょぼんのアクション強化学習
 Python版しょぼんのアクションを強化学習で実行する環境を作成してみました。PPO (Proximal Policy Optimization)を用いて、しょぼんのアクションをクリアするエージェントを学習できます。
 
 <video src="/posts/syobon-action/rl-early.mp4" controls autoplay muted></video>
