@@ -1,7 +1,7 @@
 ---
-title: my-page
+title: プロフィールサイト
 tag: TypeScript, Next.js, Vercel
-overview: Markdownを用いたブログ記事管理、自分用のプロフィールサイト
+overview: Markdownを用いた自作CMS、自分用のプロフィールサイト
 date: 2023.6.4
 ---
 
