@@ -56,38 +56,6 @@ const Index = () => {
             </TimeLineItem>
           </Timeline>
 
-          <h1 className={common.h1}>職歴 ・ インターンシップ</h1>
-          <Timeline>
-            <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
-                          open={false}>
-              フロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発（Flutter）にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、
-              開発速度と品質を重視したスクラム開発を経験しました。
-              <TimelineImage
-                title="Locket | 位置情報共有アプリ"
-                period="2023年1月 - 2023年3月"
-                imageUrl="/timeline/locket.png"
-                showModal={true}
-              />
-            </TimeLineItem>
-            <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア"
-                          open={false}>
-              お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャの選定から携わり、Clean
-              Architecture + Riverpodによるチケット駆動開発を経験しました。マップ画面やチャットなどUIの実装、キャッシュ戦略含むコア部分の開発など、ゼロベースから幅広い実装を担いました。
-              <TimelineImage
-                title="GatherGo | お出かけ先レコメンドAI"
-                period="2024年8月 - 2024年12月"
-                imageUrl="/timeline/gathergo.png"
-                showModal={true}
-              />
-            </TimeLineItem>
-            <TimeLineItem date="2025.6 - 2024.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
-                          open={false}></TimeLineItem>
-            <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン"
-                          open={false}></TimeLineItem>
-            <TimeLineItem date="2025.9 - 2025.10" icon={faBriefcase} title="株式会社MIXI Flutterインターン"
-                          open={false}></TimeLineItem>
-          </Timeline>
-
           <h1 className={common.h1}>受賞歴</h1>
           <Timeline>
             <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞" open={true}>
@@ -178,6 +146,39 @@ const Index = () => {
                 href="https://www.jn.sfc.keio.ac.jp/%e3%80%90%e7%99%ba%e8%a1%a8%e3%80%91%e5%ad%a6%e9%83%a83%e5%b9%b4-%e9%9d%92%e6%9c%a8%e5%90%9b%e3%81%8c%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9%e3%82%92miru-2025%e3%81%a7%e7%99%ba%e8%a1%a8%e3%81%97%e3%81%be/"
               />
             </TimeLineItem>
+          </Timeline>
+
+
+          <h1 className={common.h1}>職歴 ・ インターンシップ</h1>
+          <Timeline>
+            <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
+                          open={false}>
+              フロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発（Flutter）にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、
+              開発速度と品質を重視したスクラム開発を経験しました。
+              <TimelineImage
+                title="Locket | 位置情報共有アプリ"
+                period="2023年1月 - 2023年3月"
+                imageUrl="/timeline/locket.png"
+                showModal={true}
+              />
+            </TimeLineItem>
+            <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア"
+                          open={false}>
+              お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャの選定から携わり、Clean
+              Architecture + Riverpodによるチケット駆動開発を経験しました。マップ画面やチャットなどUIの実装、キャッシュ戦略含むコア部分の開発など、ゼロベースから幅広い実装を担いました。
+              <TimelineImage
+                title="GatherGo | お出かけ先レコメンドAI"
+                period="2024年8月 - 2024年12月"
+                imageUrl="/timeline/gathergo.png"
+                showModal={true}
+              />
+            </TimeLineItem>
+            <TimeLineItem date="2025.6 - 2024.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
+                          open={false}></TimeLineItem>
+            <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン"
+                          open={false}></TimeLineItem>
+            <TimeLineItem date="2025.9 - 2025.10" icon={faBriefcase} title="株式会社MIXI Flutterインターン"
+                          open={false}></TimeLineItem>
           </Timeline>
 
           <h1 className={common.h1}>資格</h1>
