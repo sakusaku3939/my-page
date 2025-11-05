@@ -28,7 +28,7 @@ const Index = () => {
           <h1 className={common.h1}>所属</h1>
           <Timeline>
             <TimeLineItem date="2019.4 - 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
-            <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
+            <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={true}>
               高1〜高3に世界級のロボコン FRC（FIRST Robotics
               Competition）のチーム「BWW」に初期メンバーとして活動しました。Javaによるロボット制御のプログラミングを担当したほか、公式Webサイトの制作、YouTube動画編集、ブログなどでの広報活動を行いました。
               <TimelineImage
@@ -52,6 +52,32 @@ const Index = () => {
               <TimeLineLink
                 description="d-hacks"
                 href="https://d-hacks.jn.sfc.keio.ac.jp/"
+              />
+            </TimeLineItem>
+          </Timeline>
+
+          <h1 className={common.h1}>職歴</h1>
+          <Timeline>
+            <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust アプリエンジニア"
+                          open={true}>
+              フロントエンド（Flutter）チームで、位置情報共有アプリ「Locket」の0→1開発にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、
+              開発速度と品質を重視したスクラム開発を経験しました。
+              <TimelineImage
+                title="Locket | 位置情報共有アプリ"
+                period="2023年1月 - 2023年3月"
+                imageUrl="/timeline/locket.png"
+                showModal={true}
+              />
+            </TimeLineItem>
+            <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. アプリエンジニア"
+                          open={true}>
+              お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャの選定から携わり、Clean
+              Architecture + Riverpodによるチケット駆動開発を経験しました。マップ画面やチャットなどUIの実装、キャッシュ戦略含むコア部分の開発など、ゼロベースから幅広い実装を担いました。
+              <TimelineImage
+                title="GatherGo | お出かけ先レコメンドAI"
+                period="2024年8月 - 2024年12月"
+                imageUrl="/timeline/gathergo.png"
+                showModal={true}
               />
             </TimeLineItem>
           </Timeline>
@@ -82,7 +108,7 @@ const Index = () => {
                 target="_self"
               />
             </TimeLineItem>
-            <TimeLineItem date="2025.3" icon={faTrophy} title="廃棄物資源循環学会 優秀ポスター賞">
+            <TimeLineItem date="2025.3" icon={faTrophy} title="廃棄物資源循環学会 優秀ポスター賞" open={true}>
               廃棄物資源循環学会にて「細粒度ゴミ排出量データを活用した市民向けゴミ収集可視化アプリケーションの開発」の発表を行い、優秀ポスター賞を頂きました。
               <TimelineImage
                 title="ごみ量可視化アプリ"
@@ -137,7 +163,7 @@ const Index = () => {
               />
             </TimeLineItem>
             <TimeLineItem date="2025.8" icon={faChalkboardTeacher}
-                          title="MIRU 2025 インタラクティブ発表" open={false}>
+                          title="MIRU 2025 インタラクティブ発表" open={true}>
               画像の認識・理解シンポジウム MIRU 2025にて「Dy-YOLO-World:
               文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出」について一般論文ポスター発表を行いました。（Poster,
               国内, 査読なし）
@@ -148,31 +174,8 @@ const Index = () => {
             </TimeLineItem>
           </Timeline>
 
-
-          <h1 className={common.h1}>職歴 ・ インターンシップ</h1>
+          <h1 className={common.h1}>インターンシップ</h1>
           <Timeline>
-            <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust Flutterエンジニア"
-                          open={false}>
-              フロントエンドチームで、位置情報共有アプリ「Locket」の0→1開発（Flutter）にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、
-              開発速度と品質を重視したスクラム開発を経験しました。
-              <TimelineImage
-                title="Locket | 位置情報共有アプリ"
-                period="2023年1月 - 2023年3月"
-                imageUrl="/timeline/locket.png"
-                showModal={true}
-              />
-            </TimeLineItem>
-            <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア"
-                          open={false}>
-              お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャの選定から携わり、Clean
-              Architecture + Riverpodによるチケット駆動開発を経験しました。マップ画面やチャットなどUIの実装、キャッシュ戦略含むコア部分の開発など、ゼロベースから幅広い実装を担いました。
-              <TimelineImage
-                title="GatherGo | お出かけ先レコメンドAI"
-                period="2024年8月 - 2024年12月"
-                imageUrl="/timeline/gathergo.png"
-                showModal={true}
-              />
-            </TimeLineItem>
             <TimeLineItem date="2025.6 - 2024.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
                           open={false}></TimeLineItem>
             <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン"
