@@ -28,7 +28,7 @@ const Index = () => {
           <h1 className={common.h1}>所属</h1>
           <Timeline>
             <TimeLineItem date="2019.4 - 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
-            <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={true}>
+            <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
               高1〜高3に世界級のロボコン FRC（FIRST Robotics
               Competition）のチーム「BWW」に初期メンバーとして活動しました。Javaによるロボット制御のプログラミングを担当したほか、公式Webサイトの制作、YouTube動画編集、ブログなどでの広報活動を行いました。
               <TimelineImage
@@ -47,18 +47,7 @@ const Index = () => {
                 href="https://bwwfrcteam.blogspot.com/"
               />
             </TimeLineItem>
-            <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-            <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="中澤・大越研究室 d-hacks" open={true}>
-              RGの中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
-              <TimeLineLink
-                description="d-hacks"
-                href="https://d-hacks.jn.sfc.keio.ac.jp/"
-              />
-            </TimeLineItem>
-          </Timeline>
 
-          <h1 className={common.h1}>職歴</h1>
-          <Timeline>
             <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust アプリエンジニア"
                           open={true}>
               フロントエンド（Flutter）チームで、位置情報共有アプリ「Locket」の0→1開発にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、
@@ -70,6 +59,7 @@ const Index = () => {
                 showModal={true}
               />
             </TimeLineItem>
+            <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
             <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. アプリエンジニア"
                           open={true}>
               お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャの選定から携わり、Clean
@@ -79,6 +69,13 @@ const Index = () => {
                 period="2024年8月 - 2024年12月"
                 imageUrl="/timeline/gathergo.png"
                 showModal={true}
+              />
+            </TimeLineItem>
+            <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="中澤・大越研究室 d-hacks" open={true}>
+              RGの中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
+              <TimeLineLink
+                description="d-hacks"
+                href="https://d-hacks.jn.sfc.keio.ac.jp/"
               />
             </TimeLineItem>
           </Timeline>
