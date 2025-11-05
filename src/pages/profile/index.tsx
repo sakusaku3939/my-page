@@ -177,7 +177,7 @@ const Index = () => {
             <TimeLineItem date="2025.6 - 2025.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
                           open={false}>
               サーバーから動的にUIを生成するServer-Driven
-              UIによって、各店舗アプリに最適化されたAndroidアプリを提供する「STORESブランドアプリ」のSDK開発に、1ヶ月間インターンとして参加しました。ローカルAPI環境に切り替えるための導線の開発や、UX改善など幅広いタスクに取り組みました。
+              UIによって、各店舗アプリに最適化されたAndroidアプリを提供する「STORESブランドアプリ」のSDK開発に、1ヶ月間インターンとして参加しました。API環境を切り替えるための導線の開発や、UX改善など幅広いタスクに取り組みました。
               <TimelineImage
                 title="STORES ブランドアプリ"
                 period="2025年6月 - 2025年7月"
