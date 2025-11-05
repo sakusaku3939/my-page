@@ -35,7 +35,8 @@ const Index = () => {
                 title="FRCロボコンチーム BWW"
                 period="2019年8月 - 2022年3月"
                 imageUrl="/posts/bww-new-hp/thumbnail.jpg"
-                href="https://frcbww.github.io/Website/"
+                href="/posts/bww-new-hp"
+                target="_self"
               />
               <TimeLineLink
                 description="YouTube"
