@@ -174,12 +174,38 @@ const Index = () => {
 
           <h1 className={common.h1}>インターンシップ</h1>
           <Timeline>
-            <TimeLineItem date="2025.6 - 2024.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
-                          open={false}></TimeLineItem>
+            <TimeLineItem date="2025.6 - 2025.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
+                          open={false}>
+              サーバーから動的にUIを生成するServer-Driven
+              UIによって、各店舗アプリに最適化されたAndroidアプリを提供する「STORESブランドアプリ」のSDK開発に、1ヶ月間インターンとして参加しました。ローカルAPI環境に切り替えるための導線の開発や、UX改善など幅広いタスクに取り組みました。
+              <TimelineImage
+                title="STORES ブランドアプリ"
+                period="2025年6月 - 2025年7月"
+                imageUrl="/timeline/stores.jpg"
+                showModal={true}
+              />
+            </TimeLineItem>
             <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン"
-                          open={false}></TimeLineItem>
+                          open={false}>
+              Yahoo!
+              JAPANアプリの機能改善にAndroidインターンとして取り組みました。5,000万人のユーザーを抱えるサービスにおいて、長期的に品質を支えるテスト戦略、CI/CDの運用、開発フローを学んだほか、ユーザーに表示される画面の複雑な改修に向けて、APIマッピングからUI作成まで一貫して携わり、実装に取り組みました。
+              <TimelineImage
+                title="Yahoo! JAPANアプリ"
+                period="2025年8月 - 2025年9月"
+                imageUrl="/timeline/yahoo.png"
+                showModal={true}
+              />
+            </TimeLineItem>
             <TimeLineItem date="2025.9 - 2025.10" icon={faBriefcase} title="株式会社MIXI Flutterインターン"
-                          open={false}></TimeLineItem>
+                          open={false}>
+              SNSアプリ「mixi2」の開発に、7週間ほどFlutterインターンとして参加しました。新機能の開発や既存機能の改善に向けて、UI開発、バックエンド修正、リファクタリングなどに取り組み、リリースまで経験しました。また、Android側のUX改善やパフォーマンス調査を行い、原因分析から改善提案まで取り組みました。
+              <TimelineImage
+                title="mixi2 | 今を共有でき、 すぐ集える"
+                period="2025年9月 - 2025年10月"
+                imageUrl="/timeline/mixi2.jpg"
+                showModal={true}
+              />
+            </TimeLineItem>
             <TimeLineItem date="2025.11 - 現在" icon={faBriefcase} title="株式会社リクルート Androidインターン"
                           open={false}></TimeLineItem>
           </Timeline>
