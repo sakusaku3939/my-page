@@ -179,6 +179,8 @@ const Index = () => {
                           open={false}></TimeLineItem>
             <TimeLineItem date="2025.9 - 2025.10" icon={faBriefcase} title="株式会社MIXI Flutterインターン"
                           open={false}></TimeLineItem>
+            <TimeLineItem date="2025.11 - 現在" icon={faBriefcase} title="株式会社リクルート Androidインターン"
+                          open={false}></TimeLineItem>
           </Timeline>
 
           <h1 className={common.h1}>資格</h1>
