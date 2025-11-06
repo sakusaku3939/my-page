@@ -56,6 +56,7 @@ const TimelineImage = ({
           <div className={timeline.imageLinkPeriod}>{period}</div>
         </div>
       </div>
+      {!showModal && <div className={timeline.imageLinkArrow}>→</div>}
     </div>
   );
 
