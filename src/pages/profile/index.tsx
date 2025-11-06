@@ -200,7 +200,7 @@ const Index = () => {
                           open={false}>
               SNSアプリ「mixi2」の開発に、7週間ほどFlutterインターンとして参加しました。新機能の開発や既存機能の改善に向けて、UI開発、バックエンド修正、リファクタリングなどに取り組み、リリースまで経験しました。また、Android側のUX改善やパフォーマンス調査を行い、原因分析から改善提案まで取り組みました。
               <TimelineImage
-                title="mixi2 | 今を共有でき、 すぐ集える"
+                title="mixi2"
                 period="2025年9月 - 2025年10月"
                 imageUrl="/timeline/mixi2.jpg"
                 showModal={true}
