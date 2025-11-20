@@ -24,10 +24,6 @@ const SnsList = () => {
         <SnsButton title={"Speaker Deck"} style={sns.speakerDeck} href={"https://speakerdeck.com/sakusaku3939"}>
           <FontAwesomeIcon icon={faSpeakerDeck} />
         </SnsButton>
-        <SnsButton title={"LinkedIn"} style={sns.linkedIn} href={"https://www.linkedin.com/in/yuki-aoki/"}>
-          <div className={sns.linkedInBackground} />
-          <FontAwesomeIcon icon={faLinkedin} />
-        </SnsButton>
       </div>
     </>
   );
