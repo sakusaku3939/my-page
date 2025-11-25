@@ -83,7 +83,7 @@ const Index = () => {
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu />
-        <h1 className={index.postTitle}>制作物一覧<span>{filterText?.length ? `「${filterText}」 の記事` : ""}</span></h1>
+        <h1 className={index.postTitle}>個人開発 ・ 制作物など<span>{filterText?.length ? `「${filterText}」 の記事` : ""}</span></h1>
         <div className={index.mobileCategory}>
           <MobileCategory categories={categories} />
         </div>
