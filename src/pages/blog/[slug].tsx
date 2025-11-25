@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./[slug].module.css";
 import type { BlogArticle } from "@/model/type/BlogArticle";
@@ -92,10 +95,12 @@ const BlogDetail = () => {
               <>
                 <h2 className={styles.articleTitle}>{article.title}</h2>
                 <time className={styles.articleDate}>{formattedDate}</time>
-                <div 
+                <ReactMarkdown
                   className={styles.articleBody}
-                  dangerouslySetInnerHTML={{ __html: article.body }}
-                />
+                  rehypePlugins={[remarkGfm, rehypeRaw]}
+                >
+                  {article.body}
+                </ReactMarkdown>
               </>
             )}
           </article>
