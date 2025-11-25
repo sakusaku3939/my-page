@@ -4,6 +4,7 @@ import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
 import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./[slug].module.css";
 import type { BlogArticle } from "@/model/type/BlogArticle";
@@ -97,7 +98,8 @@ const BlogDetail = () => {
                 <time className={styles.articleDate}>{formattedDate}</time>
                 <ReactMarkdown
                   className={styles.articleBody}
-                  rehypePlugins={[remarkGfm, rehypeRaw]}
+                  remarkPlugins={[remarkGfm, remarkBreaks]}
+                  rehypePlugins={[rehypeRaw]}
                 >
                   {article.body}
                 </ReactMarkdown>
