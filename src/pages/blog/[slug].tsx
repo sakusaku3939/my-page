@@ -65,12 +65,30 @@ const BlogDetail = () => {
 
   const formattedDate = article ? formatDate(article.date) : "";
 
+  const ogImageUrl = article 
+    ? `/api/blog/og/${slug}?title=${encodeURIComponent(article.title)}`
+    : '/images/blog-header.jpg';
+
   return (
     <>
       <Head>
-        <title>{article ? `${article.title} | Aokiti Blog` : "Aokiti | Blog"}</title>
+        <title>{article ? `${article.title} | aokiti blog` : "Aokiti | Blog"}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        
+        {/* OGP Meta Tags */}
+        <meta property="og:title" content={article ? article.title : "aokiti blog"} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://aokiti.com/blog/${slug}`} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:site_name" content="aokiti blog" />
+        <meta property="og:description" content="雑記などいろいろブログ" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article ? article.title : "aokiti blog"} />
+        <meta name="twitter:description" content="雑記などいろいろブログ" />
+        <meta name="twitter:image" content={ogImageUrl} />
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu />
