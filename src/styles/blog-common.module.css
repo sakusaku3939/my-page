@@ -1,90 +1,86 @@
 /* ヘッダーセクション */
 .blogHeader {
-  height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 48px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 48px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .blogHeader::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('/images/blog-header.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px);
-  transform: scale(1.1);
-  z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/images/blog-header.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    transform: scale(1.1);
+    z-index: -1;
 }
 
 .blogHeader::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
 }
 
 .blogTitle {
-  font-size: 32px;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  padding: 0 16px;
-  margin: 0;
-  position: relative;
-  z-index: 1;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 0 16px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
 }
 
 /* メインコンテンツラッパー */
 .wrapper {
-  display: flex;
-  justify-content: center;
-  padding: 0 16px;
-  margin-bottom: 48px;
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+    margin-bottom: 48px;
 }
 
 /* エラー・ローディング */
 .error,
 .loading {
-  text-align: center;
-  padding: 48px 16px;
-  font-size: 16px;
-  color: var(--light-grey);
+    text-align: center;
+    padding: 48px 16px;
+    font-size: 16px;
+    color: var(--light-grey);
 }
 
 .error {
-  color: #e74c3c;
+    color: #e74c3c;
 }
 
 /* レスポンシブ対応 - ヘッダー */
 @media screen and (max-width: 768px) {
-  .blogHeader {
-    height: 250px;
-  }
+    .blogTitle {
+        font-size: 24px;
+    }
 
-  .blogTitle {
-    font-size: 24px;
-  }
+    .blogHeader {
+        margin-bottom: 32px;
+    }
 }
 
 @media screen and (max-width: 480px) {
-  .blogHeader {
-    height: 200px;
-  }
-
-  .blogTitle {
-    font-size: 20px;
-  }
+    .blogTitle {
+        font-size: 20px;
+    }
 }

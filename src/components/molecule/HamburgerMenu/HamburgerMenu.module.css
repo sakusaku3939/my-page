@@ -18,6 +18,16 @@
     border-radius: 3px;
 }
 
+/* ライトモード（blogページ用） */
+.hamburgerMenu.light span {
+    background-color: #ffffff;
+}
+
+/* メニューが開いている時は黒に戻す */
+.hamburgerMenu.light.active span {
+    background-color: #000000;
+}
+
 .hamburgerMenu, .hamburgerMenu span {
     transition: all .5s;
 }

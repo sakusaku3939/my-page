@@ -45,7 +45,7 @@ const BlogDetail = ({ article }: BlogDetailProps) => {
         <meta name="twitter:image" content={ogImageUrl} />
       </Head>
       <BackgroundTriangleWrapper>
-        <HamburgerMenu />
+        <HamburgerMenu lightMode={true} />
         
         {/* ヘッダーセクション */}
         <header className={commonStyles.blogHeader}>

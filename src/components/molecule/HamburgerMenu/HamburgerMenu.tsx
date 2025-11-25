@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 import getWindowSize from "@/model/GetWindowSize";
 import { MenuItem } from "@/components/molecule/Menu/Menu";
 
-const HamburgerMenu = () => {
+type HamburgerMenuProps = {
+  lightMode?: boolean;
+};
+
+const HamburgerMenu = ({ lightMode = false }: HamburgerMenuProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,7 +21,10 @@ const HamburgerMenu = () => {
   });
 
   return <>
-    <div className={`${menu.hamburgerMenu} ${isMenuOpen ? menu.active : ""}`} onClick={toggleMenu}>
+    <div 
+      className={`${menu.hamburgerMenu} ${isMenuOpen ? menu.active : ""} ${lightMode ? menu.light : ""}`} 
+      onClick={toggleMenu}
+    >
       <span></span>
       <span></span>
     </div>

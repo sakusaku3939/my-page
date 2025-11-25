@@ -5,6 +5,8 @@
     background: var(--background-color);
     padding: 16px 48px;
     border-radius: 8px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 /* 記事タイトル */
@@ -29,10 +31,14 @@
     font-size: 18px;
     line-height: 2.2;
     color: var(--text-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .articleBody p {
     margin: 0 0 32px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .articleBody h1,
@@ -86,6 +92,9 @@
     color: #667eea;
     text-decoration: underline;
     transition: color 0.2s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
 .articleBody a:hover {
@@ -117,6 +126,8 @@
     font-family: 'Courier New', monospace;
     font-size: 14px;
     color: #333;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .articleBody pre {
@@ -125,6 +136,10 @@
     border-radius: 4px;
     overflow-x: auto;
     margin: 16px 0;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .articleBody pre code {

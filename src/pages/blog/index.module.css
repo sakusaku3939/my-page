@@ -1,143 +1,143 @@
 /* 記事一覧セクション */
 .articlesList {
-  max-width: 900px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 /* 空状態 */
 .noArticles {
-  text-align: center;
-  padding: 48px 16px;
-  font-size: 16px;
-  color: var(--light-grey);
+    text-align: center;
+    padding: 48px 16px;
+    font-size: 16px;
+    color: var(--light-grey);
 }
 
 /* 記事カード */
 .articleCard {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
 }
 
 .articleCard:hover {
-  transform: translateY(-4px);
+    transform: translateY(-4px);
 }
 
 .articleCardInner {
-  display: flex;
-  gap: 24px;
-  padding: 24px;
-  background: var(--background-color);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.2s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    background: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .articleCard:hover .articleCardInner {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 @media (prefers-color-scheme: dark) {
-  .articleCardInner {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
+    .articleCardInner {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
 
-  .articleCard:hover .articleCardInner {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-  }
+    .articleCard:hover .articleCardInner {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    }
 }
 
 /* サムネイル */
 .thumbnailWrapper {
-  flex-shrink: 0;
-  width: 200px;
-  height: 150px;
-  overflow: hidden;
-  border-radius: 4px;
+    flex-shrink: 0;
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 4px;
 }
 
 .thumbnail {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* テキストコンテンツ */
 .textContent {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-width: 0; /* flexboxでのテキスト省略のため */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0; /* flexboxでのテキスト省略のため */
 }
 
 .textContentFull {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
 }
 
 .articleTitle {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-  line-height: 1.4;
-  color: var(--text-color);
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.4;
+    color: var(--text-color);
 }
 
 .articleDate {
-  font-size: 14px;
-  color: var(--light-grey);
+    font-size: 14px;
+    color: var(--light-grey);
 }
 
 .articleSummary {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text-grey);
-  margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-grey);
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 /* レスポンシブ対応 */
 @media screen and (max-width: 768px) {
-  .articleCardInner {
-    flex-direction: column;
-    gap: 16px;
-  }
+    .articleCardInner {
+        flex-direction: column;
+        gap: 16px;
+    }
 
-  .thumbnailWrapper {
-    width: 100%;
-    height: 200px;
-  }
+    .thumbnailWrapper {
+        width: 100%;
+        height: 200px;
+    }
 
-  .articlesList {
-    gap: 24px;
-  }
+    .articlesList {
+        gap: 24px;
+    }
 }
 
 @media screen and (max-width: 480px) {
-  .articleCardInner {
-    padding: 16px;
-  }
+    .articleCardInner {
+        padding: 16px;
+    }
 
-  .articleTitle {
-    font-size: 18px;
-  }
+    .articleTitle {
+        font-size: 18px;
+    }
 
-  .thumbnailWrapper {
-    height: 180px;
-  }
+    .thumbnailWrapper {
+        height: 180px;
+    }
 }

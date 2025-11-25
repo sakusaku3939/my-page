@@ -70,7 +70,7 @@ const BlogIndex = () => {
         <meta name="twitter:image" content="https://sakusaku3939.com/images/blog-header.jpg" />
       </Head>
       <BackgroundTriangleWrapper>
-        <HamburgerMenu />
+        <HamburgerMenu lightMode={true} />
         
         {/* ヘッダーセクション */}
         <header className={commonStyles.blogHeader}>
