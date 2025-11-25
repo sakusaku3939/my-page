@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./index.module.css";
 import type { BlogArticleWithSummary } from "@/model/type/BlogArticle";
 import { formatDate } from "@/model/BlogServer";
@@ -58,19 +59,19 @@ const BlogIndex = () => {
         <HamburgerMenu />
         
         {/* ヘッダーセクション */}
-        <header className={styles.blogHeader}>
-          <h1 className={styles.blogTitle}>雑記などいろいろブログ</h1>
+        <header className={commonStyles.blogHeader}>
+          <h1 className={commonStyles.blogTitle}>雑記などいろいろブログ</h1>
         </header>
 
         {/* 記事一覧セクション */}
-        <div className={styles.wrapper}>
+        <div className={commonStyles.wrapper}>
           <section className={styles.articlesList}>
             {/* エラー時 */}
-            {error && <div className={styles.error}>{error}</div>}
+            {error && <div className={commonStyles.error}>{error}</div>}
 
             {/* ロード中 */}
             {!loaded && !error && (
-              <div className={styles.loading}>読み込み中...</div>
+              <div className={commonStyles.loading}>読み込み中...</div>
             )}
 
             {/* 記事一覧 */}

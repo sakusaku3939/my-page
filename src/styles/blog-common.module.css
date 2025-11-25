@@ -1,0 +1,61 @@
+/* ヘッダーセクション */
+.blogHeader {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin-bottom: 48px;
+  width: 100%;
+}
+
+.blogTitle {
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 0 16px;
+  margin: 0;
+}
+
+/* メインコンテンツラッパー */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  margin-bottom: 48px;
+}
+
+/* エラー・ローディング */
+.error,
+.loading {
+  text-align: center;
+  padding: 48px 16px;
+  font-size: 16px;
+  color: var(--light-grey);
+}
+
+.error {
+  color: #e74c3c;
+}
+
+/* レスポンシブ対応 - ヘッダー */
+@media screen and (max-width: 768px) {
+  .blogHeader {
+    height: 250px;
+  }
+
+  .blogTitle {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blogHeader {
+    height: 200px;
+  }
+
+  .blogTitle {
+    font-size: 20px;
+  }
+}
