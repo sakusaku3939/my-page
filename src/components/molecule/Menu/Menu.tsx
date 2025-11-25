@@ -23,8 +23,8 @@ const MenuItem = ({ onClick }: MenuItemProps) => {
   return <>
     <Link className={hamburger.link} href="/" onClick={onClick}>HOME</Link>
     <Link className={hamburger.link} href="/profile" onClick={onClick}>略歴</Link>
-    <Link className={hamburger.link} href="/skills" onClick={onClick}>スキル</Link>
     <Link className={hamburger.link} href="/posts" onClick={onClick}>制作物など</Link>
+    <Link className={hamburger.link} href="/blog" onClick={onClick}>ブログ</Link>
   </>;
 };
 

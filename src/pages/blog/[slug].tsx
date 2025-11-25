@@ -100,7 +100,6 @@ const BlogDetail = () => {
           </article>
         </div>
 
-        <FooterMenu />
       </BackgroundTriangleWrapper>
     </>
   );
