@@ -1,0 +1,210 @@
+/* ヘッダーセクション */
+.blogHeader {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin-bottom: 48px;
+}
+
+.blogTitle {
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 0 16px;
+}
+
+/* メインコンテンツラッパー */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  margin-bottom: 48px;
+}
+
+/* 記事詳細コンテンツ */
+.articleContent {
+  max-width: 800px;
+  width: 100%;
+  background: white;
+  padding: 48px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* エラー・ローディング */
+.error,
+.loading {
+  text-align: center;
+  padding: 48px 16px;
+  font-size: 16px;
+  color: var(--light-grey);
+}
+
+.error {
+  color: #e74c3c;
+}
+
+/* 記事タイトル */
+.articleTitle {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* 記事日付 */
+.articleDate {
+  display: block;
+  font-size: 14px;
+  color: var(--light-grey);
+  margin-bottom: 32px;
+}
+
+/* 記事本文 */
+.articleBody {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.articleBody p {
+  margin: 0 0 16px 0;
+}
+
+.articleBody h1,
+.articleBody h2,
+.articleBody h3,
+.articleBody h4,
+.articleBody h5,
+.articleBody h6 {
+  margin: 32px 0 16px 0;
+  line-height: 1.4;
+}
+
+.articleBody h1 {
+  font-size: 24px;
+}
+
+.articleBody h2 {
+  font-size: 22px;
+}
+
+.articleBody h3 {
+  font-size: 20px;
+}
+
+.articleBody ul,
+.articleBody ol {
+  margin: 0 0 16px 0;
+  padding-left: 24px;
+}
+
+.articleBody li {
+  margin-bottom: 8px;
+}
+
+.articleBody a {
+  color: #667eea;
+  text-decoration: underline;
+}
+
+.articleBody a:hover {
+  color: #764ba2;
+}
+
+.articleBody img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+.articleBody code {
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.articleBody pre {
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.articleBody pre code {
+  background: none;
+  padding: 0;
+}
+
+.articleBody blockquote {
+  border-left: 4px solid #667eea;
+  padding-left: 16px;
+  margin: 16px 0;
+  color: #666;
+  font-style: italic;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .blogHeader {
+    height: 250px;
+  }
+
+  .blogTitle {
+    font-size: 24px;
+  }
+
+  .articleContent {
+    padding: 32px 24px;
+  }
+
+  .articleTitle {
+    font-size: 24px;
+  }
+
+  .articleBody {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blogHeader {
+    height: 200px;
+  }
+
+  .blogTitle {
+    font-size: 20px;
+  }
+
+  .articleContent {
+    padding: 24px 16px;
+  }
+
+  .articleTitle {
+    font-size: 20px;
+  }
+
+  .articleBody {
+    font-size: 14px;
+  }
+
+  .articleBody h1 {
+    font-size: 20px;
+  }
+
+  .articleBody h2 {
+    font-size: 18px;
+  }
+
+  .articleBody h3 {
+    font-size: 16px;
+  }
+}
