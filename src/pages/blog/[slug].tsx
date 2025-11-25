@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -8,66 +6,21 @@ import remarkBreaks from "remark-breaks";
 import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./[slug].module.css";
 import type { BlogArticle } from "@/model/type/BlogArticle";
-import { formatDate } from "@/model/BlogServer";
+import { formatDate, getBlogArticleBySlug, getAllBlogSlugs } from "@/model/BlogServer";
 import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
-import { FooterMenu } from "@/components/molecule/Menu/Menu";
+import type { GetStaticProps, GetStaticPaths } from "next";
 
-const BlogDetail = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  
-  const [article, setArticle] = useState<BlogArticle | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loaded, setLoaded] = useState(false);
+type BlogDetailProps = {
+  article: BlogArticle | null;
+};
 
-  useEffect(() => {
-    if (!slug || typeof slug !== "string") {
-      return;
-    }
-
-    const controller = new AbortController();
-
-    (async () => {
-      setLoaded(false);
-      setError(null);
-
-      try {
-        const res = await fetch(`/api/blog/${slug}`, {
-          signal: controller.signal
-        });
-
-        if (!res.ok) {
-          if (res.status === 404) {
-            setError("記事が見つかりませんでした。");
-          } else {
-            console.error(`HTTP error. status: ${res.status}`);
-            setError("データの取得に失敗しました。");
-          }
-          setLoaded(true);
-          return;
-        }
-
-        const json = await res.json();
-        setArticle(json.article ?? null);
-      } catch (e: any) {
-        if (e.name !== "AbortError") {
-          console.error(e);
-          setError("データの取得に失敗しました。");
-        }
-      }
-
-      setLoaded(true);
-    })();
-
-    return () => controller.abort();
-  }, [slug]);
-
+const BlogDetail = ({ article }: BlogDetailProps) => {
   const formattedDate = article ? formatDate(article.date) : "";
 
   const baseUrl = 'https://sakusaku3939.com';
   const ogImageUrl = article 
-    ? `${baseUrl}/api/blog/og/${slug}?title=${encodeURIComponent(article.title)}`
+    ? `${baseUrl}/api/blog/og/${article.slug}?title=${encodeURIComponent(article.title)}`
     : `${baseUrl}/images/blog-header.jpg`;
 
   return (
@@ -80,7 +33,7 @@ const BlogDetail = () => {
         {/* OGP Meta Tags */}
         <meta property="og:title" content={article ? article.title : "aokiti blog"} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`${baseUrl}/blog/${slug}`} />
+        <meta property="og:url" content={`${baseUrl}/blog/${article?.slug || ''}`} />
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:site_name" content="aokiti blog" />
         <meta property="og:description" content="雑記などいろいろブログ" />
@@ -102,16 +55,13 @@ const BlogDetail = () => {
         {/* 記事詳細セクション */}
         <div className={commonStyles.wrapper}>
           <article className={styles.articleContent}>
-            {/* エラー時 */}
-            {error && <div className={commonStyles.error}>{error}</div>}
-
-            {/* ロード中 */}
-            {!loaded && !error && (
-              <div className={commonStyles.loading}>読み込み中...</div>
+            {/* 記事が見つからない場合 */}
+            {!article && (
+              <div className={commonStyles.error}>記事が見つかりませんでした。</div>
             )}
 
             {/* 記事コンテンツ */}
-            {loaded && !error && article && (
+            {article && (
               <>
                 <h2 className={styles.articleTitle}>{article.title}</h2>
                 <time className={styles.articleDate}>{formattedDate}</time>
@@ -130,6 +80,39 @@ const BlogDetail = () => {
       </BackgroundTriangleWrapper>
     </>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const slugs = getAllBlogSlugs();
+  
+  return {
+    paths: slugs,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps<BlogDetailProps> = async ({ params }) => {
+  const slug = params?.slug as string;
+  
+  if (!slug) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const article = getBlogArticleBySlug(slug);
+
+  if (!article) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      article,
+    },
+  };
 };
 
 export default BlogDetail;
