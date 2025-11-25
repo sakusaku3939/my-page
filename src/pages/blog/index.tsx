@@ -58,8 +58,8 @@ const BlogIndex = () => {
         {/* OGP Meta Tags */}
         <meta property="og:title" content="aokiti blog" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://aokiti.com/blog" />
-        <meta property="og:image" content="/images/blog-header.jpg" />
+        <meta property="og:url" content="https://sakusaku3939.com/blog" />
+        <meta property="og:image" content="https://sakusaku3939.com/images/blog-header.jpg" />
         <meta property="og:site_name" content="aokiti blog" />
         <meta property="og:description" content="雑記などいろいろブログ" />
         
@@ -67,7 +67,7 @@ const BlogIndex = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="aokiti blog" />
         <meta name="twitter:description" content="雑記などいろいろブログ" />
-        <meta name="twitter:image" content="/images/blog-header.jpg" />
+        <meta name="twitter:image" content="https://sakusaku3939.com/images/blog-header.jpg" />
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu />
