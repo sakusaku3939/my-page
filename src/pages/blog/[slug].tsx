@@ -65,9 +65,10 @@ const BlogDetail = () => {
 
   const formattedDate = article ? formatDate(article.date) : "";
 
+  const baseUrl = 'https://sakusaku3939.com';
   const ogImageUrl = article 
-    ? `/api/blog/og/${slug}?title=${encodeURIComponent(article.title)}`
-    : '/images/blog-header.jpg';
+    ? `${baseUrl}/api/blog/og/${slug}?title=${encodeURIComponent(article.title)}`
+    : `${baseUrl}/images/blog-header.jpg`;
 
   return (
     <>
@@ -79,7 +80,7 @@ const BlogDetail = () => {
         {/* OGP Meta Tags */}
         <meta property="og:title" content={article ? article.title : "aokiti blog"} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://aokiti.com/blog/${slug}`} />
+        <meta property="og:url" content={`${baseUrl}/blog/${slug}`} />
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:site_name" content="aokiti blog" />
         <meta property="og:description" content="雑記などいろいろブログ" />
