@@ -1,12 +1,39 @@
 /* ヘッダーセクション */
 .blogHeader {
-  height: 240px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   margin-bottom: 48px;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.blogHeader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/blog-header.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  transform: scale(1.1);
+  z-index: -1;
+}
+
+.blogHeader::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
 }
 
 .blogTitle {
@@ -16,6 +43,8 @@
   text-align: center;
   padding: 0 16px;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* メインコンテンツラッパー */

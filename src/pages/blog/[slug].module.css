@@ -70,10 +70,20 @@
 .articleBody ol {
   margin: 0 0 16px 0;
   padding-left: 24px;
+  list-style-position: outside;
+}
+
+.articleBody ul {
+  list-style-type: disc;
+}
+
+.articleBody ol {
+  list-style-type: decimal;
 }
 
 .articleBody li {
   margin-bottom: 8px;
+  display: list-item;
 }
 
 .articleBody a {
