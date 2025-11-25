@@ -7,10 +7,10 @@ const blogPostsDirectory = path.join(process.cwd(), "blog-posts/");
 
 /**
  * 概要を生成する関数
- * 本文から最初の3文を抽出し、必要に応じて「...」を追加
- * 最大文字数を超える場合は切り詰める
+ * 本文から最初の3文を抽出
+ * 「...」はCSSで表示するため、ここでは追加しない
  */
-export function generateSummary(body: string, maxLength: number = 200): string {
+export function generateSummary(body: string): string {
   // HTMLタグを除去（bodyがHTMLの場合）
   const plainText = body.replace(/<[^>]*>/g, '');
   
@@ -20,24 +20,25 @@ export function generateSummary(body: string, maxLength: number = 200): string {
   // 最初の3文を取得
   const firstThree = sentences.slice(0, 3).join('');
   
-  // 3文より多い場合は「...」を追加
-  const needsEllipsis = sentences.length > 3;
-  let summary = needsEllipsis ? firstThree + '...' : firstThree;
-  
-  // 最大文字数を超える場合は切り詰め
-  if (summary.length > maxLength) {
-    summary = summary.substring(0, maxLength - 3) + '...';
-  }
-  
-  return summary;
+  return firstThree;
 }
 
 /**
  * 日付をフォーマットする関数
- * ISO形式から YYYY.MM.DD 形式に変換
+ * YYYY.M.D 形式から YYYY.MM.DD 形式に変換
  */
-export function formatDate(isoDate: string): string {
-  const date = new Date(isoDate);
+export function formatDate(dateStr: string): string {
+  // YYYY.M.D 形式をパース
+  const parts = dateStr.split('.');
+  if (parts.length === 3) {
+    const year = parts[0];
+    const month = parts[1].padStart(2, '0');
+    const day = parts[2].padStart(2, '0');
+    return `${year}.${month}.${day}`;
+  }
+  
+  // フォールバック: Date オブジェクトでパース
+  const date = new Date(dateStr);
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const day = String(date.getDate()).padStart(2, '0');
@@ -73,6 +74,14 @@ export function getAllBlogSlugs() {
 }
 
 /**
+ * サムネイル画像が存在するかチェック
+ */
+function checkThumbnailExists(slug: string): boolean {
+  const thumbnailPath = path.join(process.cwd(), "public", "blog", slug, "thumbnail.jpg");
+  return fs.existsSync(thumbnailPath);
+}
+
+/**
  * 特定のslugのブログ記事を取得
  */
 export function getBlogArticleBySlug(slug: string): BlogArticle | null {
@@ -95,7 +104,7 @@ export function getBlogArticleBySlug(slug: string): BlogArticle | null {
     title: data.title || "",
     date: data.date || "",
     body: content,
-    thumbnailUrl: data.thumbnailUrl
+    hasThumbnail: checkThumbnailExists(slug)
   };
 }
 
@@ -128,5 +137,16 @@ export function getAllBlogArticles(): BlogArticleWithSummary[] {
   }
   
   // 日付の降順（新しい順）でソート
-  return articles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  // YYYY.M.D 形式をパースしてソート
+  return articles.sort((a, b) => {
+    const parseDate = (dateStr: string): Date => {
+      const parts = dateStr.split('.');
+      if (parts.length === 3) {
+        return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+      }
+      return new Date(dateStr);
+    };
+    
+    return parseDate(b.date).getTime() - parseDate(a.date).getTime();
+  });
 }

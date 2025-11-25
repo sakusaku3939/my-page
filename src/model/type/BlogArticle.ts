@@ -3,7 +3,7 @@ export type BlogArticle = {
   title: string;
   date: string;
   body: string;
-  thumbnailUrl?: string;
+  hasThumbnail: boolean;
 }
 
 export type BlogArticleWithSummary = BlogArticle & {

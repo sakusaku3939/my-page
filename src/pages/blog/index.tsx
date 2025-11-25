@@ -97,15 +97,16 @@ type ArticleCardProps = {
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
   const formattedDate = formatDate(article.date);
+  const thumbnailUrl = `/blog/${article.slug}/thumbnail.jpg`;
 
   return (
     <Link href={`/blog/${article.slug}`} className={styles.articleCard}>
       <article className={styles.articleCardInner}>
-        {/* サムネイルがある場合 */}
-        {article.thumbnailUrl && (
+        {/* サムネイル（存在する場合のみ） */}
+        {article.hasThumbnail && (
           <div className={styles.thumbnailWrapper}>
             <img 
-              src={article.thumbnailUrl} 
+              src={thumbnailUrl} 
               alt={article.title}
               className={styles.thumbnail}
             />
@@ -113,7 +114,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
         )}
 
         {/* テキストコンテンツ */}
-        <div className={article.thumbnailUrl ? styles.textContent : styles.textContentFull}>
+        <div className={article.hasThumbnail ? styles.textContent : styles.textContentFull}>
           <h2 className={styles.articleTitle}>{article.title}</h2>
           <time className={styles.articleDate}>{formattedDate}</time>
           <p className={styles.articleSummary}>{article.summary}</p>
