@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "predev": "tsx scripts/generate-blur-images-map.ts",
-    "prebuild": "tsx scripts/generate-blur-images-map.ts"
+    "prebuild": "tsx scripts/generate-blur-images-map.ts && tsx scripts/generate-og-images.ts"
   },
   "engines": {
     "node": "22.x"

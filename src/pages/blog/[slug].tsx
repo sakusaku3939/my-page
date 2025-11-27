@@ -20,7 +20,7 @@ const BlogDetail = ({ article }: BlogDetailProps) => {
 
   const baseUrl = 'https://sakusaku3939.com';
   const ogImageUrl = article 
-    ? `${baseUrl}/api/blog/og/${article.slug}?title=${encodeURIComponent(article.title)}`
+    ? `${baseUrl}/__generated__/og/blog/${article.slug}.png`
     : `${baseUrl}/images/blog-header.jpg`;
 
   return (
