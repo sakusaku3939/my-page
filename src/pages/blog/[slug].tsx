@@ -18,8 +18,8 @@ type BlogDetailProps = {
 const BlogDetail = ({ article }: BlogDetailProps) => {
   const formattedDate = article ? formatDate(article.date) : "";
 
-  const baseUrl = 'https://sakusaku3939.com';
-  const ogImageUrl = article 
+  const baseUrl = "https://sakusaku3939.com";
+  const ogImageUrl = article
     ? `${baseUrl}/__generated__/og/blog/${article.slug}.png`
     : `${baseUrl}/images/blog-header.jpg`;
 
@@ -29,15 +29,15 @@ const BlogDetail = ({ article }: BlogDetailProps) => {
         <title>{article ? `${article.title} | aokiti blog` : "Aokiti | Blog"}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        
+
         {/* OGP Meta Tags */}
         <meta property="og:title" content={article ? article.title : "aokiti blog"} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`${baseUrl}/blog/${article?.slug || ''}`} />
+        <meta property="og:url" content={`${baseUrl}/blog/${article?.slug || ""}`} />
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:site_name" content="aokiti blog" />
         <meta property="og:description" content="雑記などいろいろブログ" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article ? article.title : "aokiti blog"} />
@@ -46,7 +46,7 @@ const BlogDetail = ({ article }: BlogDetailProps) => {
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu lightMode={true} />
-        
+
         {/* ヘッダーセクション */}
         <header className={commonStyles.blogHeader}>
           <h1 className={commonStyles.blogTitle}>雑記などいろいろブログ</h1>
@@ -84,19 +84,19 @@ const BlogDetail = ({ article }: BlogDetailProps) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs = getAllBlogSlugs();
-  
+
   return {
     paths: slugs,
-    fallback: false,
+    fallback: false
   };
 };
 
 export const getStaticProps: GetStaticProps<BlogDetailProps> = async ({ params }) => {
   const slug = params?.slug as string;
-  
+
   if (!slug) {
     return {
-      notFound: true,
+      notFound: true
     };
   }
 
@@ -104,14 +104,14 @@ export const getStaticProps: GetStaticProps<BlogDetailProps> = async ({ params }
 
   if (!article) {
     return {
-      notFound: true,
+      notFound: true
     };
   }
 
   return {
     props: {
-      article,
-    },
+      article
+    }
   };
 };
 

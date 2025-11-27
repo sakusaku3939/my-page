@@ -54,7 +54,7 @@ const BlogIndex = () => {
         <title>Aokiti | Blog</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        
+
         {/* OGP Meta Tags */}
         <meta property="og:title" content="aokiti blog" />
         <meta property="og:type" content="website" />
@@ -62,7 +62,7 @@ const BlogIndex = () => {
         <meta property="og:image" content="https://sakusaku3939.com/images/blog-header.jpg" />
         <meta property="og:site_name" content="aokiti blog" />
         <meta property="og:description" content="雑記などいろいろブログ" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="aokiti blog" />
@@ -71,7 +71,7 @@ const BlogIndex = () => {
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu lightMode={true} />
-        
+
         {/* ヘッダーセクション */}
         <header className={commonStyles.blogHeader}>
           <h1 className={commonStyles.blogTitle}>雑記などいろいろブログ</h1>
@@ -120,8 +120,8 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
         {/* サムネイル（存在する場合のみ） */}
         {article.hasThumbnail && (
           <div className={styles.thumbnailWrapper}>
-            <img 
-              src={thumbnailUrl} 
+            <img
+              src={thumbnailUrl}
               alt={article.title}
               className={styles.thumbnail}
             />
