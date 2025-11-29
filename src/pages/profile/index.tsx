@@ -48,10 +48,9 @@ const Index = () => {
               />
             </TimeLineItem>
 
-            <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust アプリエンジニア"
+            <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust モバイルエンジニア"
                           open={true}>
-              フロントエンド（Flutter）チームで、位置情報共有アプリ「Locket」の0→1開発にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組み、
-              開発速度と品質を重視したスクラム開発を経験しました。
+              フロントエンド（Flutter）チームで、位置情報共有アプリ「Locket」の0→1開発にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組みました。
               <TimelineImage
                 title="Locket | 位置情報共有アプリ"
                 period="2023年1月 - 2023年3月"
@@ -60,10 +59,9 @@ const Index = () => {
               />
             </TimeLineItem>
             <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-            <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. アプリエンジニア"
+            <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア"
                           open={true}>
-              お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャの選定から携わり、Clean
-              Architecture + Riverpodによるチケット駆動開発を経験しました。マップ画面やチャットなどUIの実装、キャッシュ戦略含むコア部分の開発など、ゼロベースから幅広い実装を担いました。
+              お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャ選定から携わり、UIの実装からコア部分の開発までゼロベースで幅広い実装を担いました。
               <TimelineImage
                 title="GatherGo | お出かけ先レコメンドAI"
                 period="2024年8月 - 2024年12月"
@@ -176,8 +174,7 @@ const Index = () => {
           <Timeline>
             <TimeLineItem date="2025.6 - 2025.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
                           open={false}>
-              サーバーから動的にUIを生成するServer-Driven
-              UIによって、各店舗アプリに最適化されたAndroidアプリを提供する「STORESブランドアプリ」のSDK開発に、1ヶ月間インターンとして参加しました。API環境を切り替えるための導線の開発や、UX改善など幅広いタスクに取り組みました。
+              STORESブランドアプリSDKの開発に、1ヶ月間インターンとして参加しました。
               <TimelineImage
                 title="STORES ブランドアプリ"
                 period="2025年6月 - 2025年7月"
@@ -187,8 +184,7 @@ const Index = () => {
             </TimeLineItem>
             <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン"
                           open={false}>
-              Yahoo!
-              JAPANアプリの機能改善にAndroidインターンとして取り組みました。5,000万人のユーザーを抱えるサービスにおいて、長期的に品質を支えるテスト戦略、CI/CDの運用、開発フローを学んだほか、ユーザーに表示される画面の複雑な改修に向けて、APIマッピングからUI作成まで一貫して携わり、実装に取り組みました。
+              Yahoo! JAPANアプリの機能改善コースに、4週間Androidインターンとして参加しました。
               <TimelineImage
                 title="Yahoo! JAPANアプリ"
                 period="2025年8月 - 2025年9月"
@@ -198,7 +194,7 @@ const Index = () => {
             </TimeLineItem>
             <TimeLineItem date="2025.9 - 2025.10" icon={faBriefcase} title="株式会社MIXI Flutterインターン"
                           open={false}>
-              SNSアプリ「mixi2」の開発に、7週間ほどFlutterインターンとして参加しました。新機能の開発や既存機能の改善に向けて、UI開発、バックエンド修正、リファクタリングなどに取り組み、リリースまで経験しました。また、Android側のUX改善やパフォーマンス調査を行い、原因分析から改善提案まで取り組みました。
+              SNSアプリ「mixi2」の開発に、7週間ほどFlutterインターンとして参加しました。
               <TimelineImage
                 title="mixi2"
                 period="2025年9月 - 2025年10月"
