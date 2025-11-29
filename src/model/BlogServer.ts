@@ -191,3 +191,29 @@ export function getAllBlogArticles(): BlogArticleWithSummary[] {
     return parseDate(b.date).getTime() - parseDate(a.date).getTime();
   });
 }
+
+/**
+ * 前後の記事を取得
+ */
+export function getAdjacentArticles(currentSlug: string): {
+  prev: { slug: string; title: string } | null;
+  next: { slug: string; title: string } | null;
+} {
+  const allArticles = getAllBlogArticles();
+  const currentIndex = allArticles.findIndex(article => article.slug === currentSlug);
+  
+  if (currentIndex === -1) {
+    return { prev: null, next: null };
+  }
+  
+  // 日付降順なので、prevは次のインデックス（古い記事）、nextは前のインデックス（新しい記事）
+  const prev = currentIndex < allArticles.length - 1 
+    ? { slug: allArticles[currentIndex + 1].slug, title: allArticles[currentIndex + 1].title }
+    : null;
+  
+  const next = currentIndex > 0
+    ? { slug: allArticles[currentIndex - 1].slug, title: allArticles[currentIndex - 1].title }
+    : null;
+  
+  return { prev, next };
+}

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
@@ -6,7 +7,7 @@ import remarkBreaks from "remark-breaks";
 import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./[slug].module.css";
 import type { BlogArticle } from "@/model/type/BlogArticle";
-import { formatDate, getBlogArticleBySlug, getAllBlogSlugs } from "@/model/BlogServer";
+import { formatDate, getBlogArticleBySlug, getAllBlogSlugs, getAdjacentArticles } from "@/model/BlogServer";
 import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import type { GetStaticProps, GetStaticPaths } from "next";
@@ -14,9 +15,13 @@ import { useRouter } from "next/router";
 
 type BlogDetailProps = {
   article: BlogArticle | null;
+  adjacentArticles: {
+    prev: { slug: string; title: string } | null;
+    next: { slug: string; title: string } | null;
+  };
 };
 
-const BlogDetail = ({ article }: BlogDetailProps) => {
+const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
   const router = useRouter();
   const formattedDate = article ? formatDate(article.date) : "";
 
@@ -75,6 +80,30 @@ const BlogDetail = ({ article }: BlogDetailProps) => {
                 >
                   {article.body}
                 </ReactMarkdown>
+
+                {/* 前後の記事ナビゲーション */}
+                {(adjacentArticles.prev || adjacentArticles.next) && (
+                  <nav className={styles.articleNav}>
+                    {adjacentArticles.prev && (
+                      <Link 
+                        href={`/blog/${adjacentArticles.prev.slug}`}
+                        className={styles.navLink}
+                      >
+                        <span className={styles.navLabel}>← 前の記事</span>
+                        <span className={styles.navTitle}>{adjacentArticles.prev.title}</span>
+                      </Link>
+                    )}
+                    {adjacentArticles.next && (
+                      <Link 
+                        href={`/blog/${adjacentArticles.next.slug}`}
+                        className={`${styles.navLink} ${styles.navLinkNext}`}
+                      >
+                        <span className={styles.navLabel}>次の記事 →</span>
+                        <span className={styles.navTitle}>{adjacentArticles.next.title}</span>
+                      </Link>
+                    )}
+                  </nav>
+                )}
               </>
             )}
           </article>
@@ -111,9 +140,12 @@ export const getStaticProps: GetStaticProps<BlogDetailProps> = async ({ params }
     };
   }
 
+  const adjacentArticles = getAdjacentArticles(slug);
+
   return {
     props: {
-      article
+      article,
+      adjacentArticles
     }
   };
 };
