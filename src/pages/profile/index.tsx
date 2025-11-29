@@ -6,7 +6,6 @@ import { faBriefcase, faChalkboardTeacher, faGraduationCap, faTrophy } from "@fo
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import TimelineImage from "@/components/molecule/TimelineImage/TimelineImage";
-import SnsList from "@/components/molecule/SnsList/SnsList";
 import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 
 const Index = () => {
@@ -21,7 +20,6 @@ const Index = () => {
         <HamburgerMenu />
         <h1 className={common.profileTitle}>
           <div>略歴・プロフィール</div>
-          <SnsList />
         </h1>
 
         <section className={common.section}>
@@ -149,6 +147,14 @@ const Index = () => {
             </TimeLineItem>
           </Timeline>
 
+          <h1 className={common.h1}>インターンシップ</h1>
+          <Timeline>
+            <TimeLineItem date="2025.6 - 2025.7" icon={faBriefcase} title="STORES株式会社 Androidインターン" />
+            <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン" />
+            <TimeLineItem date="2025.9 - 2025.10" icon={faBriefcase} title="株式会社MIXI Flutterインターン" />
+            <TimeLineItem date="2025.11 - 現在" icon={faBriefcase} title="株式会社リクルート Androidインターン" />
+          </Timeline>
+
           <h1 className={common.h1}>業務委託</h1>
           <Timeline>
             <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust モバイルエンジニア"
@@ -163,7 +169,8 @@ const Index = () => {
             </TimeLineItem>
             <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア"
                           open={true}>
-              お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャ選定から携わり、UIの実装からコア部分の開発までゼロベースで幅広い実装を担いました。
+              お出かけ先を提案してくれるAI
+              「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャ選定から携わり、UIの実装からコア部分の開発までゼロベースで幅広い実装を担いました。
               <TimelineImage
                 title="GatherGo | お出かけ先レコメンドAI"
                 period="2024年8月 - 2024年12月"
@@ -171,42 +178,6 @@ const Index = () => {
                 showModal={true}
               />
             </TimeLineItem>
-          </Timeline>
-
-          <h1 className={common.h1}>インターンシップ</h1>
-          <Timeline>
-            <TimeLineItem date="2025.6 - 2025.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
-                          open={true}>
-              STORESブランドアプリSDKの開発に、1ヶ月間インターンとして参加しました。
-              <TimelineImage
-                title="STORES ブランドアプリ"
-                period="2025年6月 - 2025年7月"
-                imageUrl="/timeline/stores.jpg"
-                showModal={true}
-              />
-            </TimeLineItem>
-            <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン"
-                          open={true}>
-              Yahoo! JAPANアプリの機能改善に、4週間インターンとして参加しました。
-              <TimelineImage
-                title="Yahoo! JAPANアプリ"
-                period="2025年8月 - 2025年9月"
-                imageUrl="/timeline/yahoo.png"
-                showModal={true}
-              />
-            </TimeLineItem>
-            <TimeLineItem date="2025.9 - 2025.10" icon={faBriefcase} title="株式会社MIXI Flutterインターン"
-                          open={true}>
-              SNSアプリ「mixi2」の開発に、7週間ほどFlutterインターンとして参加しました。
-              <TimelineImage
-                title="mixi2"
-                period="2025年9月 - 2025年10月"
-                imageUrl="/timeline/mixi2.jpg"
-                showModal={true}
-              />
-            </TimeLineItem>
-            <TimeLineItem date="2025.11 - 現在" icon={faBriefcase} title="株式会社リクルート Androidインターン"
-                          open={false}></TimeLineItem>
           </Timeline>
 
           <h1 className={common.h1}>資格</h1>
