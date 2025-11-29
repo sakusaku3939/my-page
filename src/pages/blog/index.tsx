@@ -1,53 +1,20 @@
-import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
+import type { GetStaticProps } from "next";
 import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./index.module.css";
 import type { BlogArticleWithSummary } from "@/model/type/BlogArticle";
-import { formatDate } from "@/model/BlogServer";
+import { formatDate, getAllBlogArticles } from "@/model/BlogServer";
 import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 
-const BlogIndex = () => {
-  const [articles, setArticles] = useState<BlogArticleWithSummary[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [loaded, setLoaded] = useState(false);
+type BlogIndexProps = {
+  articles: BlogArticleWithSummary[];
+};
 
-  useEffect(() => {
-    const controller = new AbortController();
-
-    (async () => {
-      setLoaded(false);
-      setError(null);
-
-      try {
-        const res = await fetch("/api/blog", {
-          signal: controller.signal
-        });
-
-        if (!res.ok) {
-          console.error(`HTTP error. status: ${res.status}`);
-          setError("データの取得に失敗しました。");
-          setLoaded(true);
-          return;
-        }
-
-        const json = await res.json();
-        setArticles(json.articles ?? []);
-      } catch (e: any) {
-        if (e.name !== "AbortError") {
-          console.error(e);
-          setError("データの取得に失敗しました。");
-        }
-      }
-
-      setLoaded(true);
-    })();
-
-    return () => controller.abort();
-  }, []);
-
+const BlogIndex = ({ articles }: BlogIndexProps) => {
   return (
     <>
       <Head>
@@ -80,22 +47,13 @@ const BlogIndex = () => {
         {/* 記事一覧セクション */}
         <div className={commonStyles.wrapper}>
           <section className={styles.articlesList}>
-            {/* エラー時 */}
-            {error && <div className={commonStyles.error}>{error}</div>}
-
-            {/* ロード中 */}
-            {!loaded && !error && (
-              <div className={commonStyles.loading}>読み込み中...</div>
-            )}
-
-            {/* 記事一覧 */}
-            {loaded && !error && articles.length === 0 && (
+            {articles.length === 0 ? (
               <div className={styles.noArticles}>記事がありません</div>
+            ) : (
+              articles.map((article) => (
+                <ArticleCard key={article.slug} article={article} />
+              ))
             )}
-
-            {loaded && !error && articles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
-            ))}
           </section>
         </div>
 
@@ -120,10 +78,13 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
         {/* サムネイル（存在する場合のみ） */}
         {article.hasThumbnail && (
           <div className={styles.thumbnailWrapper}>
-            <img
+            <Image
               src={thumbnailUrl}
               alt={article.title}
+              width={300}
+              height={200}
               className={styles.thumbnail}
+              loading="lazy"
             />
           </div>
         )}
@@ -137,6 +98,17 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
       </article>
     </Link>
   );
+};
+
+export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
+  const articles = getAllBlogArticles();
+  
+  return {
+    props: {
+      articles
+    },
+    revalidate: 3600 // 1時間ごとに再生成（ISR）
+  };
 };
 
 export default BlogIndex;
