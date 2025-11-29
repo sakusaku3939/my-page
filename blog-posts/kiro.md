@@ -1,6 +1,6 @@
 ---
 title: Kiroが一般提供されてたので、実際に使ってみた所感など
-date: 2025.11.24
+date: 2025.11.26
 ---
 
 ![](/blog/kiro/thumbnail.jpg)
