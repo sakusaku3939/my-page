@@ -25,7 +25,7 @@ const Index = () => {
         </h1>
 
         <section className={common.section}>
-          <h1 className={common.h1}>所属</h1>
+          <h1 className={common.h1}>所属など</h1>
           <Timeline>
             <TimeLineItem date="2019.4 - 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
             <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
@@ -47,30 +47,9 @@ const Index = () => {
                 href="https://bwwfrcteam.blogspot.com/"
               />
             </TimeLineItem>
-
-            <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust モバイルエンジニア"
-                          open={true}>
-              フロントエンド（Flutter）チームで、位置情報共有アプリ「Locket」の0→1開発にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組みました。
-              <TimelineImage
-                title="Locket | 位置情報共有アプリ"
-                period="2023年1月 - 2023年3月"
-                imageUrl="/timeline/locket.png"
-                showModal={true}
-              />
-            </TimeLineItem>
             <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
-            <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア"
-                          open={true}>
-              お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャ選定から携わり、UIの実装からコア部分の開発までゼロベースで幅広い実装を担いました。
-              <TimelineImage
-                title="GatherGo | お出かけ先レコメンドAI"
-                period="2024年8月 - 2024年12月"
-                imageUrl="/timeline/gathergo.png"
-                showModal={true}
-              />
-            </TimeLineItem>
-            <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="中澤・大越研究室 d-hacks" open={true}>
-              RGの中澤・大越研究室 d-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
+            <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="中澤・大越研究室 RG d-hacks" open={true}>
+              1春からRGのd-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
               <TimeLineLink
                 description="d-hacks"
                 href="https://d-hacks.jn.sfc.keio.ac.jp/"
@@ -104,7 +83,7 @@ const Index = () => {
                 target="_self"
               />
             </TimeLineItem>
-            <TimeLineItem date="2025.3" icon={faTrophy} title="廃棄物資源循環学会 優秀ポスター賞" open={true}>
+            <TimeLineItem date="2025.3" icon={faTrophy} title="廃棄物資源循環学会 優秀ポスター賞" open={false}>
               廃棄物資源循環学会にて「細粒度ゴミ排出量データを活用した市民向けゴミ収集可視化アプリケーションの開発」の発表を行い、優秀ポスター賞を頂きました。
               <TimelineImage
                 title="ごみ量可視化アプリ"
@@ -170,10 +149,34 @@ const Index = () => {
             </TimeLineItem>
           </Timeline>
 
+          <h1 className={common.h1}>業務委託</h1>
+          <Timeline>
+            <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust モバイルエンジニア"
+                          open={true}>
+              フロントエンド（Flutter）チームで、位置情報共有アプリ「Locket」の0→1開発にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組みました。
+              <TimelineImage
+                title="Locket | 位置情報共有アプリ"
+                period="2023年1月 - 2023年3月"
+                imageUrl="/timeline/locket.png"
+                showModal={true}
+              />
+            </TimeLineItem>
+            <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア"
+                          open={true}>
+              お出かけ先を提案してくれるAI 「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとアーキテクチャ選定から携わり、UIの実装からコア部分の開発までゼロベースで幅広い実装を担いました。
+              <TimelineImage
+                title="GatherGo | お出かけ先レコメンドAI"
+                period="2024年8月 - 2024年12月"
+                imageUrl="/timeline/gathergo.png"
+                showModal={true}
+              />
+            </TimeLineItem>
+          </Timeline>
+
           <h1 className={common.h1}>インターンシップ</h1>
           <Timeline>
             <TimeLineItem date="2025.6 - 2025.7" icon={faBriefcase} title="STORES株式会社 Androidインターン"
-                          open={false}>
+                          open={true}>
               STORESブランドアプリSDKの開発に、1ヶ月間インターンとして参加しました。
               <TimelineImage
                 title="STORES ブランドアプリ"
@@ -183,8 +186,8 @@ const Index = () => {
               />
             </TimeLineItem>
             <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン"
-                          open={false}>
-              Yahoo! JAPANアプリの機能改善コースに、4週間Androidインターンとして参加しました。
+                          open={true}>
+              Yahoo! JAPANアプリの機能改善に、4週間インターンとして参加しました。
               <TimelineImage
                 title="Yahoo! JAPANアプリ"
                 period="2025年8月 - 2025年9月"
@@ -193,7 +196,7 @@ const Index = () => {
               />
             </TimeLineItem>
             <TimeLineItem date="2025.9 - 2025.10" icon={faBriefcase} title="株式会社MIXI Flutterインターン"
-                          open={false}>
+                          open={true}>
               SNSアプリ「mixi2」の開発に、7週間ほどFlutterインターンとして参加しました。
               <TimelineImage
                 title="mixi2"
