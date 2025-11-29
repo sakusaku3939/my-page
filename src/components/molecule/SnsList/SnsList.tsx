@@ -1,5 +1,5 @@
 import sns from "@/components/molecule/SnsList/SnsList.module.css";
-import { siGithub, siQiita, siSpeakerdeck } from "simple-icons";
+import { siGithub, siQiita, siSpeakerdeck, siZenn } from "simple-icons";
 import { ReactNode } from "react";
 
 const SnsList = () => {
@@ -14,6 +14,11 @@ const SnsList = () => {
         <SnsButton title={"Qiita"} style={sns.qiita} href={"https://qiita.com/sakusaku3939"}>
           <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
             <path d={siQiita.path} />
+          </svg>
+        </SnsButton>
+        <SnsButton title={"Zenn"} style={sns.zenn} href={"https://zenn.dev/aokiti"}>
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+            <path d={siZenn.path} />
           </svg>
         </SnsButton>
         <SnsButton title={"Speaker Deck"} style={sns.speakerDeck} href={"https://speakerdeck.com/sakusaku3939"}>
