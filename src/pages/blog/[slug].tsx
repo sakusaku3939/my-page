@@ -10,12 +10,14 @@ import { formatDate, getBlogArticleBySlug, getAllBlogSlugs } from "@/model/BlogS
 import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import type { GetStaticProps, GetStaticPaths } from "next";
+import { useRouter } from "next/router";
 
 type BlogDetailProps = {
   article: BlogArticle | null;
 };
 
 const BlogDetail = ({ article }: BlogDetailProps) => {
+  const router = useRouter();
   const formattedDate = article ? formatDate(article.date) : "";
 
   const baseUrl = "https://sakusaku3939.com";
@@ -49,7 +51,7 @@ const BlogDetail = ({ article }: BlogDetailProps) => {
 
         {/* ヘッダーセクション */}
         <header className={commonStyles.blogHeader}>
-          <h1 className={commonStyles.blogTitle}>雑記などいろいろブログ</h1>
+          <h1 className={commonStyles.blogTitle} onClick={() => router.push("/blog")}>雑記などいろいろブログ</h1>
         </header>
 
         {/* 記事詳細セクション */}
