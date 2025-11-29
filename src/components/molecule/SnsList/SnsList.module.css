@@ -25,8 +25,8 @@
     color: var(--text-color);
 }
 
-.qiita .qiitaSvg {
-    fill: #55C500;
+.qiita {
+    color: #55C500;
 }
 
 .speakerDeck {
