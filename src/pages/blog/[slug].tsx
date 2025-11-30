@@ -85,21 +85,27 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
                 {(adjacentArticles.prev || adjacentArticles.next) && (
                   <nav className={styles.articleNav}>
                     {adjacentArticles.prev && (
-                      <Link 
+                      <Link
                         href={`/blog/${adjacentArticles.prev.slug}`}
                         className={styles.navLink}
                       >
-                        <span className={styles.navLabel}>← 前の記事</span>
-                        <span className={styles.navTitle}>{adjacentArticles.prev.title}</span>
+                        <span className={styles.navArrow}>←</span>
+                        <div className={styles.navContent}>
+                          <span className={styles.navLabel}>前の記事</span>
+                          <span className={styles.navTitle}>{adjacentArticles.prev.title}</span>
+                        </div>
                       </Link>
                     )}
                     {adjacentArticles.next && (
-                      <Link 
+                      <Link
                         href={`/blog/${adjacentArticles.next.slug}`}
                         className={`${styles.navLink} ${styles.navLinkNext}`}
                       >
-                        <span className={styles.navLabel}>次の記事 →</span>
-                        <span className={styles.navTitle}>{adjacentArticles.next.title}</span>
+                        <div className={styles.navContent}>
+                          <span className={styles.navLabel}>次の記事</span>
+                          <span className={styles.navTitle}>{adjacentArticles.next.title}</span>
+                        </div>
+                        <span className={styles.navArrow}>→</span>
                       </Link>
                     )}
                   </nav>
