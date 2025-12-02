@@ -1,78 +1,61 @@
 import index from "./index.module.css";
 import type { Overview } from "@/model/type/Overview";
-import { PlaceholderPost, Post } from "@/components/organism/PostsList/PostsList";
+import { Post } from "@/components/organism/PostsList/PostsList";
 import Category from "@/components/molecule/Category/Category";
 import Head from "next/head";
 import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
-import { useEffect, useState } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { getAllCategories, getPostOverview } from "@/model/PostServer";
+import type { GetStaticProps } from "next";
+import common from "@/styles/common.module.css";
+import posts from "./posts.module.css";
+import Link from "next/link";
 
 type Props = {
-  filter: string | string[],
-  categories: { [tag: string]: number }[],
-  overviews: Overview[],
+  categories: { [tag: string]: number }[];
+  overviews: Overview[];
 }
 
-let cachedData: { filterText: string, categories: any[]; overviews: any[] } | null = null;
-
-const Index = () => {
+const Index = ({ categories, overviews }: Props) => {
   const router = useRouter();
   const q = router.query.filter;
   const filterText = Array.isArray(q) ? q.join(", ") : (q ?? "");
+  const [isNavigating, setIsNavigating] = useState(false);
 
-  const [categories, setCategories] = useState<Props["categories"]>((cachedData?.categories ?? []));
-  const [overviews, setOverviews] = useState<Props["overviews"]>((cachedData?.overviews ?? []));
-  const [error, setError] = useState<string | null>(null);
-  const [loaded, setLoaded] = useState(cachedData !== null);
+  const filteredOverviews = useMemo(() => {
+    if (!filterText) return overviews;
+    return overviews.filter(post => 
+      post.tag.toLowerCase().includes(filterText.toLowerCase())
+    );
+  }, [overviews, filterText]);
 
   useEffect(() => {
-    if (!router.isReady) return;
-    if (cachedData?.filterText === filterText) {
-      // キャッシュが有効なら再取得しない
-      return;
-    }
-
-    const controller = new AbortController();
-
-    (async () => {
-      setLoaded(false);
-      setError(null);
-      setOverviews([]);
-
-      try {
-        const res = await fetch(`/api/posts${filterText ? `?filter=${encodeURIComponent(filterText)}` : ""}`, {
-          signal: controller.signal
-        });
-
-        if (!res.ok) {
-          console.error(`HTTP error. status: ${res.status}`);
-          setError("データの取得に失敗しました。");
-        }
-        const json = await res.json();
-
-        setCategories(json.categories ?? []);
-        setOverviews(json.overviews ?? []);
-
-        cachedData = {
-          filterText,
-          categories: json.categories ?? [],
-          overviews: json.overviews ?? []
-        };
-      } catch (e: any) {
-        if (e.name !== "AbortError") {
-          console.error(e);
-          setError("データの取得に失敗しました。");
-        }
+    const handleStart = (url: string) => {
+      // /posts/[slug]パターンに遷移する時だけローディング表示
+      if (url.startsWith('/posts/') && url !== '/posts') {
+        setIsNavigating(true);
       }
+    };
+    const handleComplete = () => setIsNavigating(false);
 
-      setLoaded(true);
-    })();
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
 
-    return () => controller.abort();
-  }, [filterText, router.isReady]);
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleComplete);
+    };
+  }, [router]);
+
+  if (isNavigating) {
+    return <PlaceholderPostDetail categories={categories} />;
+  }
 
   return (
     <>
@@ -89,14 +72,7 @@ const Index = () => {
         </div>
         <div className={index.wrapper}>
           <section className={index.postsList}>
-            {/* エラー時 */}
-            {error && <div>{error}</div>}
-
-            {/* ロード中のプレースホルダー */}
-            {!loaded && !error && Array(6).fill(0).map((_, i) => <PlaceholderPost key={i} />)}
-
-            {/* 投稿一覧 */}
-            {!error && overviews.map((post: Overview, key: number) => (
+            {filteredOverviews.map((post: Overview, key: number) => (
               <Post key={key}
                     date={post.date}
                     imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
@@ -118,6 +94,50 @@ const Index = () => {
       </BackgroundTriangleWrapper>
     </>
   );
+};
+
+const PlaceholderPostDetail = ({ categories }: { categories: Props['categories'] }) => {
+  return (
+    <div className={posts.wrapper}>
+      <div className={`${posts.main} ${posts.placeholder}`}>
+        <nav>
+          <ol className={posts.breadcrumb}>
+            <li><Link href="/posts">ホーム</Link></li>
+            <li>&nbsp;</li>
+          </ol>
+        </nav>
+        <div className={`${common.shadow} ${posts.post}`}>
+          <div className={posts.title}>
+            <div className={posts.titlePlaceholder}>&nbsp;</div>
+          </div>
+          <ul className={`${common.tag} ${posts.tag}`}>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+          <div>
+            {Array(30).fill(0).map((_, i) => (
+              <div key={i} className={posts.overviewPlaceholder}>&nbsp;</div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <Category categories={categories} />
+    </div>
+  );
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const categories = getAllCategories();
+  const posts = getPostOverview(undefined);
+  const sortedPinnedPosts = posts.sort((a, b) => (a.pinned && !b.pinned ? -1 : 1));
+
+  return {
+    props: {
+      categories,
+      overviews: sortedPinnedPosts
+    }
+  };
 };
 
 export default Index;
