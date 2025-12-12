@@ -18,28 +18,40 @@ import Link from "next/link";
 type Props = {
   categories: { [tag: string]: number }[];
   overviews: Overview[];
+  groupedByYear: { [year: string]: Overview[] };
+  pinnedPosts: Overview[];
 }
 
-const Index = ({ categories, overviews }: Props) => {
+const Index = ({ categories, overviews, groupedByYear: precomputedGroupedByYear, pinnedPosts: precomputedPinnedPosts }: Props) => {
   const router = useRouter();
   const q = router.query.filter;
   const filterText = Array.isArray(q) ? q.join(", ") : (q ?? "");
   const [isNavigating, setIsNavigating] = useState(false);
 
+  const normalizedFilterText = useMemo(() => 
+    filterText.toLowerCase(), [filterText]
+  );
+
   const filteredOverviews = useMemo(() => {
     if (!filterText) return overviews;
     return overviews.filter(post => 
-      post.tag.toLowerCase().includes(filterText.toLowerCase())
+      post.tag.toLowerCase().includes(normalizedFilterText)
     );
-  }, [overviews, filterText]);
+  }, [overviews, filterText, normalizedFilterText]);
 
   const pinnedPosts = useMemo(() => {
+    if (!filterText) return precomputedPinnedPosts;
     return filteredOverviews.filter(post => post.pinned);
-  }, [filteredOverviews]);
+  }, [filteredOverviews, filterText, precomputedPinnedPosts]);
 
   const groupedByYear = useMemo(() => {
+    if (!filterText) {
+      // フィルターがない場合は事前計算された結果を使用
+      return Object.entries(precomputedGroupedByYear).sort((a, b) => parseInt(b[0]) - parseInt(a[0]));
+    }
+    
+    // フィルターがある場合のみ動的にグルーピング
     const groups: { [year: string]: Overview[] } = {};
-    // 全ての記事を年度ごとにグループ化（ピン留め記事も含む）
     filteredOverviews.forEach(post => {
       const year = new Date(post.date).getFullYear().toString();
       if (!groups[year]) {
@@ -48,7 +60,7 @@ const Index = ({ categories, overviews }: Props) => {
       groups[year].push(post);
     });
     return Object.entries(groups).sort((a, b) => parseInt(b[0]) - parseInt(a[0]));
-  }, [filteredOverviews]);
+  }, [filteredOverviews, filterText, precomputedGroupedByYear]);
 
   useEffect(() => {
     const handleStart = (url: string) => {
@@ -97,7 +109,7 @@ const Index = ({ categories, overviews }: Props) => {
                         imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
                         href={`/posts/${post.slug}`}
                         title={post.title}
-                        tag={post.tag.split(", ")}
+                        tag={post.tagArray}
                         pinned={post.pinned}
                         overview={post.overview} />
                 ))}
@@ -115,7 +127,7 @@ const Index = ({ categories, overviews }: Props) => {
                         imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
                         href={`/posts/${post.slug}`}
                         title={post.title}
-                        tag={post.tag.split(", ")}
+                        tag={post.tagArray}
                         pinned={post.pinned}
                         overview={post.overview} />
                 ))}
@@ -169,12 +181,27 @@ const PlaceholderPostDetail = ({ categories }: { categories: Props['categories']
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const categories = getAllCategories();
   const posts = getPostOverview(undefined);
-  const sortedPinnedPosts = posts.sort((a, b) => (a.pinned && !b.pinned ? -1 : 1));
+  const sortedPosts = posts.sort((a, b) => (a.pinned && !b.pinned ? -1 : 1));
+
+  // ピン留め記事を事前計算
+  const pinnedPosts = sortedPosts.filter(post => post.pinned);
+
+  // 年度ごとのグルーピングを事前計算
+  const groupedByYear: { [year: string]: Overview[] } = {};
+  sortedPosts.forEach(post => {
+    const year = new Date(post.date).getFullYear().toString();
+    if (!groupedByYear[year]) {
+      groupedByYear[year] = [];
+    }
+    groupedByYear[year].push(post);
+  });
 
   return {
     props: {
       categories,
-      overviews: sortedPinnedPosts
+      overviews: sortedPosts,
+      groupedByYear,
+      pinnedPosts
     }
   };
 };

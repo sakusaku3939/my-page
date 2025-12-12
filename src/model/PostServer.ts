@@ -26,9 +26,10 @@ export function getPostOverview(filter: string | string[] | undefined) {
   const fileNames = fs.readdirSync(postsDirectory);
   let overviews: Overview[] = [];
   for (let name of fileNames) {
-    // overviewにslugパラメータを追加
+    // overviewにslugパラメータとtagArrayを追加
     const overview = matter(getPostData(name)).data;
     overview.slug = name.replace(/\.md$/, "");
+    overview.tagArray = overview.tag.split(", ");
 
     // フィルターがある場合は合致するものだけリストに格納
     if (filter !== undefined && typeof filter === "string") {
