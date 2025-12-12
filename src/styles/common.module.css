@@ -18,13 +18,27 @@
 
 .profileTitle {
     text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    padding: 56px 16px;
+    padding: 56px 16px 64px;
+    position: relative;
 }
 
-.profileTitle div {
-    padding-bottom: 16px;
+.englishTitle {
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--light-grey);
+    margin: 0 0 8px 0;
+    opacity: 0.8;
+}
+
+.japaneseTitle {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+    color: var(--text-color);
 }
 
 .tag li {

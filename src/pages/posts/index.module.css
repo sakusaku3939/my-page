@@ -123,14 +123,6 @@
         padding-bottom: 24px;
     }
 
-    .japaneseTitle {
-        font-size: 36px;
-    }
-
-    .englishTitle {
-        font-size: 16px;
-    }
-
     .yearGroup {
         margin-bottom: 32px;
     }
@@ -153,15 +145,6 @@
     .yearTitle {
         padding-left: calc((100% - 80% * 1) / 2);
     }
-
-    .japaneseTitle {
-        font-size: 32px;
-    }
-
-    .englishTitle {
-        font-size: 14px;
-        letter-spacing: 1.5px;
-    }
 }
 
 @media screen and (max-width: 500px) {
@@ -171,14 +154,5 @@
 
     .yearTitle {
         padding-left: calc((100% - 85% * 1) / 2);
-    }
-
-    .japaneseTitle {
-        font-size: 28px;
-    }
-
-    .englishTitle {
-        font-size: 12px;
-        letter-spacing: 1px;
     }
 }

@@ -18,9 +18,10 @@ const Index = () => {
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu />
-        <h1 className={common.profileTitle}>
-          <div>略歴・プロフィール</div>
-        </h1>
+        <div className={common.profileTitle}>
+          <div className={common.englishTitle}>Career & Profile</div>
+          <h1 className={common.japaneseTitle}>略歴・プロフィール</h1>
+        </div>
 
         <section className={common.section}>
           <h1 className={common.h1}>所属など</h1>
