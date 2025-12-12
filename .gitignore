@@ -41,3 +41,4 @@ next-env.d.ts
 
 src/__generated__
 public/__generated__
+certificates
