@@ -12,14 +12,14 @@ import { useRouter } from "next/router";
 import { renderTags } from "@/model/PostClient";
 import { getAllCategories, getPostData, getPostOverview } from "@/model/PostServer";
 import matter from "gray-matter";
-import type { GetStaticProps, GetStaticPaths } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 import index from "./index.module.css";
 import { PlaceholderPost } from "@/components/organism/PostsList/PostsList";
 import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
-import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { BackgroundCircleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 
 type PostData = {
   overview: any;
@@ -102,7 +102,7 @@ const PlaceholderPostList = ({ categories }: { categories: PostData['categories'
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BackgroundTriangleWrapper>
+      <BackgroundCircleWrapper>
         <HamburgerMenu />
         <h1 className={index.postTitle}>個人開発 ・ 制作物など</h1>
         <div className={index.mobileCategory}>
@@ -120,7 +120,7 @@ const PlaceholderPostList = ({ categories }: { categories: PostData['categories'
           </div>
         </div>
         <FooterMenu />
-      </BackgroundTriangleWrapper>
+      </BackgroundCircleWrapper>
     </>
   );
 };

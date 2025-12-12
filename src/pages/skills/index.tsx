@@ -3,7 +3,7 @@ import Head from "next/head";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { Skills, SkillsItem, SkillsItemWrapper, SkillsSubItemWrapper } from "@/components/organism/Skills/Skills";
-import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { BackgroundTriangleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 
 const Index = () => {
   return (

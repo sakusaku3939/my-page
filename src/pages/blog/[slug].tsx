@@ -7,11 +7,10 @@ import remarkBreaks from "remark-breaks";
 import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./[slug].module.css";
 import type { BlogArticle } from "@/model/type/BlogArticle";
-import { getBlogArticleBySlug, getAllBlogSlugs, getAdjacentArticles } from "@/model/BlogServer";
+import { getAdjacentArticles, getAllBlogSlugs, getBlogArticleBySlug } from "@/model/BlogServer";
 import { formatDate } from "@/utils/dateUtils";
-import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
-import type { GetStaticProps, GetStaticPaths } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 type BlogDetailProps = {
@@ -53,7 +52,6 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
         <meta name="twitter:description" content="雑記などいろいろブログ" />
         <meta name="twitter:image" content={ogImageUrl} />
       </Head>
-      <BackgroundTriangleWrapper>
         <HamburgerMenu lightMode={true} />
 
         {/* ヘッダーセクション */}
@@ -115,8 +113,6 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
             )}
           </article>
         </div>
-
-      </BackgroundTriangleWrapper>
     </>
   );
 };

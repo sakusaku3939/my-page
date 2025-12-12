@@ -4,7 +4,7 @@ type Props = {
   children?: any
 }
 
-const BackgroundTriangleWrapper = ({children}: Props) => {
+export const BackgroundTriangleWrapper = ({ children }: Props) => {
   return (
     <div className={bg.root}>
       <div className={bg.wrapper} aria-hidden="true">
@@ -16,4 +16,15 @@ const BackgroundTriangleWrapper = ({children}: Props) => {
   );
 };
 
-export default BackgroundTriangleWrapper;
+export const BackgroundCircleWrapper = ({ children }: Props) => {
+  return (
+    <div className={bg.root}>
+      <div className={bg.circleWrapper} aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
+      {children}
+    </div>
+  );
+};

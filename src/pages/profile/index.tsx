@@ -6,7 +6,7 @@ import { faBriefcase, faChalkboardTeacher, faGraduationCap, faTrophy } from "@fo
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import TimelineImage from "@/components/molecule/TimelineImage/TimelineImage";
-import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { BackgroundTriangleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 
 const Index = () => {
   return (

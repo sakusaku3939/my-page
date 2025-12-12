@@ -29,3 +29,46 @@
     height: 80px;
     background: var(--triangle-color2);
 }
+
+.circleWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.circleWrapper span {
+    position: absolute;
+    border-radius: 50%;
+    display: block;
+}
+
+.circleWrapper span:nth-child(1) {
+    width: 150px;
+    height: 150px;
+    background: var(--triangle-color1);
+    top: -30px;
+    right: 4%;
+    opacity: 0.7;
+}
+
+.circleWrapper span:nth-child(2) {
+    width: 100px;
+    height: 100px;
+    background: var(--triangle-color2);
+    top: 40px;
+    right: 10%;
+    opacity: 0.8;
+}
+
+.circleWrapper span:nth-child(3) {
+    width: 180px;
+    height: 180px;
+    background: var(--triangle-color1);
+    top: 20px;
+    right: -2%;
+    opacity: 0.4;
+}

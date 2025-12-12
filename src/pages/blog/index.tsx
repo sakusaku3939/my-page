@@ -7,7 +7,7 @@ import styles from "./index.module.css";
 import type { BlogArticleWithSummary } from "@/model/type/BlogArticle";
 import { getAllBlogArticles } from "@/model/BlogServer";
 import { formatDate } from "@/utils/dateUtils";
-import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { BackgroundTriangleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 
