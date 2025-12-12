@@ -104,8 +104,8 @@ const PlaceholderPostList = ({ categories }: { categories: PostData["categories"
       <BackgroundCircleWrapper>
         <HamburgerMenu />
         <div className={index.postTitle}>
-          <h2 className={index.englishTitle}>portfolio</h2>
-          <h1 className={index.japaneseTitle}>個人開発 ・ 制作物など</h1>
+          <h2 className={common.englishTitle}>portfolio</h2>
+          <h1 className={common.japaneseTitle}>個人開発 ・ 制作物など</h1>
         </div>
         <div className={index.mobileCategory}>
           <MobileCategory categories={categories} />

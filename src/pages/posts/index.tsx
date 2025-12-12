@@ -101,8 +101,8 @@ const Index = ({
       <BackgroundCircleWrapper>
         <HamburgerMenu />
         <div className={index.postTitle}>
-          <div className={index.englishTitle}>portfolio</div>
-          <h1 className={index.japaneseTitle}>個人開発 ・ 制作物など</h1>
+          <div className={common.englishTitle}>portfolio</div>
+          <h1 className={common.japaneseTitle}>個人開発 ・ 制作物など</h1>
           {filterText?.length > 0 && <span className={index.filterText}>「{filterText}」 の記事</span>}
         </div>
         <div className={index.mobileCategory}>

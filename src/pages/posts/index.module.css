@@ -4,25 +4,6 @@
     position: relative;
 }
 
-.englishTitle {
-    font-family: 'Barlow', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--light-grey);
-    margin: 0 0 8px 0;
-    opacity: 0.8;
-}
-
-.japaneseTitle {
-    font-size: 32px;
-    font-weight: bold;
-    margin: 0;
-    line-height: 1.2;
-    color: var(--text-color);
-}
-
 .filterText {
     display: block;
     color: var(--light-grey);
