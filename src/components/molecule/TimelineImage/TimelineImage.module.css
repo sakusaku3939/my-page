@@ -45,6 +45,10 @@
 .imageLinkText {
     color: white;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    padding-right: 2rem;
+    overflow: hidden;
+    min-width: 0;
+    flex: 1;
 }
 
 .imageLinkTitle {
@@ -52,6 +56,9 @@
     font-weight: 600;
     margin-bottom: 0.25rem;
     line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .imageLinkArrow {
