@@ -6,7 +6,7 @@ import Head from "next/head";
 import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
-import { useMemo, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 import { getAllCategories, getPostOverview } from "@/model/PostServer";
@@ -22,19 +22,24 @@ type Props = {
   pinnedPosts: Overview[];
 }
 
-const Index = ({ categories, overviews, groupedByYear: precomputedGroupedByYear, pinnedPosts: precomputedPinnedPosts }: Props) => {
+const Index = ({
+                 categories,
+                 overviews,
+                 groupedByYear: precomputedGroupedByYear,
+                 pinnedPosts: precomputedPinnedPosts
+               }: Props) => {
   const router = useRouter();
   const q = router.query.filter;
   const filterText = Array.isArray(q) ? q.join(", ") : (q ?? "");
   const [isNavigating, setIsNavigating] = useState(false);
 
-  const normalizedFilterText = useMemo(() => 
+  const normalizedFilterText = useMemo(() =>
     filterText.toLowerCase(), [filterText]
   );
 
   const filteredOverviews = useMemo(() => {
     if (!filterText) return overviews;
-    return overviews.filter(post => 
+    return overviews.filter(post =>
       post.tag.toLowerCase().includes(normalizedFilterText)
     );
   }, [overviews, filterText, normalizedFilterText]);
@@ -49,7 +54,7 @@ const Index = ({ categories, overviews, groupedByYear: precomputedGroupedByYear,
       // フィルターがない場合は事前計算された結果を使用
       return Object.entries(precomputedGroupedByYear).sort((a, b) => parseInt(b[0]) - parseInt(a[0]));
     }
-    
+
     // フィルターがある場合のみ動的にグルーピング
     const groups: { [year: string]: Overview[] } = {};
     filteredOverviews.forEach(post => {
@@ -65,20 +70,20 @@ const Index = ({ categories, overviews, groupedByYear: precomputedGroupedByYear,
   useEffect(() => {
     const handleStart = (url: string) => {
       // /posts/[slug]パターンに遷移する時だけローディング表示
-      if (url.startsWith('/posts/') && url !== '/posts') {
+      if (url.startsWith("/posts/") && url !== "/posts") {
         setIsNavigating(true);
       }
     };
     const handleComplete = () => setIsNavigating(false);
 
-    router.events.on('routeChangeStart', handleStart);
-    router.events.on('routeChangeComplete', handleComplete);
-    router.events.on('routeChangeError', handleComplete);
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
 
     return () => {
-      router.events.off('routeChangeStart', handleStart);
-      router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('routeChangeError', handleComplete);
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
     };
   }, [router]);
 
@@ -95,7 +100,8 @@ const Index = ({ categories, overviews, groupedByYear: precomputedGroupedByYear,
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu />
-        <h1 className={index.postTitle}>個人開発 ・ 制作物など<span>{filterText?.length ? `「${filterText}」 の記事` : ""}</span></h1>
+        <h1 className={index.postTitle}>個人開発 ・
+          制作物など<span>{filterText?.length ? `「${filterText}」 の記事` : ""}</span></h1>
         <div className={index.mobileCategory}>
           <MobileCategory categories={categories} />
         </div>
@@ -104,14 +110,16 @@ const Index = ({ categories, overviews, groupedByYear: precomputedGroupedByYear,
             {pinnedPosts.length > 0 && (
               <div className={index.yearGroup}>
                 {pinnedPosts.map((post: Overview, key: number) => (
-                  <Post key={key}
-                        date={post.date}
-                        imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
-                        href={`/posts/${post.slug}`}
-                        title={post.title}
-                        tag={post.tagArray}
-                        pinned={post.pinned}
-                        overview={post.overview} />
+                  <div className={index.postCard}>
+                    <Post key={key}
+                          date={post.date}
+                          imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
+                          href={`/posts/${post.slug}`}
+                          title={post.title}
+                          tag={post.tagArray}
+                          pinned={post.pinned}
+                          overview={post.overview} />
+                  </div>
                 ))}
                 <div className={index.postDummy} />
                 <div className={index.postDummy} />
@@ -122,14 +130,16 @@ const Index = ({ categories, overviews, groupedByYear: precomputedGroupedByYear,
               <div key={year} className={index.yearGroup}>
                 <h2 className={index.yearTitle}>{year}</h2>
                 {posts.map((post: Overview, key: number) => (
-                  <Post key={key}
-                        date={post.date}
-                        imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
-                        href={`/posts/${post.slug}`}
-                        title={post.title}
-                        tag={post.tagArray}
-                        pinned={post.pinned}
-                        overview={post.overview} />
+                  <div className={index.postCard}>
+                    <Post key={key}
+                          date={post.date}
+                          imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
+                          href={`/posts/${post.slug}`}
+                          title={post.title}
+                          tag={post.tagArray}
+                          pinned={post.pinned}
+                          overview={post.overview} />
+                  </div>
                 ))}
                 <div className={index.postDummy} />
                 <div className={index.postDummy} />
@@ -147,7 +157,7 @@ const Index = ({ categories, overviews, groupedByYear: precomputedGroupedByYear,
   );
 };
 
-const PlaceholderPostDetail = ({ categories }: { categories: Props['categories'] }) => {
+const PlaceholderPostDetail = ({ categories }: { categories: Props["categories"] }) => {
   return (
     <div className={posts.wrapper}>
       <div className={`${posts.main} ${posts.placeholder}`}>
