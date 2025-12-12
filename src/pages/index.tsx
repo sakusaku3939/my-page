@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useRef, useState } from "react";
 import index from "./index.module.css";
 import SnsList from "@/components/molecule/SnsList/SnsList";
 import { PostsList } from "@/components/organism/PostsList/PostsList";
@@ -8,6 +10,31 @@ import { FooterMenu, Menu } from "@/components/molecule/Menu/Menu";
 import { BackgroundGradientWrapper } from "@/components/atom/BackgroundGradientWrapper/BackgroundGradientWrapper";
 
 const Index = () => {
+  const router = useRouter();
+  const [clickCount, setClickCount] = useState(0);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleTitleClick = () => {
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+
+    // 前のタイムアウトをクリア
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    if (newCount === 5) {
+      // 5回クリックされたら/xに遷移
+      router.push("/x");
+      setClickCount(0);
+    } else {
+      // 2秒後にカウントをリセット
+      timeoutRef.current = setTimeout(() => {
+        setClickCount(0);
+      }, 2000);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -19,7 +46,9 @@ const Index = () => {
         <span className={index.menuVisibility}><Menu /></span>
         <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
         <section className={index.header}>
-          <div className={index.title}>Aokiti</div>
+          <div className={index.title}>
+            <span onClick={handleTitleClick}>Aokiti</span>
+          </div>
           <div className={index.subtitle}>
             <span>Keio SFC B3</span>
             <span>RG <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks"

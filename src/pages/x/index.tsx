@@ -23,8 +23,8 @@ const Index = () => {
       if (baseBeta === null) baseBeta = beta;
       if (baseGamma === null) baseGamma = gamma;
 
-      const x = Math.max(-30, Math.min(30, (gamma - baseGamma)));
-      const y = -Math.max(-30, Math.min(30, (beta - baseBeta)));
+      const x = Math.max(-20, Math.min(30, (gamma - baseGamma)));
+      const y = -Math.max(-20, Math.min(30, (beta - baseBeta)));
 
       qr.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
     };

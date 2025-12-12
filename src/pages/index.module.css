@@ -9,6 +9,10 @@
     text-align: center;
 }
 
+.title span {
+    cursor: pointer;
+}
+
 .subtitle {
     text-align: center;
     margin: 0 16px 16px;
