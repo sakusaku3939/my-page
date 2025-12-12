@@ -20,6 +20,7 @@
 .post {
     padding: 32px 56px;
     line-height: 1.9;
+    border-radius: 16px;
 }
 
 .post .title {
