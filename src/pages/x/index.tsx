@@ -23,8 +23,8 @@ const Index = () => {
       if (baseBeta === null) baseBeta = beta;
       if (baseGamma === null) baseGamma = gamma;
 
-      const x = Math.max(-30, Math.min(30, (gamma - baseGamma) * 1.5));
-      const y = -Math.max(-30, Math.min(30, (beta - baseBeta) * 1.5));
+      const x = Math.max(-30, Math.min(30, (gamma - baseGamma)));
+      const y = -Math.max(-30, Math.min(30, (beta - baseBeta)));
 
       qr.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
     };
@@ -64,6 +64,7 @@ const Index = () => {
             <Image src="/images/qrcode.svg" alt="QR Code" sizes="100%" fill />
           </div>
           <p className={index.qrCodeText}>@ aokiti_tech</p>
+          <p className={index.qrCodeSubText}>Follow on X</p>
         </div>
       </BackgroundGradientWrapper>
     </>
