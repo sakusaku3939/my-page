@@ -34,20 +34,20 @@ const Posts = ({ overview, markdownBody, categories }: PostData) => {
   useEffect(() => {
     const handleStart = (url: string) => {
       // /postsに戻る時だけローディング表示
-      if (url === '/posts' || url.startsWith('/posts?')) {
+      if (url === "/posts" || url.startsWith("/posts?")) {
         setIsNavigating(true);
       }
     };
     const handleComplete = () => setIsNavigating(false);
 
-    router.events.on('routeChangeStart', handleStart);
-    router.events.on('routeChangeComplete', handleComplete);
-    router.events.on('routeChangeError', handleComplete);
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
 
     return () => {
-      router.events.off('routeChangeStart', handleStart);
-      router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('routeChangeError', handleComplete);
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
     };
   }, [router]);
 
@@ -93,8 +93,7 @@ const Posts = ({ overview, markdownBody, categories }: PostData) => {
 };
 
 
-
-const PlaceholderPostList = ({ categories }: { categories: PostData['categories'] }) => {
+const PlaceholderPostList = ({ categories }: { categories: PostData["categories"] }) => {
   return (
     <>
       <Head>
@@ -104,16 +103,42 @@ const PlaceholderPostList = ({ categories }: { categories: PostData['categories'
       </Head>
       <BackgroundCircleWrapper>
         <HamburgerMenu />
-        <h1 className={index.postTitle}>個人開発 ・ 制作物など</h1>
+        <div className={index.postTitle}>
+          <h2 className={index.englishTitle}>portfolio</h2>
+          <h1 className={index.japaneseTitle}>個人開発 ・ 制作物など</h1>
+        </div>
         <div className={index.mobileCategory}>
           <MobileCategory categories={categories} />
         </div>
         <div className={index.wrapper}>
           <section className={index.postsList}>
-            {Array(6).fill(0).map((_, i) => <PlaceholderPost key={i} />)}
-            <div className={index.postDummy} />
-            <div className={index.postDummy} />
-            <div className={index.postDummy} />
+            {/* ピン止め記事のプレースホルダー（2個） */}
+            <div className={index.yearGroup}>
+              {Array(2).fill(0).map((_, i) => (
+                <div key={`pinned-${i}`} className={index.postCard}>
+                  <PlaceholderPost />
+                </div>
+              ))}
+              <div className={index.postDummy} />
+              <div className={index.postDummy} />
+              <div className={index.postDummy} />
+            </div>
+            {/* 年度別記事のプレースホルダー */}
+            {Array(3).fill(0).map((_, yearIndex) => (
+              <div key={`year-${yearIndex}`} className={index.yearGroup}>
+                <h2 className={index.yearTitle}>
+                  <div className={index.yearTitlePlaceholder}>&nbsp;</div>
+                </h2>
+                {Array(3).fill(0).map((_, i) => (
+                  <div key={`year-${yearIndex}-${i}`} className={index.postCard}>
+                    <PlaceholderPost />
+                  </div>
+                ))}
+                <div className={index.postDummy} />
+                <div className={index.postDummy} />
+                <div className={index.postDummy} />
+              </div>
+            ))}
           </section>
           <div className={index.category}>
             <Category categories={categories} />

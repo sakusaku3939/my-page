@@ -87,10 +87,11 @@
     justify-content: center;
 }
 
-.postDummy {
-    width: calc(40%);
-    min-width: calc(320px);
-    height: 0;
+.yearTitlePlaceholder {
+    width: 64px;
+    height: 28px;
+    background-color: var(--placeholder-color);
+    border-radius: 4px;
 }
 
 .category {
