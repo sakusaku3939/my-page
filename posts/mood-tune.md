@@ -3,7 +3,6 @@ title: MoodTune
 tag: Python, 機械学習, Next.js, TypeScript
 overview: 環境音からSpotifyの音楽を推薦してくれるAIアプリ
 date: 2024.3.24
-pinned: true
 ---
 
 ユーザーの周りの環境音に合わせて、Spotifyから最適な音楽を推薦してくれるAIアプリです。

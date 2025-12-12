@@ -33,6 +33,23 @@ const Index = ({ categories, overviews }: Props) => {
     );
   }, [overviews, filterText]);
 
+  const pinnedPosts = useMemo(() => {
+    return filteredOverviews.filter(post => post.pinned);
+  }, [filteredOverviews]);
+
+  const groupedByYear = useMemo(() => {
+    const groups: { [year: string]: Overview[] } = {};
+    // 全ての記事を年度ごとにグループ化（ピン留め記事も含む）
+    filteredOverviews.forEach(post => {
+      const year = new Date(post.date).getFullYear().toString();
+      if (!groups[year]) {
+        groups[year] = [];
+      }
+      groups[year].push(post);
+    });
+    return Object.entries(groups).sort((a, b) => parseInt(b[0]) - parseInt(a[0]));
+  }, [filteredOverviews]);
+
   useEffect(() => {
     const handleStart = (url: string) => {
       // /posts/[slug]パターンに遷移する時だけローディング表示
@@ -72,19 +89,41 @@ const Index = ({ categories, overviews }: Props) => {
         </div>
         <div className={index.wrapper}>
           <section className={index.postsList}>
-            {filteredOverviews.map((post: Overview, key: number) => (
-              <Post key={key}
-                    date={post.date}
-                    imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
-                    href={`/posts/${post.slug}`}
-                    title={post.title}
-                    tag={post.tag.split(", ")}
-                    pinned={post.pinned}
-                    overview={post.overview} />
+            {pinnedPosts.length > 0 && (
+              <div className={index.yearGroup}>
+                {pinnedPosts.map((post: Overview, key: number) => (
+                  <Post key={key}
+                        date={post.date}
+                        imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
+                        href={`/posts/${post.slug}`}
+                        title={post.title}
+                        tag={post.tag.split(", ")}
+                        pinned={post.pinned}
+                        overview={post.overview} />
+                ))}
+                <div className={index.postDummy} />
+                <div className={index.postDummy} />
+                <div className={index.postDummy} />
+              </div>
+            )}
+            {groupedByYear.map(([year, posts]) => (
+              <div key={year} className={index.yearGroup}>
+                <h2 className={index.yearTitle}>{year}</h2>
+                {posts.map((post: Overview, key: number) => (
+                  <Post key={key}
+                        date={post.date}
+                        imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
+                        href={`/posts/${post.slug}`}
+                        title={post.title}
+                        tag={post.tag.split(", ")}
+                        pinned={post.pinned}
+                        overview={post.overview} />
+                ))}
+                <div className={index.postDummy} />
+                <div className={index.postDummy} />
+                <div className={index.postDummy} />
+              </div>
             ))}
-            <div className={index.postDummy} />
-            <div className={index.postDummy} />
-            <div className={index.postDummy} />
           </section>
           <div className={index.category}>
             <Category categories={categories} />
