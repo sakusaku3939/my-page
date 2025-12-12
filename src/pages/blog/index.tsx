@@ -37,6 +37,34 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
         <meta name="twitter:title" content="aokiti blog" />
         <meta name="twitter:description" content="雑記などいろいろブログ" />
         <meta name="twitter:image" content="https://sakusaku3939.com/images/blog-header.jpg" />
+
+        {/* 構造化データ */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              "name": "aokiti blog",
+              "description": "雑記などいろいろブログ",
+              "url": "https://sakusaku3939.com/blog",
+              "author": {
+                "@type": "Person",
+                "name": "Aokiti"
+              },
+              "blogPost": articles.map(article => ({
+                "@type": "BlogPosting",
+                "headline": article.title,
+                "url": `https://sakusaku3939.com/blog/${article.slug}`,
+                "datePublished": article.date,
+                "author": {
+                  "@type": "Person",
+                  "name": "Aokiti"
+                }
+              }))
+            })
+          }}
+        />
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu lightMode={true} />

@@ -52,6 +52,34 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
         <meta name="twitter:title" content={article ? article.title : "aokiti blog"} />
         <meta name="twitter:description" content="雑記などいろいろブログ" />
         <meta name="twitter:image" content={ogImageUrl} />
+
+        {/* 構造化データ */}
+        {article && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "headline": article.title,
+                "url": `${baseUrl}/blog/${article.slug}`,
+                "datePublished": article.date,
+                "author": {
+                  "@type": "Person",
+                  "name": "Aokiti"
+                },
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "aokiti blog"
+                },
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": `${baseUrl}/blog/${article.slug}`
+                }
+              })
+            }}
+          />
+        )}
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu lightMode={true} />
