@@ -8,7 +8,7 @@ import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
-import BackgroundTriangleWrapper from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { BackgroundCircleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 import { getAllCategories, getPostOverview } from "@/model/PostServer";
 import type { GetStaticProps } from "next";
 import common from "@/styles/common.module.css";
@@ -98,10 +98,13 @@ const Index = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BackgroundTriangleWrapper>
+      <BackgroundCircleWrapper>
         <HamburgerMenu />
-        <h1 className={index.postTitle}>個人開発 ・
-          制作物など<span>{filterText?.length ? `「${filterText}」 の記事` : ""}</span></h1>
+        <div className={index.postTitle}>
+          <h2 className={index.englishTitle}>portfolio</h2>
+          <h1 className={index.japaneseTitle}>個人開発 ・ 制作物など</h1>
+          {filterText?.length > 0 && <span className={index.filterText}>「{filterText}」 の記事</span>}
+        </div>
         <div className={index.mobileCategory}>
           <MobileCategory categories={categories} />
         </div>
@@ -152,7 +155,7 @@ const Index = ({
           </div>
         </div>
         <FooterMenu />
-      </BackgroundTriangleWrapper>
+      </BackgroundCircleWrapper>
     </>
   );
 };
