@@ -8,9 +8,12 @@ export function renderTags(router: NextRouter, tags: string[]) {
 }
 
 export function renderCountTags(router: NextRouter, categories: { [tag: string]: number }[]) {
-  return categories.map((category: any, key) => (
-    <li onClick={(e) => handleTagClick(e, router, category.tag)} key={key}>{category.tag} ({category.count})</li>
-  ));
+  return categories.map((category: any, key) => {
+    const handleClick = (e: MouseEvent) => handleTagClick(e, router, category.tag);
+    return (
+      <li onClick={handleClick} key={key}>{category.tag} ({category.count})</li>
+    );
+  });
 }
 
 export function handleTagClick(e: MouseEvent, router: NextRouter, tag: string) {

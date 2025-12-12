@@ -2,12 +2,13 @@ import category from "@/components/molecule/Category/Category.module.css";
 import common from "@/styles/common.module.css";
 import { renderCountTags } from "@/model/PostClient";
 import { useRouter } from "next/router";
+import { memo } from "react";
 
 type Props = {
   categories: { [tag: string]: number }[],
 }
 
-const Category = ({ categories }: Props) => {
+const Category = memo(({ categories }: Props) => {
   const router = useRouter();
   return <>
     <aside className={category.aside}>
@@ -23,7 +24,7 @@ const Category = ({ categories }: Props) => {
       </div>
     </aside>
   </>;
-};
+});
 
 const PlaceholderCategory = () => {
   return (
@@ -32,5 +33,7 @@ const PlaceholderCategory = () => {
     </ul>
   );
 };
+
+Category.displayName = "Category";
 
 export default Category;
