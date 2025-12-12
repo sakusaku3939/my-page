@@ -1,0 +1,106 @@
+.alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    min-width: 300px;
+    max-width: 500px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+}
+
+.message {
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Success Alert */
+.success {
+    background: rgba(76, 175, 80, 0.9);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    color: white;
+}
+
+.success .closeButton {
+    color: white;
+}
+
+/* Error Alert */
+.error {
+    background: rgba(244, 67, 54, 0.9);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    color: white;
+}
+
+.error .closeButton {
+    color: white;
+}
+
+/* Info Alert */
+.info {
+    background: rgba(29, 161, 242, 0.9);
+    border: 1px solid rgba(29, 161, 242, 0.3);
+    color: white;
+}
+
+.info .closeButton {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .alert {
+        min-width: 280px;
+        max-width: 90vw;
+        top: 10px;
+    }
+
+    .content {
+        padding: 0.8rem 1rem;
+    }
+
+    .message {
+        font-size: 0.8rem;
+    }
+}

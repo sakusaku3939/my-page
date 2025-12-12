@@ -2,10 +2,21 @@ import Head from "next/head";
 import index from "./index.module.css";
 import { BackgroundGradientWrapper } from "@/components/atom/BackgroundGradientWrapper/BackgroundGradientWrapper";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Alert from "@/components/atom/Alert/Alert";
+import NFCWriter from "@/components/atom/NFCWriter/NFCWriter";
 
 const Index = () => {
   const qrRef = useRef<HTMLDivElement | null>(null);
+  const [alert, setAlert] = useState<{ message: string; type: "success" | "error" | "info" } | null>(null);
+
+  const showAlert = (message: string, type: "success" | "error" | "info") => {
+    setAlert({ message, type });
+  };
+
+  const closeAlert = () => {
+    setAlert(null);
+  };
 
   useEffect(() => {
     document.body.classList.add("no-scroll");
@@ -59,6 +70,22 @@ const Index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BackgroundGradientWrapper>
+        {alert && (
+          <Alert
+            message={alert.message}
+            type={alert.type}
+            onClose={closeAlert}
+          />
+        )}
+
+        <NFCWriter
+          onSuccess={(message) => showAlert(message, "success")}
+          onError={(message) => showAlert(message, "error")}
+          onInfo={(message) => showAlert(message, "info")}
+          url="https://x.com/aokiti_tech"
+          text="Follow @aokiti_tech on X!"
+        />
+
         <div className={index.qrCodeWrapper}>
           <div className={index.qrCode} ref={qrRef}>
             <Image src="/images/qrcode.svg" alt="QR Code" sizes="100%" fill />
