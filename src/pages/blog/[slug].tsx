@@ -11,6 +11,7 @@ import { getAdjacentArticles, getAllBlogSlugs, getBlogArticleBySlug } from "@/mo
 import { formatDate } from "@/utils/dateUtils";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
+import ShareButtons from "@/components/molecule/ShareButtons/ShareButtons";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { useBlogHeaderScroll } from "@/hooks/useBlogHeaderScroll";
@@ -113,6 +114,13 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
                 >
                   {article.body}
                 </ReactMarkdown>
+
+                {/* 共有ボタン */}
+                <ShareButtons
+                  url={`${baseUrl}/blog/${article.slug}`}
+                  title={article.title}
+                  description="雑記などいろいろブログ"
+                />
 
                 {/* 前後の記事ナビゲーション */}
                 {(adjacentArticles.prev || adjacentArticles.next) && (
