@@ -20,7 +20,7 @@ import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory"
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { CodeXml } from "lucide-react";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
-import { BackgroundCircleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 
 type PostData = {
   overview: any;
@@ -102,7 +102,7 @@ const PlaceholderPostList = ({ categories }: { categories: PostData["categories"
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BackgroundCircleWrapper>
+      <BackgroundWrapper>
         <HamburgerMenu />
         <h1 className={common.pageTitle}>
           <CodeXml size={40} />
@@ -146,7 +146,7 @@ const PlaceholderPostList = ({ categories }: { categories: PostData["categories"
           </div>
         </div>
         <FooterMenu />
-      </BackgroundCircleWrapper>
+      </BackgroundWrapper>
     </>
   );
 };

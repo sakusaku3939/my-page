@@ -7,7 +7,7 @@ import styles from "./index.module.css";
 import type { BlogArticleWithSummary } from "@/model/type/BlogArticle";
 import { getAllBlogArticles } from "@/model/BlogServer";
 import { formatDate } from "@/utils/dateUtils";
-import { BackgroundTriangleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 
@@ -66,7 +66,7 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
           }}
         />
       </Head>
-      <BackgroundTriangleWrapper>
+      <BackgroundWrapper>
         <HamburgerMenu lightMode={true} />
 
         {/* ヘッダーセクション */}
@@ -90,7 +90,7 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
         </div>
 
         <FooterMenu />
-      </BackgroundTriangleWrapper>
+      </BackgroundWrapper>
     </>
   );
 };

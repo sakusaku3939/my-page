@@ -6,7 +6,7 @@ import { faBriefcase, faChalkboardTeacher, faGraduationCap, faTrophy } from "@fo
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import TimelineImage from "@/components/molecule/TimelineImage/TimelineImage";
-import { BackgroundTriangleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 import { FileUser } from "lucide-react";
 
 const Index = () => {
@@ -17,7 +17,7 @@ const Index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BackgroundTriangleWrapper>
+      <BackgroundWrapper>
         <HamburgerMenu />
         <h1 className={common.pageTitle}>
           <FileUser size={36} />
@@ -190,7 +190,7 @@ const Index = () => {
         </section>
 
         <FooterMenu />
-      </BackgroundTriangleWrapper>
+      </BackgroundWrapper>
     </>
   );
 };

@@ -8,7 +8,7 @@ import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
-import { BackgroundCircleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 import { getAllCategories, getPostOverview } from "@/model/PostServer";
 import type { GetStaticProps } from "next";
 import common from "@/styles/common.module.css";
@@ -99,7 +99,7 @@ const Index = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BackgroundCircleWrapper>
+      <BackgroundWrapper>
         <HamburgerMenu />
         <h1 className={common.pageTitle}>
           <CodeXml size={36} />
@@ -157,7 +157,7 @@ const Index = ({
           </div>
         </div>
         <FooterMenu />
-      </BackgroundCircleWrapper>
+      </BackgroundWrapper>
     </>
   );
 };
