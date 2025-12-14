@@ -101,12 +101,13 @@ const Index = ({
       </Head>
       <BackgroundWrapper>
         <HamburgerMenu />
-        <h1 className={common.pageTitle}>
-          <CodeXml size={36} />
-          個人開発 ・ 制作物など
-        </h1>
-        {filterText?.length > 0 &&
-          <div className={index.postTitle}><span className={index.filterText}>「{filterText}」 の記事</span></div>}
+        <div className={index.postTitle}>
+          <h1 className={common.pageTitle}>
+            <CodeXml size={36} />
+            個人開発 ・ 制作物など
+          </h1>
+          {filterText?.length > 0 && <span className={index.filterText}>「{filterText}」 の記事</span>}
+        </div>
         <div className={index.mobileCategory}>
           <MobileCategory categories={categories} />
         </div>

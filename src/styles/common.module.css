@@ -18,7 +18,7 @@
 
 .pageTitle {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 800;
     margin: 0;
     line-height: 1.2;
@@ -27,9 +27,9 @@
     align-items: flex-end;
     justify-content: center;
     gap: 20px;
-    text-align: center;
-    padding: 56px 16px 64px;
+    padding: 64px 16px 72px;
     position: relative;
+    text-align: center;
 }
 
 .pageTitle svg {
@@ -74,9 +74,8 @@
     }
 
     .pageTitle {
-        font-size: 28px;
+        font-size: 24px;
         gap: 12px;
-        padding: 48px 16px 56px;
     }
 
     .pageTitle svg {

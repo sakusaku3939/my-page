@@ -23,7 +23,6 @@ const Index = () => {
           <FileUser size={36} />
           略歴・プロフィール
         </h1>
-
         <section className={common.section}>
           <h1 className={common.h1}>所属など</h1>
           <Timeline>

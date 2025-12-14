@@ -1,7 +1,11 @@
 .postTitle {
     text-align: center;
-    padding: 56px 16px 72px;
+    padding: 64px 16px 72px;
     position: relative;
+}
+
+.postTitle h1 {
+    padding: 0;
 }
 
 .filterText {
