@@ -116,9 +116,8 @@ const Index = ({
             {pinnedPosts.length > 0 && (
               <div className={index.yearGroup}>
                 {pinnedPosts.map((post: Overview, key: number) => (
-                  <div className={index.postCard}>
-                    <Post key={key}
-                          date={post.date}
+                  <div key={key} className={index.postCard}>
+                    <Post date={post.date}
                           imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
                           href={`/posts/${post.slug}`}
                           title={post.title}
@@ -136,9 +135,8 @@ const Index = ({
               <div key={year} className={index.yearGroup}>
                 <h2 className={index.yearTitle}>{year}</h2>
                 {posts.map((post: Overview, key: number) => (
-                  <div className={index.postCard}>
-                    <Post key={key}
-                          date={post.date}
+                  <div key={key} className={index.postCard}>
+                    <Post date={post.date}
                           imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
                           href={`/posts/${post.slug}`}
                           title={post.title}

@@ -66,10 +66,12 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
       case "row":
         return <>
           <div className={posts.row}>
-            {args.map((value: string, key: number) => <>
-              <ImageWithPlaceholder src={value} key={key} containerStyle={{ width: "100%" }} />
-              <div style={{ width: 3 }} />
-            </>)}
+            {args.map((value: string, key: number) => (
+              <React.Fragment key={key}>
+                <ImageWithPlaceholder src={value} containerStyle={{ width: "100%" }} />
+                <div style={{ width: 3 }} />
+              </React.Fragment>
+            ))}
           </div>
         </>;
 
