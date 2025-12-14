@@ -1,7 +1,7 @@
 .tag {
     overflow-x: scroll;
     white-space: nowrap;
-    margin: 0 auto 12px;
+    margin: 0 auto 20px;
     width: 82%;
     scrollbar-width: none;
 }

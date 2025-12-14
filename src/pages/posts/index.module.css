@@ -1,6 +1,6 @@
 .postTitle {
     text-align: center;
-    padding: 64px 16px 72px;
+    padding: 64px 16px;
     position: relative;
 }
 
@@ -105,7 +105,7 @@
     }
 
     .postTitle {
-        padding: 80px 16px 24px;
+        padding-bottom: 20px;
     }
 
     .yearGroup {
