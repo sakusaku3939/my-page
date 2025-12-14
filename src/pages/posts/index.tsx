@@ -14,6 +14,7 @@ import type { GetStaticProps } from "next";
 import common from "@/styles/common.module.css";
 import posts from "./posts.module.css";
 import Link from "next/link";
+import { CodeXml } from "lucide-react";
 
 type Props = {
   categories: { [tag: string]: number }[];
@@ -100,11 +101,12 @@ const Index = ({
       </Head>
       <BackgroundCircleWrapper>
         <HamburgerMenu />
-        <div className={index.postTitle}>
-          <div className={common.englishTitle}>portfolio</div>
-          <h1 className={common.japaneseTitle}>個人開発 ・ 制作物など</h1>
-          {filterText?.length > 0 && <span className={index.filterText}>「{filterText}」 の記事</span>}
-        </div>
+        <h1 className={common.pageTitle}>
+          <CodeXml size={36} />
+          個人開発 ・ 制作物など
+        </h1>
+        {filterText?.length > 0 &&
+          <div className={index.postTitle}><span className={index.filterText}>「{filterText}」 の記事</span></div>}
         <div className={index.mobileCategory}>
           <MobileCategory categories={categories} />
         </div>

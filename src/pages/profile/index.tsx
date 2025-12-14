@@ -7,6 +7,7 @@ import { Qualification, QualificationItem } from "@/components/organism/Qualific
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import TimelineImage from "@/components/molecule/TimelineImage/TimelineImage";
 import { BackgroundTriangleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
+import { FileUser } from "lucide-react";
 
 const Index = () => {
   return (
@@ -18,10 +19,10 @@ const Index = () => {
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu />
-        <div className={common.profileTitle}>
-          <div className={common.englishTitle}>Career & Profile</div>
-          <h1 className={common.japaneseTitle}>略歴・プロフィール</h1>
-        </div>
+        <h1 className={common.pageTitle}>
+          <FileUser size={36} />
+          略歴・プロフィール
+        </h1>
 
         <section className={common.section}>
           <h1 className={common.h1}>所属など</h1>

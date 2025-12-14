@@ -37,7 +37,8 @@
     z-index: 0;
 }
 
-.blogTitle {
+.pageTitle {
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 32px;
     font-weight: bold;
     color: white;
@@ -47,6 +48,10 @@
     position: relative;
     cursor: pointer;
     z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 16px;
 }
 
 /* メインコンテンツラッパー */
@@ -72,7 +77,7 @@
 
 /* レスポンシブ対応 - ヘッダー */
 @media screen and (max-width: 768px) {
-    .blogTitle {
+    .pageTitle {
         font-size: 24px;
     }
 
@@ -82,7 +87,13 @@
 }
 
 @media screen and (max-width: 480px) {
-    .blogTitle {
+    .pageTitle {
         font-size: 20px;
+        gap: 12px;
+    }
+
+    .pageTitle svg {
+        width: 28px;
+        height: 28px;
     }
 }

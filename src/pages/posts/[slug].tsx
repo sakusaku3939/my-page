@@ -18,6 +18,7 @@ import index from "./index.module.css";
 import { PlaceholderPost } from "@/components/organism/PostsList/PostsList";
 import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
+import { CodeXml } from "lucide-react";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { BackgroundCircleWrapper } from "@/components/atom/BackgroundTriangleWrapper/BackgroundTriangleWrapper";
 
@@ -103,10 +104,10 @@ const PlaceholderPostList = ({ categories }: { categories: PostData["categories"
       </Head>
       <BackgroundCircleWrapper>
         <HamburgerMenu />
-        <div className={index.postTitle}>
-          <h2 className={common.englishTitle}>portfolio</h2>
-          <h1 className={common.japaneseTitle}>個人開発 ・ 制作物など</h1>
-        </div>
+        <h1 className={common.pageTitle}>
+          <CodeXml size={40} />
+          個人開発 ・ 制作物など
+        </h1>
         <div className={index.mobileCategory}>
           <MobileCategory categories={categories} />
         </div>

@@ -86,7 +86,9 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
 
         {/* ヘッダーセクション */}
         <header className={commonStyles.blogHeader}>
-          <h1 className={commonStyles.blogTitle} onClick={() => router.push("/blog")}>雑記などいろいろブログ</h1>
+          <h1 className={commonStyles.pageTitle} onClick={() => router.push("/blog")}>
+            雑記などいろいろブログ
+          </h1>
         </header>
 
         {/* 記事詳細セクション */}

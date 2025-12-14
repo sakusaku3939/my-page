@@ -15,10 +15,9 @@ const Index = () => {
       </Head>
       <BackgroundTriangleWrapper>
         <HamburgerMenu />
-        <div className={common.profileTitle}>
-          <div className={common.englishTitle}>Skills & Technologies</div>
-          <h1 className={common.japaneseTitle}>スキル</h1>
-        </div>
+        <h1 className={common.pageTitle}>
+          スキル
+        </h1>
 
         <section className={common.section}>
           <Skills>

@@ -71,7 +71,9 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
 
         {/* ヘッダーセクション */}
         <header className={commonStyles.blogHeader}>
-          <h1 className={commonStyles.blogTitle}>雑記などいろいろブログ</h1>
+          <h1 className={commonStyles.pageTitle}>
+            雑記などいろいろブログ
+          </h1>
         </header>
 
         {/* 記事一覧セクション */}
@@ -132,7 +134,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
 
 export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
   const articles = getAllBlogArticles();
-  
+
   return {
     props: {
       articles
