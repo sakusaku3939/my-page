@@ -34,6 +34,42 @@
 
 .pageTitle svg {
     transform: translateY(1px);
+    transition: transform 0.3s ease;
+}
+
+.iconFadeIn {
+    animation: iconFadeIn 0.8s ease-out;
+}
+
+@keyframes iconFadeIn {
+    0% {
+        transform: translateY(1px) scale(0.7) rotate(-20deg);
+    }
+    50% {
+        transform: translateY(1px) scale(1.05) rotate(5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(1px) scale(1) rotate(0deg);
+    }
+}
+
+.iconStretch {
+    animation: iconStretch 0.6s ease-out;
+    transform-origin: bottom center;
+}
+
+@keyframes iconStretch {
+    0% {
+        transform: translateY(1px) scaleY(0.8) scaleX(0.2);
+    }
+    50% {
+        transform: translateY(1px) scaleY(1.02) scaleX(1.01);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(1px) scaleY(1) scaleX(1);
+    }
 }
 
 .tag li {
@@ -81,5 +117,13 @@
     .pageTitle svg {
         width: 32px;
         height: 32px;
+    }
+
+    .iconFadeIn:hover {
+        transform: translateY(1px) scale(1.08) rotate(3deg);
+    }
+
+    .iconStretch:hover {
+        transform: translateY(1px) scaleY(1.03) scaleX(1.01);
     }
 }

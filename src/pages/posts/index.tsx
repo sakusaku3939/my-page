@@ -103,7 +103,7 @@ const Index = ({
         <HamburgerMenu />
         <div className={index.postTitle}>
           <h1 className={common.pageTitle}>
-            <CodeXml size={36} />
+            <CodeXml size={36} className={common.iconFadeIn} />
             個人開発 ・ 制作物など
           </h1>
           {filterText?.length > 0 && <span className={index.filterText}>「{filterText}」 の記事</span>}

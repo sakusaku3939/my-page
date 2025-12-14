@@ -20,7 +20,7 @@ const Index = () => {
       <BackgroundWrapper>
         <HamburgerMenu />
         <h1 className={common.pageTitle}>
-          <FileUser size={36} />
+          <FileUser size={36} className={common.iconStretch} />
           略歴・プロフィール
         </h1>
         <section className={common.section}>
