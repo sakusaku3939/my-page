@@ -13,9 +13,12 @@ date: 2023.1.25
 # br-16px
 
 # リンク
-- GitHub  
-  https://github.com/sakusaku3939/discord-vc-bot
 
+- Discordでボイスチャンネルを移動できるbotを作って3年運用した話 - Qiita
+  https://qiita.com/sakusaku3939/items/c94676f8eb7e4974fe96
+
+- GitHub
+  https://github.com/sakusaku3939/discord-vc-bot
 
 # 使用技術
 言語 ・・・ TypeScript
