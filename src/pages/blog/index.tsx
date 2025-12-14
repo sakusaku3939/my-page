@@ -10,12 +10,15 @@ import { formatDate } from "@/utils/dateUtils";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
+import { useBlogHeaderScroll } from "@/hooks/useBlogHeaderScroll";
 
 type BlogIndexProps = {
   articles: BlogArticleWithSummary[];
 };
 
 const BlogIndex = ({ articles }: BlogIndexProps) => {
+  const isScrolledPastHeader = useBlogHeaderScroll();
+
   return (
     <>
       <Head>
@@ -67,7 +70,7 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
         />
       </Head>
       <BackgroundWrapper>
-        <HamburgerMenu lightMode={true} />
+        <HamburgerMenu lightMode={!isScrolledPastHeader} />
 
         {/* ヘッダーセクション */}
         <header className={commonStyles.blogHeader}>

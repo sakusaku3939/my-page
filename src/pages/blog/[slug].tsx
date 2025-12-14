@@ -13,6 +13,7 @@ import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
+import { useBlogHeaderScroll } from "@/hooks/useBlogHeaderScroll";
 
 type BlogDetailProps = {
   article: BlogArticle | null;
@@ -24,6 +25,7 @@ type BlogDetailProps = {
 
 const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
   const router = useRouter();
+  const isScrolledPastHeader = useBlogHeaderScroll();
   const formattedDate = article ? formatDate(article.date) : "";
 
   const baseUrl = "https://sakusaku3939.com";
@@ -82,7 +84,7 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
         )}
       </Head>
       <BackgroundWrapper>
-        <HamburgerMenu lightMode={true} />
+        <HamburgerMenu lightMode={!isScrolledPastHeader} />
 
         {/* ヘッダーセクション */}
         <header className={commonStyles.blogHeader}>
