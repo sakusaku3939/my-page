@@ -33,7 +33,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title, description = "
 
   return (
     <div className={styles.shareButtons}>
-      <h3 className={styles.shareTitle}>この記事をシェア</h3>
+      <h3 className={styles.shareTitle}>記事をシェア</h3>
       <div className={styles.buttonGroup}>
         <button
           className={`${styles.shareButton} ${styles.x}`}
