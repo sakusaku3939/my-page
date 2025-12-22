@@ -341,3 +341,42 @@
         margin: auto;
     }
 }
+
+/* 数式スタイル */
+.articleBody .katex-display {
+    margin: 24px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    text-align: center;
+}
+
+.articleBody .katex {
+    font-size: 1.1em;
+}
+
+.articleBody .katex-display .katex {
+    font-size: 1.2em;
+}
+
+/* 数式のレスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .articleBody .katex-display {
+        margin: 16px 0;
+        font-size: 0.9em;
+    }
+
+    .articleBody .katex {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .articleBody .katex-display {
+        margin: 12px 0;
+        font-size: 0.8em;
+    }
+
+    .articleBody .katex {
+        font-size: 0.9em;
+    }
+}

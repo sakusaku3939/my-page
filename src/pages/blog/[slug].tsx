@@ -4,6 +4,8 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./[slug].module.css";
 import type { BlogArticle } from "@/model/type/BlogArticle";
@@ -40,6 +42,12 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
         <title>{article ? `${article.title} | aokiti blog` : "Aokiti | Blog"}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+          integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn"
+          crossOrigin="anonymous"
+        />
         <meta name="robots" content="index, follow" />
 
         {/* OGP Meta Tags */}
@@ -109,8 +117,8 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
                 <time className={styles.articleDate}>{formattedDate}</time>
                 <ReactMarkdown
                   className={styles.articleBody}
-                  remarkPlugins={[remarkGfm, remarkBreaks]}
-                  rehypePlugins={[rehypeRaw]}
+                  remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
+                  rehypePlugins={[rehypeRaw, rehypeKatex]}
                 >
                   {article.body}
                 </ReactMarkdown>
