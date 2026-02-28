@@ -342,6 +342,71 @@
     }
 }
 
+/* 脚注スタイル */
+.articleBody [data-footnotes] {
+    margin-top: 48px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-grey);
+}
+
+.articleBody [data-footnotes] h2 {
+    display: none;
+}
+
+.articleBody [data-footnotes] ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.articleBody [data-footnotes] li {
+    margin-bottom: 4px;
+}
+
+.articleBody [data-footnotes] a {
+    word-break: break-all;
+}
+
+/* 本文中の脚注参照番号 */
+.articleBody sup {
+    font-size: 12px;
+    line-height: 0;
+    vertical-align: super;
+}
+
+.articleBody sup a {
+    color: #667eea;
+    text-decoration: none;
+    padding: 0 2px;
+}
+
+.articleBody sup a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+    .articleBody sup a {
+        color: #8b9dff;
+    }
+
+    .articleBody sup a:hover {
+        color: #a89dd9;
+    }
+}
+
+/* 脚注の戻るリンク */
+.articleBody [data-footnotes] a[data-footnote-backref] {
+    text-decoration: none;
+    color: var(--text-grey);
+    margin-left: 4px;
+    font-size: 12px;
+}
+
+.articleBody [data-footnotes] a[data-footnote-backref]:hover {
+    color: var(--text-grey);
+}
+
 /* 数式スタイル */
 .articleBody .katex-display {
     margin: 24px 0;
