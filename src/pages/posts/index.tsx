@@ -6,7 +6,7 @@ import Head from "next/head";
 import MobileCategory from "@/components/molecule/MobileCategory/MobileCategory";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 import { getAllCategories, getPostOverview } from "@/model/PostServer";
@@ -149,7 +149,7 @@ const Index = ({
             )}
             {groupedByYear.map(([year, posts]) => (
               <div key={year} className={index.yearGroup}>
-                <h2 className={index.yearTitle}>{year}</h2>
+                <TypewriterYearTitle year={year} />
                 {posts.map((post: Overview, key: number) => (
                   <div key={key} className={index.postCard}>
                     <Post date={post.date}
@@ -174,6 +174,53 @@ const Index = ({
         <FooterMenu />
       </BackgroundWrapper>
     </>
+  );
+};
+
+const TypewriterYearTitle = ({ year }: { year: string }) => {
+  const [displayText, setDisplayText] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLHeadingElement>(null);
+
+  const startTyping = useCallback(() => {
+    if (started) return;
+    setStarted(true);
+    setIsTyping(true);
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setDisplayText(year.slice(0, i));
+      if (i >= year.length) {
+        clearInterval(interval);
+        setIsTyping(false);
+      }
+    }, 80);
+  }, [year, started]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          startTyping();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [startTyping]);
+
+  return (
+    <h2
+      ref={ref}
+      className={`${index.yearTitle} ${isTyping ? index.yearTitleTyping : index.yearTitleDone}`}
+    >
+      {displayText}
+    </h2>
   );
 };
 

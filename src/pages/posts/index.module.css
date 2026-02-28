@@ -52,6 +52,23 @@
     margin-right: 16px;
 }
 
+@keyframes typewriter-cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.yearTitleTyping::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 2px;
+    animation: typewriter-cursor-blink 0.7s step-end infinite;
+    color: currentColor;
+}
+
+.yearTitleDone::after {
+    content: '';
+}
+
 .postCard {
     width: 40%;
     max-width: 420px;
