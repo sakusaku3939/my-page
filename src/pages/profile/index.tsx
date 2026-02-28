@@ -7,7 +7,7 @@ import { Qualification, QualificationItem } from "@/components/organism/Qualific
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import TimelineImage from "@/components/molecule/TimelineImage/TimelineImage";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
-import { FileUser } from "lucide-react";
+
 
 const Index = () => {
   return (
@@ -20,7 +20,27 @@ const Index = () => {
       <BackgroundWrapper>
         <HamburgerMenu />
         <h1 className={common.pageTitle}>
-          <FileUser size={36} className={common.iconStretch} />
+          {/* Lucide file-user https://lucide.dev/icons/file-user */}
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+               className={common.iconStretch}>
+            <defs>
+              <style>{`
+                @keyframes file-user-draw {
+                  to { stroke-dashoffset: 0; }
+                }
+                .fu-p1 { stroke-dasharray: 65; stroke-dashoffset: 65; animation: file-user-draw 0.5s ease forwards 0s; }
+                .fu-p2 { stroke-dasharray: 13; stroke-dashoffset: 13; animation: file-user-draw 0.2s ease forwards 0.45s; }
+                .fu-p3 { stroke-dasharray: 13; stroke-dashoffset: 13; animation: file-user-draw 0.25s ease forwards 0.6s; }
+                .fu-c1 { stroke-dasharray: 18.85; stroke-dashoffset: 18.85; animation: file-user-draw 0.3s ease forwards 0.8s; }
+              `}</style>
+            </defs>
+            <path className="fu-p1"
+                  d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+            <path className="fu-p2" d="M14 2v5a1 1 0 0 0 1 1h5" />
+            <path className="fu-p3" d="M16 22a4 4 0 0 0-8 0" />
+            <circle className="fu-c1" cx="12" cy="15" r="3" />
+          </svg>
           略歴・プロフィール
         </h1>
         <section className={common.section}>

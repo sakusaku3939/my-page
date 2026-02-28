@@ -14,7 +14,6 @@ import type { GetStaticProps } from "next";
 import common from "@/styles/common.module.css";
 import posts from "./posts.module.css";
 import Link from "next/link";
-import { CodeXml } from "lucide-react";
 
 type Props = {
   categories: { [tag: string]: number }[];
@@ -103,7 +102,24 @@ const Index = ({
         <HamburgerMenu />
         <div className={index.postTitle}>
           <h1 className={common.pageTitle}>
-            <CodeXml size={36} className={common.iconFadeIn} />
+            {/* Lucide code-xml https://lucide.dev/icons/code-xml */}
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                 className={common.iconFadeIn}>
+              <defs>
+                <style>{`
+                @keyframes code-xml-draw {
+                  to { stroke-dashoffset: 0; }
+                }
+                .cx-right { stroke-dasharray: 12; stroke-dashoffset: 12; animation: code-xml-draw 0.25s ease forwards 0s; }
+                .cx-left  { stroke-dasharray: 12; stroke-dashoffset: 12; animation: code-xml-draw 0.25s ease forwards 0.2s; }
+                .cx-slash { stroke-dasharray: 17; stroke-dashoffset: 17; animation: code-xml-draw 0.3s ease forwards 0.4s; }
+              `}</style>
+              </defs>
+              <path className="cx-right" d="m18 16 4-4-4-4" />
+              <path className="cx-left"  d="m6 8-4 4 4 4" />
+              <path className="cx-slash" d="m14.5 4-5 16" />
+            </svg>
             個人開発 ・ 制作物など
           </h1>
           {filterText?.length > 0 && <span className={index.filterText}>「{filterText}」 の記事</span>}
