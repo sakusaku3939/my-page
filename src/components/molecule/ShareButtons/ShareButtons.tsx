@@ -10,10 +10,11 @@ type ShareButtonsProps = {
 
 const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title, description = "" }) => {
   const encodedUrl = encodeURIComponent(url);
-  const encodedTitle = encodeURIComponent(title);
+
+  const encodedShareText = encodeURIComponent(`${title} - aokiti blog\n${url}`);
 
   const shareLinks = {
-    x: `https://x.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+    x: `https://x.com/intent/tweet?text=${encodedShareText}`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
     hatena: `https://b.hatena.ne.jp/entry/s/${url.replace(/^https?:\/\//, "")}`
   };
