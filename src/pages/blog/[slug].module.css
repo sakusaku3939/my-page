@@ -207,6 +207,19 @@
 
 /* レスポンシブ対応 */
 @media screen and (max-width: 768px) {
+    .articleTitle {
+        font-size: 28px;
+    }
+
+    .articleBody h1 {
+        margin-top: 56px;
+    }
+
+    .articleBody .katex-display {
+        margin: 16px 0;
+        font-size: 0.9em;
+    }
+
     .articleContent {
         padding: 16px 16px;
     }
@@ -425,11 +438,6 @@
 
 /* 数式のレスポンシブ対応 */
 @media screen and (max-width: 768px) {
-    .articleBody .katex-display {
-        margin: 16px 0;
-        font-size: 0.9em;
-    }
-
     .articleBody .katex {
         font-size: 1em;
     }

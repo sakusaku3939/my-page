@@ -82,6 +82,11 @@
     }
 
     .blogHeader {
-        margin-bottom: 32px;
+        height: 140px;
+        margin-bottom: 16px;
+    }
+
+    .pageTitle {
+        font-size: 24px;
     }
 }
