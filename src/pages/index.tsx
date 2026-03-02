@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import index from "./index.module.css";
 import SnsList from "@/components/molecule/SnsList/SnsList";
 import { PostsList } from "@/components/organism/PostsList/PostsList";
@@ -9,10 +9,30 @@ import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu, Menu } from "@/components/molecule/Menu/Menu";
 import { BackgroundGradientWrapper } from "@/components/atom/BackgroundGradientWrapper/BackgroundGradientWrapper";
 
+const TITLE_TEXT = "Aokiti";
+const TYPING_SPEED = 90;
+
 const Index = () => {
   const router = useRouter();
   const [clickCount, setClickCount] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [displayedText, setDisplayedText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    let i = 0;
+    setDisplayedText("");
+    setShowCursor(true);
+    const interval = setInterval(() => {
+      i++;
+      setDisplayedText(TITLE_TEXT.slice(0, i));
+      if (i >= TITLE_TEXT.length) {
+        clearInterval(interval);
+        setTimeout(() => setShowCursor(false), 300);
+      }
+    }, TYPING_SPEED);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleTitleClick = () => {
     const newCount = clickCount + 1;
@@ -47,7 +67,10 @@ const Index = () => {
         <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
         <section className={index.header}>
           <div className={index.title}>
-            <span onClick={handleTitleClick}>Aokiti</span>
+            <span onClick={handleTitleClick}>
+              {displayedText}
+              {showCursor && <span className={index.cursor}>|</span>}
+            </span>
           </div>
           <div className={index.subtitle}>
             <span>Keio SFC B3</span>
