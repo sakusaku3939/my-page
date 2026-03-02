@@ -1,6 +1,6 @@
 ---
 title: Google Scholarから自動で論文を取り込んでWordPressに反映するSlackワークフローを作った
-date: 2025.12.2
+date: 2026.2.28
 ---
 
 # 背景
