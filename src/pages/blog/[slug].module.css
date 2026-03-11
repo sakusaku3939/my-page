@@ -151,7 +151,7 @@
     width: 100%;
     height: auto;
     border-radius: 4px;
-    margin: -16px 0 16px;
+    margin: 0;
 }
 
 .articleBody code {
@@ -357,9 +357,9 @@
 
 /* 脚注スタイル */
 .articleBody [data-footnotes] {
-    margin-top: 48px;
+    margin-top: 56px;
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 0.5;
     color: var(--text-grey);
 }
 
