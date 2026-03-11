@@ -154,6 +154,38 @@
     margin: 0;
 }
 
+/* 複数画像の横並び */
+.imageRow {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin: 0 0 32px 0;
+    align-items: flex-start;
+}
+
+.imageRowItem {
+    flex: 1;
+    min-width: 0;
+}
+
+.imageRowItem img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .imageRow {
+        flex-direction: column;
+    }
+
+    .imageRowItem {
+        width: 100%;
+    }
+}
+
 .articleBody code {
     background: #f5f5f5;
     padding: 2px 6px;

@@ -8,6 +8,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./[slug].module.css";
+import React from "react";
 import type { BlogArticle } from "@/model/type/BlogArticle";
 import { getAdjacentArticles, getAllBlogSlugs, getBlogArticleBySlug } from "@/model/BlogServer";
 import { formatDate } from "@/utils/dateUtils";
@@ -119,6 +120,30 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
                   className={styles.articleBody}
                   remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
                   rehypePlugins={[rehypeRaw, rehypeKatex]}
+                  components={{
+                    p: ({ children }) => {
+                      const childArray = React.Children.toArray(children);
+                      const imgChildren = childArray.filter(
+                        (child) => React.isValidElement(child) && child.type === "img"
+                      );
+                      // p内の要素がすべてimgまたは空白テキストの場合、横並びにする
+                      const nonEmptyChildren = childArray.filter(
+                        (child) => !(typeof child === "string" && child.trim() === "")
+                      );
+                      if (nonEmptyChildren.length >= 2 && nonEmptyChildren.length === imgChildren.length) {
+                        return (
+                          <div className={styles.imageRow}>
+                            {nonEmptyChildren.map((child, i) => (
+                              <div key={i} className={styles.imageRowItem}>
+                                {child}
+                              </div>
+                            ))}
+                          </div>
+                        );
+                      }
+                      return <p>{children}</p>;
+                    },
+                  }}
                 >
                   {article.body}
                 </ReactMarkdown>
