@@ -391,7 +391,7 @@
 .articleBody [data-footnotes] {
     margin-top: 56px;
     font-size: 14px;
-    line-height: 0.5;
+    line-height: 1.2;
     color: var(--text-grey);
 }
 
@@ -406,6 +406,10 @@
 
 .articleBody [data-footnotes] li {
     margin-bottom: 4px;
+}
+
+.articleBody [data-footnotes] p {
+    margin-bottom: 16px;
 }
 
 .articleBody [data-footnotes] a {
