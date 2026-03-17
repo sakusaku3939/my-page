@@ -29,7 +29,7 @@
     "gray-matter": "^4.0.3",
     "katex": "^0.16.27",
     "lucide-react": "^0.561.0",
-    "next": "^16.1.5",
+    "next": "^16.1.7",
     "nprogress": "^0.2.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
