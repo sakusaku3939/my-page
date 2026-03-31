@@ -73,7 +73,7 @@ const Index = () => {
             </span>
           </div>
           <div className={index.subtitle}>
-            <span>Keio SFC B3</span>
+            <span>Keio SFC B4</span>
             <span>RG <NoColorLink href="https://d-hacks.jn.sfc.keio.ac.jp/" title="d-hacks"
                                   target="_blank" /></span>
             <span>アプリ開発, 深層学習</span>
