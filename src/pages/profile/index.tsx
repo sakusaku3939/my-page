@@ -113,7 +113,7 @@ const Index = () => {
               />
               <TimeLineLink
                 description="青木勇樹さん(環2)が令和6年度 廃棄物資源循環学会関東支部 講演会・研究発表会で「優秀ポスター賞」を受賞 | 慶應義塾大学 湘南藤沢キャンパス（SFC）"
-                href="https://www.sfc.keio.ac.jp/news/025657.html"
+                href="https://www.keio.ac.jp/ja/sfc-pem/news/20250314-1/"
               />
             </TimeLineItem>
           </Timeline>
@@ -136,7 +136,7 @@ const Index = () => {
                 target="_self"
               />
               <TimeLineLink
-                description="【発表】 学部2年 青木君が研究内容を情報処理学会第82回UBI研究会で発表しました – “一般物体検出とLSTMを用いた画像に基づく屋内位置推定” | Nakazawa and Okoshi Lab."
+                description={`【発表】 学部2年 青木君が研究内容を情報処理学会第82回UBI研究会で発表しました – "一般物体検出とLSTMを用いた画像に基づく屋内位置推定" | Nakazawa and Okoshi Lab.`}
                 href="https://www.jn.sfc.keio.ac.jp/%e3%80%90%e7%99%ba%e8%a1%a8%e3%80%91%e5%ad%a6%e9%83%a82%e5%b9%b4-%e9%9d%92%e6%9c%a8%e5%90%9b%e3%81%8c%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9%e3%82%92%e6%83%85%e5%a0%b1%e5%87%a6%e7%90%86%e5%ad%a6%e4%bc%9a/?utm_campaign=shareaholic&utm_medium=copy_link&utm_source=bookmark"
               />
             </TimeLineItem>
@@ -162,7 +162,7 @@ const Index = () => {
               文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出」について一般論文ポスター発表を行いました。（Poster,
               国内, 査読なし）
               <TimeLineLink
-                description="【発表】学部3年 青木君が研究内容をMIRU 2025で発表しました – “Dy-YOLO-World: 文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出” | Nakazawa and Okoshi Lab."
+                description={`【発表】学部3年 青木君が研究内容をMIRU 2025で発表しました – "Dy-YOLO-World: 文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出" | Nakazawa and Okoshi Lab.`}
                 href="https://www.jn.sfc.keio.ac.jp/%e3%80%90%e7%99%ba%e8%a1%a8%e3%80%91%e5%ad%a6%e9%83%a83%e5%b9%b4-%e9%9d%92%e6%9c%a8%e5%90%9b%e3%81%8c%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9%e3%82%92miru-2025%e3%81%a7%e7%99%ba%e8%a1%a8%e3%81%97%e3%81%be/"
               />
             </TimeLineItem>
