@@ -46,7 +46,6 @@ const Index = () => {
         <section className={common.section}>
           <h1 className={common.h1}>所属</h1>
           <Timeline>
-            <TimeLineItem date="2019.4 - 2023.3" icon={faGraduationCap} title="東京都立新宿山吹高校 情報科" />
             <TimeLineItem date="2019.8 - 2022.3" icon={faBriefcase} title="FRCロボコンチーム BWW" open={false}>
               高1〜高3に世界級のロボコン FRC（FIRST Robotics
               Competition）のチーム「BWW」に初期メンバーとして活動しました。JavaやArduinoによるロボット制御のプログラミングを担当したほか、公式Webサイトの制作、YouTube動画編集、ブログなどでの広報活動を行いました。
@@ -67,10 +66,17 @@ const Index = () => {
               />
             </TimeLineItem>
             <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
+            <TimeLineItem date="2024.7 - 現在" icon={faGraduationCap} title="中澤・大越研究室 jnroot">
+              中澤・大越研究室のネットワーク運用組織 jnroot と gpuroot に所属し、ネットワーク・仮想化基盤・Webサービスの横断的な運用保守を担当しています。L2/L3障害切り分け、APクラスター・Proxmox設定の最適化、WordPressなど複数Webサイトの運用、AI研究基盤を支えるGPUサーバーの保守・障害対応など幅広い業務に携わっています。
+              <TimeLineLink
+                description="KG SysNet"
+                href="https://www.jn.sfc.keio.ac.jp/sysnet/"
+              />
+            </TimeLineItem>
             <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="中澤・大越研究室 RG d-hacks" open={true}>
               1春からRGのd-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
               <TimeLineLink
-                description="d-hacks"
+                description="KG d-hacks"
                 href="https://d-hacks.jn.sfc.keio.ac.jp/"
               />
             </TimeLineItem>
@@ -158,7 +164,7 @@ const Index = () => {
           <h1 className={common.h1}>受賞歴</h1>
           <Timeline>
             <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞" open={true}>
-              アプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」 を発表しました。1次・2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
+              高校時代にアプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」 を発表しました。1次・2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
               <TimelineImage
                 title="プレゼン原稿表示アプリ「Presc」"
                 period="2021年6月 - 現在"
