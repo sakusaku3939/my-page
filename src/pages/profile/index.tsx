@@ -67,14 +67,16 @@ const Index = () => {
             </TimeLineItem>
             <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
             <TimeLineItem date="2024.7 - 現在" icon={faGraduationCap} title="中澤・大越研究室 jnroot">
-              中澤・大越研究室のネットワーク運用組織 jnroot と gpuroot に所属し、ネットワーク・仮想化基盤・Webサービスの横断的な運用保守を担当しています。L2/L3障害切り分け、APクラスター・Proxmox設定の最適化、WordPressなど複数Webサイトの運用、AI研究基盤を支えるGPUサーバーの保守・障害対応など幅広い業務に携わっています。
+              中澤・大越研究室のネットワーク運用組織 jnroot & gpuroot
+              に所属し、ネットワーク・仮想化基盤・Webサービスの横断的な運用保守を担当しています。L2/L3障害切り分け、APクラスター・Proxmox設定の最適化、WordPressなど複数Webサイトの運用、AI研究基盤を支えるGPUサーバーの保守・障害対応など幅広い業務に携わっています。
               <TimeLineLink
                 description="KG SysNet"
                 href="https://www.jn.sfc.keio.ac.jp/sysnet/"
               />
             </TimeLineItem>
             <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="中澤・大越研究室 RG d-hacks" open={true}>
-              1春からRGのd-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。
+              1春からRGのd-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。<br />
+              現在は40人規模の研究グループのリーダーを務め、毎週のグループ輪読会や勉強会の設計、研究室運営に注力しています。
               <TimeLineLink
                 description="KG d-hacks"
                 href="https://d-hacks.jn.sfc.keio.ac.jp/"
@@ -200,6 +202,10 @@ const Index = () => {
                 description="青木勇樹さん(環2)が令和6年度 廃棄物資源循環学会関東支部 講演会・研究発表会で「優秀ポスター賞」を受賞 | 慶應義塾大学 湘南藤沢キャンパス（SFC）"
                 href="https://www.keio.ac.jp/ja/sfc-pem/news/20250314-1/"
               />
+            </TimeLineItem>
+            <TimeLineItem date="2025.7" icon={faTrophy} title="SFC山岸学生プロジェクト支援制度 採択" open={false}>
+              2025年度春学期募集のSFCの山岸学生プロジェクト支援制度において、研究テーマ「Dy-YOLO-World:
+              文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出」が採択されました。研究助成金をいただき、2025年4月～2026年3月までの1年間研究活動を行いました。
             </TimeLineItem>
           </Timeline>
 
