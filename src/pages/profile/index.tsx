@@ -2,7 +2,14 @@ import common from "@/styles/common.module.css";
 import Head from "next/head";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { Timeline, TimeLineItem, TimeLineLink } from "@/components/organism/Timeline/Timeline";
-import { faBriefcase, faChalkboardTeacher, faGraduationCap, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBookOpen,
+  faBriefcase,
+  faChalkboardTeacher,
+  faFileAlt,
+  faGraduationCap,
+  faTrophy
+} from "@fortawesome/free-solid-svg-icons";
 import { Qualification, QualificationItem } from "@/components/organism/Qualification/Qualification";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import TimelineImage from "@/components/molecule/TimelineImage/TimelineImage";
@@ -65,7 +72,7 @@ const Index = () => {
                 href="https://bwwfrcteam.blogspot.com/"
               />
             </TimeLineItem>
-            <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
+            <TimeLineItem date="2023.4 - 2027.3" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
             <TimeLineItem date="2024.7 - 現在" icon={faGraduationCap} title="中澤・大越研究室 jnroot">
               中澤・大越研究室のネットワーク運用組織 jnroot & gpuroot
               に所属し、ネットワーク・仮想化基盤・Webサービスの横断的な運用保守を担当しています。L2/L3障害切り分け、APクラスター・Proxmox設定の最適化、WordPressなど複数Webサイトの運用、AI研究基盤を支えるGPUサーバーの保守・障害対応など幅広い業務に携わっています。
@@ -161,9 +168,17 @@ const Index = () => {
                 href="https://www.jn.sfc.keio.ac.jp/%e3%80%90%e7%99%ba%e8%a1%a8%e3%80%91%e5%ad%a6%e9%83%a83%e5%b9%b4-%e9%9d%92%e6%9c%a8%e5%90%9b%e3%81%8c%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9%e3%82%92miru-2025%e3%81%a7%e7%99%ba%e8%a1%a8%e3%81%97%e3%81%be/"
               />
             </TimeLineItem>
+            <TimeLineItem date="2025.7" icon={faFileAlt} title="SFC山岸学生プロジェクト支援制度 採択" open={false}>
+              2025年度春学期募集のSFCの山岸学生プロジェクト支援制度において、研究テーマ「Dy-YOLO-World:
+              文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出」が採択されました。研究助成金をいただき、2025年4月～2026年3月までの1年間研究活動に取り組みました。
+              <TimeLineLink
+                description="山岸学生プロジェクト支援制度 | 10th Anniversary Commemorative Booklet"
+                href="https://www.sfc.keio.ac.jp/doc/Yamagishi1203.pdf"
+              />
+            </TimeLineItem>
           </Timeline>
 
-          <h1 className={common.h1}>受賞歴</h1>
+          <h1 className={common.h1}>受賞 ・ 取材歴</h1>
           <Timeline>
             <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞" open={true}>
               高校時代にアプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」 を発表しました。1次・2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
@@ -203,9 +218,15 @@ const Index = () => {
                 href="https://www.keio.ac.jp/ja/sfc-pem/news/20250314-1/"
               />
             </TimeLineItem>
-            <TimeLineItem date="2025.7" icon={faTrophy} title="SFC山岸学生プロジェクト支援制度 採択" open={false}>
-              2025年度春学期募集のSFCの山岸学生プロジェクト支援制度において、研究テーマ「Dy-YOLO-World:
-              文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出」が採択されました。研究助成金をいただき、2025年4月～2026年3月までの1年間研究活動を行いました。
+            <TimeLineItem date="2026.4" icon={faBookOpen} title="東京書籍 新編情報Ⅰ 教科書掲載" open={false}>
+              令和8年度発行の東京書籍 「新編情報Ⅰ」 と 「情報Ⅰ Step&Forward!」
+              に、高校時代の取り組みが取材・掲載されました。全国の高校生が使用する情報科の教科書に事例として紹介していただきました。
+              <TimelineImage
+                title="東京書籍「新編情報Ⅰ」"
+                period="令和8年度発行"
+                imageUrl="/timeline/textbook.png"
+                showModal={true}
+              />
             </TimeLineItem>
           </Timeline>
 
