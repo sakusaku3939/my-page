@@ -126,10 +126,6 @@ const Index = () => {
                           title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）" open={false}>
               研究テーマ 「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」 について、情報処理学会の
               UBI82研究会にて発表しました。（Full-paper, 国内, 査読無し）
-              <TimeLineLink
-                description="id.nii.ac.jp/1001/00233750/"
-                href="https://ipsj.ixsq.nii.ac.jp/records/233864"
-              />
               <TimelineImage
                 title="YoloLSTM | 一般物体検出とLSTMを用いた画像に基づく屋内位置推定"
                 period="2023年4月 - 2024年6月"
@@ -146,16 +142,16 @@ const Index = () => {
                           title="ACM MobiSys'24 Demo" open={true}>
               国際会議 MobiSys 2024 の Poster/Demo セッションにて「Demo: Image-based Indoor
               Localization using Object Detection and LSTM」を発表しました。（Demo, 国際, 査読あり）
-              <TimeLineLink
-                description="doi.org/10.1145/3643832.3661836"
-                href="https://doi.org/10.1145/3643832.3661836"
-              />
               <TimelineImage
                 title="YoloLSTM | 一般物体検出とLSTMを用いた画像に基づく屋内位置推定"
                 period="2023年4月 - 2024年6月"
                 imageUrl="/posts/yolo-lstm/thumbnail.jpg"
                 href="/posts/yolo-lstm"
                 target="_self"
+              />
+              <TimeLineLink
+                description="doi.org/10.1145/3643832.3661836"
+                href="https://doi.org/10.1145/3643832.3661836"
               />
             </TimeLineItem>
             <TimeLineItem date="2025.8" icon={faChalkboardTeacher}
