@@ -1,7 +1,8 @@
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import type { BlogArticle, BlogArticleWithSummary } from "@/model/type/BlogArticle";
+import { XMLParser } from "fast-xml-parser";
+import type { BlogArticle, BlogArticleWithSummary, BlogListArticle } from "@/model/type/BlogArticle";
 import { generateSummary } from "@/utils/dateUtils";
 
 const blogPostsDirectory = path.join(process.cwd(), "blog-posts/");
@@ -135,6 +136,143 @@ export function getAllBlogArticles(): BlogArticleWithSummary[] {
     
     return parseDate(b.date).getTime() - parseDate(a.date).getTime();
   });
+}
+
+type ZennFeedItem = {
+  title?: string;
+  link?: string;
+  pubDate?: string;
+  description?: string;
+};
+
+type QiitaItem = {
+  id: string;
+  title: string;
+  url: string;
+  created_at: string;
+  body: string;
+};
+
+const ZENN_FEED_URL = "https://zenn.dev/aokiti/feed?all=1";
+const QIITA_ITEMS_URL =
+  "https://qiita.com/api/v2/users/sakusaku3939/items";
+
+function toArray<T>(value: T | T[] | undefined): T[] {
+  if (value === undefined) {
+    return [];
+  }
+
+  return Array.isArray(value) ? value : [value];
+}
+
+async function getZennArticles(): Promise<BlogListArticle[]> {
+  const response = await fetch(ZENN_FEED_URL, {
+    headers: {
+      Accept: "application/rss+xml, application/xml;q=0.9"
+    }
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch Zenn feed: ${response.status}`);
+  }
+
+  const parser = new XMLParser({
+    ignoreAttributes: false,
+    processEntities: true
+  });
+  const feed = parser.parse(await response.text()) as {
+    rss?: {
+      channel?: {
+        item?: ZennFeedItem | ZennFeedItem[];
+      };
+    };
+  };
+
+  return toArray(feed.rss?.channel?.item)
+    .filter(
+      (item): item is Required<Pick<ZennFeedItem, "title" | "link" | "pubDate">> &
+        ZennFeedItem =>
+        Boolean(
+          item.title &&
+          item.link?.includes("/articles/") &&
+          item.pubDate
+        )
+    )
+    .map((item) => ({
+      id: `zenn-${item.link.split("/").pop()}`,
+      source: "zenn",
+      title: item.title,
+      date: item.pubDate,
+      summary: generateSummary(item.description ?? ""),
+      url: item.link
+    }));
+}
+
+async function getQiitaArticles(): Promise<BlogListArticle[]> {
+  const articles: BlogListArticle[] = [];
+  const perPage = 100;
+
+  for (let page = 1; page <= 100; page++) {
+    const response = await fetch(
+      `${QIITA_ITEMS_URL}?page=${page}&per_page=${perPage}`,
+      {
+        headers: {
+          Accept: "application/json",
+          "User-Agent": "sakusaku3939.com"
+        }
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch Qiita articles: ${response.status}`);
+    }
+
+    const items = (await response.json()) as QiitaItem[];
+    articles.push(
+      ...items.map((item) => ({
+        id: `qiita-${item.id}`,
+        source: "qiita" as const,
+        title: item.title,
+        date: item.created_at,
+        summary: generateSummary(item.body),
+        url: item.url
+      }))
+    );
+
+    if (items.length < perPage) {
+      break;
+    }
+  }
+
+  return articles;
+}
+
+/**
+ * ローカルブログ、Zenn、Qiitaの記事を統合して日付降順で返す
+ */
+export async function getAllBlogListArticles(): Promise<BlogListArticle[]> {
+  const localArticles: BlogListArticle[] = getAllBlogArticles().map(
+    (article) => ({
+      id: `blog-${article.slug}`,
+      source: "blog",
+      title: article.title,
+      date: article.date,
+      summary: article.summary,
+      url: `/blog/${article.slug}`,
+      ...(article.hasThumbnail
+        ? { thumbnailUrl: `/blog/${article.slug}/thumbnail.jpg` }
+        : {})
+    })
+  );
+
+  const [zennArticles, qiitaArticles] = await Promise.all([
+    getZennArticles(),
+    getQiitaArticles()
+  ]);
+
+  return [...localArticles, ...zennArticles, ...qiitaArticles].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 }
 
 /**

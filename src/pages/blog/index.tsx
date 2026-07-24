@@ -1,11 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import type { GetStaticProps } from "next";
+import { ExternalLink } from "lucide-react";
 import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./index.module.css";
-import type { BlogArticleWithSummary } from "@/model/type/BlogArticle";
-import { getAllBlogArticles } from "@/model/BlogServer";
+import type { BlogArticleSource, BlogListArticle } from "@/model/type/BlogArticle";
+import { getAllBlogListArticles } from "@/model/BlogServer";
 import { formatDate } from "@/utils/dateUtils";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
@@ -13,11 +15,36 @@ import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { useBlogHeaderScroll } from "@/hooks/useBlogHeaderScroll";
 
 type BlogIndexProps = {
-  articles: BlogArticleWithSummary[];
+  articles: BlogListArticle[];
+};
+
+type ArticleFilter = "all" | BlogArticleSource;
+
+const FILTERS: { value: ArticleFilter; label: string }[] = [
+  { value: "all", label: "すべて" },
+  { value: "blog", label: "ブログ" },
+  { value: "zenn", label: "Zenn" },
+  { value: "qiita", label: "Qiita" }
+];
+
+const SOURCE_LABELS: Record<BlogArticleSource, string> = {
+  blog: "ブログ",
+  zenn: "Zenn",
+  qiita: "Qiita"
 };
 
 const BlogIndex = ({ articles }: BlogIndexProps) => {
   const isScrolledPastHeader = useBlogHeaderScroll();
+  const [selectedFilter, setSelectedFilter] = useState<ArticleFilter>("all");
+  const filteredArticles =
+    selectedFilter === "all"
+      ? articles
+      : articles.filter((article) => article.source === selectedFilter);
+
+  const getFilterCount = (filter: ArticleFilter) =>
+    filter === "all"
+      ? articles.length
+      : articles.filter((article) => article.source === filter).length;
 
   return (
     <>
@@ -58,7 +85,9 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
               "blogPost": articles.map(article => ({
                 "@type": "BlogPosting",
                 "headline": article.title,
-                "url": `https://sakusaku3939.com/blog/${article.slug}`,
+                "url": article.url.startsWith("http")
+                  ? article.url
+                  : `https://sakusaku3939.com${article.url}`,
                 "datePublished": article.date,
                 "author": {
                   "@type": "Person",
@@ -73,23 +102,49 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
         <HamburgerMenu lightMode={!isScrolledPastHeader} />
 
         {/* ヘッダーセクション */}
-        <header className={commonStyles.blogHeader}>
+        <header className={`${commonStyles.blogHeader} ${styles.indexHeader}`}>
           <h1 className={commonStyles.pageTitle}>
             雑記などいろいろブログ
           </h1>
+          <nav className={styles.filterTabs} aria-label="記事の掲載元で絞り込む">
+            {FILTERS.map((filter) => {
+              const isActive = selectedFilter === filter.value;
+
+              return (
+                <button
+                  key={filter.value}
+                  type="button"
+                  className={`${styles.filterTab} ${isActive ? styles.filterTabActive : ""}`}
+                  aria-pressed={isActive}
+                  onClick={() => setSelectedFilter(filter.value)}
+                >
+                  <span>{filter.label}</span>
+                  <span className={styles.filterCount}>
+                    {getFilterCount(filter.value)}
+                  </span>
+                </button>
+              );
+            })}
+          </nav>
         </header>
 
         {/* 記事一覧セクション */}
         <div className={commonStyles.wrapper}>
-          <section className={styles.articlesList}>
-            {articles.length === 0 ? (
+          <main className={styles.blogContent}>
+            <section
+              className={styles.articlesList}
+              aria-live="polite"
+              aria-label={`${FILTERS.find((filter) => filter.value === selectedFilter)?.label}の記事`}
+            >
+            {filteredArticles.length === 0 ? (
               <div className={styles.noArticles}>記事がありません</div>
             ) : (
-              articles.map((article) => (
-                <ArticleCard key={article.slug} article={article} />
+              filteredArticles.map((article) => (
+                <ArticleCard key={article.id} article={article} />
               ))
             )}
-          </section>
+            </section>
+          </main>
         </div>
 
         <FooterMenu />
@@ -100,21 +155,18 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
 
 // 記事カードコンポーネント
 type ArticleCardProps = {
-  article: BlogArticleWithSummary;
+  article: BlogListArticle;
 };
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
   const formattedDate = formatDate(article.date);
-  const thumbnailUrl = `/blog/${article.slug}/thumbnail.jpg`;
-
-  return (
-    <Link href={`/blog/${article.slug}`} className={styles.articleCard}>
-      <article className={styles.articleCardInner}>
-        {/* サムネイル（存在する場合のみ） */}
-        {article.hasThumbnail && (
+  const isExternal = article.source !== "blog";
+  const card = (
+    <article className={styles.articleCardInner}>
+        {article.thumbnailUrl && (
           <div className={styles.thumbnailWrapper}>
             <Image
-              src={thumbnailUrl}
+              src={article.thumbnailUrl}
               alt={article.title}
               width={300}
               height={200}
@@ -124,19 +176,49 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
           </div>
         )}
 
-        {/* テキストコンテンツ */}
-        <div className={article.hasThumbnail ? styles.textContent : styles.textContentFull}>
+        <div className={article.thumbnailUrl ? styles.textContent : styles.textContentFull}>
+          <div className={styles.articleMeta}>
+            <span
+              className={`${styles.sourceBadge} ${styles[`sourceBadge_${article.source}`]}`}
+            >
+              {SOURCE_LABELS[article.source]}
+            </span>
+            <time className={styles.articleDate}>{formattedDate}</time>
+          </div>
           <h2 className={styles.articleTitle}>{article.title}</h2>
-          <time className={styles.articleDate}>{formattedDate}</time>
           <p className={styles.articleSummary}>{article.summary}</p>
+          {isExternal && (
+            <span className={styles.externalLinkLabel}>
+              記事を読む
+              <ExternalLink size={14} aria-hidden="true" />
+            </span>
+          )}
         </div>
-      </article>
+    </article>
+  );
+
+  if (isExternal) {
+    return (
+      <a
+        href={article.url}
+        className={styles.articleCard}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {card}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={article.url} className={styles.articleCard}>
+      {card}
     </Link>
   );
 };
 
 export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
-  const articles = getAllBlogArticles();
+  const articles = await getAllBlogListArticles();
 
   return {
     props: {

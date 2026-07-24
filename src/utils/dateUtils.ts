@@ -12,11 +12,17 @@ export function formatDate(dateStr: string): string {
     return `${year}.${month}.${day}`;
   }
   
-  // フォールバック: Date オブジェクトでパース
+  // 外部記事の日時は、実行環境に左右されないよう日本時間で表示
   const date = new Date(dateStr);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
+  const dateParts = new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(date);
+  const year = dateParts.find(part => part.type === 'year')?.value ?? '';
+  const month = dateParts.find(part => part.type === 'month')?.value ?? '';
+  const day = dateParts.find(part => part.type === 'day')?.value ?? '';
   return `${year}.${month}.${day}`;
 }
 

@@ -1,6 +1,97 @@
+/* タブと記事一覧 */
+.indexHeader {
+    height: 190px;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.blogContent {
+    max-width: 900px;
+    width: 100%;
+}
+
+.filterTabs {
+    display: flex;
+    justify-content: safe center;
+    width: fit-content;
+    max-width: 100%;
+    gap: 8px;
+    margin: 0 auto 32px;
+    padding: 4px;
+    overflow-x: auto;
+    background: rgba(127, 127, 127, 0.08);
+    border-radius: 14px;
+}
+
+.indexHeader .filterTabs {
+    z-index: 1;
+    margin-bottom: 0;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+}
+
+.indexHeader .filterTab {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.indexHeader .filterTab:hover {
+    color: #fff;
+}
+
+.indexHeader .filterTabActive {
+    color: #1f2937;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.indexHeader .filterTabActive:hover {
+    color: #64748b;
+}
+
+.filterTab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: max-content;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-grey);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filterTab:hover {
+    color: var(--text-color);
+}
+
+.filterTab:focus-visible {
+    outline: 2px solid #3f83f8;
+    outline-offset: 2px;
+}
+
+.filterTabActive {
+    color: var(--text-color);
+    background: var(--background-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.filterCount {
+    min-width: 24px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgba(127, 127, 127, 0.14);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
 /* 記事一覧セクション */
 .articlesList {
-    max-width: 900px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -42,6 +133,15 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
+.articleCard:focus-visible {
+    outline: none;
+}
+
+.articleCard:focus-visible .articleCardInner {
+    outline: 2px solid #3f83f8;
+    outline-offset: 3px;
+}
+
 @media (prefers-color-scheme: dark) {
     .articleCardInner {
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -75,6 +175,38 @@
     .thumbnail {
         background-color: #2a2a2a;
     }
+}
+
+.articleMeta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sourceBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+}
+
+.sourceBadge_blog {
+    color: #64748b;
+    background: rgba(100, 116, 139, 0.14);
+}
+
+.sourceBadge_zenn {
+    color: #0284c7;
+    background: rgba(62, 168, 229, 0.14);
+}
+
+.sourceBadge_qiita {
+    color: #3f8f1f;
+    background: rgba(85, 197, 0, 0.14);
 }
 
 /* テキストコンテンツ */
@@ -120,8 +252,29 @@
     -webkit-box-orient: vertical;
 }
 
+.externalLinkLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    align-self: flex-start;
+    margin-top: 4px;
+    color: var(--text-grey);
+    font-size: 12px;
+    font-weight: 600;
+}
+
 /* レスポンシブ対応 */
 @media screen and (max-width: 768px) {
+    .indexHeader {
+        height: 170px;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .filterTabs {
+        margin-bottom: 0;
+    }
+
     .articleCardInner {
         flex-direction: column;
         gap: 16px;
@@ -138,6 +291,10 @@
 }
 
 @media screen and (max-width: 480px) {
+    .filterTab {
+        padding: 9px 12px;
+    }
+
     .articleCardInner {
         padding: 16px;
     }
