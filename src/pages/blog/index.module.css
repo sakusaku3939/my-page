@@ -280,6 +280,24 @@
     .filterTabs {
         margin-bottom: 0;
     }
+}
+
+@media screen and (max-width: 600px) {
+    .filterTabs {
+        gap: 6px;
+    }
+
+    .filterTab {
+        gap: 6px;
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .filterCount {
+        min-width: 22px;
+        padding: 2px 6px;
+        font-size: 11px;
+    }
 
     .articleCardInner {
         flex-direction: column;
@@ -296,10 +314,6 @@
 }
 
 @media screen and (max-width: 480px) {
-    .filterTab {
-        padding: 9px 12px;
-    }
-
     .articleCardInner {
         padding: 16px;
     }
