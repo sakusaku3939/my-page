@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { GetStaticProps } from "next";
+import { useRouter } from "next/router";
 import { ExternalLink } from "lucide-react";
 import commonStyles from "@/styles/blog-common.module.css";
 import styles from "./index.module.css";
@@ -34,6 +35,7 @@ const SOURCE_LABELS: Record<BlogArticleSource, string> = {
 };
 
 const BlogIndex = ({ articles }: BlogIndexProps) => {
+  const router = useRouter();
   const isScrolledPastHeader = useBlogHeaderScroll();
   const [selectedFilter, setSelectedFilter] = useState<ArticleFilter>("all");
   const filteredArticles =
@@ -45,6 +47,37 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
     filter === "all"
       ? articles.length
       : articles.filter((article) => article.source === filter).length;
+
+  useEffect(() => {
+    if (!router.isReady) {
+      return;
+    }
+
+    const tab = Array.isArray(router.query.tab)
+      ? router.query.tab[0]
+      : router.query.tab;
+    const filter = FILTERS.some((item) => item.value === tab)
+      ? (tab as ArticleFilter)
+      : "all";
+
+    setSelectedFilter(filter);
+  }, [router.isReady, router.query.tab]);
+
+  const selectFilter = (filter: ArticleFilter) => {
+    setSelectedFilter(filter);
+
+    void router.push(
+      {
+        pathname: router.pathname,
+        query: filter === "all" ? {} : { tab: filter }
+      },
+      undefined,
+      {
+        shallow: true,
+        scroll: false
+      }
+    );
+  };
 
   return (
     <>
@@ -116,7 +149,7 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
                   type="button"
                   className={`${styles.filterTab} ${isActive ? styles.filterTabActive : ""}`}
                   aria-pressed={isActive}
-                  onClick={() => setSelectedFilter(filter.value)}
+                  onClick={() => selectFilter(filter.value)}
                 >
                   <span>{filter.label}</span>
                   <span className={styles.filterCount}>
