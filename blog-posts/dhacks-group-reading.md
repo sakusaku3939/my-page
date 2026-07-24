@@ -142,4 +142,4 @@ https://d-hacks.jn.sfc.keio.ac.jp/joinus
 
 
 [^1]: https://www.nevertoolate.jp/highest/20220910/
-[^2]: SFCの行列の授業って進行が理工より早いらしい。知らなかった
+[^2]: SFCの行列の授業って理工より進行が早いらしい

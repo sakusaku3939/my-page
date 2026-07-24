@@ -187,6 +187,7 @@
 .sourceBadge {
     display: inline-flex;
     align-items: center;
+    color: #fff;
     padding: 3px 9px;
     border-radius: 999px;
     font-size: 11px;
@@ -196,18 +197,29 @@
 }
 
 .sourceBadge_blog {
-    color: #64748b;
-    background: rgba(100, 116, 139, 0.14);
+    background: #64748b;
 }
 
 .sourceBadge_zenn {
-    color: #0284c7;
-    background: rgba(62, 168, 229, 0.14);
+    background: #3ea8ff;
 }
 
 .sourceBadge_qiita {
-    color: #3f8f1f;
-    background: rgba(85, 197, 0, 0.14);
+    background: #55c500;
+}
+
+@media (prefers-color-scheme: dark) {
+    .sourceBadge_blog {
+        background: #556376;
+    }
+
+    .sourceBadge_zenn {
+        background: #3590d9;
+    }
+
+    .sourceBadge_qiita {
+        background: #48a700;
+    }
 }
 
 /* テキストコンテンツ */
