@@ -143,6 +143,9 @@ type ZennFeedItem = {
   link?: string;
   pubDate?: string;
   description?: string;
+  enclosure?: {
+    "@_url"?: string;
+  };
 };
 
 type QiitaItem = {
@@ -163,6 +166,51 @@ function toArray<T>(value: T | T[] | undefined): T[] {
   }
 
   return Array.isArray(value) ? value : [value];
+}
+
+function decodeHtmlAttribute(value: string): string {
+  return value
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;/gi, "\"")
+    .replace(/&#(?:x27|39);/gi, "'")
+    .replace(/&#(?:x2f|47);/gi, "/");
+}
+
+function extractOgImage(html: string): string | undefined {
+  const metaTags = html.match(/<meta\b[^>]*>/gi) ?? [];
+
+  for (const metaTag of metaTags) {
+    if (!/\bproperty=["']og:image(?::secure_url)?["']/i.test(metaTag)) {
+      continue;
+    }
+
+    const content = metaTag.match(/\bcontent=["']([^"']+)["']/i)?.[1];
+    if (content) {
+      return decodeHtmlAttribute(content);
+    }
+  }
+
+  return undefined;
+}
+
+async function getQiitaThumbnail(url: string): Promise<string | undefined> {
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Accept: "text/html",
+        "User-Agent": "sakusaku3939.com"
+      },
+      signal: AbortSignal.timeout(10_000)
+    });
+
+    if (!response.ok) {
+      return undefined;
+    }
+
+    return extractOgImage(await response.text());
+  } catch {
+    return undefined;
+  }
 }
 
 async function getZennArticles(): Promise<BlogListArticle[]> {
@@ -204,7 +252,10 @@ async function getZennArticles(): Promise<BlogListArticle[]> {
       title: item.title,
       date: item.pubDate,
       summary: generateSummary(item.description ?? ""),
-      url: item.link
+      url: item.link,
+      ...(item.enclosure?.["@_url"]
+        ? { thumbnailUrl: item.enclosure["@_url"] }
+        : {})
     }));
 }
 
@@ -228,16 +279,27 @@ async function getQiitaArticles(): Promise<BlogListArticle[]> {
     }
 
     const items = (await response.json()) as QiitaItem[];
-    articles.push(
-      ...items.map((item) => ({
-        id: `qiita-${item.id}`,
-        source: "qiita" as const,
-        title: item.title,
-        date: item.created_at,
-        summary: generateSummary(item.body),
-        url: item.url
-      }))
-    );
+    // 記事ページへの負荷を抑えるため、OG画像は少数ずつ並列取得する
+    for (let offset = 0; offset < items.length; offset += 5) {
+      const batch = items.slice(offset, offset + 5);
+      const thumbnailUrls = await Promise.all(
+        batch.map((item) => getQiitaThumbnail(item.url))
+      );
+
+      articles.push(
+        ...batch.map((item, index) => ({
+          id: `qiita-${item.id}`,
+          source: "qiita" as const,
+          title: item.title,
+          date: item.created_at,
+          summary: generateSummary(item.body),
+          url: item.url,
+          ...(thumbnailUrls[index]
+            ? { thumbnailUrl: thumbnailUrls[index] }
+            : {})
+        }))
+      );
+    }
 
     if (items.length < perPage) {
       break;

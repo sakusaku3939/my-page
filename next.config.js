@@ -11,7 +11,29 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384]
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/zenn/image/upload/**"
+      },
+      {
+        protocol: "https",
+        hostname: "qiita-user-contents.imgix.net",
+        pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.qiita.com",
+        pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "qiita-image-store.s3.ap-northeast-1.amazonaws.com",
+        pathname: "/**"
+      }
+    ]
   },
   turbopack: {},
   async rewrites() {

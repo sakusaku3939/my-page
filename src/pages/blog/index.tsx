@@ -186,7 +186,11 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
             <time className={styles.articleDate}>{formattedDate}</time>
           </div>
           <h2 className={styles.articleTitle}>{article.title}</h2>
-          <p className={styles.articleSummary}>{article.summary}</p>
+          <p
+            className={`${styles.articleSummary} ${isExternal ? styles.articleSummaryExternal : ""}`}
+          >
+            {article.summary}
+          </p>
           {isExternal && (
             <span className={styles.externalLinkLabel}>
               記事を読む
