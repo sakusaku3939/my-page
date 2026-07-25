@@ -1,7 +1,7 @@
 ---
 title: OSS版 DeepL翻訳アプリ
 tag: Android, Kotlin, OSS
-overview: 非公式のDeepL翻訳サードパーティアプリ開発とOSSプロジェクト運営
+overview: 非公式のDeepL翻訳サードパーティアプリ開発
 date: 2020.8.1
 pinned: true
 ---
