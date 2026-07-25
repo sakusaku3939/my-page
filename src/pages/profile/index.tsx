@@ -174,7 +174,7 @@ const Index = () => {
             </TimeLineItem>
           </Timeline>
 
-          <h1 className={common.h1}>受賞 ・ 取材歴</h1>
+          <h1 className={common.h1}>受賞 ・ 掲載歴</h1>
           <Timeline>
             <TimeLineItem date="2021.10" icon={faTrophy} title="アプリ甲子園2021 第3位・技術賞" open={true}>
               高校時代にアプリ甲子園2021にて、プレゼン原稿表示アプリ「Presc」 を発表しました。1次・2次選考を通過し、決勝大会で第3位と技術賞を頂きました。
