@@ -1,7 +1,5 @@
-import fs from "fs";
-import path from "path";
 import Head from "next/head";
-import { GetStaticProps } from "next";
+import { useEffect, useState } from "react";
 import common from "@/styles/common.module.css";
 import index from "./index.module.css";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
@@ -23,32 +21,75 @@ type Skill = {
   source_url: string | null;
 };
 
-type Manifest = {
-  base_url: string;
-  source: { repo?: string; commit?: string };
-  skills: Skill[];
-};
+const DISTRIBUTION_BASE_URL = "https://sakusaku3939.github.io/agent-skills";
+const MANIFEST_URL = `${DISTRIBUTION_BASE_URL}/manifest.json`;
+const INSTALLER_URL = `${DISTRIBUTION_BASE_URL}/install.sh`;
 
-type Props = {
-  baseUrl: string;
-  skills: Skill[];
-};
+const isDistributionUrl = (value: unknown): value is string =>
+  typeof value === "string" && value.startsWith(`${DISTRIBUTION_BASE_URL}/`);
 
-const MANIFEST_PATH = path.join(process.cwd(), "public", "skill-downloads", "manifest.json");
-const FALLBACK_BASE_URL = "https://sakusaku3939.com/skills";
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  if (!fs.existsSync(MANIFEST_PATH)) {
-    return { props: { baseUrl: FALLBACK_BASE_URL, skills: [] } };
+const isHttpsUrl = (value: unknown): value is string => {
+  if (typeof value !== "string") return false;
+  try {
+    return new URL(value).protocol === "https:";
+  } catch {
+    return false;
   }
-  const manifest: Manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf-8"));
-  return { props: { baseUrl: manifest.base_url, skills: manifest.skills } };
+};
+
+const isSkill = (value: unknown): value is Skill => {
+  if (typeof value !== "object" || value === null) return false;
+  const skill = value as Record<string, unknown>;
+  return (
+    typeof skill.name === "string" &&
+    typeof skill.description === "string" &&
+    typeof skill.version === "string" &&
+    isDistributionUrl(skill.url) &&
+    isDistributionUrl(skill.manifest_url) &&
+    typeof skill.sha256 === "string" &&
+    typeof skill.size === "number" &&
+    Array.isArray(skill.files) &&
+    skill.files.every((file) => typeof file === "string") &&
+    typeof skill.has_scripts === "boolean" &&
+    (skill.license === null || typeof skill.license === "string") &&
+    typeof skill.license_file === "boolean" &&
+    (skill.source_url === null || isHttpsUrl(skill.source_url))
+  );
 };
 
 const formatSize = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
 
-const Index = ({ baseUrl, skills }: Props) => {
-  const installerUrl = `${baseUrl}/install.sh`;
+const Index = () => {
+  const [skills, setSkills] = useState<Skill[] | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const loadSkills = async () => {
+      try {
+        const response = await fetch(MANIFEST_URL, { signal: controller.signal });
+        if (!response.ok) throw new Error(`manifest request failed: ${response.status}`);
+
+        const manifest: unknown = await response.json();
+        if (typeof manifest !== "object" || manifest === null) {
+          throw new Error("invalid manifest");
+        }
+        const manifestSkills = (manifest as Record<string, unknown>).skills;
+        if (!Array.isArray(manifestSkills) || !manifestSkills.every(isSkill)) {
+          throw new Error("invalid manifest");
+        }
+
+        setSkills(manifestSkills);
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setLoadFailed(true);
+      }
+    };
+
+    void loadSkills();
+    return () => controller.abort();
+  }, []);
 
   return (
     <>
@@ -74,9 +115,7 @@ const Index = ({ baseUrl, skills }: Props) => {
 
           <h2 className={common.h2}>インストール</h2>
           <pre className={index.pre}>
-            <code>
-              {`curl -fsSL ${installerUrl} -o install.sh\nsh install.sh <スキル名>`}
-            </code>
+            <code>{`curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh <スキル名>`}</code>
           </pre>
           <p className={index.note}>
             配布中のスキル一覧は <code className={index.code}>sh install.sh --list</code>、
@@ -89,19 +128,27 @@ const Index = ({ baseUrl, skills }: Props) => {
           <h2 className={common.h2}>インストーラの動作</h2>
           <ul className={index.list}>
             <li>sudo は不要です。<code className={index.code}>eval</code> は使いません。トークンも要りません。</li>
+            <li>ダウンロードしたアーカイブをSHA-256と突き合わせてから展開します。</li>
             <li>
-              ダウンロードしたアーカイブを、下の一覧に載っている SHA-256 と突き合わせてから展開します。
-            </li>
-            <li>
-              展開する前にアーカイブの全エントリを検査し、絶対パス・
-              <code className={index.code}>..</code>・シンボリックリンクを含むものは拒否します。
+              展開前にアーカイブを検査し、絶対パス・<code className={index.code}>..</code>・
+              シンボリックリンクを含むものは拒否します。
             </li>
             <li>既定では既存のスキルを上書きしません。スキル同梱のスクリプトも実行しません。</li>
           </ul>
 
           <h2 className={common.h2}>配布中のスキル</h2>
 
-          {skills.length === 0 ? (
+          {loadFailed ? (
+            <p className={index.note}>
+              配布データを読み込めませんでした。{" "}
+              <a href={DISTRIBUTION_BASE_URL} rel="noopener noreferrer" target="_blank">
+                配布データページ
+              </a>
+              から確認してください。
+            </p>
+          ) : skills === null ? (
+            <p className={index.note}>配布データを読み込んでいます。</p>
+          ) : skills.length === 0 ? (
             <p className={index.note}>まだ配布中のスキルはありません。</p>
           ) : (
             <div className={index.skillList}>
@@ -166,15 +213,14 @@ const Index = ({ baseUrl, skills }: Props) => {
             </div>
           )}
 
-          <h2 className={common.h2}>手動で検証する場合</h2>
+          <h2 className={common.h2}>配布データ</h2>
           <p className={index.note}>
-            インストーラを使わずに確認するときは、上のアーカイブ URL を直接取得して、
-            表示されている SHA-256 と一致することを確かめてください。
-            アーカイブ URL はバージョンごとに固定で、内容が変わることはありません。
+            manifest、インストーラ、アーカイブは{" "}
+            <a href={DISTRIBUTION_BASE_URL} rel="noopener noreferrer" target="_blank">
+              GitHub Pages
+            </a>
+            から配信しています。
           </p>
-          <pre className={index.pre}>
-            <code>{"curl -fsSL <アーカイブ URL> -o skill.tar.gz\nshasum -a 256 skill.tar.gz"}</code>
-          </pre>
         </section>
 
         <FooterMenu />

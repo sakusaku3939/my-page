@@ -1,13 +1,12 @@
-// Agent Skills の配布ページとその配布物にだけ適用するセキュリティヘッダ。
-// スキルのアーカイブとインストーラを配る経路なので、この配下だけ個別に固める。
-// _app.tsx が全ページで Google Fonts と gtag を読み込むため、その2つは許可する。
+// Agent Skills LP は GitHub Pages の公開 manifest をブラウザから取得する。
+// _app.tsx が全ページで Google Fonts と gtag を読み込むため、その2つも許可する。
 const skillsCsp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
   "img-src 'self' data: https://www.google-analytics.com https://*.googletagmanager.com",
-  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
+  "connect-src 'self' https://sakusaku3939.github.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -62,22 +61,6 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/skills/install.sh",
-        destination: "/skill-downloads/install.sh"
-      },
-      {
-        source: "/skills/manifest.json",
-        destination: "/skill-downloads/manifest.json"
-      },
-      {
-        source: "/skills/archives/:path*",
-        destination: "/skill-downloads/archives/:path*"
-      },
-      {
-        source: "/skills/manifests/:path*",
-        destination: "/skill-downloads/manifests/:path*"
-      },
-      {
         source: "/db/3643832.3661836",
         destination: "/db/yololstm.pdf"
       },
@@ -89,8 +72,7 @@ const nextConfig = {
   },
   async headers() {
     return [
-      { source: "/skills", headers: skillsHeaders },
-      { source: "/skills/:path*", headers: skillsHeaders }
+      { source: "/skills", headers: skillsHeaders }
     ];
   }
 };
