@@ -31,13 +31,17 @@
     word-break: break-all;
 }
 
-.pre {
+.commandBlock {
+    position: relative;
     margin: 0 0 12px;
-    padding: 16px 20px;
+}
+
+.pre {
+    margin: 0;
+    padding: 16px 124px 16px 20px;
     border-radius: 8px;
     border: 1px solid var(--placeholder-color);
     background-color: var(--placeholder-color);
-    overflow-x: auto;
     line-height: 1.8;
 }
 
@@ -45,7 +49,30 @@
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     font-size: 13px;
     color: var(--text-color);
-    white-space: pre;
+    /* 改行は保ちつつ、固定バージョンの長い URL を折り返して全体を読めるようにする。
+       折り返しは表示上だけなので、コピーした文字列は1行のまま。 */
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.copyButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    border: 1px solid var(--text-light-grey);
+    border-radius: 6px;
+    background-color: var(--background-color);
+    color: var(--text-light-grey);
+    font-size: 12px;
+    line-height: 1.6;
+    /* ラベルが「コピーしました」に変わってもボタン幅が動かないようにする。 */
+    min-width: 96px;
+    cursor: pointer;
+}
+
+.copyButton:hover {
+    color: var(--text-color);
 }
 
 .skillList {
@@ -128,6 +155,11 @@
 }
 
 @media screen and (max-width: 500px) {
+    /* 横幅が狭いときはボタンの分を横に確保せず、コマンドをボタンの下から表示する。 */
+    .pre {
+        padding: 48px 20px 16px;
+    }
+
     .skill {
         padding: 20px;
     }
