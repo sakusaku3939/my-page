@@ -194,24 +194,21 @@ const Index = () => {
             </div>
           )}
 
-          <p className={index.note}>
-            配布中のスキル一覧は <code className={index.code}>sh install.sh --list</code>、
-            インストール済みスキルの更新有無は{" "}
-            <code className={index.code}>sh install.sh --check</code> で確認できます。
-            自動更新はしません。更新の適用は{" "}
-            <code className={index.code}>sh install.sh --update &lt;スキル名&gt;</code> で明示的に行います。
-          </p>
-
-          <h2 className={common.h2}>インストーラの動作</h2>
-          <ul className={index.list}>
-            <li>sudo は不要です。<code className={index.code}>eval</code> は使いません。トークンも要りません。</li>
-            <li>ダウンロードしたアーカイブをSHA-256と突き合わせてから展開します。</li>
-            <li>
-              展開前にアーカイブを検査し、絶対パス・<code className={index.code}>..</code>・
-              シンボリックリンクを含むものは拒否します。
-            </li>
-            <li>既定では既存のスキルを上書きしません。スキル同梱のスクリプトも実行しません。</li>
-          </ul>
+          <h2 className={common.h2}>CLI</h2>
+          <dl className={index.cliReference}>
+            <div>
+              <dt><code>sh install.sh --list</code></dt>
+              <dd>配布中のスキルを表示</dd>
+            </div>
+            <div>
+              <dt><code>sh install.sh --check</code></dt>
+              <dd>インストール済みスキルの更新を確認</dd>
+            </div>
+            <div>
+              <dt><code>sh install.sh --update &lt;スキル名&gt;</code></dt>
+              <dd>指定したスキルを更新</dd>
+            </div>
+          </dl>
 
           <h2 className={common.h2}>配布中のスキル</h2>
 

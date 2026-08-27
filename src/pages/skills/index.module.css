@@ -11,17 +11,6 @@
     color: var(--text-light-grey);
 }
 
-.list {
-    margin: 0 0 32px;
-    padding-left: 20px;
-    line-height: 1.9;
-    color: var(--text-grey);
-}
-
-.list li {
-    margin-bottom: 4px;
-}
-
 .code {
     padding: 2px 6px;
     border-radius: 4px;
@@ -126,6 +115,35 @@
     cursor: pointer;
 }
 
+.cliReference {
+    margin: 0 0 32px;
+    border-top: 1px solid var(--placeholder-color);
+    font-size: 13px;
+}
+
+.cliReference > div {
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) 1fr;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--placeholder-color);
+}
+
+.cliReference dt,
+.cliReference dd {
+    margin: 0;
+}
+
+.cliReference dt {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    color: var(--text-color);
+    overflow-wrap: anywhere;
+}
+
+.cliReference dd {
+    color: var(--text-light-grey);
+}
+
 .skillList {
     display: flex;
     flex-direction: column;
@@ -213,6 +231,11 @@
 
     .skill {
         padding: 20px;
+    }
+
+    .cliReference > div {
+        grid-template-columns: 1fr;
+        gap: 4px;
     }
 
     .meta > div {
