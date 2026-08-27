@@ -13,6 +13,7 @@ type Skill = {
   description: string;
   version: string;
   url: string;
+  manifest_url: string;
   sha256: string;
   size: number;
   files: string[];
@@ -114,7 +115,7 @@ const Index = ({ baseUrl, skills }: Props) => {
                   <p className={index.description}>{skill.description}</p>
 
                   <pre className={index.pre}>
-                    <code>{`sh install.sh ${skill.name}`}</code>
+                    <code>{`sh install.sh --manifest ${skill.manifest_url} ${skill.name}`}</code>
                   </pre>
 
                   <dl className={index.meta}>
