@@ -1,7 +1,7 @@
 // Agent Skills の配布ページとその配布物にだけ適用するセキュリティヘッダ。
 // スキルのアーカイブとインストーラを配る経路なので、この配下だけ個別に固める。
 // _app.tsx が全ページで Google Fonts と gtag を読み込むため、その2つは許可する。
-const agentSkillsCsp = [
+const skillsCsp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
@@ -14,8 +14,8 @@ const agentSkillsCsp = [
   "frame-ancestors 'none'"
 ].join("; ");
 
-const agentSkillsHeaders = [
-  { key: "Content-Security-Policy", value: agentSkillsCsp },
+const skillsHeaders = [
+  { key: "Content-Security-Policy", value: skillsCsp },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" }
@@ -62,6 +62,22 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: "/skills/install.sh",
+        destination: "/skill-downloads/install.sh"
+      },
+      {
+        source: "/skills/manifest.json",
+        destination: "/skill-downloads/manifest.json"
+      },
+      {
+        source: "/skills/archives/:path*",
+        destination: "/skill-downloads/archives/:path*"
+      },
+      {
+        source: "/skills/manifests/:path*",
+        destination: "/skill-downloads/manifests/:path*"
+      },
+      {
         source: "/db/3643832.3661836",
         destination: "/db/yololstm.pdf"
       },
@@ -73,8 +89,8 @@ const nextConfig = {
   },
   async headers() {
     return [
-      { source: "/agent-skills", headers: agentSkillsHeaders },
-      { source: "/agent-skills/:path*", headers: agentSkillsHeaders }
+      { source: "/skills", headers: skillsHeaders },
+      { source: "/skills/:path*", headers: skillsHeaders }
     ];
   }
 };
