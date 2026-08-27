@@ -91,6 +91,7 @@ const CommandBlock = ({ command }: { command: string }) => {
 
 const Index = () => {
   const [skills, setSkills] = useState<Skill[] | null>(null);
+  const [selected, setSelected] = useState<string[]>([]);
   const [loadFailed, setLoadFailed] = useState(false);
 
   useEffect(() => {
@@ -111,6 +112,7 @@ const Index = () => {
         }
 
         setSkills(manifestSkills);
+        setSelected(manifestSkills.map((skill) => skill.name));
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") return;
         setLoadFailed(true);
@@ -120,6 +122,25 @@ const Index = () => {
     void loadSkills();
     return () => controller.abort();
   }, []);
+
+  const allSelected = skills !== null && skills.length > 0 && selected.length === skills.length;
+
+  const toggleSkill = (name: string) => {
+    setSelected((current) =>
+      current.includes(name) ? current.filter((item) => item !== name) : [...current, name]
+    );
+  };
+
+  const toggleAll = () => {
+    setSelected(allSelected ? [] : (skills ?? []).map((skill) => skill.name));
+  };
+
+  // 選択順ではなく manifest の並び順でコマンドに載せる。未選択のときは書式だけ示す。
+  const installTargets =
+    skills
+      ?.filter((skill) => selected.includes(skill.name))
+      .map((skill) => skill.name)
+      .join(" ") || "<スキル名>";
 
   return (
     <>
@@ -145,8 +166,34 @@ const Index = () => {
 
           <h2 className={common.h2}>インストール</h2>
           <CommandBlock
-            command={`curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh <スキル名>`}
+            command={`curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh ${installTargets}`}
           />
+
+          {skills !== null && skills.length > 0 && (
+            <div className={index.selector}>
+              <div className={index.selectorHeader}>
+                <span>インストールするスキル</span>
+                <button type="button" className={index.selectorToggle} onClick={toggleAll}>
+                  {allSelected ? "すべて外す" : "すべて選択"}
+                </button>
+              </div>
+              <ul className={index.selectorList}>
+                {skills.map((skill) => (
+                  <li key={skill.name}>
+                    <label className={index.selectorItem}>
+                      <input
+                        type="checkbox"
+                        checked={selected.includes(skill.name)}
+                        onChange={() => toggleSkill(skill.name)}
+                      />
+                      {skill.name}
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <p className={index.note}>
             配布中のスキル一覧は <code className={index.code}>sh install.sh --list</code>、
             インストール済みスキルの更新有無は{" "}
