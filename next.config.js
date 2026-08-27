@@ -1,3 +1,25 @@
+// Agent Skills LP は GitHub Pages の公開 manifest をブラウザから取得する。
+// _app.tsx が全ページで Google Fonts と gtag を読み込むため、その2つも許可する。
+const skillsCsp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data: https://www.google-analytics.com https://*.googletagmanager.com",
+  "connect-src 'self' https://sakusaku3939.github.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'"
+].join("; ");
+
+const skillsHeaders = [
+  { key: "Content-Security-Policy", value: skillsCsp },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "X-Frame-Options", value: "DENY" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" }
+];
+
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -46,6 +68,11 @@ const nextConfig = {
         source: "/db/2024f-term-resume.pdf",
         destination: "/db/2024f-term-resume.pdf"
       }
+    ];
+  },
+  async headers() {
+    return [
+      { source: "/skills", headers: skillsHeaders }
     ];
   }
 };

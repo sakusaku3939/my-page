@@ -1,70 +1,226 @@
-import common from "@/styles/common.module.css";
 import Head from "next/head";
+import { useEffect, useState } from "react";
+import common from "@/styles/common.module.css";
+import index from "./index.module.css";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
-import { Skills, SkillsItem, SkillsItemWrapper, SkillsSubItemWrapper } from "@/components/organism/Skills/Skills";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 
+type Skill = {
+  name: string;
+  description: string;
+  version: string;
+  url: string;
+  manifest_url: string;
+  sha256: string;
+  size: number;
+  files: string[];
+  has_scripts: boolean;
+  license: string | null;
+  license_file: boolean;
+  source_url: string | null;
+};
+
+const DISTRIBUTION_BASE_URL = "https://sakusaku3939.github.io/agent-skills";
+const MANIFEST_URL = `${DISTRIBUTION_BASE_URL}/manifest.json`;
+const INSTALLER_URL = `${DISTRIBUTION_BASE_URL}/install.sh`;
+
+const isDistributionUrl = (value: unknown): value is string =>
+  typeof value === "string" && value.startsWith(`${DISTRIBUTION_BASE_URL}/`);
+
+const isHttpsUrl = (value: unknown): value is string => {
+  if (typeof value !== "string") return false;
+  try {
+    return new URL(value).protocol === "https:";
+  } catch {
+    return false;
+  }
+};
+
+const isSkill = (value: unknown): value is Skill => {
+  if (typeof value !== "object" || value === null) return false;
+  const skill = value as Record<string, unknown>;
+  return (
+    typeof skill.name === "string" &&
+    typeof skill.description === "string" &&
+    typeof skill.version === "string" &&
+    isDistributionUrl(skill.url) &&
+    isDistributionUrl(skill.manifest_url) &&
+    typeof skill.sha256 === "string" &&
+    typeof skill.size === "number" &&
+    Array.isArray(skill.files) &&
+    skill.files.every((file) => typeof file === "string") &&
+    typeof skill.has_scripts === "boolean" &&
+    (skill.license === null || typeof skill.license === "string") &&
+    typeof skill.license_file === "boolean" &&
+    (skill.source_url === null || isHttpsUrl(skill.source_url))
+  );
+};
+
+const formatSize = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
+
 const Index = () => {
+  const [skills, setSkills] = useState<Skill[] | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const loadSkills = async () => {
+      try {
+        const response = await fetch(MANIFEST_URL, { signal: controller.signal });
+        if (!response.ok) throw new Error(`manifest request failed: ${response.status}`);
+
+        const manifest: unknown = await response.json();
+        if (typeof manifest !== "object" || manifest === null) {
+          throw new Error("invalid manifest");
+        }
+        const manifestSkills = (manifest as Record<string, unknown>).skills;
+        if (!Array.isArray(manifestSkills) || !manifestSkills.every(isSkill)) {
+          throw new Error("invalid manifest");
+        }
+
+        setSkills(manifestSkills);
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setLoadFailed(true);
+      }
+    };
+
+    void loadSkills();
+    return () => controller.abort();
+  }, []);
+
   return (
     <>
       <Head>
-        <title>Aokiti | Profile</title>
+        <title>Aokiti | Agent Skills</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="ローカルの Claude Code / Codex にインストールできる Agent Skills の配布ページ"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BackgroundWrapper>
         <HamburgerMenu />
-        <h1 className={common.pageTitle}>
-          スキル
-        </h1>
+        <h1 className={common.pageTitle}>Agent Skills</h1>
 
         <section className={common.section}>
-          <Skills>
-            <h2 className={common.h2}>メイン言語（多分使える）</h2>
-            <SkillsItemWrapper>
-              <SkillsItem title="Dart">
-                実務経験あり。Flutterを用いたモバイルアプリ開発など
-              </SkillsItem>
-              <SkillsItem title="Python">
-                主に研究で使用。PyTorchによる深層学習、MMDetなど
-              </SkillsItem>
-              <SkillsItem title="Kotlin">
-                OSSのアプリを運用。Androidアプリの開発に使用
-              </SkillsItem>
-              <SkillsItem title="JavaScript">
-                サーバー用途やAPI開発、フロント周りで使用。Node.js、Vue.jsなど
-              </SkillsItem>
-              <SkillsItem title="TypeScript">
-                Next.jsを用いた自作CMS、Discordボット開発など
-              </SkillsItem>
-            </SkillsItemWrapper>
+          <p className={index.lead}>
+            ローカルの Claude Code / Codex で使える Agent Skills を配布しています。
+            インストーラは <code className={index.code}>~/.claude/skills/</code> と{" "}
+            <code className={index.code}>~/.agents/skills/</code> にスキルを配置します。
+          </p>
 
-            <h2 className={common.h2}>サブ言語（ほとんど使ってない/軽く触った）</h2>
-            <SkillsSubItemWrapper>
-              <SkillsItem title="Java">
-                ロボコンのプログラム開発、Androidアプリなど
-              </SkillsItem>
-              <SkillsItem title="PHP">
-                Webアプリ作成、Apacheなど
-              </SkillsItem>
-              <SkillsItem title="Ruby">
-                RailsとWebRTCを用いたWebアプリを開発
-              </SkillsItem>
-              <SkillsItem title="C/C++">
-                大学の授業で使用。行列計算、MIPSアセンブリなど
-              </SkillsItem>
-              <SkillsItem title="Go">
-                簡易的なシステムの開発
-              </SkillsItem>
-              <SkillsItem title="Scala">
-                動画配信システムのサーバーサイド開発
-              </SkillsItem>
-              <SkillsItem title="C#">
-                Windowsフォームアプリの開発
-              </SkillsItem>
-            </SkillsSubItemWrapper>
-          </Skills>
+          <h2 className={common.h2}>インストール</h2>
+          <pre className={index.pre}>
+            <code>{`curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh <スキル名>`}</code>
+          </pre>
+          <p className={index.note}>
+            配布中のスキル一覧は <code className={index.code}>sh install.sh --list</code>、
+            インストール済みスキルの更新有無は{" "}
+            <code className={index.code}>sh install.sh --check</code> で確認できます。
+            自動更新はしません。更新の適用は{" "}
+            <code className={index.code}>sh install.sh --update &lt;スキル名&gt;</code> で明示的に行います。
+          </p>
+
+          <h2 className={common.h2}>インストーラの動作</h2>
+          <ul className={index.list}>
+            <li>sudo は不要です。<code className={index.code}>eval</code> は使いません。トークンも要りません。</li>
+            <li>ダウンロードしたアーカイブをSHA-256と突き合わせてから展開します。</li>
+            <li>
+              展開前にアーカイブを検査し、絶対パス・<code className={index.code}>..</code>・
+              シンボリックリンクを含むものは拒否します。
+            </li>
+            <li>既定では既存のスキルを上書きしません。スキル同梱のスクリプトも実行しません。</li>
+          </ul>
+
+          <h2 className={common.h2}>配布中のスキル</h2>
+
+          {loadFailed ? (
+            <p className={index.note}>
+              配布データを読み込めませんでした。{" "}
+              <a href={DISTRIBUTION_BASE_URL} rel="noopener noreferrer" target="_blank">
+                配布データページ
+              </a>
+              から確認してください。
+            </p>
+          ) : skills === null ? (
+            <p className={index.note}>配布データを読み込んでいます。</p>
+          ) : skills.length === 0 ? (
+            <p className={index.note}>まだ配布中のスキルはありません。</p>
+          ) : (
+            <div className={index.skillList}>
+              {skills.map((skill) => (
+                <article key={skill.name} className={index.skill}>
+                  <header className={index.skillHeader}>
+                    <h3 className={index.skillName}>{skill.name}</h3>
+                    <span className={index.version}>{skill.version}</span>
+                  </header>
+
+                  <p className={index.description}>{skill.description}</p>
+
+                  <pre className={index.pre}>
+                    <code>{`sh install.sh --manifest ${skill.manifest_url} ${skill.name}`}</code>
+                  </pre>
+
+                  <dl className={index.meta}>
+                    <div>
+                      <dt>ファイル</dt>
+                      <dd>{skill.files.join(", ")}</dd>
+                    </div>
+                    <div>
+                      <dt>サイズ</dt>
+                      <dd>{formatSize(skill.size)}</dd>
+                    </div>
+                    <div>
+                      <dt>同梱スクリプト</dt>
+                      <dd>{skill.has_scripts ? "あり" : "なし"}</dd>
+                    </div>
+                    {skill.license && (
+                      <div>
+                        <dt>ライセンス</dt>
+                        <dd>
+                          {skill.license}
+                          {skill.license_file && "（LICENSE 同梱）"}
+                        </dd>
+                      </div>
+                    )}
+                    {skill.source_url && (
+                      <div>
+                        <dt>参照元</dt>
+                        <dd>
+                          <a href={skill.source_url} rel="noopener noreferrer" target="_blank">
+                            {skill.source_url}
+                          </a>
+                        </dd>
+                      </div>
+                    )}
+                    <div>
+                      <dt>アーカイブ</dt>
+                      <dd>
+                        <a href={skill.url}>{skill.url}</a>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>SHA-256</dt>
+                      <dd className={index.hash}>{skill.sha256}</dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
+            </div>
+          )}
+
+          <h2 className={common.h2}>配布データ</h2>
+          <p className={index.note}>
+            manifest、インストーラ、アーカイブは{" "}
+            <a href={DISTRIBUTION_BASE_URL} rel="noopener noreferrer" target="_blank">
+              GitHub Pages
+            </a>
+            から配信しています。
+          </p>
         </section>
 
         <FooterMenu />
