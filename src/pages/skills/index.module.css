@@ -11,17 +11,6 @@
     color: var(--text-light-grey);
 }
 
-.list {
-    margin: 0 0 32px;
-    padding-left: 20px;
-    line-height: 1.9;
-    color: var(--text-grey);
-}
-
-.list li {
-    margin-bottom: 4px;
-}
-
 .code {
     padding: 2px 6px;
     border-radius: 4px;
@@ -73,6 +62,86 @@
 
 .copyButton:hover {
     color: var(--text-color);
+}
+
+.selector {
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: var(--text-light-grey);
+}
+
+.selectorHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.selectorToggle {
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--text-light-grey);
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.selectorToggle:hover {
+    color: var(--text-color);
+}
+
+.selectorList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.selectorItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 12px;
+    color: var(--text-grey);
+    cursor: pointer;
+}
+
+.selectorItem input {
+    margin: 0;
+    cursor: pointer;
+}
+
+.cliReference {
+    margin: 0 0 32px;
+    border-top: 1px solid var(--placeholder-color);
+    font-size: 13px;
+}
+
+.cliReference > div {
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) 1fr;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--placeholder-color);
+}
+
+.cliReference dt,
+.cliReference dd {
+    margin: 0;
+}
+
+.cliReference dt {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    color: var(--text-color);
+    overflow-wrap: anywhere;
+}
+
+.cliReference dd {
+    color: var(--text-light-grey);
 }
 
 .skillList {
@@ -162,6 +231,11 @@
 
     .skill {
         padding: 20px;
+    }
+
+    .cliReference > div {
+        grid-template-columns: 1fr;
+        gap: 4px;
     }
 
     .meta > div {

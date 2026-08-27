@@ -91,6 +91,7 @@ const CommandBlock = ({ command }: { command: string }) => {
 
 const Index = () => {
   const [skills, setSkills] = useState<Skill[] | null>(null);
+  const [selected, setSelected] = useState<string[]>([]);
   const [loadFailed, setLoadFailed] = useState(false);
 
   useEffect(() => {
@@ -111,6 +112,7 @@ const Index = () => {
         }
 
         setSkills(manifestSkills);
+        setSelected(manifestSkills.map((skill) => skill.name));
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") return;
         setLoadFailed(true);
@@ -120,6 +122,25 @@ const Index = () => {
     void loadSkills();
     return () => controller.abort();
   }, []);
+
+  const allSelected = skills !== null && skills.length > 0 && selected.length === skills.length;
+
+  const toggleSkill = (name: string) => {
+    setSelected((current) =>
+      current.includes(name) ? current.filter((item) => item !== name) : [...current, name]
+    );
+  };
+
+  const toggleAll = () => {
+    setSelected(allSelected ? [] : (skills ?? []).map((skill) => skill.name));
+  };
+
+  // 選択順ではなく manifest の並び順でコマンドに載せる。未選択のときは書式だけ示す。
+  const installTargets =
+    skills
+      ?.filter((skill) => selected.includes(skill.name))
+      .map((skill) => skill.name)
+      .join(" ") || "<スキル名>";
 
   return (
     <>
@@ -145,26 +166,49 @@ const Index = () => {
 
           <h2 className={common.h2}>インストール</h2>
           <CommandBlock
-            command={`curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh <スキル名>`}
+            command={`curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh ${installTargets}`}
           />
-          <p className={index.note}>
-            配布中のスキル一覧は <code className={index.code}>sh install.sh --list</code>、
-            インストール済みスキルの更新有無は{" "}
-            <code className={index.code}>sh install.sh --check</code> で確認できます。
-            自動更新はしません。更新の適用は{" "}
-            <code className={index.code}>sh install.sh --update &lt;スキル名&gt;</code> で明示的に行います。
-          </p>
 
-          <h2 className={common.h2}>インストーラの動作</h2>
-          <ul className={index.list}>
-            <li>sudo は不要です。<code className={index.code}>eval</code> は使いません。トークンも要りません。</li>
-            <li>ダウンロードしたアーカイブをSHA-256と突き合わせてから展開します。</li>
-            <li>
-              展開前にアーカイブを検査し、絶対パス・<code className={index.code}>..</code>・
-              シンボリックリンクを含むものは拒否します。
-            </li>
-            <li>既定では既存のスキルを上書きしません。スキル同梱のスクリプトも実行しません。</li>
-          </ul>
+          {skills !== null && skills.length > 0 && (
+            <div className={index.selector}>
+              <div className={index.selectorHeader}>
+                <span>インストールするスキル</span>
+                <button type="button" className={index.selectorToggle} onClick={toggleAll}>
+                  {allSelected ? "すべて外す" : "すべて選択"}
+                </button>
+              </div>
+              <ul className={index.selectorList}>
+                {skills.map((skill) => (
+                  <li key={skill.name}>
+                    <label className={index.selectorItem}>
+                      <input
+                        type="checkbox"
+                        checked={selected.includes(skill.name)}
+                        onChange={() => toggleSkill(skill.name)}
+                      />
+                      {skill.name}
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <h2 className={common.h2}>CLI</h2>
+          <dl className={index.cliReference}>
+            <div>
+              <dt><code>sh install.sh --list</code></dt>
+              <dd>配布中のスキルを表示</dd>
+            </div>
+            <div>
+              <dt><code>sh install.sh --check</code></dt>
+              <dd>インストール済みスキルの更新を確認</dd>
+            </div>
+            <div>
+              <dt><code>sh install.sh --update &lt;スキル名&gt;</code></dt>
+              <dd>指定したスキルを更新</dd>
+            </div>
+          </dl>
 
           <h2 className={common.h2}>配布中のスキル</h2>
 
