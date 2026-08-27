@@ -59,6 +59,36 @@ const isSkill = (value: unknown): value is Skill => {
 
 const formatSize = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
 
+const CommandBlock = ({ command }: { command: string }) => {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return;
+    const timer = window.setTimeout(() => setCopied(false), 2000);
+    return () => window.clearTimeout(timer);
+  }, [copied]);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(command);
+      setCopied(true);
+    } catch (error) {
+      console.error("コマンドのコピーに失敗しました:", error);
+    }
+  };
+
+  return (
+    <div className={index.commandBlock}>
+      <pre className={index.pre}>
+        <code>{command}</code>
+      </pre>
+      <button type="button" className={index.copyButton} onClick={handleCopy}>
+        {copied ? "コピーしました" : "コピー"}
+      </button>
+    </div>
+  );
+};
+
 const Index = () => {
   const [skills, setSkills] = useState<Skill[] | null>(null);
   const [loadFailed, setLoadFailed] = useState(false);
@@ -114,9 +144,9 @@ const Index = () => {
           </p>
 
           <h2 className={common.h2}>インストール</h2>
-          <pre className={index.pre}>
-            <code>{`curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh <スキル名>`}</code>
-          </pre>
+          <CommandBlock
+            command={`curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh <スキル名>`}
+          />
           <p className={index.note}>
             配布中のスキル一覧は <code className={index.code}>sh install.sh --list</code>、
             インストール済みスキルの更新有無は{" "}
@@ -161,9 +191,9 @@ const Index = () => {
 
                   <p className={index.description}>{skill.description}</p>
 
-                  <pre className={index.pre}>
-                    <code>{`sh install.sh --manifest ${skill.manifest_url} ${skill.name}`}</code>
-                  </pre>
+                  <CommandBlock
+                    command={`sh install.sh --manifest ${skill.manifest_url} ${skill.name}`}
+                  />
 
                   <dl className={index.meta}>
                     <div>
@@ -212,15 +242,6 @@ const Index = () => {
               ))}
             </div>
           )}
-
-          <h2 className={common.h2}>配布データ</h2>
-          <p className={index.note}>
-            manifest、インストーラ、アーカイブは{" "}
-            <a href={DISTRIBUTION_BASE_URL} rel="noopener noreferrer" target="_blank">
-              GitHub Pages
-            </a>
-            から配信しています。
-          </p>
         </section>
 
         <FooterMenu />
