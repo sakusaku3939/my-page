@@ -59,7 +59,7 @@ const isSkill = (value: unknown): value is Skill => {
 
 const formatSize = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
 
-const CommandBlock = ({ command }: { command: string }) => {
+const CommandBlock = ({ command, disabled = false }: { command: string; disabled?: boolean }) => {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -69,6 +69,7 @@ const CommandBlock = ({ command }: { command: string }) => {
   }, [copied]);
 
   const handleCopy = async () => {
+    if (disabled) return;
     try {
       await navigator.clipboard.writeText(command);
       setCopied(true);
@@ -82,7 +83,7 @@ const CommandBlock = ({ command }: { command: string }) => {
       <pre className={index.pre}>
         <code>{command}</code>
       </pre>
-      <button type="button" className={index.copyButton} onClick={handleCopy}>
+      <button type="button" className={index.copyButton} onClick={handleCopy} disabled={disabled}>
         {copied ? "コピーしました" : "コピー"}
       </button>
     </div>
@@ -135,12 +136,17 @@ const Index = () => {
     setSelected(allSelected ? [] : (skills ?? []).map((skill) => skill.name));
   };
 
-  // 選択順ではなく manifest の並び順でコマンドに載せる。未選択のときは書式だけ示す。
-  const installTargets =
+  // 通常インストールは全件が既定。manifest の並び順で、未選択の項目だけを除外する。
+  const excludedSkills =
     skills
-      ?.filter((skill) => selected.includes(skill.name))
+      ?.filter((skill) => !selected.includes(skill.name))
       .map((skill) => skill.name)
-      .join(" ") || "<スキル名>";
+      ?? [];
+  const hasInstallTargets = skills === null || skills.length === 0 || selected.length > 0;
+  const installOptions = excludedSkills.map((name) => ` --exclude ${name}`).join("");
+  const installCommand = hasInstallTargets
+    ? `curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh${installOptions}`
+    : "インストール対象のスキルを選択してください";
 
   return (
     <>
@@ -165,14 +171,12 @@ const Index = () => {
           </p>
 
           <h2 className={common.h2}>インストール</h2>
-          <CommandBlock
-            command={`curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh ${installTargets}`}
-          />
+          <CommandBlock command={installCommand} disabled={!hasInstallTargets} />
 
           {skills !== null && skills.length > 0 && (
             <div className={index.selector}>
               <div className={index.selectorHeader}>
-                <span>インストールするスキル</span>
+                <span>インストールするスキル（外した項目だけ除外）</span>
                 <button type="button" className={index.selectorToggle} onClick={toggleAll}>
                   {allSelected ? "すべて外す" : "すべて選択"}
                 </button>
@@ -196,6 +200,14 @@ const Index = () => {
 
           <h2 className={common.h2}>CLI</h2>
           <dl className={index.cliReference}>
+            <div>
+              <dt><code>sh install.sh</code></dt>
+              <dd>配布中の全スキルをインストール</dd>
+            </div>
+            <div>
+              <dt><code>sh install.sh --exclude &lt;スキル名&gt;</code></dt>
+              <dd>指定したスキルを除外してインストール</dd>
+            </div>
             <div>
               <dt><code>sh install.sh --list</code></dt>
               <dd>配布中のスキルを表示</dd>
