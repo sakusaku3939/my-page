@@ -28,6 +28,10 @@ const DISTRIBUTION_BASE_URL = "https://sakusaku3939.github.io/agent-skills";
 const MANIFEST_URL = `${DISTRIBUTION_BASE_URL}/manifest.json`;
 const INSTALLER_URL = `${DISTRIBUTION_BASE_URL}/install.sh`;
 const WINDOWS_INSTALLER_URL = `${DISTRIBUTION_BASE_URL}/install.ps1`;
+const PLATFORMS = [
+  { id: "unix", label: "macOS / Linux" },
+  { id: "windows", label: "Windows" },
+] as const;
 const SKILLS_SOURCE_URL = "https://github.com/sakusaku3939/agent-skills/tree/main/skills";
 
 const isDistributionUrl = (value: unknown): value is string =>
@@ -182,19 +186,54 @@ const Index = () => {
           </p>
 
           <h2 className={common.h2}>インストール</h2>
-          <label className={index.platformChoice}>
-            お使いのOS
-            <select value={platform} onChange={(event) => setPlatform(event.target.value as "unix" | "windows")}>
-              <option value="unix">macOS / Linux</option>
-              <option value="windows">Windows（PowerShell）</option>
-            </select>
-          </label>
-          <p className={index.note}>
-            {platform === "windows"
-              ? "Windows PowerShell 5.1以降とPython 3.10以降が必要です。python --version が使えることを確認し、PowerShellで実行してください。配置先はユーザーフォルダー内の .claude\\skills と .agents\\skills です。ExecutionPolicy Bypass は今回起動するプロセスにだけ適用されます。"
-              : "curl、tar、python3、shasum または sha256sum が必要です。ターミナルで実行してください。"}
-          </p>
-          <CommandBlock command={installCommand} disabled={!hasInstallTargets} />
+          <div className={index.installation}>
+            <div className={index.platformTabs} role="tablist" aria-label="インストール先のOS">
+              {PLATFORMS.map(({ id, label }, position) => (
+                <button
+                  key={id}
+                  type="button"
+                  role="tab"
+                  id={`platform-tab-${id}`}
+                  aria-selected={platform === id}
+                  aria-controls="installation-panel"
+                  tabIndex={platform === id ? 0 : -1}
+                  className={index.platformTab}
+                  onClick={() => setPlatform(id)}
+                  onKeyDown={(event) => {
+                    let nextPosition: number;
+                    switch (event.key) {
+                      case "ArrowRight": nextPosition = (position + 1) % PLATFORMS.length; break;
+                      case "ArrowLeft": nextPosition = (position + PLATFORMS.length - 1) % PLATFORMS.length; break;
+                      case "Home": nextPosition = 0; break;
+                      case "End": nextPosition = PLATFORMS.length - 1; break;
+                      default: return;
+                    }
+                    event.preventDefault();
+                    const nextPlatform = PLATFORMS[nextPosition].id;
+                    setPlatform(nextPlatform);
+                    event.currentTarget.parentElement
+                      ?.querySelector<HTMLButtonElement>(`#platform-tab-${nextPlatform}`)?.focus();
+                  }}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            <div
+              id="installation-panel"
+              role="tabpanel"
+              aria-labelledby={`platform-tab-${platform}`}
+              tabIndex={0}
+              className={index.installationPanel}
+            >
+              <p className={index.installationNote}>
+                {platform === "windows"
+                  ? "Windows PowerShell 5.1以降とPython 3.10以降が必要です。python --version が使えることを確認し、PowerShellで実行してください。配置先はユーザーフォルダー内の .claude\\skills と .agents\\skills です。ExecutionPolicy Bypass は今回起動するプロセスにだけ適用されます。"
+                  : "curl、tar、python3、shasum または sha256sum が必要です。ターミナルで実行してください。"}
+              </p>
+              <CommandBlock key={platform} command={installCommand} disabled={!hasInstallTargets} />
+            </div>
+          </div>
 
           <h2 className={common.h2}>CLI</h2>
           <dl className={index.cliReference}>
