@@ -11,6 +11,63 @@
     color: var(--text-light-grey);
 }
 
+.installation {
+    margin-bottom: 32px;
+    border: 1px solid var(--placeholder-color);
+    border-radius: 10px;
+}
+
+.platformTabs {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--placeholder-color);
+}
+
+.platformTab {
+    margin-bottom: -1px;
+    padding: 14px 12px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: none;
+    color: var(--text-light-grey);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.platformTab:hover,
+.platformTab[aria-selected="true"] {
+    color: var(--text-color);
+}
+
+.platformTab[aria-selected="true"] {
+    border-bottom-color: currentColor;
+}
+
+.platformTab:focus-visible,
+.installationPanel:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: -4px;
+    border-radius: 4px;
+}
+
+.installationPanel {
+    padding: 20px;
+}
+
+.installationNote {
+    margin: 0 0 16px;
+    color: var(--text-light-grey);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.installationPanel .commandBlock {
+    margin-bottom: 0;
+}
+
 .code {
     padding: 2px 6px;
     border-radius: 4px;
@@ -220,6 +277,14 @@
 }
 
 @media screen and (max-width: 500px) {
+    .platformTabs {
+        padding: 0 8px;
+    }
+
+    .installationPanel {
+        padding: 16px;
+    }
+
     /* 横幅が狭いときはボタンの分を横に確保せず、コマンドをボタンの下から表示する。 */
     .pre {
         padding: 48px 20px 16px;

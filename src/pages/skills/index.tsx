@@ -27,6 +27,11 @@ type Skill = {
 const DISTRIBUTION_BASE_URL = "https://sakusaku3939.github.io/agent-skills";
 const MANIFEST_URL = `${DISTRIBUTION_BASE_URL}/manifest.json`;
 const INSTALLER_URL = `${DISTRIBUTION_BASE_URL}/install.sh`;
+const WINDOWS_INSTALLER_URL = `${DISTRIBUTION_BASE_URL}/install.ps1`;
+const PLATFORMS = [
+  { id: "unix", label: "macOS / Linux" },
+  { id: "windows", label: "Windows" },
+] as const;
 const SKILLS_SOURCE_URL = "https://github.com/sakusaku3939/agent-skills/tree/main/skills";
 
 const isDistributionUrl = (value: unknown): value is string =>
@@ -99,6 +104,7 @@ const Index = () => {
   const [skills, setSkills] = useState<Skill[] | null>(null);
   const [selected, setSelected] = useState<string[]>([]);
   const [loadFailed, setLoadFailed] = useState(false);
+  const [platform, setPlatform] = useState<"unix" | "windows">("unix");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -147,8 +153,14 @@ const Index = () => {
       ?? [];
   const hasInstallTargets = skills === null || skills.length === 0 || selected.length > 0;
   const installOptions = excludedSkills.map((name) => ` --exclude ${name}`).join("");
+  const runInstaller = platform === "windows"
+    ? "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\install.ps1"
+    : "sh install.sh";
+  const downloadInstaller = platform === "windows"
+    ? `Invoke-WebRequest -Uri ${WINDOWS_INSTALLER_URL} -OutFile install.ps1`
+    : `curl -fsSL ${INSTALLER_URL} -o install.sh`;
   const installCommand = hasInstallTargets
-    ? `curl -fsSL ${INSTALLER_URL} -o install.sh\nsh install.sh${installOptions}`
+    ? `${downloadInstaller}\n${runInstaller}${installOptions}`
     : "インストール対象のスキルを選択してください";
 
   return (
@@ -174,28 +186,75 @@ const Index = () => {
           </p>
 
           <h2 className={common.h2}>インストール</h2>
-          <CommandBlock command={installCommand} disabled={!hasInstallTargets} />
+          <div className={index.installation}>
+            <div className={index.platformTabs} role="tablist" aria-label="インストール先のOS">
+              {PLATFORMS.map(({ id, label }, position) => (
+                <button
+                  key={id}
+                  type="button"
+                  role="tab"
+                  id={`platform-tab-${id}`}
+                  aria-selected={platform === id}
+                  aria-controls="installation-panel"
+                  tabIndex={platform === id ? 0 : -1}
+                  className={index.platformTab}
+                  onClick={() => setPlatform(id)}
+                  onKeyDown={(event) => {
+                    let nextPosition: number;
+                    switch (event.key) {
+                      case "ArrowRight": nextPosition = (position + 1) % PLATFORMS.length; break;
+                      case "ArrowLeft": nextPosition = (position + PLATFORMS.length - 1) % PLATFORMS.length; break;
+                      case "Home": nextPosition = 0; break;
+                      case "End": nextPosition = PLATFORMS.length - 1; break;
+                      default: return;
+                    }
+                    event.preventDefault();
+                    const nextPlatform = PLATFORMS[nextPosition].id;
+                    setPlatform(nextPlatform);
+                    event.currentTarget.parentElement
+                      ?.querySelector<HTMLButtonElement>(`#platform-tab-${nextPlatform}`)?.focus();
+                  }}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            <div
+              id="installation-panel"
+              role="tabpanel"
+              aria-labelledby={`platform-tab-${platform}`}
+              tabIndex={0}
+              className={index.installationPanel}
+            >
+              <p className={index.installationNote}>
+                {platform === "windows"
+                  ? "Windows PowerShell 5.1以降とPython 3.10以降が必要です。python --version が使えることを確認し、PowerShellで実行してください。配置先はユーザーフォルダー内の .claude\\skills と .agents\\skills です。ExecutionPolicy Bypass は今回起動するプロセスにだけ適用されます。"
+                  : "curl、tar、python3、shasum または sha256sum が必要です。ターミナルで実行してください。"}
+              </p>
+              <CommandBlock key={platform} command={installCommand} disabled={!hasInstallTargets} />
+            </div>
+          </div>
 
           <h2 className={common.h2}>CLI</h2>
           <dl className={index.cliReference}>
             <div>
-              <dt><code>sh install.sh</code></dt>
+              <dt><code>{runInstaller}</code></dt>
               <dd>配布中の全スキルをインストール</dd>
             </div>
             <div>
-              <dt><code>sh install.sh --exclude &lt;スキル名&gt;</code></dt>
+              <dt><code>{runInstaller} --exclude &lt;スキル名&gt;</code></dt>
               <dd>指定したスキルを除外してインストール</dd>
             </div>
             <div>
-              <dt><code>sh install.sh --list</code></dt>
+              <dt><code>{runInstaller} --list</code></dt>
               <dd>配布中のスキルを表示</dd>
             </div>
             <div>
-              <dt><code>sh install.sh --check</code></dt>
+              <dt><code>{runInstaller} --check</code></dt>
               <dd>インストール済みスキルの更新を確認</dd>
             </div>
             <div>
-              <dt><code>sh install.sh --update &lt;スキル名&gt;</code></dt>
+              <dt><code>{runInstaller} --update &lt;スキル名&gt;</code></dt>
               <dd>指定したスキルを更新</dd>
             </div>
           </dl>
@@ -241,7 +300,7 @@ const Index = () => {
                   <p className={index.description}>{skill.description}</p>
 
                   <CommandBlock
-                    command={`sh install.sh --manifest ${skill.manifest_url} ${skill.name}`}
+                    command={`${runInstaller} --manifest ${skill.manifest_url} ${skill.name}`}
                   />
 
                   <dl className={index.meta}>
