@@ -246,18 +246,14 @@ const Index = () => {
 
                   <dl className={index.meta}>
                     <div>
-                      <dt>カテゴリ</dt>
-                      <dd>{skill.category_path.join(" → ")}</dd>
-                    </div>
-                    <div>
                       <dt>SKILL.md（要ログイン）</dt>
                       <dd>
                         <a
-                          href={`${SKILLS_SOURCE_URL}/${encodeURIComponent(skill.name)}`}
+                          href={`${SKILLS_SOURCE_URL}/${encodeURIComponent(skill.name)}/SKILL.md`}
                           rel="noopener noreferrer"
                           target="_blank"
                         >
-                          {`${SKILLS_SOURCE_URL}/${encodeURIComponent(skill.name)}`}
+                          {`${SKILLS_SOURCE_URL}/${encodeURIComponent(skill.name)}/SKILL.md`}
                         </a>
                       </dd>
                     </div>
