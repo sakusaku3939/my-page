@@ -7,11 +7,10 @@ type SelectionProps = {
   onToggle: (names: string[]) => void;
 };
 
-const Category = ({ category, depth, selected, onToggle }: SelectionProps & {
+const Category = ({ category, selected, onToggle }: SelectionProps & {
   category: SkillCategory;
-  depth: number;
 }) => {
-  const [expanded, setExpanded] = useState(depth === 0);
+  const [expanded, setExpanded] = useState(true);
   const childrenId = useId();
   const checkbox = useRef<HTMLInputElement>(null);
   const count = category.skillNames.filter((name) => selected.includes(name)).length;
@@ -48,7 +47,7 @@ const Category = ({ category, depth, selected, onToggle }: SelectionProps & {
       </div>
       <ul id={childrenId} className={styles.children} hidden={!expanded}>
         {category.children.map((child) => (
-          <Category key={child.name} category={child} depth={depth + 1} selected={selected} onToggle={onToggle} />
+          <Category key={child.name} category={child} selected={selected} onToggle={onToggle} />
         ))}
         {category.skills.map((skill) => (
           <li key={skill.name} className={styles.skill}>
@@ -70,7 +69,7 @@ export const SkillSelector = ({ skills, selected, onToggle }: SelectionProps & {
   return (
     <ul className={styles.tree} aria-label="インストールするスキルのカテゴリ">
       {categories.map((category) => (
-        <Category key={category.name} category={category} depth={0} selected={selected} onToggle={onToggle} />
+        <Category key={category.name} category={category} selected={selected} onToggle={onToggle} />
       ))}
     </ul>
   );
