@@ -142,9 +142,6 @@ const Index = ({
                           overview={post.overview} />
                   </div>
                 ))}
-                <div className={index.postDummy} />
-                <div className={index.postDummy} />
-                <div className={index.postDummy} />
               </div>
             )}
             {groupedByYear.map(([year, posts]) => (
@@ -161,9 +158,6 @@ const Index = ({
                           overview={post.overview} />
                   </div>
                 ))}
-                <div className={index.postDummy} />
-                <div className={index.postDummy} />
-                <div className={index.postDummy} />
               </div>
             ))}
           </section>

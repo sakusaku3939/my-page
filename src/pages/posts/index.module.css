@@ -17,31 +17,34 @@
 }
 
 .postsList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1400px;
+    flex: 1;
+    min-width: 0;
+    padding-left: clamp(24px, 4vw, 80px);
+    container: posts-list / inline-size;
 }
 
 .yearGroup {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    max-width: 872px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 420px));
+    justify-content: start;
+    gap: 32px;
+    padding-top: 16px;
     margin-bottom: 48px;
 }
 
 .yearTitle {
+    grid-column: 1 / -1;
     width: 100%;
     font-size: 28px;
     font-weight: bold;
     font-family: 'Barlow', sans-serif;
-    margin-bottom: 12px;
+    margin-bottom: -4px;
     text-align: left;
     position: relative;
     display: flex;
     align-items: center;
-    padding-left: 40px;
 }
 
 .yearTitle::before {
@@ -70,23 +73,14 @@
 }
 
 .postCard {
-    width: 40%;
-    max-width: 420px;
-    min-width: 320px;
-    margin: 16px;
-}
-
-.postDummy {
-    width: 40%;
-    max-width: 420px;
-    min-width: 320px;
-    margin: 0 16px;
-    height: 0;
+    min-width: 0;
 }
 
 .wrapper {
     display: flex;
-    justify-content: center;
+    gap: 48px;
+    width: calc(100% - 48px);
+    margin-inline: auto;
 }
 
 .yearTitlePlaceholder {
@@ -97,22 +91,23 @@
 }
 
 .category {
+    flex-shrink: 0;
     margin-top: 16px;
-    margin-right: 48px;
 }
 
 .mobileCategory {
     display: none;
 }
 
-@media screen and (max-width: 1685px) {
-    .yearTitle {
-        padding-left: calc((100% - 40% * 2 - 32px) / 2);
-    }
-}
-
-
 @media screen and (max-width: 1100px) {
+    .postsList {
+        padding-left: 0;
+    }
+
+    .yearGroup {
+        margin-inline: auto;
+    }
+
     .category {
         display: none;
     }
@@ -131,30 +126,21 @@
 }
 
 @media screen and (max-width: 720px) {
-    .postCard {
-        width: 80%;
-        max-width: none;
-        padding-bottom: 4px;
-        margin: 16px 0;
+    .wrapper {
+        width: calc(100% - 32px);
     }
 
-    .postDummy {
-        width: 80%;
-        max-width: none;
-        margin: 0;
-    }
-
-    .yearTitle {
-        padding-left: calc((100% - 80% * 1) / 2);
+    .yearGroup {
+        grid-template-columns: minmax(0, 420px);
+        max-width: 420px;
     }
 }
 
-@media screen and (max-width: 500px) {
-    .postCard {
-        width: 85%;
-    }
-
-    .yearTitle {
-        padding-left: calc((100% - 85% * 1) / 2);
+@container posts-list (min-width: 1024px) {
+    .yearGroup {
+        grid-template-columns: repeat(3, minmax(0, 420px));
+        width: calc(100% + 16px);
+        max-width: 1324px;
+        margin-left: -16px;
     }
 }
