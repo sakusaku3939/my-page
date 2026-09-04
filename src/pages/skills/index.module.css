@@ -78,6 +78,7 @@
 
 .selectorHeader {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 12px;
     margin-bottom: 6px;
@@ -95,30 +96,6 @@
 
 .selectorToggle:hover {
     color: var(--text-color);
-}
-
-.selectorList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 20px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.selectorItem {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: 12px;
-    color: var(--text-grey);
-    cursor: pointer;
-}
-
-.selectorItem input {
-    margin: 0;
-    cursor: pointer;
 }
 
 .cliReference {

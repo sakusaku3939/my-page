@@ -5,9 +5,12 @@ import index from "./index.module.css";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
+import { SkillSelector } from "@/components/organism/SkillSelector/SkillSelector";
+import { isCategoryPath, toggleSkillNames } from "@/components/organism/SkillSelector/selection";
 
 type Skill = {
   name: string;
+  category_path: string[];
   description: string;
   version: string;
   url: string;
@@ -42,6 +45,7 @@ const isSkill = (value: unknown): value is Skill => {
   const skill = value as Record<string, unknown>;
   return (
     typeof skill.name === "string" &&
+    isCategoryPath(skill.category_path) &&
     typeof skill.description === "string" &&
     typeof skill.version === "string" &&
     isDistributionUrl(skill.url) &&
@@ -126,10 +130,8 @@ const Index = () => {
 
   const allSelected = skills !== null && skills.length > 0 && selected.length === skills.length;
 
-  const toggleSkill = (name: string) => {
-    setSelected((current) =>
-      current.includes(name) ? current.filter((item) => item !== name) : [...current, name]
-    );
+  const toggleSkills = (names: string[]) => {
+    setSelected((current) => toggleSkillNames(current, names));
   };
 
   const toggleAll = () => {
@@ -181,20 +183,7 @@ const Index = () => {
                   {allSelected ? "すべて外す" : "すべて選択"}
                 </button>
               </div>
-              <ul className={index.selectorList}>
-                {skills.map((skill) => (
-                  <li key={skill.name}>
-                    <label className={index.selectorItem}>
-                      <input
-                        type="checkbox"
-                        checked={selected.includes(skill.name)}
-                        onChange={() => toggleSkill(skill.name)}
-                      />
-                      {skill.name}
-                    </label>
-                  </li>
-                ))}
-              </ul>
+              <SkillSelector skills={skills} selected={selected} onToggle={toggleSkills} />
             </div>
           )}
 
@@ -252,6 +241,10 @@ const Index = () => {
                   />
 
                   <dl className={index.meta}>
+                    <div>
+                      <dt>カテゴリ</dt>
+                      <dd>{skill.category_path.join(" → ")}</dd>
+                    </div>
                     <div>
                       <dt>ファイル</dt>
                       <dd>{skill.files.join(", ")}</dd>
