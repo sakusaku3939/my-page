@@ -5,9 +5,12 @@ import index from "./index.module.css";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
+import { SkillSelector } from "@/components/organism/SkillSelector/SkillSelector";
+import { isCategoryPath, toggleSkillNames } from "@/components/organism/SkillSelector/selection";
 
 type Skill = {
   name: string;
+  category_path: string[];
   description: string;
   version: string;
   url: string;
@@ -43,6 +46,7 @@ const isSkill = (value: unknown): value is Skill => {
   const skill = value as Record<string, unknown>;
   return (
     typeof skill.name === "string" &&
+    isCategoryPath(skill.category_path) &&
     typeof skill.description === "string" &&
     typeof skill.version === "string" &&
     isDistributionUrl(skill.url) &&
@@ -127,10 +131,8 @@ const Index = () => {
 
   const allSelected = skills !== null && skills.length > 0 && selected.length === skills.length;
 
-  const toggleSkill = (name: string) => {
-    setSelected((current) =>
-      current.includes(name) ? current.filter((item) => item !== name) : [...current, name]
-    );
+  const toggleSkills = (names: string[]) => {
+    setSelected((current) => toggleSkillNames(current, names));
   };
 
   const toggleAll = () => {
@@ -174,31 +176,6 @@ const Index = () => {
           <h2 className={common.h2}>インストール</h2>
           <CommandBlock command={installCommand} disabled={!hasInstallTargets} />
 
-          {skills !== null && skills.length > 0 && (
-            <div className={index.selector}>
-              <div className={index.selectorHeader}>
-                <span>インストールするスキル（外した項目だけ除外）</span>
-                <button type="button" className={index.selectorToggle} onClick={toggleAll}>
-                  {allSelected ? "すべて外す" : "すべて選択"}
-                </button>
-              </div>
-              <ul className={index.selectorList}>
-                {skills.map((skill) => (
-                  <li key={skill.name}>
-                    <label className={index.selectorItem}>
-                      <input
-                        type="checkbox"
-                        checked={selected.includes(skill.name)}
-                        onChange={() => toggleSkill(skill.name)}
-                      />
-                      {skill.name}
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
           <h2 className={common.h2}>CLI</h2>
           <dl className={index.cliReference}>
             <div>
@@ -238,11 +215,26 @@ const Index = () => {
           ) : skills.length === 0 ? (
             <p className={index.note}>まだ配布中のスキルはありません。</p>
           ) : (
-            <div className={index.skillList}>
-              {skills.map((skill) => (
-                <article key={skill.name} className={index.skill}>
+            <>
+              <div className={index.selectorHeader}>
+                <span>{selected.length} / {skills.length} 件選択中</span>
+                <button type="button" className={index.selectorToggle} onClick={toggleAll}>
+                  {allSelected ? "すべて外す" : "すべて選択"}
+                </button>
+              </div>
+              <SkillSelector skills={skills} selected={selected} onToggle={toggleSkills} renderSkill={(skill) => (
+                <article className={index.skill} data-selected={selected.includes(skill.name)}>
                   <header className={index.skillHeader}>
-                    <h3 className={index.skillName}>{skill.name}</h3>
+                    <h3 className={index.skillName}>
+                      <label className={index.skillChoice}>
+                        <input
+                          type="checkbox"
+                          checked={selected.includes(skill.name)}
+                          onChange={() => toggleSkills([skill.name])}
+                        />
+                        <span>{skill.name}</span>
+                      </label>
+                    </h3>
                     <span className={index.version}>{skill.version}</span>
                   </header>
 
@@ -254,20 +246,16 @@ const Index = () => {
 
                   <dl className={index.meta}>
                     <div>
-                      <dt>GitHub（要ログイン）</dt>
+                      <dt>SKILL.md（要ログイン）</dt>
                       <dd>
                         <a
-                          href={`${SKILLS_SOURCE_URL}/${encodeURIComponent(skill.name)}`}
+                          href={`${SKILLS_SOURCE_URL}/${encodeURIComponent(skill.name)}/SKILL.md`}
                           rel="noopener noreferrer"
                           target="_blank"
                         >
-                          {`${SKILLS_SOURCE_URL}/${encodeURIComponent(skill.name)}`}
+                          {`${SKILLS_SOURCE_URL}/${encodeURIComponent(skill.name)}/SKILL.md`}
                         </a>
                       </dd>
-                    </div>
-                    <div>
-                      <dt>ファイル</dt>
-                      <dd>{skill.files.join(", ")}</dd>
                     </div>
                     <div>
                       <dt>サイズ</dt>
@@ -308,8 +296,8 @@ const Index = () => {
                     </div>
                   </dl>
                 </article>
-              ))}
-            </div>
+              )} />
+            </>
           )}
         </section>
 
