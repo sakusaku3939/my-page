@@ -17,29 +17,47 @@
 }
 
 .postsList {
+    --list-padding: clamp(24px, 4vw, 80px);
+    --timeline-indent: 48px;
+    --timeline-screen-left: calc(24px + var(--list-padding));
+    margin-right: 8px;
     flex: 1;
     min-width: 0;
-    padding-left: clamp(24px, 4vw, 80px);
+    position: relative;
+    padding-left: var(--list-padding);
     container: posts-list / inline-size;
+}
+
+.postsList::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: var(--timeline-screen-left);
+    width: 1px;
+    pointer-events: none;
+    background-color: var(--grey);
 }
 
 .yearGroup {
     width: 100%;
     max-width: 872px;
+    min-width: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 420px));
     justify-content: start;
     gap: 32px;
     padding-top: 16px;
+    padding-left: var(--timeline-indent);
     margin-bottom: 48px;
 }
 
 .yearTitle {
     grid-column: 1 / -1;
     width: 100%;
-    font-size: 28px;
+    font-size: 18px;
     font-weight: bold;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     margin-bottom: -4px;
     text-align: left;
     position: relative;
@@ -47,12 +65,37 @@
     align-items: center;
 }
 
-.yearTitle::before {
-    content: '';
-    width: 2px;
-    height: 1.2em;
-    background-color: currentColor;
+.yearMarker {
+    position: relative;
+    flex: 0 0 3px;
+    width: 3px;
+    height: 1.35em;
+    border-radius: 999px;
+    background-color: #757575;
     margin-right: 16px;
+}
+
+.yearMarker::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: var(--timeline-indent);
+    height: 1px;
+    background-color: var(--grey);
+    transform: translateY(-50%);
+}
+
+.yearMarker::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: calc(100% + var(--timeline-indent) - 6px);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--grey);
+    transform: translateY(-50%);
 }
 
 @keyframes typewriter-cursor-blink {
@@ -73,6 +116,8 @@
 }
 
 .postCard {
+    width: 100%;
+    max-width: 420px;
     min-width: 0;
 }
 
@@ -101,11 +146,7 @@
 
 @media screen and (max-width: 1100px) {
     .postsList {
-        padding-left: 0;
-    }
-
-    .yearGroup {
-        margin-inline: auto;
+        --list-padding: 0px;
     }
 
     .category {
@@ -126,21 +167,29 @@
 }
 
 @media screen and (max-width: 720px) {
+    .postsList {
+        --timeline-indent: 24px;
+        --timeline-screen-left: 16px;
+    }
+
     .wrapper {
         width: calc(100% - 32px);
     }
 
     .yearGroup {
-        grid-template-columns: minmax(0, 420px);
-        max-width: 420px;
+        grid-template-columns: minmax(0, 1fr);
+        max-width: none;
+    }
+
+    .postCard {
+        width: min(100%, 420px);
+        justify-self: center;
     }
 }
 
 @container posts-list (min-width: 1024px) {
     .yearGroup {
         grid-template-columns: repeat(3, minmax(0, 420px));
-        width: calc(100% + 16px);
         max-width: 1324px;
-        margin-left: -16px;
     }
 }

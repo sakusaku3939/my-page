@@ -213,6 +213,7 @@ const TypewriterYearTitle = ({ year }: { year: string }) => {
       ref={ref}
       className={`${index.yearTitle} ${isTyping ? index.yearTitleTyping : index.yearTitleDone}`}
     >
+      <span className={index.yearMarker} aria-hidden="true" />
       {displayText}
     </h2>
   );
