@@ -24,6 +24,7 @@ type Skill = {
 const DISTRIBUTION_BASE_URL = "https://sakusaku3939.github.io/agent-skills";
 const MANIFEST_URL = `${DISTRIBUTION_BASE_URL}/manifest.json`;
 const INSTALLER_URL = `${DISTRIBUTION_BASE_URL}/install.sh`;
+const SKILLS_SOURCE_URL = "https://github.com/sakusaku3939/agent-skills/tree/main/skills";
 
 const isDistributionUrl = (value: unknown): value is string =>
   typeof value === "string" && value.startsWith(`${DISTRIBUTION_BASE_URL}/`);
@@ -252,6 +253,18 @@ const Index = () => {
                   />
 
                   <dl className={index.meta}>
+                    <div>
+                      <dt>GitHub（要ログイン）</dt>
+                      <dd>
+                        <a
+                          href={`${SKILLS_SOURCE_URL}/${encodeURIComponent(skill.name)}`}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          {`${SKILLS_SOURCE_URL}/${encodeURIComponent(skill.name)}`}
+                        </a>
+                      </dd>
+                    </div>
                     <div>
                       <dt>ファイル</dt>
                       <dd>{skill.files.join(", ")}</dd>
