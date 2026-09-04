@@ -3,10 +3,10 @@ export type CategorizedSkill = {
   category_path: string[];
 };
 
-export type SkillCategory = {
+export type SkillCategory<T extends CategorizedSkill = CategorizedSkill> = {
   name: string;
-  children: SkillCategory[];
-  skills: CategorizedSkill[];
+  children: SkillCategory<T>[];
+  skills: T[];
   skillNames: string[];
 };
 
@@ -15,11 +15,11 @@ export const isCategoryPath = (value: unknown): value is string[] =>
   value.length > 0 &&
   value.every((part) => typeof part === "string" && part.length > 0 && part.trim() === part);
 
-export const buildSkillCategories = (skills: CategorizedSkill[]): SkillCategory[] => {
-  const roots: SkillCategory[] = [];
+export const buildSkillCategories = <T extends CategorizedSkill>(skills: T[]): SkillCategory<T>[] => {
+  const roots: SkillCategory<T>[] = [];
   for (const skill of skills) {
     let siblings = roots;
-    let category: SkillCategory | undefined;
+    let category: SkillCategory<T> | undefined;
     for (const name of skill.category_path) {
       category = siblings.find((item) => item.name === name);
       if (!category) {

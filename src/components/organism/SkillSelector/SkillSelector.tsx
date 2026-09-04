@@ -1,75 +1,85 @@
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
+import type { ReactNode } from "react";
 import { buildSkillCategories, CategorizedSkill, SkillCategory } from "./selection";
 import styles from "./SkillSelector.module.css";
 
-type SelectionProps = {
+type SelectionProps<T extends CategorizedSkill> = {
   selected: string[];
   onToggle: (names: string[]) => void;
+  renderSkill: (skill: T) => ReactNode;
 };
 
-const Category = ({ category, selected, onToggle }: SelectionProps & {
-  category: SkillCategory;
+const Category = <T extends CategorizedSkill,>({ category, selected, onToggle, renderSkill, isRoot = false }: SelectionProps<T> & {
+  category: SkillCategory<T>;
+  isRoot?: boolean;
 }) => {
-  const [expanded, setExpanded] = useState(true);
-  const childrenId = useId();
+  const isSection = isRoot && category.children.some((child) => child.children.length > 0);
+  const collapsible = !isSection && (isRoot || category.children.length > 0);
   const checkbox = useRef<HTMLInputElement>(null);
   const count = category.skillNames.filter((name) => selected.includes(name)).length;
   const allSelected = count === category.skillNames.length;
   const partiallySelected = count > 0 && !allSelected;
+  const selectionLabel = allSelected
+    ? `${category.skillNames.length}件すべて選択`
+    : count === 0 ? "未選択" : `${count} / ${category.skillNames.length}件選択`;
 
   useEffect(() => {
     if (checkbox.current) checkbox.current.indeterminate = partiallySelected;
-  }, [partiallySelected]);
+  }, [partiallySelected, collapsible]);
+
+  const heading = (
+    <span className={styles.label}>
+      {collapsible && (
+        <input
+          ref={checkbox}
+          type="checkbox"
+          aria-label={`${category.name} ${selectionLabel}`}
+          checked={allSelected}
+          onChange={() => onToggle(category.skillNames)}
+        />
+      )}
+      <span className={styles.categoryName}>{category.name}</span>
+      {collapsible && <span className={styles.count}>{selectionLabel}</span>}
+    </span>
+  );
+  const children = (
+    <ul className={styles.children}>
+      {category.children.map((child) => (
+        <Category key={child.name} category={child} selected={selected} onToggle={onToggle} renderSkill={renderSkill} />
+      ))}
+      {category.skills.map((skill) => (
+        <li key={skill.name} className={styles.skill}>
+          {renderSkill(skill)}
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
-    <li className={styles.category}>
-      <div className={styles.row}>
-        <button
-          type="button"
-          className={styles.expand}
-          aria-expanded={expanded}
-          aria-controls={childrenId}
-          aria-label={`${category.name}を${expanded ? "折りたたむ" : "展開する"}`}
-          onClick={() => setExpanded((current) => !current)}
-        >
-          <span aria-hidden="true">{expanded ? "▾" : "▸"}</span>
-        </button>
-        <label className={styles.label}>
-          <input
-            ref={checkbox}
-            type="checkbox"
-            checked={allSelected}
-            onChange={() => onToggle(category.skillNames)}
-          />
-          <span>{category.name}</span>
-          <span className={styles.count}>{count}/{category.skillNames.length} 選択</span>
-        </label>
-      </div>
-      <ul id={childrenId} className={styles.children} hidden={!expanded}>
-        {category.children.map((child) => (
-          <Category key={child.name} category={child} selected={selected} onToggle={onToggle} />
-        ))}
-        {category.skills.map((skill) => (
-          <li key={skill.name} className={styles.skill}>
-            <label className={styles.label}>
-              <input type="checkbox" checked={selected.includes(skill.name)} onChange={() => onToggle([skill.name])} />
-              <span className={styles.skillName}>{skill.name}</span>
-            </label>
-          </li>
-        ))}
-      </ul>
+    <li className={isRoot ? styles.section : styles.category}>
+      {collapsible ? (
+        <details className={styles.accordion} open>
+          <summary className={styles.row}>{heading}</summary>
+          {children}
+        </details>
+      ) : (
+        <>
+          <h3 className={isSection ? styles.sectionTitle : styles.subheading}>{category.name}</h3>
+          {children}
+        </>
+      )}
     </li>
   );
 };
 
-export const SkillSelector = ({ skills, selected, onToggle }: SelectionProps & {
-  skills: CategorizedSkill[];
+export const SkillSelector = <T extends CategorizedSkill,>({ skills, selected, onToggle, renderSkill }: SelectionProps<T> & {
+  skills: T[];
 }) => {
   const categories = useMemo(() => buildSkillCategories(skills), [skills]);
   return (
-    <ul className={styles.tree} aria-label="インストールするスキルのカテゴリ">
+    <ul className={styles.tree} aria-label="配布中のスキルのカテゴリ">
       {categories.map((category) => (
-        <Category key={category.name} category={category} selected={selected} onToggle={onToggle} />
+        <Category key={category.name} isRoot category={category} selected={selected} onToggle={onToggle} renderSkill={renderSkill} />
       ))}
     </ul>
   );

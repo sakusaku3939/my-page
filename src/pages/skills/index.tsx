@@ -176,18 +176,6 @@ const Index = () => {
           <h2 className={common.h2}>インストール</h2>
           <CommandBlock command={installCommand} disabled={!hasInstallTargets} />
 
-          {skills !== null && skills.length > 0 && (
-            <div className={index.selector}>
-              <div className={index.selectorHeader}>
-                <span>インストールするスキル（外した項目だけ除外）</span>
-                <button type="button" className={index.selectorToggle} onClick={toggleAll}>
-                  {allSelected ? "すべて外す" : "すべて選択"}
-                </button>
-              </div>
-              <SkillSelector skills={skills} selected={selected} onToggle={toggleSkills} />
-            </div>
-          )}
-
           <h2 className={common.h2}>CLI</h2>
           <dl className={index.cliReference}>
             <div>
@@ -227,11 +215,26 @@ const Index = () => {
           ) : skills.length === 0 ? (
             <p className={index.note}>まだ配布中のスキルはありません。</p>
           ) : (
-            <div className={index.skillList}>
-              {skills.map((skill) => (
-                <article key={skill.name} className={index.skill}>
+            <>
+              <div className={index.selectorHeader}>
+                <span>{selected.length} / {skills.length} 件選択中</span>
+                <button type="button" className={index.selectorToggle} onClick={toggleAll}>
+                  {allSelected ? "すべて外す" : "すべて選択"}
+                </button>
+              </div>
+              <SkillSelector skills={skills} selected={selected} onToggle={toggleSkills} renderSkill={(skill) => (
+                <article className={index.skill} data-selected={selected.includes(skill.name)}>
                   <header className={index.skillHeader}>
-                    <h3 className={index.skillName}>{skill.name}</h3>
+                    <h3 className={index.skillName}>
+                      <label className={index.skillChoice}>
+                        <input
+                          type="checkbox"
+                          checked={selected.includes(skill.name)}
+                          onChange={() => toggleSkills([skill.name])}
+                        />
+                        <span>{skill.name}</span>
+                      </label>
+                    </h3>
                     <span className={index.version}>{skill.version}</span>
                   </header>
 
@@ -297,8 +300,8 @@ const Index = () => {
                     </div>
                   </dl>
                 </article>
-              ))}
-            </div>
+              )} />
+            </>
           )}
         </section>
 
