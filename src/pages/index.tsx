@@ -10,28 +10,19 @@ import { FooterMenu, Menu } from "@/components/molecule/Menu/Menu";
 import { BackgroundGradientWrapper } from "@/components/atom/BackgroundGradientWrapper/BackgroundGradientWrapper";
 
 const TITLE_TEXT = "Aokiti";
-const TYPING_SPEED = 90;
+const LETTER_DELAY_MS = 55;
 
 const Index = () => {
   const router = useRouter();
   const [clickCount, setClickCount] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const [displayedText, setDisplayedText] = useState("");
-  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
-    let i = 0;
-    setDisplayedText("");
-    setShowCursor(true);
-    const interval = setInterval(() => {
-      i++;
-      setDisplayedText(TITLE_TEXT.slice(0, i));
-      if (i >= TITLE_TEXT.length) {
-        clearInterval(interval);
-        setTimeout(() => setShowCursor(false), 300);
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
       }
-    }, TYPING_SPEED);
-    return () => clearInterval(interval);
+    };
   }, []);
 
   const handleTitleClick = () => {
@@ -67,10 +58,18 @@ const Index = () => {
         <span className={index.hamburgerVisibility}><HamburgerMenu /></span>
         <section className={index.header}>
           <div className={index.title}>
-            <span onClick={handleTitleClick}>
-              {displayedText}
-              {showCursor && <span className={index.cursor}>|</span>}
-            </span>
+            <button type="button" className={index.titleButton} onClick={handleTitleClick} aria-label={TITLE_TEXT}>
+              {Array.from(TITLE_TEXT, (letter, position) => (
+                <span
+                  key={position}
+                  className={index.titleLetter}
+                  style={{ animationDelay: `${position * LETTER_DELAY_MS}ms` }}
+                  aria-hidden="true"
+                >
+                  {letter}
+                </span>
+              ))}
+            </button>
           </div>
           <div className={index.subtitle}>
             <span>Keio SFC B4</span>

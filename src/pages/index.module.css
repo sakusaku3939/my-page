@@ -10,18 +10,44 @@
     text-align: center;
 }
 
-.title span {
+.titleButton {
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
     cursor: pointer;
 }
 
-.cursor {
+.titleButton:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 6px;
+    border-radius: 4px;
+}
+
+.titleLetter {
     display: inline-block;
-    opacity: 1;
-    font-weight: 300;
-    margin-left: 2px;
-    vertical-align: 0.15em;
-    line-height: 0.8;
-    font-size: 0.8em;
+    animation: titleLetterEnter 290ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes titleLetterEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-0.55em);
+        filter: blur(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .titleLetter {
+        animation: none;
+    }
 }
 
 .subtitle {
