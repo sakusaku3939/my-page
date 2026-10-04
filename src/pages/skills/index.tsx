@@ -6,23 +6,9 @@ import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 import { SkillSelector } from "@/components/organism/SkillSelector/SkillSelector";
-import { isCategoryPath, toggleSkillNames } from "@/components/organism/SkillSelector/selection";
-
-type Skill = {
-  name: string;
-  category_path: string[];
-  description: string;
-  version: string;
-  url: string;
-  manifest_url: string;
-  sha256: string;
-  size: number;
-  files: string[];
-  has_scripts: boolean;
-  license: string | null;
-  license_file: boolean;
-  source_url: string | null;
-};
+import { toggleSkillNames } from "@/components/organism/SkillSelector/selection";
+import { buildArchiveUrl, parseSkillManifest } from "@/model/SkillManifest";
+import type { SkillManifest } from "@/model/SkillManifest";
 
 const DISTRIBUTION_BASE_URL = "https://sakusaku3939.github.io/agent-skills";
 const MANIFEST_URL = `${DISTRIBUTION_BASE_URL}/manifest.json`;
@@ -33,39 +19,6 @@ const PLATFORMS = [
   { id: "windows", label: "Windows" },
 ] as const;
 const SKILLS_SOURCE_URL = "https://github.com/sakusaku3939/agent-skills/tree/main/skills";
-
-const isDistributionUrl = (value: unknown): value is string =>
-  typeof value === "string" && value.startsWith(`${DISTRIBUTION_BASE_URL}/`);
-
-const isHttpsUrl = (value: unknown): value is string => {
-  if (typeof value !== "string") return false;
-  try {
-    return new URL(value).protocol === "https:";
-  } catch {
-    return false;
-  }
-};
-
-const isSkill = (value: unknown): value is Skill => {
-  if (typeof value !== "object" || value === null) return false;
-  const skill = value as Record<string, unknown>;
-  return (
-    typeof skill.name === "string" &&
-    isCategoryPath(skill.category_path) &&
-    typeof skill.description === "string" &&
-    typeof skill.version === "string" &&
-    isDistributionUrl(skill.url) &&
-    isDistributionUrl(skill.manifest_url) &&
-    typeof skill.sha256 === "string" &&
-    typeof skill.size === "number" &&
-    Array.isArray(skill.files) &&
-    skill.files.every((file) => typeof file === "string") &&
-    typeof skill.has_scripts === "boolean" &&
-    (skill.license === null || typeof skill.license === "string") &&
-    typeof skill.license_file === "boolean" &&
-    (skill.source_url === null || isHttpsUrl(skill.source_url))
-  );
-};
 
 const formatSize = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
 
@@ -101,7 +54,7 @@ const CommandBlock = ({ command, disabled = false }: { command: string; disabled
 };
 
 const Index = () => {
-  const [skills, setSkills] = useState<Skill[] | null>(null);
+  const [manifest, setManifest] = useState<SkillManifest | null>(null);
   const [selected, setSelected] = useState<string[]>([]);
   const [loadFailed, setLoadFailed] = useState(false);
   const [platform, setPlatform] = useState<"unix" | "windows">("unix");
@@ -114,17 +67,11 @@ const Index = () => {
         const response = await fetch(MANIFEST_URL, { signal: controller.signal });
         if (!response.ok) throw new Error(`manifest request failed: ${response.status}`);
 
-        const manifest: unknown = await response.json();
-        if (typeof manifest !== "object" || manifest === null) {
-          throw new Error("invalid manifest");
-        }
-        const manifestSkills = (manifest as Record<string, unknown>).skills;
-        if (!Array.isArray(manifestSkills) || !manifestSkills.every(isSkill)) {
-          throw new Error("invalid manifest");
-        }
+        const parsedManifest = parseSkillManifest(await response.json());
+        if (parsedManifest === null) throw new Error("invalid manifest");
 
-        setSkills(manifestSkills);
-        setSelected(manifestSkills.map((skill) => skill.name));
+        setManifest(parsedManifest);
+        setSelected(parsedManifest.skills.map((skill) => skill.name));
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") return;
         setLoadFailed(true);
@@ -134,6 +81,8 @@ const Index = () => {
     void loadSkills();
     return () => controller.abort();
   }, []);
+
+  const skills = manifest?.skills ?? null;
 
   const allSelected = skills !== null && skills.length > 0 && selected.length === skills.length;
 
@@ -269,19 +218,19 @@ const Index = () => {
               </a>
               から確認してください。
             </p>
-          ) : skills === null ? (
+          ) : manifest === null ? (
             <p className={index.note}>配布データを読み込んでいます。</p>
-          ) : skills.length === 0 ? (
+          ) : manifest.skills.length === 0 ? (
             <p className={index.note}>まだ配布中のスキルはありません。</p>
           ) : (
             <>
               <div className={index.selectorHeader}>
-                <span>{selected.length} / {skills.length} 件選択中</span>
+                <span>{selected.length} / {manifest.skills.length} 件選択中</span>
                 <button type="button" className={index.selectorToggle} onClick={toggleAll}>
                   {allSelected ? "すべて外す" : "すべて選択"}
                 </button>
               </div>
-              <SkillSelector skills={skills} selected={selected} onToggle={toggleSkills} renderSkill={(skill) => (
+              <SkillSelector skills={manifest.skills} selected={selected} onToggle={toggleSkills} renderSkill={(skill) => (
                 <article className={index.skill} data-selected={selected.includes(skill.name)}>
                   <header className={index.skillHeader}>
                     <h3 className={index.skillName}>
@@ -344,9 +293,15 @@ const Index = () => {
                       </div>
                     )}
                     <div>
-                      <dt>アーカイブ</dt>
+                      <dt>アーカイブ（要ログイン）</dt>
                       <dd>
-                        <a href={skill.url}>{skill.url}</a>
+                        <a
+                          href={buildArchiveUrl(manifest.releaseTag, skill.archive)}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          {skill.archive}
+                        </a>
                       </dd>
                     </div>
                     <div>
