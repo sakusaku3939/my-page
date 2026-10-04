@@ -177,8 +177,8 @@ const Index = () => {
             >
               <p className={index.installationNote}>
                 {platform === "windows"
-                  ? "Windows PowerShell 5.1以降とPython 3.10以降が必要です。python --version が使えることを確認し、PowerShellで実行してください。配置先はユーザーフォルダー内の .claude\\skills と .agents\\skills です。ExecutionPolicy Bypass は今回起動するプロセスにだけ適用されます。"
-                  : "curl、tar、python3、shasum または sha256sum が必要です。ターミナルで実行してください。"}
+                  ? "GitHub CLI、Windows PowerShell 5.1以降、Python 3.10以降が必要です。未認証の場合はブラウザが開くので、GitHubで認証を完了してください。python --version が使えることを確認し、PowerShellで実行します。配置先はユーザーフォルダー内の .claude\\skills と .agents\\skills です。ExecutionPolicy Bypass は今回起動するプロセスにだけ適用されます。"
+                  : "GitHub CLI、curl、tar、python3、shasum または sha256sum が必要です。未認証の場合はブラウザが開くので、GitHubで認証を完了してください。ターミナルで実行します。"}
               </p>
               <CommandBlock key={platform} command={installCommand} disabled={!hasInstallTargets} />
             </div>
