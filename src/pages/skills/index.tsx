@@ -188,11 +188,11 @@ const Index = () => {
           <dl className={index.cliReference}>
             <div>
               <dt><code>{runInstaller}</code></dt>
-              <dd>配布中の全スキルをインストール</dd>
+              <dd>記録済みの除外を除き、配布中の全スキルをインストール</dd>
             </div>
             <div>
               <dt><code>{runInstaller} --exclude &lt;スキル名&gt;</code></dt>
-              <dd>指定したスキルを除外してインストール</dd>
+              <dd>指定したスキルを除外してインストール。除外を記録して次回も維持</dd>
             </div>
             <div>
               <dt><code>{runInstaller} --list</code></dt>
@@ -200,13 +200,30 @@ const Index = () => {
             </div>
             <div>
               <dt><code>{runInstaller} --check</code></dt>
-              <dd>インストール済みスキルの更新を確認</dd>
+              <dd>更新あり・最新・意図的に除外・未導入を表示。前回から新規追加されたスキルは + 付きで表示</dd>
+            </div>
+            <div>
+              <dt><code>{runInstaller} --update</code></dt>
+              <dd>各配置先の導入済みスキルをすべて更新</dd>
             </div>
             <div>
               <dt><code>{runInstaller} --update &lt;スキル名&gt;</code></dt>
               <dd>指定したスキルを更新</dd>
             </div>
+            <div>
+              <dt><code>{runInstaller} --add &lt;スキル名&gt;</code></dt>
+              <dd>指定したスキルを追加。記録済みの除外も解除</dd>
+            </div>
+            <div>
+              <dt><code>{runInstaller} --add --new</code></dt>
+              <dd>直前の check で + 表示されたスキルを追加。意図的に除外したスキルは対象外</dd>
+            </div>
           </dl>
+          <p className={index.note}>
+            初回のインストールまたは check で比較基準を保存し、次回の check から新規追加の差分を表示します。
+            過去の除外記録がない場合、意図的に入れていないスキルは {runInstaller} --check --exclude &lt;スキル名&gt; で登録できます。
+            スキル名や --exclude は複数指定できます。
+          </p>
 
           <h2 className={common.h2}>配布中のスキル</h2>
 
