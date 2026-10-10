@@ -29,7 +29,6 @@ export default function MeetingAlarmPage({ content, privacy }: Props) {
       </Head>
       <div className={styles.page}>
         <main className={styles.content}>
-          {privacy && <a className={styles.back} href="/meeting-alarm">ミーティングアラームについて</a>}
           <div dangerouslySetInnerHTML={{ __html: content.html }} />
         </main>
       </div>
