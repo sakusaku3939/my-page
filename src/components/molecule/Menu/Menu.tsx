@@ -25,7 +25,7 @@ const MenuItem = ({ onClick }: MenuItemProps) => {
     <Link className={hamburger.link} href="/profile" onClick={onClick}>略歴</Link>
     <Link className={hamburger.link} href="/posts" onClick={onClick}>制作物など</Link>
     <Link className={hamburger.link} href="/blog" onClick={onClick}>ブログ</Link>
-    <Link className={hamburger.link} href="/support" onClick={onClick}>お問い合わせ</Link>
+    <Link className={hamburger.link} href="/support" onClick={onClick}>問い合わせ</Link>
   </>;
 };
 
