@@ -1,0 +1,28 @@
+.page {
+  --support-error: #b42318;
+  --support-success: #17613b;
+  max-width: 800px;
+  line-height: 1.9;
+}
+
+.fields { border: 0; min-width: 0; }
+.field { margin-bottom: 24px; }
+.field label { display: flex; gap: 12px; align-items: center; font-weight: 600; margin-bottom: 8px; flex-wrap: wrap; }
+.field label span { padding: 0 6px; border: 1px solid var(--text-light-grey); border-radius: 4px; color: var(--text-light-grey); font-size: 12px; font-weight: 400; }
+.field label .optional { padding: 0; border: 0; }
+.field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: 12px; border: 1px solid var(--light-grey); border-radius: 6px; background: var(--background-color); color: var(--text-color); font: inherit; font-size: 16px; }
+.field textarea { resize: vertical; }
+.page :is(input, select, textarea, button):focus-visible { outline: 2px solid var(--text-color); outline-offset: 3px; }
+.trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.challenge { min-height: 65px; }
+.hint { min-height: 24px; margin: 8px 0; color: var(--text-light-grey); font-size: 14px; }
+.submit, .success button { min-height: 48px; padding: 12px 24px; border: 1px solid var(--text-light-grey); border-radius: 6px; background: var(--background-color); color: var(--text-color); font: inherit; font-weight: 600; cursor: pointer; transition: background-color .15s, color .15s; }
+.submit { width: 100%; }
+.submit:disabled { opacity: .5; cursor: not-allowed; }
+.submit:not(:disabled):hover, .success button:hover { color: var(--background-color); background: var(--text-color); }
+.error { color: var(--support-error); margin: 12px 0; }
+.success { padding: 24px; border: 1px solid var(--placeholder-color); border-radius: 10px; margin-bottom: 32px; }
+.success h2 { color: var(--support-success); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+.success button { margin-top: 20px; }
+@media (prefers-color-scheme: dark) { .page { --support-error: #ffb4ab; --support-success: #8dd9af; } }
+@media (prefers-reduced-motion: reduce) { .submit, .success button { transition: none; } }
