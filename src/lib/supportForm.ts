@@ -1,4 +1,4 @@
-export const SUPPORT_CATEGORIES = ["ご質問", "ご相談・ご依頼", "不具合の報告", "ご意見・ご要望", "その他"] as const;
+export const SUPPORT_CATEGORIES = ["質問", "相談・依頼", "不具合の報告", "意見・要望", "その他"] as const;
 
 export type SupportSubmission = {
   app: string;
