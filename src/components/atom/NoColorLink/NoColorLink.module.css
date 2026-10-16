@@ -1,3 +1,5 @@
+@reference "../../../styles/globals.css";
+
 .link {
     @apply underline text-black visited:text-black
 }
