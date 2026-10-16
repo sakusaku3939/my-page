@@ -28,7 +28,7 @@
     "eslint-config-next": "16.2.11",
     "fast-xml-parser": "^5.10.1",
     "gray-matter": "^4.0.3",
-    "katex": "^0.16.27",
+    "katex": "^0.18.2",
     "lucide-react": "^0.561.0",
     "next": "^16.3.8",
     "nprogress": "^0.2.0",
