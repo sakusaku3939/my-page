@@ -247,7 +247,7 @@
         margin-top: 56px;
     }
 
-    .articleBody .katex-display {
+    .articleBody :global(.katex-display) {
         margin: 16px 0;
         font-size: 0.9em;
     }
@@ -457,35 +457,35 @@
 }
 
 /* 数式スタイル */
-.articleBody .katex-display {
+.articleBody :global(.katex-display) {
     margin: 24px 0;
     overflow-x: auto;
     overflow-y: hidden;
     text-align: center;
 }
 
-.articleBody .katex {
+.articleBody :global(.katex) {
     font-size: 1.1em;
 }
 
-.articleBody .katex-display .katex {
+.articleBody :global(.katex-display) :global(.katex) {
     font-size: 1.2em;
 }
 
 /* 数式のレスポンシブ対応 */
 @media screen and (max-width: 768px) {
-    .articleBody .katex {
+    .articleBody :global(.katex) {
         font-size: 1em;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .articleBody .katex-display {
+    .articleBody :global(.katex-display) {
         margin: 12px 0;
         font-size: 0.8em;
     }
 
-    .articleBody .katex {
+    .articleBody :global(.katex) {
         font-size: 0.9em;
     }
 }

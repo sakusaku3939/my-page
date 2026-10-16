@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "katex/dist/katex.min.css";
 import type { AppProps } from "next/app";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
