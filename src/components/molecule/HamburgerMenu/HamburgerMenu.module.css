@@ -1,3 +1,5 @@
+@reference "../../../styles/globals.css";
+
 .hamburgerMenu {
     position: fixed;
     top: 24px;

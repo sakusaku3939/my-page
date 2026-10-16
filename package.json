@@ -47,11 +47,11 @@
   "devDependencies": {
     "@types/katex": "^0.16.7",
     "@types/react-dom": "19.2.3",
-    "autoprefixer": "^10.4.16",
     "postcss": "^8.5.10",
     "sharp": "^0.35.4",
-    "tailwindcss": "^3.3.5",
-    "tsx": "^4.22.4"
+    "tailwindcss": "4.3.3",
+    "tsx": "^4.22.4",
+    "@tailwindcss/postcss": "4.3.3"
   },
   "overrides": {
     "katex": "$katex"
