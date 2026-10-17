@@ -1,6 +1,7 @@
 import timeline from "@/components/molecule/TimelineImage/TimelineImage.module.css";
 import Link from "next/link";
 import { useState } from "react";
+import { PreviewImage } from "@/components/atom/PreviewImage/PreviewImage";
 
 type TimelineImageProps = {
   title: string
@@ -97,7 +98,7 @@ const TimelineImage = ({
           <button className={timeline.closeButton} onClick={closeModal}>
             <span>×</span>
           </button>
-          <img src={imageUrl} alt={title} className={timeline.modalImage} />
+          <PreviewImage src={imageUrl} alt={title} className={timeline.modalImage} />
           <div className={timeline.modalOverlay}>
             <h3 className={timeline.modalTitle}>{title}</h3>
           </div>

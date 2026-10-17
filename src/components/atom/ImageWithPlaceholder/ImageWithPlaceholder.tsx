@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { CSSProperties, useState } from "react";
 import common from "@/styles/common.module.css";
 import blurMap from "@/__generated__/blur-image-map";
+import { PreviewImage } from "@/components/atom/PreviewImage/PreviewImage";
 
 type Props = {
   src: string,
@@ -54,9 +55,9 @@ export function ImageWithPlaceholder({ src, alt = "", sizes = "100%", key, conta
             zIndex: 9
           }}
           onClick={() => setPreviewSrc(null)}>
-          <img
+          <PreviewImage
             src={previewSrc}
-            style={{ maxWidth: "90%", maxHeight: "90%" }}
+            style={{ width: "auto", height: "auto", maxWidth: "90vw", maxHeight: "90vh" }}
             alt={alt}
           />
         </div>

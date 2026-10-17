@@ -7,9 +7,10 @@
     "dev:https": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "predev": "tsx scripts/generate-blur-images-map.ts",
-    "prebuild": "tsx scripts/generate-blur-images-map.ts && tsx scripts/generate-og-images.ts"
+    "prebuild": "tsx scripts/generate-blur-images-map.ts && tsx scripts/generate-og-images.ts",
+    "test": "node --import tsx --test tests/*.test.ts tests/*.test.tsx"
   },
   "engines": {
     "node": "22.x"
@@ -51,9 +52,16 @@
     "sharp": "^0.35.5",
     "tailwindcss": "4.3.3",
     "tsx": "^4.22.4",
-    "@tailwindcss/postcss": "4.3.3"
+    "@tailwindcss/postcss": "4.3.3",
+    "fast-glob": "file:tools/next-root-glob"
   },
   "overrides": {
-    "katex": "$katex"
+    "katex": "$katex",
+    "@next/eslint-plugin-next": {
+      "fast-glob": "$fast-glob"
+    },
+    "js-yaml@3.15.2": {
+      "argparse": "2.0.1"
+    }
   }
 }

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import type { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { ExternalLink } from "lucide-react";
@@ -37,7 +36,11 @@ const SOURCE_LABELS: Record<BlogArticleSource, string> = {
 const BlogIndex = ({ articles }: BlogIndexProps) => {
   const router = useRouter();
   const isScrolledPastHeader = useBlogHeaderScroll();
-  const [selectedFilter, setSelectedFilter] = useState<ArticleFilter>("all");
+  const tab = Array.isArray(router.query.tab) ? router.query.tab[0] : router.query.tab;
+  // The URL is the single source of truth, including Back/Forward and cancelled navigation.
+  const selectedFilter: ArticleFilter = FILTERS.some((item) => item.value === tab)
+    ? (tab as ArticleFilter)
+    : "all";
   const filteredArticles =
     selectedFilter === "all"
       ? articles
@@ -48,24 +51,7 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
       ? articles.length
       : articles.filter((article) => article.source === filter).length;
 
-  useEffect(() => {
-    if (!router.isReady) {
-      return;
-    }
-
-    const tab = Array.isArray(router.query.tab)
-      ? router.query.tab[0]
-      : router.query.tab;
-    const filter = FILTERS.some((item) => item.value === tab)
-      ? (tab as ArticleFilter)
-      : "all";
-
-    setSelectedFilter(filter);
-  }, [router.isReady, router.query.tab]);
-
   const selectFilter = (filter: ArticleFilter) => {
-    setSelectedFilter(filter);
-
     void router.push(
       {
         pathname: router.pathname,
