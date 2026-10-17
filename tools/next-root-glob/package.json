@@ -1,0 +1,11 @@
+{
+  "name": "next-root-glob",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Directory-glob compatibility adapter for @next/eslint-plugin-next",
+  "main": "index.cjs",
+  "dependencies": {
+    "tinyglobby": "0.2.17",
+    "picomatch": "4.0.4"
+  }
+}

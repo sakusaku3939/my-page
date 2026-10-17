@@ -73,7 +73,7 @@ async function main() {
 
   await fs.mkdir(outDir, { recursive: true });
 
-  const ts = `// 自動生成ファイル（scripts/generate-blur-images-map.ts により生成）\n/* eslint-disable */\nconst blurMap: Record<string, string> = ${JSON.stringify(
+  const ts = `// 自動生成ファイル（scripts/generate-blur-images-map.ts により生成）\nconst blurMap: Record<string, string> = ${JSON.stringify(
     blurMap,
     null,
     2

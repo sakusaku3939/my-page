@@ -1,31 +1,9 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+import { darkModeStore } from "./browserStores";
 
-/**
- * ダークモードの状態を監視するカスタムフック
- * @returns {boolean} ダークモードかどうか
- */
-export const useDarkMode = (): boolean => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    // メディアクエリを作成
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    
-    // 初期状態を設定
-    setIsDarkMode(mediaQuery.matches);
-
-    // メディアクエリの変更を監視
-    const handleChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-
-    // クリーンアップ
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
-  }, []);
-
-  return isDarkMode;
-};
+/** システムのカラーテーマを監視する（SSR 時はライトモード）。 */
+export const useDarkMode = (): boolean => useSyncExternalStore(
+  darkModeStore.subscribe,
+  darkModeStore.getSnapshot,
+  darkModeStore.getServerSnapshot
+);

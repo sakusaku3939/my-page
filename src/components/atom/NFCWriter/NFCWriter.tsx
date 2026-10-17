@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useRef, useState, useSyncExternalStore } from "react";
+import { nfcSupportStore } from "@/hooks/browserStores";
 
 interface NFCWriterProps {
   onSuccess: (message: string) => void;
@@ -9,53 +10,27 @@ interface NFCWriterProps {
 }
 
 const NFCWriter: React.FC<NFCWriterProps> = ({
-                                               onSuccess,
-                                               onError,
-                                               onInfo,
-                                               url,
-                                               text = ""
-                                             }) => {
-  const [isSupported, setIsSupported] = useState(false);
+  onSuccess,
+  onError,
+  url,
+  text = ""
+}) => {
+  const isSupported = useSyncExternalStore(
+    nfcSupportStore.subscribe,
+    nfcSupportStore.getSnapshot,
+    nfcSupportStore.getServerSnapshot
+  );
   const [isWriting, setIsWriting] = useState(false);
-  const [showButton, setShowButton] = useState(false);
-
-  useEffect(() => {
-    // デバッグ情報を表示
-    const userAgent = navigator.userAgent;
-    const isHTTPS = window.location.protocol === "https:";
-    const hasNDEF = "NDEFReader" in window;
-
-    console.log("NFC Debug Info:", {
-      userAgent,
-      isHTTPS,
-      hasNDEF,
-      protocol: window.location.protocol,
-      host: window.location.host,
-      url
-    });
-
-    if (!isHTTPS) {
-      console.log("NFC機能はHTTPS環境でのみ動作します");
-      return;
-    }
-
-    if (!hasNDEF) {
-      console.log("このブラウザはNFC機能をサポートしていません（Chrome for Android推奨）");
-      return;
-    }
-
-    setIsSupported(true);
-    setShowButton(true);
-  }, [url]);
+  const writeInProgress = useRef(false);
 
   const writeToNFC = async () => {
-    if (!isSupported || isWriting) return;
+    if (!isSupported || writeInProgress.current) return;
+    writeInProgress.current = true;
 
     try {
       setIsWriting(true);
       console.log("Starting NFC write...", { url, text });
 
-      // @ts-ignore - NDEFReader is not in TypeScript definitions yet
       const ndef = new NDEFReader();
 
       const records = [
@@ -75,11 +50,8 @@ const NFCWriter: React.FC<NFCWriterProps> = ({
 
       console.log("NFC write successful");
       onSuccess("NFCタグにリンクを書き込みました！");
-      setIsWriting(false);
-
     } catch (error) {
       console.error("NFC Write Error:", error);
-      setIsWriting(false);
 
       if (error instanceof Error) {
         if (error.name === "NotAllowedError") {
@@ -94,16 +66,19 @@ const NFCWriter: React.FC<NFCWriterProps> = ({
       } else {
         onError("NFC書き込みに失敗しました");
       }
+    } finally {
+      writeInProgress.current = false;
+      setIsWriting(false);
     }
   };
 
   const handleWriteNFC = () => {
     if (isSupported && !isWriting) {
-      writeToNFC();
+      void writeToNFC();
     }
   };
 
-  if (!showButton) {
+  if (!isSupported) {
     return null;
   }
 
