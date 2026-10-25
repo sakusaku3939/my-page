@@ -64,6 +64,20 @@
     line-height: 1.9;
 }
 
+.installationNote p,
+.installationSteps {
+    margin: 0;
+}
+
+.installationSteps {
+    padding-left: 24px;
+    list-style: decimal;
+}
+
+.installationSteps li + li {
+    margin-top: 8px;
+}
+
 .installationPanel .commandBlock {
     margin-bottom: 0;
 }
@@ -151,10 +165,43 @@
     color: var(--text-color);
 }
 
+.cliTask {
+    margin-bottom: 28px;
+}
+
+.cliTask h3 {
+    margin: 0 0 8px;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.cliTask p {
+    margin: 0 0 12px;
+    color: var(--text-light-grey);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.cliDetails {
+    margin-bottom: 32px;
+}
+
+.cliDetails summary {
+    padding: 12px 0;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.cliDetails summary:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: 4px;
+}
+
 .cliReference {
     margin: 0 0 32px;
     border-top: 1px solid var(--placeholder-color);
     font-size: 13px;
+    line-height: 1.8;
 }
 
 .cliReference > div {
