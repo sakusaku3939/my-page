@@ -175,55 +175,76 @@ const Index = () => {
               tabIndex={0}
               className={index.installationPanel}
             >
-              <p className={index.installationNote}>
-                {platform === "windows"
-                  ? "GitHub CLI、Windows PowerShell 5.1以降、Python 3.10以降が必要です。未認証の場合はブラウザが開くので、GitHubで認証を完了してください。python --version が使えることを確認し、PowerShellで実行します。配置先はユーザーフォルダー内の .claude\\skills と .agents\\skills です。ExecutionPolicy Bypass は今回起動するプロセスにだけ適用されます。"
-                  : "GitHub CLI、curl、tar、python3、shasum または sha256sum が必要です。未認証の場合はブラウザが開くので、GitHubで認証を完了してください。ターミナルで実行します。"}
-              </p>
+              <div className={index.installationNote}>
+                {platform === "windows" ? (
+                  <ol className={index.installationSteps}>
+                    <li>スタートメニューでWindows PowerShellを検索し、右クリックして<strong>「管理者として実行」</strong>を選択して起動します。</li>
+                    <li>GitHub CLI、Windows PowerShell 5.1以降、Python 3.10以降が必要です。事前に <code className={index.code}>python --version</code> で動作を確認してください。</li>
+                    <li>未認証の場合はブラウザが開くので、GitHub認証を完了してください。</li>
+                  </ol>
+                ) : (
+                  <p>GitHub CLI、curl、tar、python3、shasumまたはsha256sumが必要です。 未認証の場合はブラウザが開くので、GitHub認証を完了してください。</p>
+                )}
+              </div>
               <CommandBlock key={platform} command={installCommand} disabled={!hasInstallTargets} />
             </div>
           </div>
 
           <h2 className={common.h2}>CLI</h2>
-          <dl className={index.cliReference}>
-            <div>
-              <dt><code>{runInstaller}</code></dt>
-              <dd>記録済みの除外を除き、配布中の全スキルをインストール</dd>
-            </div>
-            <div>
-              <dt><code>{runInstaller} --exclude &lt;スキル名&gt;</code></dt>
-              <dd>指定したスキルを除外してインストール。除外を記録して次回も維持</dd>
-            </div>
-            <div>
-              <dt><code>{runInstaller} --list</code></dt>
-              <dd>配布中のスキルを表示</dd>
-            </div>
-            <div>
-              <dt><code>{runInstaller} --check</code></dt>
-              <dd>更新あり・最新・意図的に除外・未導入を表示。前回から新規追加されたスキルは + 付きで表示</dd>
-            </div>
-            <div>
-              <dt><code>{runInstaller} --update</code></dt>
-              <dd>各配置先の導入済みスキルをすべて更新</dd>
-            </div>
-            <div>
-              <dt><code>{runInstaller} --update &lt;スキル名&gt;</code></dt>
-              <dd>指定したスキルを更新</dd>
-            </div>
-            <div>
-              <dt><code>{runInstaller} --add &lt;スキル名&gt;</code></dt>
-              <dd>指定したスキルを追加。記録済みの除外も解除</dd>
-            </div>
-            <div>
-              <dt><code>{runInstaller} --add --new</code></dt>
-              <dd>直前の check で + 表示されたスキルを追加。意図的に除外したスキルは対象外</dd>
-            </div>
-          </dl>
-          <p className={index.note}>
-            初回のインストールまたは check で比較基準を保存し、次回の check から新規追加の差分を表示します。
-            過去の除外記録がない場合、意図的に入れていないスキルは {runInstaller} --check --exclude &lt;スキル名&gt; で登録できます。
-            スキル名や --exclude は複数指定できます。
-          </p>
+          <p className={index.note}>インストール時に保存した install.ps1 または install.sh があるフォルダーで実行します。</p>
+          {platform === "windows" && (
+            <p className={index.note}>更新前にClaude CodeとCodexを終了してください。</p>
+          )}
+          <section className={index.cliTask}>
+            <h3>更新を確認する</h3>
+            <p>本体をダウンロードせずに状態のみ確認します。更新あり・最新・配布停止・意図的除外・未導入を区別し、前回からの新規追加には + を表示します。</p>
+            <CommandBlock command={`${runInstaller} --check`} />
+          </section>
+          <section className={index.cliTask}>
+            <h3>導入済みスキルを更新する</h3>
+            <p>導入済みのスキルのみを更新します。未導入のスキルは追加されません。</p>
+            <CommandBlock command={`${runInstaller} --update`} />
+          </section>
+          <section className={index.cliTask}>
+            <h3>名前を指定して追加する</h3>
+            <p>指定した名前のスキルを追加します。除外設定されていた場合は解除されます。</p>
+            <CommandBlock command={`${runInstaller} --add even-g2-quickstart`} />
+          </section>
+          <section className={index.cliTask}>
+            <h3>新しく公開されたスキルを追加する</h3>
+            <p>直前の check で + が表示された新規スキルのみを追加します。除外設定されたスキルは対象外です。</p>
+            <CommandBlock command={`${runInstaller} --add --new`} />
+            <p>初回の check またはインストールで比較基準を保存し、次回以降から新規追加の差分を表示します。</p>
+          </section>
+          <details className={index.cliDetails}>
+            <summary>その他の操作</summary>
+            <dl className={index.cliReference}>
+              <div>
+                <dt><code>{runInstaller} --list</code></dt>
+                <dd>配布中のスキル一覧を表示します。</dd>
+              </div>
+              <div>
+                <dt><code>{runInstaller} --update even-g2-quickstart</code></dt>
+                <dd>指定したスキルのみを更新します。</dd>
+              </div>
+              <div>
+                <dt><code>{runInstaller} --exclude humanizer-ja</code></dt>
+                <dd>指定したスキルを除外して残りをインストールします。既存ファイルは削除されず、次回以降も除外を維持します。</dd>
+              </div>
+              <div>
+                <dt><code>{runInstaller} --check --exclude humanizer-ja</code></dt>
+                <dd>--check --exclude で、未導入のスキルをインストールせずに除外登録できます。</dd>
+              </div>
+              <div>
+                <dt><code>{runInstaller} --update --target codex</code></dt>
+                <dd>配置対象を claude、codex、both（既定）から指定します。</dd>
+              </div>
+              <div>
+                <dt><code>{runInstaller} --update --force</code></dt>
+                <dd>既存ファイルを上書きします。--update と併用した場合は最新ファイルを再取得して上書きします。</dd>
+              </div>
+            </dl>
+          </details>
 
           <h2 className={common.h2}>配布中のスキル</h2>
 
