@@ -62,6 +62,9 @@
     },
     "js-yaml@3.15.2": {
       "argparse": "2.0.1"
+    },
+    "@vercel/og": {
+      "fflate": "0.7.5"
     }
   }
 }
