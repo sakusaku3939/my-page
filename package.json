@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint .",
     "predev": "tsx scripts/generate-blur-images-map.ts",
-    "prebuild": "tsx scripts/generate-blur-images-map.ts && tsx scripts/generate-og-images.ts",
+    "prebuild": "node scripts/prepare-og-wasm.mjs && tsx scripts/generate-blur-images-map.ts && tsx scripts/generate-og-images.ts",
     "test": "node --import tsx --test tests/*.test.ts tests/*.test.tsx"
   },
   "engines": {

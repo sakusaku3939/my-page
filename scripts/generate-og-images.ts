@@ -6,6 +6,8 @@ import React from "react";
 
 async function generateOGImages() {
   const slugs = getAllBlogSlugs();
+  // Use the checked-in asset; OG builds must not depend on the production host.
+  const icon = `data:image/jpeg;base64,${fs.readFileSync(path.join(process.cwd(), "public/images/blog-header.jpg")).toString("base64")}`;
   const outputDir = path.join(process.cwd(), "public", "__generated__", "og", "blog");
 
   // 出力ディレクトリを作成
@@ -15,12 +17,15 @@ async function generateOGImages() {
 
   console.log(`Generating OG images for ${slugs.length} blog posts...`);
 
+  const failures: string[] = [];
+
   for (const { params } of slugs) {
     const slug = params.slug;
     const article = getBlogArticleBySlug(slug);
 
     if (!article) {
-      console.warn(`Article not found for slug: ${slug}`);
+      console.error(`Article not found for slug: ${slug}`);
+      failures.push(slug);
       continue;
     }
 
@@ -84,7 +89,7 @@ async function generateOGImages() {
                 }
               },
               React.createElement("img", {
-                src: "https://sakusaku3939.com/images/blog-header.jpg",
+                src: icon,
                 alt: "icon",
                 width: 32,
                 height: 32,
@@ -124,10 +129,17 @@ async function generateOGImages() {
       console.log(`✓ Generated: ${slug}.png`);
     } catch (error) {
       console.error(`Failed to generate OG image for ${slug}:`, error);
+      failures.push(slug);
     }
   }
 
+  if (failures.length) {
+    throw new Error(`OG image generation failed for: ${failures.join(", ")}`);
+  }
   console.log("OG image generation complete!");
 }
 
-generateOGImages().catch(console.error);
+generateOGImages().catch(error => {
+  console.error(error);
+  process.exitCode = 1;
+});
