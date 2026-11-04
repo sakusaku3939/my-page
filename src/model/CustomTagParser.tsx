@@ -20,7 +20,7 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
       // img-400px (image-path)
       case (matched = name.match(/^img-(\d+)px$/)) && name:
         const width = parseInt(matched![1], 10);
-        return <ImageWithPlaceholder src={args[0]} containerStyle={{ maxWidth: `${width}px` }} />;
+        return <ImageWithPlaceholder src={args[0]} containerStyle={{ display: "block", maxWidth: `${width}px` }} />;
 
       // speaker-deck (data-id)
       case "speaker-deck":
