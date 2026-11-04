@@ -1,17 +1,17 @@
 ---
-title: OSS版 DeepL翻訳アプリ
+title: DeepLAndroid
 tag: Android, Kotlin, OSS
-overview: 非公式のDeepL翻訳サードパーティアプリ開発
+overview: 非公式のDeepL翻訳サードパーティアプリのOSS開発
 date: 2020.8.1
-pinned: true
+#pinned: true
 ---
 
 2020年の当時、DeepL公式のAndroidアプリが無く、わざわざブラウザからアクセスする必要がありました。そこで、WebViewとJavaScriptを使用して、シンプルなDeepL翻訳サードパーティアプリを開発しました。
 
-アプリをOSS化したところ大きな反響があり、2025年1月時点で <a href="https://github.com/sakusaku3939/DeepLAndroid/issues?q=is%3Aissue+is%3Aclosed" target="_blank">68個の解決済みIssues</a> と <a href="https://github.com/sakusaku3939/DeepLAndroid/pulls?q=is%3Apr+is%3Aclosed" target="_blank">48個のPull requests</a> がマージされました。
+アプリをOSS化したところ大きな反響があり、GitHubで500スターを達成し、2025年1月時点で <a href="https://github.com/sakusaku3939/DeepLAndroid/issues?q=is%3Aissue+is%3Aclosed" target="_blank">68個の解決済みIssues</a> と <a href="https://github.com/sakusaku3939/DeepLAndroid/pulls?q=is%3Apr+is%3Aclosed" target="_blank">48個のPull requests</a> がマージされました。
 アプリ自体の言語は英語・日本語に加え、コントリビューターにより計11ヶ国語に対応しています。
 
-また、OSS専用アプリストアのF-Droidにリリースを行い、2021年から現在まで公開されています。
+また、OSS専用アプリストアのF-Droidにリリースを行い、2021年から2026年まで5年ほど公開していました。
 https://github.com/sakusaku3939/DeepLAndroid
 
 ![](/public/posts/deepl-android/screenshot.png)
@@ -23,7 +23,7 @@ WebViewを使用し、必要な要素以外はJavaScriptで隠すことでネイ
 |--------------------------------------------------|---------------------------------------------------|-----------------------------------------------------|
 | ![](/public/posts/deepl-android/main-screen.png) | ![](/public/posts/deepl-android/context-menu.gif) | ![](/public/posts/deepl-android/setting-screen.png) |
 
-# スクリーンショットによる表示崩れの自動検知
+# スクリーンショットによる表示崩れのCI検知
 
 WebViewで表示しているDeepL翻訳のページは、不定期にデザインアップデートが入ることで要素のIDや配置が変わり、JavaScriptによる要素の非表示処理が効かなくなることがありました。結果として、ユーザーからのIssue報告を受けるまで発見が遅れ、数日間アプリが壊れた状態で放置されてしまうケースがありました。
 
@@ -46,8 +46,7 @@ CIは以下のフローによって行われます。
 
 ![](/public/posts/deepl-android/webview-test3.png)
 
-# コントリビューターの協力
-Thank you to @S-H-Y-A, @fm-sys, @Mephodio, ... and all contributors!
+# 議論
 
 - 選択メニューからDeepLアプリを起動
   - Pull Requests: [#25](https://github.com/sakusaku3939/DeepLAndroid/pull/25), [#40](https://github.com/sakusaku3939/DeepLAndroid/pull/40), [#57](https://github.com/sakusaku3939/DeepLAndroid/pull/57), [#67](https://github.com/sakusaku3939/DeepLAndroid/pull/67)
