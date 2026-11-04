@@ -75,7 +75,7 @@ const Index = () => {
             <TimeLineItem date="2023.4 - 2027.3" icon={faGraduationCap} title="慶應義塾大学 環境情報学部（SFC）" />
             <TimeLineItem date="2024.7 - 現在" icon={faGraduationCap} title="中澤・大越研究室 jnroot">
               中澤・大越研究室のネットワーク運用組織 jnroot & gpuroot
-              に所属し、ネットワーク・仮想化基盤・Webサービスの横断的な運用保守を担当しています。L2/L3障害切り分け、APクラスター・Proxmox設定の最適化、WordPressなど複数Webサイトの運用、AI研究基盤を支えるGPUサーバーの保守・障害対応など幅広い業務に携わっています。
+              に所属し、ネットワーク・仮想化基盤・Webサービスの横断的な運用保守を担当しています。L2/L3障害切り分け、APクラスター・Proxmox設定の最適化、WordPressなどの複数Webサイトの運用、AI研究基盤を支えるGPUサーバーの保守・障害対応などいろいろやっています。
               <TimeLineLink
                 description="KG SysNet"
                 href="https://www.jn.sfc.keio.ac.jp/sysnet/"
