@@ -113,10 +113,42 @@ const Index = () => {
                 showModal={true}
               />
             </TimeLineItem>
-            <TimeLineItem date="2025.6 - 2025.7" icon={faBriefcase} title="STORES株式会社 Androidインターン" />
-            <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン" />
-            <TimeLineItem date="2025.9 - 2025.10" icon={faBriefcase} title="株式会社MIXI Flutterインターン" />
-            <TimeLineItem date="2025.11 - 2025.12" icon={faBriefcase} title="株式会社リクルート Androidインターン" />
+            <TimeLineItem date="2025.6 - 2025.7" icon={faBriefcase} title="STORES株式会社 Androidインターン">
+              STORESブランドアプリSDKの開発に、1ヶ月間インターンとして参加しました。
+              <TimelineImage
+                title="STORES ブランドアプリ"
+                period="2025年6月 - 2025年7月"
+                imageUrl="/timeline/stores.jpg"
+                showModal={true}
+              />
+            </TimeLineItem>
+            <TimeLineItem date="2025.8 - 2025.9" icon={faBriefcase} title="LINEヤフー株式会社 Androidインターン">
+              Yahoo! JAPANアプリの機能改善に、インターンとして4週間参加しました。
+              <TimelineImage
+                title="Yahoo! JAPANアプリ"
+                period="2025年8月 - 2025年9月"
+                imageUrl="/timeline/yahoo.png"
+                showModal={true}
+              />
+            </TimeLineItem>
+            <TimeLineItem date="2025.9 - 2025.10" icon={faBriefcase} title="株式会社MIXI Flutterインターン">
+              SNSアプリ「mixi2」の開発に、7週間ほどFlutterインターンとして参加しました。
+              <TimelineImage
+                title="mixi2"
+                period="2025年9月 - 2025年10月"
+                imageUrl="/timeline/mixi2.jpg"
+                showModal={true}
+              />
+            </TimeLineItem>
+            <TimeLineItem date="2025.11 - 2025.12" icon={faBriefcase} title="株式会社リクルート Androidインターン">
+              スタディサプリのAndroid開発に、インターンとして5週間参加しました。
+              <TimelineImage
+                title="スタディサプリ 小学/中学/高校/大学受験講座"
+                period="2025年11月 - 2025年12月"
+                imageUrl="/timeline/studysapuri.png"
+                showModal={true}
+              />
+            </TimeLineItem>
           </Timeline>
 
           <h1 className={common.h1}>研究発表</h1>
