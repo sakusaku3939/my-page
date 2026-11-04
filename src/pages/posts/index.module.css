@@ -98,6 +98,62 @@
     transform: translateY(-50%);
 }
 
+.release {
+    grid-column: 1 / -1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: -8px 0;
+    font-size: 14px;
+    color: var(--light-grey);
+}
+
+.releaseMarker {
+    position: relative;
+    flex: 0 0 0;
+    align-self: stretch;
+}
+
+.releaseMarker::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: var(--timeline-indent);
+    height: 1px;
+    border-top: 1px dashed var(--grey);
+    transform: translateY(-50%);
+}
+
+.releaseMarker::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: calc(var(--timeline-indent) - 4px);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--grey);
+    transform: translateY(-50%);
+}
+
+.releaseDate {
+    font-variant-numeric: tabular-nums;
+}
+
+.releaseName {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.releaseLogo {
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+}
+
 @keyframes typewriter-cursor-blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }

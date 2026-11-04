@@ -14,6 +14,20 @@ import type { GetStaticProps } from "next";
 import common from "@/styles/common.module.css";
 import posts from "./posts.module.css";
 import Link from "next/link";
+import { AI_MODEL_RELEASES, dateValue } from "@/lib/aiModelReleases";
+import type { AiModelRelease } from "@/lib/aiModelReleases";
+
+type TimelineItem =
+  | { kind: "post"; post: Overview; value: number }
+  | { kind: "release"; release: AiModelRelease; value: number };
+
+const timelineItems = (year: string, posts: Overview[]): TimelineItem[] => {
+  const releases = AI_MODEL_RELEASES.filter(release => release.date.startsWith(`${year}.`));
+  return [
+    ...posts.map(post => ({ kind: "post" as const, post, value: dateValue(post.date) })),
+    ...releases.map(release => ({ kind: "release" as const, release, value: dateValue(release.date) }))
+  ].sort((a, b) => b.value - a.value);
+};
 
 type Props = {
   categories: { [tag: string]: number }[];
@@ -147,15 +161,29 @@ const Index = ({
             {groupedByYear.map(([year, posts]) => (
               <div key={year} className={index.yearGroup}>
                 <TypewriterYearTitle year={year} />
-                {posts.map((post: Overview, key: number) => (
-                  <div key={key} className={index.postCard}>
-                    <Post date={post.date}
-                          imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
-                          href={`/posts/${post.slug}`}
-                          title={post.title}
-                          tag={post.tagArray}
-                          pinned={post.pinned}
-                          overview={post.overview} />
+                {timelineItems(year, posts).map(item => item.kind === "release" ? (
+                  <div key={`release-${item.release.name}`} className={index.release}>
+                    <span className={index.releaseMarker} aria-hidden="true" />
+                    <time className={index.releaseDate}>{item.release.date}</time>
+                    <span className={index.releaseName}>
+                      <svg className={index.releaseLogo} role="img" viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill={item.release.useBrandColor ? `#${item.release.logo.hex}` : "currentColor"}>
+                        <title>{item.release.logo.title}</title>
+                        <path d={item.release.logo.path} />
+                      </svg>
+                      {item.release.name} リリース
+                    </span>
+                  </div>
+                ) : (
+                  <div key={item.post.slug} className={index.postCard}>
+                    <Post date={item.post.date}
+                          imageUrl={item.post.thumbnail ?? `/posts/${item.post.slug}/thumbnail.jpg`}
+                          href={`/posts/${item.post.slug}`}
+                          title={item.post.title}
+                          tag={item.post.tagArray}
+                          pinned={item.post.pinned}
+                          overview={item.post.overview} />
                   </div>
                 ))}
               </div>
