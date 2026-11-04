@@ -83,7 +83,7 @@ const Index = () => {
             </TimeLineItem>
             <TimeLineItem date="2023.4 - 現在" icon={faGraduationCap} title="中澤・大越研究室 RG d-hacks" open={true}>
               1春からRGのd-hacks研究グループに所属し、深層学習やCVに関する研究に取り組んでいます。<br />
-              現在は40人規模の研究グループのリーダーを務め、毎週のグループ輪読会や勉強会の設計、研究室運営に注力しています。
+              現在は40人規模の研究グループのリーダーとして、毎週のグループ輪読会や勉強会の設計、研究室運営をしています。
               <TimeLineLink
                 description="KG d-hacks"
                 href="https://d-hacks.jn.sfc.keio.ac.jp/"
@@ -95,7 +95,7 @@ const Index = () => {
           <Timeline>
             <TimeLineItem date="2023.1 - 2023.3" icon={faBriefcase} title="株式会社Wanderlust モバイルエンジニア"
                           open={true}>
-              高校卒業時にフロントエンド（Flutter）チームで、位置情報共有アプリ「Locket」の0→1開発にフルタイム相当の時間で従事しました。チャット機能やプロフィール画面などの新規機能開発やUX改善に取り組みました。
+              高校卒業時に、スタートアップでFlutterエンジニアとして位置情報共有アプリ「Locket」の新規開発に携わりました。チャット機能やプロフィール画面などの新規機能の実装に加え、UX改善に取り組みました。
               <TimelineImage
                 title="Locket | 位置情報共有アプリ"
                 period="2023年1月 - 2023年3月"
@@ -105,8 +105,7 @@ const Index = () => {
             </TimeLineItem>
             <TimeLineItem date="2024.8 - 2024.12" icon={faBriefcase} title="Gather Inc. モバイルエンジニア"
                           open={true}>
-              お出かけ先を提案してくれるAI
-              「GatherGo」のAndroid・iOSアプリ（Flutter）の0→1開発に従事しました。技術総括のもとFlutterのアーキテクチャ・技術選定から携わり、UIの実装からコア部分の開発までゼロベースで幅広い実装を担いました。
+              スタートアップのFlutterエンジニアとして、お出かけ先を提案してくれるAI「GatherGo」アプリの新規開発に携わりました。技術総括のもとFlutterのアーキテクチャ設計や技術選定といった初期段階から関わり、UIの実装から基盤の開発まで幅広く担当しました。
               <TimelineImage
                 title="GatherGo | お出かけ先レコメンドAI"
                 period="2024年8月 - 2024年12月"
@@ -125,7 +124,7 @@ const Index = () => {
             <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
                           title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）" open={false}>
               研究テーマ 「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」 について、情報処理学会の
-              UBI82研究会にて発表しました。（Full-paper, 国内, 査読無し）
+              UBI研究会にて発表しました。（Full-paper, 国内, 査読無し）
               <TimelineImage
                 title="YoloLSTM | 一般物体検出とLSTMを用いた画像に基づく屋内位置推定"
                 period="2023年4月 - 2024年6月"
@@ -216,7 +215,7 @@ const Index = () => {
             </TimeLineItem>
             <TimeLineItem date="2026.4" icon={faBookOpen} title="東京書籍 新編情報Ⅰ 教科書掲載" open={false}>
               令和8年度発行の東京書籍 「新編情報Ⅰ」 と 「情報Ⅰ Step&Forward!」
-              に、高校時代の取り組みが取材・掲載されました。全国の高校生が使用する情報科の教科書に事例として紹介していただきました。
+              に、高校時代の取り組みが取材・掲載されました。全国の高校生が使用する情報科の教科書に事例として紹介いただきました。
               <TimelineImage
                 title="東京書籍「新編情報Ⅰ」"
                 period="令和8年度発行"
