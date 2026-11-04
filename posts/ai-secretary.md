@@ -21,7 +21,7 @@ Slack のメンションは AWS Lambda で受け取って署名を検証し、SQ
 技術関連の作業や研究、スライド作成など、さまざまな用途に対応する60以上のSkills（SKILL.md）をGitHubで一元管理しています。
 Slackチャンネルごとに使用するSkillsと作業リポジトリを設定ファイルで指定し、用途に応じて切り替わる仕様になっています。
 
-また、必要なSkillsをローカルPCの所定のディレクトリ（`.claude/skills/`、`.agents/skills/`）にダウンロードして配置できるため、GitHubリポジトリでSkillsを一元管理し、複数のPCで共通のSkillsを利用できます。
+また、自作インストールスクリプトを実行すると、必要なSkillsをローカルPCの`.claude/skills/`や`.agents/skills/`にダウンロードでき、複数のPCで同じSkillsを共有できます。
 
 
 # 研究の自動化
