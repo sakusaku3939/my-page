@@ -230,8 +230,11 @@ const PlaceholderPostDetail = ({ categories }: { categories: Props["categories"]
           </ol>
         </nav>
         <div className={`${common.shadow} ${posts.post}`}>
-          <div className={posts.title}>
-            <div className={posts.titlePlaceholder}>&nbsp;</div>
+          <div className={posts.header}>
+            <div className={posts.title}>
+              <div className={posts.titlePlaceholder}>&nbsp;</div>
+            </div>
+            <div className={posts.datePlaceholder}>&nbsp;</div>
           </div>
           <ul className={`${common.tag} ${posts.tag}`}>
             <li>&nbsp;</li>

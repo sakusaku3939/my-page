@@ -72,7 +72,10 @@ const Posts = ({ overview, markdownBody, categories }: PostData) => {
             </ol>
           </nav>
           <div className={`${common.shadow} ${posts.post}`}>
-            <div className={posts.title}>{overview?.title ?? ""}</div>
+            <div className={posts.header}>
+              <div className={posts.title}>{overview?.title ?? ""}</div>
+              {overview?.date && <time className={posts.date}>{overview.date}</time>}
+            </div>
             <ul className={`${common.tag} ${posts.tag}`}>
               {overview ? renderTags(router, String(overview.tag ?? "").split(", ")) : null}
             </ul>

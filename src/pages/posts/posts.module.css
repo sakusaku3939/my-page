@@ -55,6 +55,19 @@
     margin-bottom: 0;
 }
 
+.post .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+}
+
+.post .date {
+    flex-shrink: 0;
+    font-size: 16px;
+    color: var(--light-grey);
+}
+
 .post .tag {
     margin-top: 8px;
     margin-bottom: 20px;
@@ -178,6 +191,17 @@
 .titlePlaceholder {
     width: 120px;
     height: 32px;
+    background-color: var(--placeholder-color);
+}
+
+.placeholder .header {
+    align-items: center;
+}
+
+.datePlaceholder {
+    flex-shrink: 0;
+    width: 72px;
+    height: 16px;
     background-color: var(--placeholder-color);
 }
 
