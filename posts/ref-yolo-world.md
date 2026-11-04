@@ -1,6 +1,6 @@
 ---
 title: Ref-YOLO-World
-tag: 機械学習, 物体検出, WACV 2027, Core ML
+tag: 深層学習, 物体検出, WACV 2027, Core ML
 overview: 文章で指定した物体をスマートフォン上で検出する、軽量な参照表現理解モデルの研究
 date: 2026.11.1
 ---

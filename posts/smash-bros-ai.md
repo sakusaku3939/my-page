@@ -1,6 +1,6 @@
 ---
 title: スマブラAI
-tag: Python, 機械学習, YOLO, Raspberry Pi, LLM
+tag: 深層学習, YOLO, Raspberry Pi, LLM
 overview: スマブラSPをリアルタイムにプレイするAI
 date: 2026.9.22
 ---
