@@ -22,13 +22,19 @@ import { CodeXml } from "lucide-react";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 
+type ListLayout = {
+  pinnedCount: number;
+  yearCounts: number[];
+}
+
 type PostData = {
   overview: any;
   markdownBody: string;
   categories: { [tag: string]: number }[];
+  listLayout: ListLayout;
 }
 
-const Posts = ({ overview, markdownBody, categories }: PostData) => {
+const Posts = ({ overview, markdownBody, categories, listLayout }: PostData) => {
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
 
@@ -53,7 +59,7 @@ const Posts = ({ overview, markdownBody, categories }: PostData) => {
   }, [router]);
 
   if (isNavigating) {
-    return <PlaceholderPostList categories={categories} />;
+    return <PlaceholderPostList categories={categories} listLayout={listLayout} />;
   }
 
   return (
@@ -97,7 +103,7 @@ const Posts = ({ overview, markdownBody, categories }: PostData) => {
 };
 
 
-const PlaceholderPostList = ({ categories }: { categories: PostData["categories"] }) => {
+const PlaceholderPostList = ({ categories, listLayout }: Pick<PostData, "categories" | "listLayout">) => {
   return (
     <>
       <Head>
@@ -116,31 +122,25 @@ const PlaceholderPostList = ({ categories }: { categories: PostData["categories"
         </div>
         <div className={index.wrapper}>
           <section className={index.postsList}>
-            {/* ピン止め記事のプレースホルダー（2個） */}
-            <div className={index.yearGroup}>
-              {Array(2).fill(0).map((_, i) => (
-                <div key={`pinned-${i}`} className={index.postCard}>
-                  <PlaceholderPost />
-                </div>
-              ))}
-              <div className={index.postDummy} />
-              <div className={index.postDummy} />
-              <div className={index.postDummy} />
-            </div>
-            {/* 年度別記事のプレースホルダー */}
-            {Array(3).fill(0).map((_, yearIndex) => (
+            {listLayout.pinnedCount > 0 && (
+              <div className={index.yearGroup}>
+                {Array.from({ length: listLayout.pinnedCount }, (_, i) => (
+                  <div key={`pinned-${i}`} className={index.postCard}>
+                    <PlaceholderPost />
+                  </div>
+                ))}
+              </div>
+            )}
+            {listLayout.yearCounts.map((count, yearIndex) => (
               <div key={`year-${yearIndex}`} className={index.yearGroup}>
                 <h2 className={index.yearTitle}>
                   <div className={index.yearTitlePlaceholder}>&nbsp;</div>
                 </h2>
-                {Array(3).fill(0).map((_, i) => (
+                {Array.from({ length: count }, (_, i) => (
                   <div key={`year-${yearIndex}-${i}`} className={index.postCard}>
                     <PlaceholderPost />
                   </div>
                 ))}
-                <div className={index.postDummy} />
-                <div className={index.postDummy} />
-                <div className={index.postDummy} />
               </div>
             ))}
           </section>
@@ -171,12 +171,24 @@ export const getStaticProps: GetStaticProps<PostData> = async ({ params }) => {
   const raw = getPostData(`${slug}.md`);
   const singleDocument = matter(raw);
   const categories = getAllCategories();
+  const overviews = getPostOverview(undefined);
+  const yearCounts: { [year: string]: number } = {};
+  overviews.forEach(post => {
+    const year = new Date(post.date).getFullYear().toString();
+    yearCounts[year] = (yearCounts[year] ?? 0) + 1;
+  });
 
   return {
     props: {
       overview: singleDocument.data,
       markdownBody: singleDocument.content,
-      categories
+      categories,
+      listLayout: {
+        pinnedCount: overviews.filter(post => post.pinned).length,
+        yearCounts: Object.entries(yearCounts)
+          .sort((a, b) => parseInt(b[0]) - parseInt(a[0]))
+          .map(([, count]) => count)
+      }
     }
   };
 };
