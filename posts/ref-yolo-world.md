@@ -8,7 +8,9 @@ date: 2026.8.28
 スマートフォンなどのエッジ端末上で、「サングラスをかけてベージュのコートを着た男性」のような文章から、画像内の対象物体を1つ検出する参照表現理解（REC）モデルを高速かつ高性能に動かすための研究です。
 提案手法は、RefCOCOg val で Acc@0.5 81.29%、iPhone 15 Pro で 15.73 FPS の動作を両立しました。
 
-本研究は国際会議 WACV 2027（採択率: 33.7%）の Application Track にフルペーパー採択されました。
+以前 MIRU 2025 でポスター発表した Dy-YOLO-World の課題をベースにした研究で、その続きとして卒業論文で取り組んでいる内容になります。
+
+本研究は学部4年次に国際会議 WACV 2027（採択率: 33.7%）の Application Track にフルペーパー採択されました。
 
 ![](/public/posts/ref-yolo-world/overview.png)
 # br-24px
@@ -30,15 +32,12 @@ date: 2026.8.28
 # two-row 37.3 /posts/ref-yolo-world/accuracy_fps.png /posts/ref-yolo-world/examples.png
 # br-8px
 
-（以前 MIRU 2025 でポスター発表した Dy-YOLO-World の課題をベースにした研究であり、その続きとして卒業論文で取り組んだ内容になります。）
-
-
 # デモ
-Core ML に変換したモデルを iPad Pro で動かした様子です。動画の再生と枠の描画も同時に行っているため、この動画では 3〜4 FPS ほどになっています。
+Core ML に変換した提案手法のモデルを iPad Pro で動かした様子です。動画の再生と枠の描画も同時に行っているため、この動画では 3〜4 FPS ほどになっています。
 
 <video src="/posts/ref-yolo-world/ipad-demo.mp4" width=300 controls autoplay muted></video>
 
-ブラウザ上で動くデモとして Hugging Face Spaces にも公開しています。
+ブラウザ上で動く ONNX のデモとして Hugging Face Spaces にも公開しています。
 https://huggingface.co/spaces/sakusaku3939/Ref-YOLO-World
 
 # リンク
