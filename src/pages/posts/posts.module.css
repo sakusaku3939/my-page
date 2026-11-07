@@ -73,17 +73,6 @@
     margin-bottom: 20px;
 }
 
-.post ul:not(.tag) {
-    list-style: disc;
-    line-height: 1.5;
-    margin-left: 20px;
-}
-
-.post li ul:not(.tag) {
-    list-style: circle;
-    margin-left: 24px;
-}
-
 .post a {
     word-break: break-all;
 }

@@ -7,6 +7,7 @@ import remarkBreaks from "remark-breaks";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import commonStyles from "@/styles/blog-common.module.css";
+import markdownLists from "@/styles/markdown-lists.module.css";
 import styles from "./[slug].module.css";
 import React from "react";
 import type { BlogArticle } from "@/model/type/BlogArticle";
@@ -111,7 +112,7 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
                 <h2 className={styles.articleTitle}>{article.title}</h2>
                 <time className={styles.articleDate}>{formattedDate}</time>
                 <ReactMarkdown
-                  className={styles.articleBody}
+                  className={`${styles.articleBody} ${markdownLists.lists}`}
                   remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
                   rehypePlugins={[rehypeRaw, rehypeKatex]}
                   components={{

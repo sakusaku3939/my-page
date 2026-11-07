@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import common from "@/styles/common.module.css";
+import markdownLists from "@/styles/markdown-lists.module.css";
 import posts from "./posts.module.css";
 import mdStyle from "./markdown.module.css";
 import remarkGfm from "remark-gfm";
@@ -86,7 +87,7 @@ const Posts = ({ overview, markdownBody, categories, listLayout }: PostData) => 
               {overview ? renderTags(router, String(overview.tag ?? "").split(", ")) : null}
             </ul>
             <ReactMarkdown
-              className={mdStyle.markdown}
+              className={`${mdStyle.markdown} ${markdownLists.lists}`}
               rehypePlugins={[remarkGfm, rehypeRaw]}
               components={{
                 h1: CustomTagParser,
