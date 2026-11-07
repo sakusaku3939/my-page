@@ -20,7 +20,7 @@ Slackにすると便利なこと
 # br-24px
 
 # 仕組み
-SlackのメンションはAWS Lambdaで受け取って署名を検証し、SQSに積みます。キューは自宅のMac mini上のworkerが読み取り、Claude CodeまたはCodexを起動して結果をスレッドに返す仕組みです。
+Slackからの依頼はキューに入り、自宅のMac miniで動くワーカーが受け取ります。Mac mini上でClaude CodeやCodexを起動して作業し、結果を依頼元のスレッドに返します。
 
 ![](/public/posts/ai-secretary/slack-thread.png)
 # br-24px
@@ -28,8 +28,10 @@ SlackのメンションはAWS Lambdaで受け取って署名を検証し、SQS�
 技術関連の作業や研究、スライド作成など、さまざまな用途に対応する60以上のSkills（SKILL.md）をGitHubで一元管理しています。
 Slackチャンネルごとに使用するSkillsと作業リポジトリを設定ファイルで指定し、用途に応じて切り替わる仕様になっています。
 
-また、自作インストールスクリプトを実行すると、必要なSkillsをローカルPCの`.claude/skills/`や`.agents/skills/`にダウンロードでき、複数のPCで同じSkillsを共有できます。
+また、GitHubで管理しているSkillは、手元のPCにも自動でアップデートが配布されます。必要なSkillが各PCの`.claude/skills/`や`.agents/skills/`に入ることで、全ての所有PCで同じSkillを使えます。
 
+![](/public/posts/ai-secretary/agent-skill.png)
+# br-24px
 
 # 研究の自動化
 仮説を立てるところから考察をまとめるところまでを自動で回しています。
@@ -51,14 +53,14 @@ Slackチャンネルごとに使用するSkillsと作業リポジトリを設定
 # two-row 68.03 /posts/ai-secretary/research-prs.jpg /posts/ai-secretary/research-review.jpg
 # br-24px
 
-2026年4月から11月までの成果は以下のとおりです。
+2026年4月から11月まで回したところ、以下の結果になりました。
 
 - PR：約1,200件（うち実験のPRは約820件）
 - 考察まで終わった実験：約430件
 - 研究タスクの目標精度を72.06% → 81.29%まで改善
 # br-8px
 
-仮説が外れた実験も考察としてドキュメントに残すため、次の仮説を立てるときの材料になっています。
+ほとんどの仮説は失敗に終わりましたが、仮説が外れた実験も考察としてドキュメントに残すため、次の仮説を立てるときの材料になっています。
 
 この実験結果の一部は、[Ref-YOLO-World](https://github.com/sakusaku3939/Ref-YOLO-World/)として国際会議WACV 2027（採択率: 33.7%）に論文が採択されました。
 
