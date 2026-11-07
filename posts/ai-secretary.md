@@ -8,9 +8,16 @@ date: 2026.4.6
 Slack で bot にメンションすると、AIエージェントが作業してスレッドに返信する個人用のAI秘書を作りました。
 アプリのバグ調査や実装、研究の実験などを、チャンネルごとに専用skillを持つエージェントに、スマホからもPCからも依頼できます。
 
-![](/public/posts/ai-secretary/slack-channels.png)
+Slackにすると便利なこと
+- Xで見つけたskillsや面白い仕組みを、スマホのSlackでリンクと一緒に「これ入れといて」と送るだけで導入できる。PRをマージすると、自分のPCのCodexやClaude Codeにもskillsが自動配布される
+- 「fableで」「gpt6で」と言えば途中でモデルを切り替えられるため、調査時と実装時のモデル切り替えが簡単
+- スマホだけでアプリを作れる。思い付いたときに機能を足したり、バグが出たらスクショやログを直接スマホからSlackに送って調査できる
+- AI秘書が自分自身を改善できる（セキュリティ対応含め）
+
 # br-24px
 
+![](/public/posts/ai-secretary/slack-channels.png)
+# br-24px
 
 # 仕組み
 Slack のメンションは AWS Lambda で受け取って署名を検証し、SQS に積みます。キューは自宅の Mac mini 上の worker が読み取り、Claude Code または Codex を起動して結果をスレッドに返す仕組みです。
