@@ -21,16 +21,33 @@ Slackにすると便利なこと
 
 # 仕組み
 Slackからの依頼はキューに入り、自宅のMac miniで動くワーカーが受け取ります。Mac mini上でClaude CodeやCodexを起動して作業し、結果を依頼元のスレッドに返します。
+定期タスクでは、AI秘書がSlackで自分自身をメンションして次の作業を依頼し、次の作業を自律的で進めることができます。GitHub Actionsを利用して指定の時間にメッセージを送っています。
 
 ![](/public/posts/ai-secretary/slack-thread.png)
 # br-24px
 
+LLMは料金体系や性能の勢力図がすぐに変わるため、使うモデルを後から差し替えられるようにしました。Claude CodeとCodex CLIでは出力形式やセッションの継続方法が異なるため、LLMアダプタという層で各CLIの出力を共通のイベントに変換し、AIエージェント本体からはその違いが見えないようにしています。使うLLMは、Slackで「fableで」「gpt6で」と一言頼むだけで切り替えられます。
+
+![](/public/posts/ai-secretary/llm-adapter.png)
+# br-24px
+
+アーキテクチャ設計とテスト戦略についての詳細は、Zennの記事「[特定モデルに依存しないAIエージェントの設計: Clean Architectureとテスト戦略](https://zenn.dev/aokiti/articles/00cd9eb7afd400)」にまとめています。
+
+
+# Skillの管理
 技術関連の作業や研究、スライド作成など、さまざまな用途に対応する60以上のSkills（SKILL.md）をGitHubで一元管理しています。
 Slackチャンネルごとに使用するSkillsと作業リポジトリを設定ファイルで指定し、用途に応じて切り替わる仕様になっています。
 
 また、GitHubで管理しているSkillは、手元のPCにも自動でアップデートが配布されます。必要なSkillが各PCの`.claude/skills/`や`.agents/skills/`に入ることで、全ての所有PCで同じSkillを使えます。
 
 ![](/public/posts/ai-secretary/agent-skill.png)
+# br-24px
+
+# 週次レポート
+毎週月曜に週次レポートとして、AI秘書のトークン使用量や改善案をまとめてGitHubのIssueにまとめています。
+前週からどれくらい利用量が変わったかに加え、Skillの改善案や、対応が必要なセキュリティ項目を調査し、必要なら改善まで依頼できます。
+
+![](/public/posts/ai-secretary/report.png)
 # br-24px
 
 # 研究の自動化
@@ -63,15 +80,6 @@ Slackチャンネルごとに使用するSkillsと作業リポジトリを設定
 ほとんどの仮説は失敗に終わりましたが、仮説が外れた実験も考察としてドキュメントに残すため、次の仮説を立てるときの材料になっています。
 
 この実験結果の一部は、[Ref-YOLO-World](https://github.com/sakusaku3939/Ref-YOLO-World/)として国際会議WACV 2027（採択率: 33.7%）に論文が採択されました。
-
-# モデルに依存しないAIエージェント
-Claude CodeとCodex CLIは、出力形式やセッション継続の方法がそれぞれ異なります。そこでAIエージェント本体がこの違いに依存しないよう、LLMアダプタという層で各CLIの出力を共通のイベントに変換しました。使うLLMは一言で切り替えられます。
-
-![](/public/posts/ai-secretary/llm-adapter.png)
-# br-24px
-
-アーキテクチャ設計とテスト戦略についての詳細は、Zennの記事「[特定モデルに依存しないAIエージェントの設計: Clean Architectureとテスト戦略](https://zenn.dev/aokiti/articles/00cd9eb7afd400)」にまとめています。
-
 
 # リンク
 - 特定モデルに依存しないAIエージェントの設計: Clean Architectureとテスト戦略 - Zenn  
