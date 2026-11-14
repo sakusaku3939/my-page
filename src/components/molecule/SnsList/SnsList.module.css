@@ -39,6 +39,22 @@
     color: #038C7F;
 }
 
+.support {
+    color: var(--text-color);
+    opacity: 0.85;
+    width: 30px;
+    height: 30px;
+    margin-top: 1px;
+}
+
+.support a {
+    font-size: 30px;
+}
+
+.support svg {
+    vertical-align: top;
+}
+
 .linkedIn {
     position: relative;
     color: #0e76a8;

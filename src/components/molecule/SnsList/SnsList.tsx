@@ -1,6 +1,9 @@
 import sns from "@/components/molecule/SnsList/SnsList.module.css";
 import { siGithub, siQiita, siSpeakerdeck, siZenn } from "simple-icons";
 import { ReactNode } from "react";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const SnsList = () => {
   return (
@@ -26,6 +29,11 @@ const SnsList = () => {
             <path d={siSpeakerdeck.path} />
           </svg>
         </SnsButton>
+        <div className={`${sns.button} ${sns.support}`}>
+          <Link title={"お問い合わせ"} href={"/support"}>
+            <FontAwesomeIcon icon={faEnvelope} />
+          </Link>
+        </div>
       </div>
     </>
   );
