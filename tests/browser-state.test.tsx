@@ -1,9 +1,8 @@
 import assert from "node:assert/strict";
 import test, { type TestContext } from "node:test";
 import { renderToStaticMarkup } from "react-dom/server";
-import { createHeaderScrollStore, darkModeStore, nfcSupportStore } from "../src/hooks/browserStores";
+import { createHeaderScrollStore, darkModeStore } from "../src/hooks/browserStores";
 import { useDarkMode } from "../src/hooks/useDarkMode";
-import NFCWriter from "../src/components/atom/NFCWriter/NFCWriter";
 
 function replaceGlobal(t: TestContext, name: string, value: unknown) {
   const original = Object.getOwnPropertyDescriptor(globalThis, name);
@@ -18,33 +17,21 @@ function Theme() {
   return <span>{useDarkMode() ? "dark" : "light"}</span>;
 }
 
-const nfcProps = {
-  url: "https://example.com/post",
-  onSuccess: () => {},
-  onError: () => {},
-  onInfo: () => {}
-};
-
-test("server rendering never reads browser APIs or exposes an NFC action", () => {
+test("server rendering never reads browser APIs", () => {
   assert.equal(typeof window, "undefined");
-  for (const store of [darkModeStore, createHeaderScrollStore("header"), nfcSupportStore]) {
+  for (const store of [darkModeStore, createHeaderScrollStore("header")]) {
     assert.equal(store.getSnapshot(), false);
     assert.equal(store.getServerSnapshot(), false);
   }
   assert.equal(renderToStaticMarkup(<Theme />), "<span>light</span>");
-  assert.equal(renderToStaticMarkup(<NFCWriter {...nfcProps} />), "");
 });
 
-test("the hydration snapshot stays deterministic even for dark-mode NFC browsers", (t) => {
+test("the hydration snapshot stays deterministic even for dark-mode browsers", (t) => {
   replaceGlobal(t, "window", {
-    matchMedia: () => ({ matches: true }),
-    location: { protocol: "https:" },
-    NDEFReader: class { constructor() { assert.fail("render must not request NFC access"); } }
+    matchMedia: () => ({ matches: true })
   });
   assert.equal(darkModeStore.getSnapshot(), true);
-  assert.equal(nfcSupportStore.getSnapshot(), true);
   assert.equal(renderToStaticMarkup(<Theme />), "<span>light</span>");
-  assert.equal(renderToStaticMarkup(<NFCWriter {...nfcProps} />), "");
 });
 
 test("dark mode follows both OS theme changes and unsubscribes on cleanup", (t) => {
@@ -119,20 +106,4 @@ test("missing header and ResizeObserver preserve safe scroll behavior", (t) => {
   browser.scrollY = 1;
   assert.equal(store.getSnapshot(), true);
   store.subscribe(() => {})();
-});
-
-test("NFC detection requires HTTPS and a callable reader without constructing it", (t) => {
-  const browser = { location: { protocol: "https:" }, NDEFReader: undefined as unknown };
-  replaceGlobal(t, "window", browser);
-  for (const [protocol, reader, expected] of [
-    ["https:", class { constructor() { assert.fail("detection must not write"); } }, true],
-    ["http:", class {}, false],
-    ["https:", undefined, false],
-    ["https:", {}, false]
-  ] as const) {
-    browser.location.protocol = protocol;
-    browser.NDEFReader = reader;
-    assert.equal(nfcSupportStore.getSnapshot(), expected);
-    nfcSupportStore.subscribe()();
-  }
 });

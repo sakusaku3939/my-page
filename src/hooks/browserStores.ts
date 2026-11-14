@@ -44,13 +44,3 @@ export const createHeaderScrollStore = (headerSelector: string) => ({
     };
   }
 });
-
-export const nfcSupportStore = {
-  getServerSnapshot,
-  getSnapshot: () =>
-    typeof window !== "undefined" &&
-    window.location.protocol === "https:" &&
-    typeof window.NDEFReader === "function",
-  // Web NFC availability is fixed for this document; checking never requests access.
-  subscribe: () => noop
-};
