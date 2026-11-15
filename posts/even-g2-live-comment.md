@@ -19,7 +19,7 @@ YouTubeライブ配信のコメントを、スマートグラスのEven G2にリ
 # img-480px /posts/even-g2-live-comment/even-g2.png
 
 
-# 使い方と中身
+# 使い方と内部の仕様
 スマホのEven Hubアプリから本アプリを開き、ライブ配信のURLを入力して開始すると、グラスに直近のコメントが流れます。
 YouTube Data APIのキーは不要で、インストール後すぐに使えます。
 
