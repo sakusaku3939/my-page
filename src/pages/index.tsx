@@ -8,11 +8,18 @@ import NoColorLink from "@/components/atom/NoColorLink/NoColorLink";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu, Menu } from "@/components/molecule/Menu/Menu";
 import { BackgroundGradientWrapper } from "@/components/atom/BackgroundGradientWrapper/BackgroundGradientWrapper";
+import type { GetStaticProps } from "next";
+import { getHomePosts } from "@/model/PostServer";
+import type { Overview } from "@/model/type/Overview";
+
+type Props = {
+  posts: Overview[];
+}
 
 const TITLE_TEXT = "Aokiti";
 const LETTER_DELAY_MS = 55;
 
-const Index = () => {
+const Index = ({ posts }: Props) => {
   const router = useRouter();
   const [clickCount, setClickCount] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -80,13 +87,17 @@ const Index = () => {
           <SnsList />
         </section>
         <section className={index.section}>
-          <PostsList />
+          <PostsList posts={posts} />
         </section>
 
         <FooterMenu />
       </BackgroundGradientWrapper>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  return { props: { posts: getHomePosts() } };
 };
 
 export default Index;

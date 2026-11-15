@@ -9,8 +9,9 @@ import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import blurMap from "@/__generated__/blur-image-map";
+import type { Overview } from "@/model/type/Overview";
 
-const PostsList = () => {
+const PostsList = ({ posts }: { posts: Overview[] }) => {
   return <>
     <div className={postList.wrapper}>
       <Splide options={{
@@ -18,56 +19,18 @@ const PostsList = () => {
         focus: "center",
         autoWidth: true
       }}>
-        <SplideSlide>
-          <div className={postList.card}>
-            <Post date="2021.10.25"
-                  imageUrl="/posts/presc/thumbnail.jpg"
-                  href="/posts/presc"
-                  title="Presc"
-                  tag={["Android / iOS", "Flutter", "Dart", "アプリ甲子園"]}
-                  overview="音声認識により、どこまで読んだかが分かるプレゼンテーション用原稿表示アプリ" />
-          </div>
-        </SplideSlide>
-        <SplideSlide>
-          <div className={postList.card}>
-            <Post date="2025.2.10"
-                  imageUrl="/posts/530-app/thumbnail.jpg"
-                  href="/posts/530-app"
-                  title="ごみ量可視化アプリ"
-                  tag={["Android / iOS", "Flutter", "廃棄物資源循環学会"]}
-                  overview="自宅のゴミ排出量の可視化、ごみ収集車の到着予定時間を表示できる実証実験アプリ" />
-          </div>
-        </SplideSlide>
-        <SplideSlide>
-          <div className={postList.card}>
-            <Post date="2024.6.7"
-                  imageUrl="/posts/yolo-lstm/thumbnail.jpg"
-                  href="/posts/yolo-lstm"
-                  title="YoloLSTM"
-                  tag={["機械学習", "ACM MobiSys", "IPSJ UBI", " Flutter"]}
-                  overview="一般物体検出と深層学習技術を活用した、自己位置推定モデルの研究" />
-          </div>
-        </SplideSlide>
-        <SplideSlide>
-          <div className={postList.card}>
-            <Post date="2021.1.1"
-                  imageUrl="/posts/deepl-android/thumbnail.jpg"
-                  href="/posts/deepl-android"
-                  title="OSS版 DeepL翻訳アプリ"
-                  tag={["Android", "Kotlin", "OSS"]}
-                  overview="非公式のDeepL翻訳サードパーティアプリ開発とOSSプロジェクト運営" />
-          </div>
-        </SplideSlide>
-        <SplideSlide>
-          <div className={postList.card}>
-            <Post date="2024.3.24"
-                  imageUrl="/posts/mood-tune/thumbnail.jpg"
-                  href="/posts/mood-tune"
-                  title="MoodTune"
-                  tag={["Python", "機械学習", "Next.js", "TypeScript"]}
-                  overview="環境音からSpotifyの音楽を推薦してくれるAIアプリ" />
-          </div>
-        </SplideSlide>
+        {posts.map(post => (
+          <SplideSlide key={post.slug}>
+            <div className={postList.card}>
+              <Post date={post.date}
+                    imageUrl={post.thumbnail ?? `/posts/${post.slug}/thumbnail.jpg`}
+                    href={`/posts/${post.slug}`}
+                    title={post.title}
+                    tag={post.tagArray}
+                    overview={post.overview} />
+            </div>
+          </SplideSlide>
+        ))}
       </Splide>
     </div>
     <div className={postList.button}>

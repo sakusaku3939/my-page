@@ -4,6 +4,7 @@ export type Overview = {
   tag: string,
   tagArray: string[],
   pinned: boolean | undefined,
+  home: number | undefined,
   slug: string,
   overview: string,
   thumbnail: string

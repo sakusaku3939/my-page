@@ -3,6 +3,7 @@ title: DA Translator
 tag: Android, Kotlin, OSS
 overview: 非公式のDeepL翻訳サードパーティアプリのOSS開発
 date: 2020.8.1
+home: 4
 #pinned: true
 ---
 
