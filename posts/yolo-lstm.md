@@ -1,6 +1,6 @@
 ---
 title: YoloLSTM
-tag: 深層学習, ACM MobiSys, IPSJ UBI, Flutter
+tag: AI, ACM MobiSys, IPSJ UBI, Flutter
 overview: 一般物体検出と深層学習技術を活用した、自己位置推定モデルの研究
 date: 2024.6.7
 ---
