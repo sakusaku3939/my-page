@@ -3,7 +3,7 @@ title: YoloLSTM
 tag: 深層学習, ACM MobiSys, IPSJ UBI, Flutter
 overview: 一般物体検出と深層学習技術を活用した、自己位置推定モデルの研究
 date: 2024.6.7
-home: 3
+home_order: 3
 ---
 
 一般物体検出とCNNおよびLSTMを組み合わせることで、物体の特徴や数に着目した自己位置推定モデルを構築しました。

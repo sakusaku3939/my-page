@@ -46,11 +46,11 @@ export function getPostOverview(filter: string | string[] | undefined) {
   return overviews.sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1);
 }
 
-// frontmatterに home: 数値 がある記事を、数値の昇順で返す
+// frontmatterに home_order: 数値 がある記事を、数値の昇順で返す
 export function getHomePosts() {
   return getPostOverview(undefined)
-    .filter(post => post.home !== undefined)
-    .sort((a, b) => a.home! - b.home!);
+    .filter(post => post.home_order !== undefined)
+    .sort((a, b) => a.home_order! - b.home_order!);
 }
 
 export function getAllCategories() {

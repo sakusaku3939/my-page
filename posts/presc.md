@@ -3,7 +3,7 @@ title: Presc
 tag: Android / iOS, Flutter, Dart, アプリ甲子園
 overview: 音声認識により、どこまで読んだかが分かるプレゼンテーション用原稿表示アプリ
 date: 2021.10.25
-home: 1
+home_order: 1
 #pinned: true
 ---
 
