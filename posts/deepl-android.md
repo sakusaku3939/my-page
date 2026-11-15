@@ -1,18 +1,17 @@
 ---
 title: DA Translator
 tag: Android, Kotlin, OSS
-overview: 非公式のDeepL翻訳サードパーティアプリのOSS開発
+overview: Android向けのDeepL翻訳の非公式OSSアプリ
 date: 2020.8.1
-home_order: 4
+home_order: 2
 #pinned: true
 ---
 
-2020年の当時、DeepL公式のAndroidアプリが無く、わざわざブラウザからアクセスする必要がありました。そこで、WebViewとJavaScriptを使用して、シンプルなDeepL翻訳サードパーティアプリを開発しました。
+2020年の当時、DeepL公式のAndroidアプリが無く、わざわざブラウザからアクセスする必要がありました。そこで、WebViewとJavaScriptを使用したシンプルなDeepL翻訳クライアントを開発しました。
 
-アプリをOSS化したところ大きな反響があり、GitHubで500スターを達成し、2025年1月時点で <a href="https://github.com/sakusaku3939/DA-Translator/issues?q=is%3Aissue+is%3Aclosed" target="_blank">68個の解決済みIssues</a> と <a href="https://github.com/sakusaku3939/DA-Translator/pulls?q=is%3Apr+is%3Aclosed" target="_blank">48個のPull requests</a> がマージされました。
+OSSアプリストアのF-Droidに公開したところ着々と反響があり、GitHubで500スターを達成しました。2025年1月時点で <a href="https://github.com/sakusaku3939/DA-Translator/issues?q=is%3Aissue+is%3Aclosed" target="_blank">68件のIssue</a> が解決され、外部のコントリビューターからも <a href="https://github.com/sakusaku3939/DA-Translator/pulls?q=is%3Apr+-author%3Asakusaku3939" target="_blank">48件のPull request</a> が寄せられました。
 アプリ自体の言語は英語・日本語に加え、コントリビューターにより計11ヶ国語に対応しています。
 
-また、OSS専用アプリストアのF-Droidにリリースを行い、2021年から2026年まで5年ほど公開していました。
 https://github.com/sakusaku3939/DA-Translator
 
 ![](/public/posts/deepl-android/screenshot.png)
