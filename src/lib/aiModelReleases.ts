@@ -20,6 +20,7 @@ export const AI_MODEL_RELEASES: AiModelRelease[] = [
   { date: "2024.9.12", name: "OpenAI o1", ...openai },
   { date: "2025.8.7", name: "GPT-5", ...openai },
   { date: "2025.11.18", name: "Gemini 3 Pro", ...gemini },
+  { date: "2026.2.5", name: "Claude Opus 4.6", ...claude },
   { date: "2026.6.9", name: "Claude Fable 5", ...claude },
   { date: "2026.9.22", name: "Claude Opus 5.5", ...claude }
 ];
