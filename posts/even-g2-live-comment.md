@@ -31,6 +31,8 @@ Even Hub向けアプリは、スマホのWebView上で動くWebアプリとし�
 
 ちなみに、公式からシミュレーターは用意されていますが、シミュレーターだけで開発しているとグラス自体のメモリ不足で落ちる問題に気付けないため、現バージョンのスマートグラスアプリ開発は実機で動作確認しながら開発する必要がありそうです。
 
+# x-post 2051594756988579980 600
+
 # リンク
 - Even Hub  
   https://evenhub.evenrealities.com/landing?package_id=com.github.sakusaku3939.livecomment

@@ -81,6 +81,8 @@ Slackチャンネルごとに使用するSkillsと作業リポジトリを設定
 
 この実験結果の一部は、[Ref-YOLO-World](https://github.com/sakusaku3939/Ref-YOLO-World/)として国際会議WACV 2027（採択率: 33.7%）に論文が採択されました。
 
+# x-post 2041152629175386598 744
+
 # リンク
 - 特定モデルに依存しないAIエージェントの設計: Clean Architectureとテスト戦略 - Zenn  
   https://zenn.dev/aokiti/articles/00cd9eb7afd400
