@@ -1,0 +1,16 @@
+.wrapper {
+    position: relative;
+}
+
+/* 埋め込みは表示したまま読み込ませ、完了するまでプレースホルダーで覆う */
+.placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    max-width: 550px;
+    margin: 0 auto;
+    border-radius: 12px;
+    background-color: var(--placeholder-color);
+}

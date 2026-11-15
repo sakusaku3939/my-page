@@ -3,6 +3,7 @@ import common from "@/styles/common.module.css";
 import posts from "@/pages/posts/posts.module.css";
 import Image from "next/image";
 import { ImageWithPlaceholder } from "@/components/atom/ImageWithPlaceholder/ImageWithPlaceholder";
+import { XPost } from "@/components/atom/XPost/XPost";
 
 export function CustomTagParser({ className, children }: React.JSX.IntrinsicElements["h1"]) {
   if (children) {
@@ -99,6 +100,11 @@ export function CustomTagParser({ className, children }: React.JSX.IntrinsicElem
             <iframe src={`https://www.youtube.com/embed/${params[1]}`} allowFullScreen></iframe>
           </div>
         </>;
+
+      // x-post (post-id) (placeholder-height)
+      // 読み込み中は placeholder-height px のプレースホルダーを表示する（省略時は 500px）
+      case "x-post":
+        return <XPost id={args[0]} placeholderHeight={args[1] ? parseInt(args[1], 10) : 500} />;
 
       default:
         return <h1 className={className}>{children}</h1>;
