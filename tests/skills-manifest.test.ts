@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildArchiveUrl, parseSkillManifest } from "../src/model/SkillManifest";
+import { buildArchiveUrl, isExternal, parseSkillManifest } from "../src/model/SkillManifest";
 
 const validSkill = {
   name: "sample-skill",
@@ -18,17 +18,45 @@ const validSkill = {
   source_url: null,
 };
 
+const externalSkill = {
+  name: "android-skills",
+  category_path: ["開発", "Android", "公式スキル"],
+  description: "Android CLI の公式スキル一式",
+  command: "android skills add --all",
+  source_url: "https://github.com/android/skills",
+};
+
 test("current private-release manifest schema is accepted", () => {
   const manifest = parseSkillManifest({
     repository: "sakusaku3939/agent-skills",
     release_tag: "skills-0123456789abcdef0123456789abcdef01234567",
     skills: [validSkill],
+    external_skills: [externalSkill],
   });
 
   assert.deepEqual(manifest, {
     releaseTag: "skills-0123456789abcdef0123456789abcdef01234567",
     skills: [validSkill],
+    externalSkills: [externalSkill],
   });
+  assert.equal(isExternal(validSkill), false);
+  assert.equal(isExternal(externalSkill), true);
+});
+
+test("external skills must declare a shell-free command and https source", () => {
+  for (const invalid of [
+    { ...externalSkill, command: "android skills add --all; id" },
+    { ...externalSkill, command: "android $(id)" },
+    { ...externalSkill, source_url: "http://example.com" },
+    { ...externalSkill, name: "../android" },
+  ]) {
+    assert.equal(parseSkillManifest({
+      repository: "sakusaku3939/agent-skills",
+      release_tag: "skills-0123456789abcdef0123456789abcdef01234567",
+      skills: [validSkill],
+      external_skills: [invalid],
+    }), null);
+  }
 });
 
 test("obsolete public archive URL schema is rejected", () => {
@@ -37,6 +65,7 @@ test("obsolete public archive URL schema is rejected", () => {
     repository: "sakusaku3939/agent-skills",
     release_tag: "skills-0123456789abcdef0123456789abcdef01234567",
     skills: [{ ...obsoleteSkill, url: "https://sakusaku3939.github.io/agent-skills/sample.tar.gz" }],
+    external_skills: [],
   }), null);
 });
 

@@ -7,7 +7,7 @@ import { FooterMenu } from "@/components/molecule/Menu/Menu";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 import { SkillSelector } from "@/components/organism/SkillSelector/SkillSelector";
 import { toggleSkillNames } from "@/components/organism/SkillSelector/selection";
-import { buildArchiveUrl, parseSkillManifest } from "@/model/SkillManifest";
+import { buildArchiveUrl, isExternal, parseSkillManifest } from "@/model/SkillManifest";
 import type { SkillManifest } from "@/model/SkillManifest";
 
 const DISTRIBUTION_BASE_URL = "https://sakusaku3939.github.io/agent-skills";
@@ -71,7 +71,7 @@ const Index = () => {
         if (parsedManifest === null) throw new Error("invalid manifest");
 
         setManifest(parsedManifest);
-        setSelected(parsedManifest.skills.map((skill) => skill.name));
+        setSelected([...parsedManifest.skills, ...parsedManifest.externalSkills].map((skill) => skill.name));
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") return;
         setLoadFailed(true);
@@ -82,7 +82,7 @@ const Index = () => {
     return () => controller.abort();
   }, []);
 
-  const skills = manifest?.skills ?? null;
+  const skills = manifest ? [...manifest.skills, ...manifest.externalSkills] : null;
 
   const allSelected = skills !== null && skills.length > 0 && selected.length === skills.length;
 
@@ -258,17 +258,52 @@ const Index = () => {
             </p>
           ) : manifest === null ? (
             <p className={index.note}>配布データを読み込んでいます。</p>
-          ) : manifest.skills.length === 0 ? (
+          ) : skills === null || skills.length === 0 ? (
             <p className={index.note}>まだ配布中のスキルはありません。</p>
           ) : (
             <>
               <div className={index.selectorHeader}>
-                <span>{selected.length} / {manifest.skills.length} 件選択中</span>
+                <span>{selected.length} / {skills.length} 件選択中</span>
                 <button type="button" className={index.selectorToggle} onClick={toggleAll}>
                   {allSelected ? "すべて外す" : "すべて選択"}
                 </button>
               </div>
-              <SkillSelector skills={manifest.skills} selected={selected} onToggle={toggleSkills} renderSkill={(skill) => (
+              <SkillSelector skills={skills} selected={selected} onToggle={toggleSkills} renderSkill={(skill) => isExternal(skill) ? (
+                <article className={index.skill} data-selected={selected.includes(skill.name)}>
+                  <header className={index.skillHeader}>
+                    <h3 className={index.skillName}>
+                      <label className={index.skillChoice}>
+                        <input
+                          type="checkbox"
+                          checked={selected.includes(skill.name)}
+                          onChange={() => toggleSkills([skill.name])}
+                        />
+                        <span>{skill.name}</span>
+                      </label>
+                    </h3>
+                    <span className={index.version}>外部</span>
+                  </header>
+
+                  <p className={index.description}>{skill.description}</p>
+
+                  <CommandBlock command={skill.command} />
+
+                  <dl className={index.meta}>
+                    <div>
+                      <dt>導入</dt>
+                      <dd>選択時はインストーラーが上のコマンドを実行します。更新は導入元のCLIで行います。</dd>
+                    </div>
+                    <div>
+                      <dt>参照元</dt>
+                      <dd>
+                        <a href={skill.source_url} rel="noopener noreferrer" target="_blank">
+                          {skill.source_url}
+                        </a>
+                      </dd>
+                    </div>
+                  </dl>
+                </article>
+              ) : (
                 <article className={index.skill} data-selected={selected.includes(skill.name)}>
                   <header className={index.skillHeader}>
                     <h3 className={index.skillName}>
