@@ -155,7 +155,7 @@ const Index = () => {
           <Timeline>
             <TimeLineItem date="2024.5" icon={faChalkboardTeacher}
                           title="第82回 情報処理学会 ユビキタスコンピューティングシステム研究会（UBI）" open={false}>
-              研究テーマ 「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」 について、情報処理学会の
+              学部2年次に、研究テーマ 「一般物体検出とLSTMを用いた画像に基づく屋内位置推定」 について、情報処理学会の
               UBI研究会にて発表しました。（Full-paper, 国内, 査読無し）
               <TimelineImage
                 title="YoloLSTM | 一般物体検出とLSTMを用いた画像に基づく屋内位置推定"
@@ -171,7 +171,7 @@ const Index = () => {
             </TimeLineItem>
             <TimeLineItem date="2024.6" icon={faChalkboardTeacher}
                           title="ACM MobiSys'24 Demo" open={true}>
-              国際会議 MobiSys 2024 の Poster/Demo セッションにて「Demo: Image-based Indoor
+              モバイルコンピューティングの国際会議、ACM MobiSys 2024 の Poster/Demo セッションにて「Demo: Image-based Indoor
               Localization using Object Detection and LSTM」を発表しました。（Demo, 国際, 査読あり）
               <TimelineImage
                 title="YoloLSTM | 一般物体検出とLSTMを用いた画像に基づく屋内位置推定"
@@ -186,7 +186,7 @@ const Index = () => {
               />
             </TimeLineItem>
             <TimeLineItem date="2025.8" icon={faChalkboardTeacher}
-                          title="MIRU 2025 インタラクティブ発表" open={true}>
+                          title="MIRU 2025 インタラクティブ発表" open={false}>
               画像の認識・理解シンポジウム MIRU 2025にて「Dy-YOLO-World:
               文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出」について一般論文ポスター発表を行いました。（Poster,
               国内, 査読なし）
@@ -197,10 +197,25 @@ const Index = () => {
             </TimeLineItem>
             <TimeLineItem date="2025.7" icon={faFileAlt} title="SFC山岸学生プロジェクト支援制度 採択" open={false}>
               2025年度春学期募集のSFCの山岸学生プロジェクト支援制度において、研究テーマ「Dy-YOLO-World:
-              文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出」が採択されました。研究助成金をいただき、2025年4月～2026年3月までの1年間研究活動に取り組みました。
+              文脈理解に向けた動的切り替えに基づくオープンボキャブラリー物体検出」が採択されました。研究助成をいただき、2025年4月～2026年3月まで研究活動に取り組みました。
               <TimeLineLink
                 description="山岸学生プロジェクト支援制度 | 10th Anniversary Commemorative Booklet"
                 href="https://www.sfc.keio.ac.jp/doc/Yamagishi1203.pdf"
+              />
+            </TimeLineItem>
+            <TimeLineItem date="2027.1" icon={faChalkboardTeacher} title="WACV 2027" open={true}>
+              コンピュータビジョン応用の国際会議、WACV 2027（IEEE/CVF Winter Conference on Applications of Computer Vision）の Application Track に論文が採択されました。研究テーマ「Ref-YOLO-World: Decoupling Text-Side Computation for Efficient Referring Expression Comprehension on Edge Devices」を発表しました。（Full-paper,
+              国際, 査読あり）
+              <TimelineImage
+                title="Ref-YOLO-World | エッジ端末向けリアルタイム参照表現理解"
+                period="2026年3月 - 2027年1月"
+                imageUrl="/posts/ref-yolo-world/thumbnail.jpg"
+                href="/posts/ref-yolo-world"
+                target="_self"
+              />
+              <TimeLineLink
+                description="arxiv.org/abs/2611.27756"
+                href="https://arxiv.org/abs/2611.27756"
               />
             </TimeLineItem>
           </Timeline>
