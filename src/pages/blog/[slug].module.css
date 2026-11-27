@@ -28,8 +28,9 @@
 
 /* 記事本文 */
 .articleBody {
-    font-size: 18px;
-    line-height: 2.2;
+    font-size: 17px;
+    line-height: 1.9;
+    letter-spacing: 0.03em;
     color: var(--text-color);
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -109,6 +110,11 @@
 }
 
 @media (prefers-color-scheme: dark) {
+    /* 真っ白だと背景との差が強すぎて長文でぎらつくため、少し落とす */
+    .articleBody {
+        color: #e6edf3;
+    }
+
     .articleBody a {
         color: #8b9dff;
     }

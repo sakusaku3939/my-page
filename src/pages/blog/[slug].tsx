@@ -21,6 +21,7 @@ import { useRouter } from "next/router";
 import { useBlogHeaderScroll } from "@/hooks/useBlogHeaderScroll";
 import { XPost } from "@/components/atom/XPost/XPost";
 import { ZoomableImage } from "@/components/atom/ZoomableImage/ZoomableImage";
+import { blogFont } from "@/styles/blogFont";
 
 const BlogImage = ({ src, alt }: React.JSX.IntrinsicElements["img"]) => (
   <ZoomableImage src={typeof src === "string" ? src : undefined} alt={alt} />
@@ -153,7 +154,7 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
                 <h2 className={styles.articleTitle}>{article.title}</h2>
                 <time className={styles.articleDate}>{formattedDate}</time>
                 <ReactMarkdown
-                  className={`${styles.articleBody} ${markdownLists.lists}`}
+                  className={`${styles.articleBody} ${blogFont.className} ${markdownLists.lists}`}
                   remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
                   rehypePlugins={[rehypeRaw, rehypeKatex]}
                   components={markdownComponents}

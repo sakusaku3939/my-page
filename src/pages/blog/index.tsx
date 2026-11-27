@@ -12,6 +12,7 @@ import { formatDate } from "@/utils/dateUtils";
 import { BackgroundWrapper } from "@/components/atom/BackgroundWrapper/BackgroundWrapper";
 import HamburgerMenu from "@/components/molecule/HamburgerMenu/HamburgerMenu";
 import { FooterMenu } from "@/components/molecule/Menu/Menu";
+import { blogFont } from "@/styles/blogFont";
 import { useBlogHeaderScroll } from "@/hooks/useBlogHeaderScroll";
 
 type BlogIndexProps = {
@@ -121,7 +122,7 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
         <HamburgerMenu lightMode={!isScrolledPastHeader} />
 
         {/* ヘッダーセクション */}
-        <header className={`${commonStyles.blogHeader} ${styles.indexHeader}`}>
+        <header className={`${commonStyles.blogHeader} ${styles.indexHeader} ${blogFont.className}`}>
           <h1 className={commonStyles.pageTitle}>
             雑記などいろいろブログ
           </h1>
@@ -149,7 +150,7 @@ const BlogIndex = ({ articles }: BlogIndexProps) => {
 
         {/* 記事一覧セクション */}
         <div className={commonStyles.wrapper}>
-          <main className={styles.blogContent}>
+          <main className={`${styles.blogContent} ${blogFont.className}`}>
             <section
               className={styles.articlesList}
               aria-live="polite"
