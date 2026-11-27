@@ -3,7 +3,7 @@
     max-width: 1200px;
     width: 100%;
     background: var(--background-color);
-    padding: 16px 48px;
+    padding: 16px 80px;
     border-radius: 8px;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -239,13 +239,13 @@
     }
 
     .articleContent {
-        padding: 16px 16px;
+        padding: 16px 32px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .articleContent {
-        padding: 16px 8px;
+        padding: 16px 16px;
     }
 }
 
