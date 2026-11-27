@@ -16,7 +16,7 @@ Slackにすると便利なこと
 
 # br-24px
 
-![](/public/posts/ai-secretary/slack-channels.png)
+# two-row 58.12 /posts/ai-secretary/slack-channels.png /posts/ai-secretary/android-ci.png
 # br-24px
 
 # 仕組み
