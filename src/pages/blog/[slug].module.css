@@ -140,6 +140,20 @@
     margin: 0;
 }
 
+/* 図のキャプション: 画像の直後の行を <small>...</small> で囲む */
+.articleBody small {
+    display: block;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--light-grey);
+    margin-top: 4px;
+}
+
+/* 画像とキャプションの間の改行で空きすぎないようにする */
+.articleBody br:has(+ small) {
+    display: none;
+}
+
 /* 複数画像の横並び */
 .imageRow {
     display: flex;
