@@ -27,7 +27,7 @@ Generative UI（A2UIなど）もホットな話題だが、現時点ではチャ
 
 1日のスマホの使い方を例に挙げてみる。ユーザーは1日にたくさんのアプリを使っている。
 まず朝に起きて、LINEやInstagramに届いたメッセージを確認して返信する。朝ご飯を食べながら、今日の天気を確認したり、電車の運行状況を確認する。その後は電車に乗ってXを見たり今日のニュースを見たりする。
-（これは1日の理想的な生活なので、実際はXやYouTubeだけ見て半日が終わることもある）
+（これは1日の理想的な生活なので、実際はXやYouTubeだけ見て半日が終わる）
 
 ![](/blog/my-own-app/flow.png)
 <small>図はiOSDC Japan 2026のmatsujiさんの[スライド](https://speakerdeck.com/matsuji/small-touches-that-make-your-app-feel-more-like-an-ios-app?slide=15)よりお借りしました（アプリをもっと"iOSアプリっぽく"する小さな工夫）</small>
