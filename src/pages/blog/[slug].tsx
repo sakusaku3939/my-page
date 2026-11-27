@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { type Components } from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
@@ -19,6 +19,47 @@ import ShareButtons from "@/components/molecule/ShareButtons/ShareButtons";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { useBlogHeaderScroll } from "@/hooks/useBlogHeaderScroll";
+import { XPost } from "@/components/atom/XPost/XPost";
+import { ZoomableImage } from "@/components/atom/ZoomableImage/ZoomableImage";
+
+const BlogImage = ({ src, alt }: React.JSX.IntrinsicElements["img"]) => (
+  <ZoomableImage src={typeof src === "string" ? src : undefined} alt={alt} />
+);
+
+// ページの再レンダー（ヘッダーのスクロール状態の変化など）で X 埋め込みや画像が再マウントされないよう、モジュールスコープで定義する
+const markdownComponents: Components = {
+  // # x-post (post-id) (placeholder-height)
+  h1: ({ children }) => {
+    const [name, id, height] = String(children).split(" ");
+    if (name === "x-post" && id) {
+      return <XPost id={id} placeholderHeight={height ? parseInt(height, 10) : 500} align="left" />;
+    }
+    return <h1>{children}</h1>;
+  },
+  img: BlogImage,
+  p: ({ children }) => {
+    const childArray = React.Children.toArray(children);
+    const imgChildren = childArray.filter(
+      (child) => React.isValidElement(child) && child.type === BlogImage
+    );
+    // p内の要素がすべてimgまたは空白テキストの場合、横並びにする
+    const nonEmptyChildren = childArray.filter(
+      (child) => !(typeof child === "string" && child.trim() === "")
+    );
+    if (nonEmptyChildren.length >= 2 && nonEmptyChildren.length === imgChildren.length) {
+      return (
+        <div className={styles.imageRow}>
+          {nonEmptyChildren.map((child, i) => (
+            <div key={i} className={styles.imageRowItem}>
+              {child}
+            </div>
+          ))}
+        </div>
+      );
+    }
+    return <p>{children}</p>;
+  },
+};
 
 type BlogDetailProps = {
   article: BlogArticle | null;
@@ -115,30 +156,7 @@ const BlogDetail = ({ article, adjacentArticles }: BlogDetailProps) => {
                   className={`${styles.articleBody} ${markdownLists.lists}`}
                   remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
                   rehypePlugins={[rehypeRaw, rehypeKatex]}
-                  components={{
-                    p: ({ children }) => {
-                      const childArray = React.Children.toArray(children);
-                      const imgChildren = childArray.filter(
-                        (child) => React.isValidElement(child) && child.type === "img"
-                      );
-                      // p内の要素がすべてimgまたは空白テキストの場合、横並びにする
-                      const nonEmptyChildren = childArray.filter(
-                        (child) => !(typeof child === "string" && child.trim() === "")
-                      );
-                      if (nonEmptyChildren.length >= 2 && nonEmptyChildren.length === imgChildren.length) {
-                        return (
-                          <div className={styles.imageRow}>
-                            {nonEmptyChildren.map((child, i) => (
-                              <div key={i} className={styles.imageRowItem}>
-                                {child}
-                              </div>
-                            ))}
-                          </div>
-                        );
-                      }
-                      return <p>{children}</p>;
-                    },
-                  }}
+                  components={markdownComponents}
                 >
                   {article.body}
                 </ReactMarkdown>

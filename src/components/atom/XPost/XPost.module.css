@@ -1,5 +1,7 @@
 .wrapper {
     position: relative;
+    /* align: left の埋め込みは float: left になるため、後続の本文が回り込まないようにする */
+    display: flow-root;
 }
 
 /* 埋め込みは表示したまま読み込ませ、完了するまでプレースホルダーで覆う */
@@ -13,4 +15,8 @@
     margin: 0 auto;
     border-radius: 12px;
     background-color: var(--placeholder-color);
+}
+
+.placeholder.left {
+    margin: 0;
 }

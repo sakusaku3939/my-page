@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import style from "./XPost.module.css";
 
+type Align = "center" | "left";
+
 type Twttr = {
   widgets: {
     createTweet: (
       id: string,
       target: HTMLElement,
-      options: { theme: "light" | "dark"; dnt: boolean; align: "center" }
+      options: { theme: "light" | "dark"; dnt: boolean; align: Align }
     ) => Promise<HTMLElement | undefined>;
   };
 };
@@ -38,7 +40,7 @@ function loadWidgets(): Promise<Twttr> {
 
 type Status = "loading" | "loaded" | "failed";
 
-export function XPost({ id, placeholderHeight }: { id: string; placeholderHeight: number }) {
+export function XPost({ id, placeholderHeight, align = "center" }: { id: string; placeholderHeight: number; align?: Align }) {
   const embedRef = useRef<HTMLDivElement>(null);
   const isDarkMode = useDarkMode();
   const [status, setStatus] = useState<Status>("loading");
@@ -54,7 +56,7 @@ export function XPost({ id, placeholderHeight }: { id: string; placeholderHeight
       .then(twttr => {
         if (cancelled) return;
         target.replaceChildren();
-        return twttr.widgets.createTweet(id, target, { theme: isDarkMode ? "dark" : "light", dnt: true, align: "center" });
+        return twttr.widgets.createTweet(id, target, { theme: isDarkMode ? "dark" : "light", dnt: true, align });
       })
       .then(element => {
         if (!cancelled) setStatus(element ? "loaded" : "failed");
@@ -67,11 +69,11 @@ export function XPost({ id, placeholderHeight }: { id: string; placeholderHeight
       cancelled = true;
       target.replaceChildren();
     };
-  }, [id, isDarkMode]);
+  }, [id, isDarkMode, align]);
 
   return (
     <div className={style.wrapper} style={status === "loading" ? { minHeight: placeholderHeight } : undefined}>
-      {status === "loading" && <div className={style.placeholder} style={{ height: placeholderHeight }} />}
+      {status === "loading" && <div className={`${style.placeholder} ${align === "left" ? style.left : ""}`} style={{ height: placeholderHeight }} />}
       <div ref={embedRef} />
       {status === "failed" && <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>}
     </div>

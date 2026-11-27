@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { CSSProperties, useState } from "react";
 import common from "@/styles/common.module.css";
 import blurMap from "@/__generated__/blur-image-map";
-import { PreviewImage } from "@/components/atom/PreviewImage/PreviewImage";
+import { ImagePreviewModal } from "@/components/atom/ImagePreviewModal/ImagePreviewModal";
 
 type Props = {
   src: string,
@@ -39,29 +39,7 @@ export function ImageWithPlaceholder({ src, alt = "", sizes = "100%", key, conta
         />
       </span>
 
-      {/* プレビュー用モーダル */}
-      {previewSrc && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "rgba(0,0,0,0.8)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 9
-          }}
-          onClick={() => setPreviewSrc(null)}>
-          <PreviewImage
-            src={previewSrc}
-            style={{ width: "auto", height: "auto", maxWidth: "90vw", maxHeight: "90vh" }}
-            alt={alt}
-          />
-        </div>
-      )}
+      {previewSrc && <ImagePreviewModal src={previewSrc} alt={alt} onClose={() => setPreviewSrc(null)} />}
     </>
   );
 }
